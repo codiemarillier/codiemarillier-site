@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 920" role="img" aria-labelledby="title desc">
+  <title id="title">Original visual plate for Principles</title>
+  <desc id="desc">A structured editorial book image with systems, decisions, and rulebook motifs.</desc>
+  <rect width="720" height="920" fill="#f6f1e8"/>
+  <rect x="72" y="70" width="576" height="780" fill="#fbf8f2" stroke="#ded5c6" stroke-width="2"/>
+  <rect x="116" y="118" width="488" height="692" fill="#1f3a2f"/>
+  <path d="M206 228h308M206 304h308M206 380h308M206 456h308" stroke="#fbf8f2" stroke-width="5" opacity="0.58"/>
+  <circle cx="206" cy="228" r="24" fill="#9b7b3f"/>
+  <circle cx="360" cy="304" r="24" fill="#9b7b3f"/>
+  <circle cx="514" cy="380" r="24" fill="#9b7b3f"/>
+  <path d="M206 228l154 76 154 76" fill="none" stroke="#ded5c6" stroke-width="6"/>
+  <rect x="196" y="566" width="328" height="134" fill="#fbf8f2" opacity="0.94"/>
+  <path d="M242 610h236M242 652h180" stroke="#122238" stroke-width="5"/>
+  <text x="360" y="760" text-anchor="middle" font-family="Georgia, serif" font-size="58" font-weight="700" fill="#fbf8f2">Principles</text>
+  <text x="360" y="808" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="6" fill="#ded5c6">RULES UNDER PRESSURE</text>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 920" role="img" aria-labelledby="title desc">
+  <title id="title">Original visual plate for Poor Charlie's Almanack</title>
+  <desc id="desc">A warm editorial book image about mental models, clear judgement, and avoiding mistakes.</desc>
+  <rect width="720" height="920" fill="#f6f1e8"/>
+  <rect x="72" y="70" width="576" height="780" fill="#fbf8f2" stroke="#ded5c6" stroke-width="2"/>
+  <rect x="116" y="118" width="488" height="692" fill="#9b7b3f"/>
+  <rect x="166" y="168" width="388" height="592" fill="#fbf8f2" opacity="0.94"/>
+  <circle cx="360" cy="344" r="114" fill="#ded5c6"/>
+  <path d="M286 366l50 50 106-132" fill="none" stroke="#1f3a2f" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M232 548h256M232 598h256M232 648h182" stroke="#122238" stroke-width="5" opacity="0.68"/>
+  <text x="360" y="230" text-anchor="middle" font-family="Georgia, serif" font-size="42" font-weight="700" fill="#171717">Mental</text>
+  <text x="360" y="710" text-anchor="middle" font-family="Georgia, serif" font-size="42" font-weight="700" fill="#171717">Models</text>
+  <text x="360" y="804" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="5" fill="#fbf8f2">CLEAR JUDGEMENT</text>
+</svg>

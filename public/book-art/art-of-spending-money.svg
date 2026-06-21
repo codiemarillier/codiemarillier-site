@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 920" role="img" aria-labelledby="title desc">
+  <title id="title">Original visual plate for The Art of Spending Money</title>
+  <desc id="desc">A restrained editorial book image with spending, values, utility, and personal freedom motifs.</desc>
+  <rect width="720" height="920" fill="#f6f1e8"/>
+  <rect x="72" y="70" width="576" height="780" fill="#fbf8f2" stroke="#ded5c6" stroke-width="2"/>
+  <rect x="116" y="118" width="488" height="692" fill="#122238"/>
+  <rect x="152" y="154" width="416" height="620" fill="#fbf8f2" opacity="0.96"/>
+  <path d="M226 298h268c20 0 36 16 36 36v190c0 20-16 36-36 36H226c-20 0-36-16-36-36V334c0-20 16-36 36-36z" fill="#1f3a2f"/>
+  <path d="M226 348h304" stroke="#9b7b3f" stroke-width="14"/>
+  <circle cx="360" cy="432" r="58" fill="#fbf8f2"/>
+  <path d="M360 398v68M336 422c8-14 40-14 48 0M336 448c8 14 40 14 48 0" stroke="#122238" stroke-width="8" stroke-linecap="round"/>
+  <path d="M224 628h272M224 666h194" stroke="#ded5c6" stroke-width="4"/>
+  <text x="360" y="720" text-anchor="middle" font-family="Georgia, serif" font-size="42" font-weight="700" fill="#171717">Money</text>
+  <text x="360" y="768" text-anchor="middle" font-family="Georgia, serif" font-size="42" font-weight="700" fill="#171717">With Purpose</text>
+</svg>

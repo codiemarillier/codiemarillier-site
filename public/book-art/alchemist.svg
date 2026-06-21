@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 920" role="img" aria-labelledby="title desc">
+  <title id="title">Original visual plate for The Alchemist</title>
+  <desc id="desc">A restrained editorial book image with journey, purpose, horizon, and transformation motifs.</desc>
+  <rect width="720" height="920" fill="#f6f1e8"/>
+  <rect x="72" y="70" width="576" height="780" fill="#fbf8f2" stroke="#ded5c6" stroke-width="2"/>
+  <rect x="116" y="118" width="488" height="692" fill="#1f3a2f"/>
+  <rect x="152" y="154" width="416" height="620" fill="#fbf8f2" opacity="0.96"/>
+  <path d="M180 516c64-108 118-162 162-162 40 0 70 38 110 38 30 0 58-22 88-66" fill="none" stroke="#9b7b3f" stroke-width="8" stroke-linecap="round"/>
+  <path d="M188 568c90-30 172-45 246-45 42 0 76 5 102 15" fill="none" stroke="#ded5c6" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="474" cy="260" r="52" fill="#9b7b3f"/>
+  <path d="M472 184v-42M472 378v-42M390 260h-42M596 260h-42M414 202l-30-30M560 348l-30-30M530 202l30-30M384 348l30-30" stroke="#9b7b3f" stroke-width="6" stroke-linecap="round"/>
+  <path d="M256 634l104-60 104 60-104 60-104-60z" fill="#122238"/>
+  <path d="M360 574v120" stroke="#ded5c6" stroke-width="5"/>
+  <text x="360" y="724" text-anchor="middle" font-family="Georgia, serif" font-size="42" font-weight="700" fill="#171717">Purpose</text>
+  <text x="360" y="770" text-anchor="middle" font-family="Georgia, serif" font-size="42" font-weight="700" fill="#171717">and Patience</text>
+</svg>

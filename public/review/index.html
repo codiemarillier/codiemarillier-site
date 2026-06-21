@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Codie Capital Research - Static Review Pack</title>
+    <style>
+      :root {
+        --paper: #fbf8f2;
+        --ivory: #f6f1e8;
+        --charcoal: #171717;
+        --muted: #4c4a44;
+        --line: #ded5c6;
+        --gold: #9b7b3f;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--ivory);
+        color: var(--charcoal);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.6;
+      }
+
+      main {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 48px 20px 72px;
+      }
+
+      header,
+      section {
+        border: 1px solid var(--line);
+        background: var(--paper);
+        padding: 28px;
+        margin-bottom: 24px;
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-weight: 500;
+        line-height: 1.05;
+      }
+
+      h1 {
+        font-size: clamp(42px, 7vw, 78px);
+      }
+
+      h2 {
+        font-size: clamp(30px, 4vw, 48px);
+        margin-bottom: 14px;
+      }
+
+      h3 {
+        font-size: 24px;
+        margin-bottom: 8px;
+      }
+
+      p {
+        margin: 12px 0 0;
+        color: var(--muted);
+      }
+
+      .eyebrow {
+        margin: 0 0 14px;
+        color: var(--gold);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+      }
+
+      .grid {
+        display: grid;
+        gap: 18px;
+      }
+
+      @media (min-width: 820px) {
+        .grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      a {
+        color: var(--charcoal);
+        font-weight: 700;
+      }
+
+      figure {
+        margin: 18px 0 0;
+        border: 1px solid var(--line);
+        background: white;
+        padding: 10px;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      ul {
+        margin: 14px 0 0;
+        padding-left: 20px;
+        color: var(--muted);
+      }
+
+      .note {
+        background: #efe7da;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <p class="eyebrow">Static review pack</p>
+        <h1>Codie Capital Research</h1>
+        <p>
+          This page exists so reviewers can inspect the website without needing to execute the React app.
+          It includes direct screenshots of the current site plus a plain-language summary of the project.
+        </p>
+      </header>
+
+      <section class="note">
+        <h2>Positioning</h2>
+        <p>
+          Codie Capital Research is a personal investment journal and portfolio record by Codie Marillier.
+          It is not a fund, advisory service, investment service, or money-management business.
+        </p>
+        <p>
+          The site documents Codie's own portfolio, weekly reviews, decisions, mistakes, lessons, and investment philosophy.
+          It is designed for accountability, family and friends, future employers, business contacts, potential mentors, and Codie himself.
+        </p>
+        <ul>
+          <li>Not investment advice.</li>
+          <li>Not FCA-authorised.</li>
+          <li>Does not manage money for other people.</li>
+          <li>Does not ask visitors to invest.</li>
+          <li>Does not recommend copying trades.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Live Routes</h2>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/philosophy">Philosophy</a></li>
+          <li><a href="/journal">Portfolio Journal</a></li>
+          <li><a href="/portfolio">Current Portfolio</a></li>
+          <li><a href="/disclaimer">Disclaimer</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Screenshot Review</h2>
+        <div class="grid">
+          <article>
+            <h3>Home</h3>
+            <p>Desktop homepage, hero, positioning, CTA, portfolio visual direction, and weekly review entry points.</p>
+            <figure>
+              <a href="/review/screenshots/home.png"><img src="/review/screenshots/home.png" alt="Homepage screenshot" /></a>
+            </figure>
+          </article>
+          <article>
+            <h3>About</h3>
+            <p>Investing background, mistakes, books and influences, and why the website exists.</p>
+            <figure>
+              <a href="/review/screenshots/about.png"><img src="/review/screenshots/about.png" alt="About page screenshot" /></a>
+            </figure>
+          </article>
+          <article>
+            <h3>Philosophy</h3>
+            <p>Investment principles, dominant businesses, portfolio roles, and investing rules.</p>
+            <figure>
+              <a href="/review/screenshots/philosophy.png"><img src="/review/screenshots/philosophy.png" alt="Philosophy page screenshot" /></a>
+            </figure>
+          </article>
+          <article>
+            <h3>Journal</h3>
+            <p>Portfolio review listing, lessons, trade reflections, and public accountability record.</p>
+            <figure>
+              <a href="/review/screenshots/journal.png"><img src="/review/screenshots/journal.png" alt="Portfolio journal screenshot" /></a>
+            </figure>
+          </article>
+          <article>
+            <h3>Portfolio</h3>
+            <p>Portfolio approach, manual snapshot, transaction summary, holdings table, and role-based sleeves.</p>
+            <figure>
+              <a href="/review/screenshots/portfolio.png"><img src="/review/screenshots/portfolio.png" alt="Current portfolio screenshot" /></a>
+            </figure>
+          </article>
+          <article>
+            <h3>Disclaimer</h3>
+            <p>Dedicated disclaimer page explaining the educational and personal nature of the journal.</p>
+            <figure>
+              <a href="/review/screenshots/disclaimer.png"><img src="/review/screenshots/disclaimer.png" alt="Disclaimer page screenshot" /></a>
+            </figure>
+          </article>
+          <article>
+            <h3>Mobile Home</h3>
+            <p>Mobile first fold, responsive navigation, hero copy, and CTA behaviour.</p>
+            <figure>
+              <a href="/review/screenshots/mobile-home.png"><img src="/review/screenshots/mobile-home.png" alt="Mobile homepage screenshot" /></a>
+            </figure>
+          </article>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 920" role="img" aria-labelledby="title desc">
+  <title id="title">Original visual plate for The Intelligent Investor</title>
+  <desc id="desc">A restrained editorial book image with value investing, margin of safety, and ledger motifs.</desc>
+  <rect width="720" height="920" fill="#f6f1e8"/>
+  <rect x="72" y="70" width="576" height="780" fill="#fbf8f2" stroke="#ded5c6" stroke-width="2"/>
+  <rect x="116" y="118" width="488" height="692" fill="#122238"/>
+  <rect x="152" y="154" width="416" height="620" fill="#fbf8f2" opacity="0.96"/>
+  <path d="M196 248h328M196 298h328M196 348h208" stroke="#ded5c6" stroke-width="3"/>
+  <path d="M196 486c48-64 88-96 122-96 52 0 68 76 118 76 32 0 58-25 88-76" fill="none" stroke="#9b7b3f" stroke-width="8" stroke-linecap="round"/>
+  <path d="M188 596h344" stroke="#1f3a2f" stroke-width="4"/>
+  <rect x="214" y="560" width="64" height="76" fill="#ded5c6"/>
+  <rect x="326" y="522" width="64" height="114" fill="#9b7b3f"/>
+  <rect x="438" y="472" width="64" height="164" fill="#1f3a2f"/>
+  <text x="360" y="706" text-anchor="middle" font-family="Georgia, serif" font-size="46" font-weight="700" fill="#171717">Margin</text>
+  <text x="360" y="758" text-anchor="middle" font-family="Georgia, serif" font-size="46" font-weight="700" fill="#171717">of Safety</text>
+</svg>

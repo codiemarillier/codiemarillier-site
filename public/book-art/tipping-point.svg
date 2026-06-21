@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 920" role="img" aria-labelledby="title desc">
+  <title id="title">Original visual plate for The Tipping Point</title>
+  <desc id="desc">A restrained editorial book image with inflection points, networks, and adoption curve motifs.</desc>
+  <rect width="720" height="920" fill="#f6f1e8"/>
+  <rect x="72" y="70" width="576" height="780" fill="#fbf8f2" stroke="#ded5c6" stroke-width="2"/>
+  <rect x="116" y="118" width="488" height="692" fill="#1f3a2f"/>
+  <rect x="152" y="154" width="416" height="620" fill="#fbf8f2" opacity="0.96"/>
+  <path d="M196 564c72-8 116-34 132-78 22-62 16-146 94-186 30-15 70-22 122-20" fill="none" stroke="#9b7b3f" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="204" cy="564" r="18" fill="#122238"/>
+  <circle cx="330" cy="486" r="20" fill="#122238"/>
+  <circle cx="422" cy="300" r="24" fill="#122238"/>
+  <circle cx="540" cy="280" r="16" fill="#122238"/>
+  <path d="M204 564l126-78 92-186 118-20" stroke="#ded5c6" stroke-width="3"/>
+  <path d="M220 632h280M220 670h204" stroke="#ded5c6" stroke-width="4"/>
+  <text x="360" y="724" text-anchor="middle" font-family="Georgia, serif" font-size="42" font-weight="700" fill="#171717">Inflection</text>
+  <text x="360" y="770" text-anchor="middle" font-family="Georgia, serif" font-size="42" font-weight="700" fill="#171717">Points</text>
+</svg>

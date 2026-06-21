@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 920" role="img" aria-labelledby="title desc">
+  <title id="title">Original visual plate for Man's Search for Meaning</title>
+  <desc id="desc">A restrained editorial book image with resilience, meaning, light, and inner discipline motifs.</desc>
+  <rect width="720" height="920" fill="#f6f1e8"/>
+  <rect x="72" y="70" width="576" height="780" fill="#fbf8f2" stroke="#ded5c6" stroke-width="2"/>
+  <rect x="116" y="118" width="488" height="692" fill="#122238"/>
+  <rect x="152" y="154" width="416" height="620" fill="#fbf8f2" opacity="0.96"/>
+  <path d="M360 210c72 74 108 144 108 210 0 68-48 124-108 124s-108-56-108-124c0-66 36-136 108-210z" fill="#ded5c6"/>
+  <path d="M360 266c42 54 62 102 62 144 0 40-28 74-62 74s-62-34-62-74c0-42 20-90 62-144z" fill="#9b7b3f"/>
+  <path d="M360 300v176" stroke="#fbf8f2" stroke-width="7" stroke-linecap="round"/>
+  <path d="M252 604h216M252 646h216" stroke="#ded5c6" stroke-width="4"/>
+  <path d="M286 690h148" stroke="#1f3a2f" stroke-width="8" stroke-linecap="round"/>
+  <text x="360" y="730" text-anchor="middle" font-family="Georgia, serif" font-size="39" font-weight="700" fill="#171717">Meaning</text>
+  <text x="360" y="776" text-anchor="middle" font-family="Georgia, serif" font-size="39" font-weight="700" fill="#171717">Under Pressure</text>
+</svg>

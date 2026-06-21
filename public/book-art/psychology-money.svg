@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 920" role="img" aria-labelledby="title desc">
+  <title id="title">Original visual plate for The Psychology of Money</title>
+  <desc id="desc">A calm editorial book image about behaviour, emotion, patience, and compounding.</desc>
+  <rect width="720" height="920" fill="#f6f1e8"/>
+  <rect x="72" y="70" width="576" height="780" fill="#fbf8f2" stroke="#ded5c6" stroke-width="2"/>
+  <rect x="116" y="118" width="488" height="692" fill="#5a2730"/>
+  <circle cx="360" cy="365" r="158" fill="#fbf8f2" opacity="0.95"/>
+  <path d="M274 374c18-58 47-87 86-87s68 29 86 87" fill="none" stroke="#9b7b3f" stroke-width="12" stroke-linecap="round"/>
+  <path d="M272 432c42 44 82 66 122 66 27 0 55-10 84-30" fill="none" stroke="#1f3a2f" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="308" cy="368" r="10" fill="#171717"/>
+  <circle cx="412" cy="368" r="10" fill="#171717"/>
+  <path d="M198 642h324M228 688h264M258 734h204" stroke="#ded5c6" stroke-width="4"/>
+  <text x="360" y="214" text-anchor="middle" font-family="Georgia, serif" font-size="44" font-weight="700" fill="#fbf8f2">Behaviour</text>
+  <text x="360" y="810" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="6" fill="#fbf8f2">PATIENCE / RISK / LUCK</text>
+</svg>
