@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc --noEmit && node scripts/generate-ai-review.mjs public && vite build",
+    "build": "tsc --noEmit && node scripts/generate-ai-review.mjs public && vite build && node scripts/generate-static-routes.mjs dist",
     "build:ai": "node scripts/generate-ai-review.mjs public",
     "preview": "vite preview"
   },

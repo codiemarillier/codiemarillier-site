@@ -22,8 +22,11 @@ const {
   holdings,
   journalEntries,
   portfolioChangeLog,
+  portfolioCrawlerNotes,
   portfolioRoles,
   portfolioSnapshot,
+  processRules,
+  readingDevelopment,
   transactionSummary,
 } = await import(pathToFileURL(tempModule).href);
 
@@ -48,7 +51,7 @@ const pages = [
     path: '/books',
     title: 'Books That Shaped My Thinking',
     summary:
-      'A direct route to the reading and development section on the About page, covering books that shaped Codie’s investing, money, discipline, purpose, risk, and long-term decision-making.',
+      'A standalone reading and development page with full personal reflections on books that shaped Codie’s investing, money, discipline, purpose, risk, and long-term decision-making.',
   },
   {
     path: '/philosophy',
@@ -60,7 +63,7 @@ const pages = [
     path: '/process',
     title: 'Investment Process',
     summary:
-      'A direct route to the investment philosophy and rules section, including long-term ownership, capital protection, written reasoning, cash discipline, and avoiding leverage.',
+      'A standalone rulebook page covering capital protection, position sizing, written reasoning, cash discipline, no leverage, no impulsive trades, and the weekly review process.',
   },
   {
     path: '/journal',
@@ -162,6 +165,7 @@ await writeFile(
       </section>
       <section>
         <h2>Portfolio Snapshot</h2>
+        <p>Week 15 Portfolio Summary dated 16 June 2026 is the current source-of-truth update. Latest account value is £2,055.86, cash is £118.47, and latest return is +2.84% versus starting cost basis.</p>
         <div class="grid">
           ${Object.entries(portfolioSnapshot)
             .map(([key, value]) => `<div class="card"><strong>${esc(key)}</strong><br>${esc(value)}</div>`)
@@ -221,6 +225,7 @@ await writeFile(
     body: `
       <section>
         <h2>Portfolio Snapshot</h2>
+        <p>Week 15 Portfolio Summary dated 16 June 2026 is the current source-of-truth update. Latest account value is £2,055.86, cash is £118.47, and latest return is +2.84% versus starting cost basis.</p>
         <div class="grid">
           ${Object.entries(portfolioSnapshot)
             .map(([key, value]) => `<div class="card"><strong>${esc(key)}</strong><br>${esc(value)}</div>`)
@@ -262,6 +267,17 @@ await writeFile(
             </article>`,
           )
           .join('\n')}
+      </section>
+      <section>
+        <h2>Current Winners and Drags</h2>
+        <h3>Winners</h3>
+        <ul>${portfolioCrawlerNotes.winners.map((item) => `<li>${esc(item)}</li>`).join('\n')}</ul>
+        <h3>Drags</h3>
+        <ul>${portfolioCrawlerNotes.drags.map((item) => `<li>${esc(item)}</li>`).join('\n')}</ul>
+      </section>
+      <section>
+        <h2>Latest Action Plan</h2>
+        <ul>${portfolioCrawlerNotes.latestActionPlan.map((item) => `<li>${esc(item)}</li>`).join('\n')}</ul>
       </section>
       <section>
         <h2>Portfolio Roles</h2>
@@ -316,6 +332,21 @@ const allText = [
     (holding) =>
       `${holding.ticker} - ${holding.name}\nPosition: ${holding.positionSize}\nSleeve: ${holding.sleeve}\nRole: ${holding.role}\nStatus: ${holding.status}\nNote: ${holding.transactionNote}`,
   ),
+  '',
+  'PORTFOLIO WINNERS',
+  ...portfolioCrawlerNotes.winners,
+  '',
+  'PORTFOLIO DRAGS',
+  ...portfolioCrawlerNotes.drags,
+  '',
+  'LATEST ACTION PLAN',
+  ...portfolioCrawlerNotes.latestActionPlan,
+  '',
+  'PROCESS RULES',
+  ...processRules.map((rule) => `${rule.title}\n${rule.text}`),
+  '',
+  'BOOKS THAT SHAPED MY THINKING',
+  ...readingDevelopment.map((book) => `${book.title} - ${book.author}\n${book.category}\n${book.paragraphs.join('\n\n')}`),
   '',
   'JOURNAL ENTRIES',
   ...journalEntries.map((entry) => `${entry.title}\n${entry.date} / ${entry.category}\n${entry.excerpt}\n${entry.body.join('\n\n')}`),

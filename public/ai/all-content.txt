@@ -13,13 +13,13 @@ The homepage introduces Codie Capital Research as a personal investment journal,
 The about page explains Codie as a private long-term investor managing his own portfolio, his early interest in markets, the COVID lockdown course, first Bitcoin investment, family real estate influence, mistakes from leveraged crypto trading, accountability, and reading development.
 
 /books - Books That Shaped My Thinking
-A direct route to the reading and development section on the About page, covering books that shaped Codie’s investing, money, discipline, purpose, risk, and long-term decision-making.
+A standalone reading and development page with full personal reflections on books that shaped Codie’s investing, money, discipline, purpose, risk, and long-term decision-making.
 
 /philosophy - Investment Philosophy
 The philosophy page explains the personal approach: long-term investing in public companies, ETFs, selected assets, quality businesses at sensible prices, controlled risk, cash discipline, gold as a hedge, and avoiding leverage or emotional trading.
 
 /process - Investment Process
-A direct route to the investment philosophy and rules section, including long-term ownership, capital protection, written reasoning, cash discipline, and avoiding leverage.
+A standalone rulebook page covering capital protection, position sizing, written reasoning, cash discipline, no leverage, no impulsive trades, and the weekly review process.
 
 /journal - Portfolio Journal
 The journal page lists weekly portfolio reviews, trade reflections, market notes, and lessons from Codie’s own portfolio record.
@@ -34,13 +34,19 @@ This website is a personal investment research and portfolio journal. It is not 
 
 PORTFOLIO SNAPSHOT
 
-accountValue: Manual market value pending
+accountValue: £2,055.86
 
 startingCostBasis: £1,999
 
-cashBalance: c. £113.91
+currentReturn: +2.84%
 
-status: Transaction-backed cash and holdings updated through 16 June 2026; market value still needs live pricing
+cashBalance: £118.47
+
+weeklyMove: +£32.86 since Week 14
+
+investments: £1,937.39
+
+status: Week 15 source-of-truth update, 16 June 2026
 
 googlePosition: Small position rebuilt on 3 June 2026 after earlier profit-taking
 
@@ -48,7 +54,7 @@ microsoftTrade: Closed profitably on 1 June 2026 with roughly £13.94 realised r
 
 mainFocus: Protect capital, keep positions sized properly, avoid leverage, and review weaker holdings honestly
 
-updateNote: Latest transaction export reviewed through 16 June 2026. Holdings and cash are transaction-derived; market value remains a manual/live-pricing item.
+updateNote: Latest Week 15 portfolio review is the current source-of-truth update. Account value £2,055.86, cash £118.47, return +2.84% versus starting cost basis.
 
 
 
@@ -170,6 +176,133 @@ Sleeve: Speculative lesson
 Role: Quantum computing exposure
 Status: Closed
 Note: Realised loss around £18.35; useful reminder on volatility and sizing
+
+
+
+PORTFOLIO WINNERS
+
+SpaceX is the biggest current percentage winner after the Week 15 purchase.
+
+QQQA remains one of the strongest contributors through Nasdaq-led exposure.
+
+VUAG continues to support the portfolio through broad US market exposure.
+
+Airbnb, Berkshire Hathaway, and the rebuilt Alphabet position are positive or stabilising contributors.
+
+
+
+PORTFOLIO DRAGS
+
+Gold is still the biggest unrealised drag in cash terms, but remains a macro hedge rather than a short-term performance position.
+
+Rheinmetall remains weak and needs monitoring, but the thesis has not been treated as broken.
+
+Meta and Symbotic are currently down, but both remain connected to long-term themes that require patience and review.
+
+Realty Income and NextEra remain rate-sensitive drags rather than major thesis breaks.
+
+
+
+LATEST ACTION PLAN
+
+Hold SpaceX and watch how it trades after the early excitement settles.
+
+Keep ASML on the watchlist after selling for a realised gain; remember that trimming can sometimes be better than selling the full winner.
+
+Keep gold as a hedge without adding more immediately.
+
+Hold Rheinmetall for now and monitor the thesis rather than panic selling near weakness.
+
+Use the £118.47 cash position patiently rather than forcing the next trade.
+
+Do not keep averaging down in Symbotic blindly; let the position prove itself.
+
+
+
+PROCESS RULES
+
+Capital protection first
+Avoiding permanent loss matters more than chasing quick performance. The first job is to stay in the game, protect the account, and make sure every decision can be explained calmly after the fact.
+
+Position sizing has to match risk
+No individual position should move above 10% of the portfolio without a written reason. Higher-risk ideas can exist in the portfolio, but they need smaller sizing and stricter review.
+
+Written reasoning before action
+Every trade needs a reason before entry and a review after exit. If I cannot write down why I am buying, selling, trimming, or holding, I should not be doing it.
+
+Cash discipline
+Cash is not a failure to act. It gives flexibility when opportunities are not attractive and stops me from forcing trades just because money is available.
+
+No leverage
+Leveraged crypto trading taught me how quickly pressure can turn into gambling. I do not want leverage, revenge trading, or emotional overexposure driving the portfolio.
+
+No impulsive trades
+Avoid hype, panic, and quick emotional decisions. If a trade is only exciting because the price is moving, that is not enough.
+
+Weekly review process
+Keep a short weekly summary covering account value, cash, what helped, what hurt, trades made, mistakes, and the plan for the next week.
+
+
+
+BOOKS THAT SHAPED MY THINKING
+
+The Dhandho Investor - Mohnish Pabrai
+Value Investing / Business / Low-Risk Opportunity
+I chose The Dhandho Investor because it was recommended to me by one of my friend's dads, and it quickly became one of the most useful investing books I have read. The main idea I took from it was the concept of building or buying businesses in a way where the downside is limited but the upside is still meaningful.
+
+One of the examples that stood out to me was the Patel family and the motel business. By using their own family as receptionists, cleaners, managers, and operators, they were able to keep costs extremely low. That meant they could offer better prices than neighbouring motels while still making the business work. That idea really interested me because it showed how using your own network, family, contacts, and available resources can create an advantage at the start of a business.
+
+The book did not completely change the way I think, but it taught me valuable lessons about finding overlooked opportunities, keeping costs low, and thinking carefully about downside risk. It also helped me understand how value can exist where other people are not looking properly. For my own investing journey, the biggest lesson is to look for situations where the risk is controlled, the price is sensible, and the potential reward is still attractive.
+
+The Most Important Thing - Howard Marks
+Risk / Contrarian Thinking / Market Psychology
+The Most Important Thing was one of the most important books I have read for understanding markets. Howard Marks helped me think much more seriously about risk, cycles, and the danger of simply following what everyone else believes.
+
+The biggest lesson I took from this book was contrarian thinking. It taught me that some of the best investment decisions can come from questioning the popular view and being willing to think differently from the crowd. If everyone agrees that something is obvious, it may already be priced in. That does not mean always doing the opposite for the sake of it, but it does mean slowing down, thinking independently, and asking whether the market has become too optimistic or too pessimistic.
+
+This book has made me want to become a more conservative and thoughtful investor. It reminded me that avoiding big mistakes is just as important as finding big winners. It also helped me understand that market cycles are emotional, and that investors often become most confident at exactly the wrong time.
+
+The Intelligent Investor - Benjamin Graham
+Value Investing / Discipline / Intrinsic Value
+The Intelligent Investor had a massive impact on the way I view markets and investing. It helped me understand that investing is not about chasing whatever stock is going up the fastest. It is about discipline, patience, valuation, and protecting capital.
+
+The biggest thing this book taught me was how to think about fair value and intrinsic value. Before reading it, it is easy to look at a company and only think about the share price. This book helped me understand that the real question is whether the business is worth more or less than what the market is currently pricing it at.
+
+The Intelligent Investor also made me think differently about market emotions. The idea of "Mr Market" helped me understand that prices move around every day, but that does not mean the real value of a business changes every day. Sometimes the market is overly excited, and sometimes it is overly fearful. My job is not to react emotionally, but to stay disciplined and make decisions based on reasoning.
+
+This book has played a massive part in how I want to pursue investing for the rest of my life. It made me more serious about writing down my reasoning, reviewing my decisions, and not letting short-term price movements control my behaviour.
+
+The Alchemist - Paulo Coelho
+Purpose / Ambition / Personal Journey
+The Alchemist is not directly about investing, but it is still one of the most important books I have read. For me, it was about following what you feel called to do, trusting the journey, and not giving up when the path becomes difficult.
+
+The book taught me that the lessons you learn along the way can sometimes be more valuable than the final reward. That really connects with my investing journey because I am not only trying to make money. I am trying to build a way of thinking, a process, and a long-term skill that can stay with me for life.
+
+The Alchemist also made me think about ambition and self-belief. It reminded me that if you genuinely care about something, you have to keep moving towards it even when the result is not immediate. That applies to investing, business, and life in general. There will be setbacks, mistakes, and periods where things do not go to plan, but those moments are part of the process.
+
+The Art of Spending Money - Morgan Housel
+Money / Lifestyle / Financial Discipline
+The Art of Spending Money taught me a lot about the way people use money and how easy it is to spend more simply because you earn more. One of the biggest lessons I took from it was that I do not need to spend money just to keep up with other people.
+
+I know what I need to survive each week, and as my income grows, I do not want my spending to rise at the same speed. I want to keep living within my means and use extra money to invest, build assets, and create more income streams. That does not mean never enjoying money, but it does mean being intentional with it.
+
+The book also told interesting stories about how people made and lost money, which helped me think more carefully about financial behaviour. Building wealth is not only about what you earn. It is also about what you keep, how you spend, and whether your decisions are helping your future or just feeding short-term image and lifestyle pressure.
+
+Man's Search for Meaning - Viktor Frankl
+Purpose / Resilience / Perspective
+Man's Search for Meaning was a deeply personal book for me. It taught me about what happened in the concentration camps and showed me a level of human suffering and resilience that I had never properly understood before.
+
+While reading it, my mind was genuinely blown by what people were able to endure. I did not realise human beings were capable of going through such extreme suffering and still finding meaning, purpose, and strength. It made me think very seriously about how lucky we are today, how careful we need to be with our decisions, and how important it is to treat other people properly.
+
+The book also taught me that meaning can help people survive incredibly difficult situations. That lesson applies far beyond history. It applies to personal setbacks, pressure, mistakes, and difficult periods in life. For my investing journey, it gives me perspective. A bad week in the market, a losing trade, or a mistake is not the end of the world. What matters is how I respond, what I learn, and whether I keep moving forward with purpose.
+
+The Tipping Point - Malcolm Gladwell
+Trends / Compounding / Behaviour
+The Tipping Point helped me understand how small things can build quietly over time before suddenly reaching a point where everything changes. That idea really stood out to me because it connects to business, investing, habits, and personal growth.
+
+The book showed me that small changes can have huge effects once they compound for long enough. A product, idea, behaviour, or trend might look small at first, but if the right conditions come together, it can suddenly spread very quickly. That is useful for thinking about companies, especially businesses that rely on networks, platforms, consumer behaviour, or cultural change.
+
+It also made me think about my own habits. Small good decisions repeated over time can compound into something powerful. But the opposite is also true. Small bad decisions can also build up and create bigger problems later. That is why process matters. Whether it is investing, money, discipline, or business, the small things I do consistently are what eventually create the bigger outcome.
 
 
 

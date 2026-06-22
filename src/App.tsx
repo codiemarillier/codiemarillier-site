@@ -4,11 +4,13 @@ import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import About from './pages/About';
 import ArticleDetail from './pages/ArticleDetail';
+import Books from './pages/Books';
 import CurrentPortfolio from './pages/CurrentPortfolio';
 import Disclaimer from './pages/Disclaimer';
 import Home from './pages/Home';
 import Philosophy from './pages/Philosophy';
 import PortfolioJournal from './pages/PortfolioJournal';
+import Process from './pages/Process';
 import { brand, journalEntries } from './data/siteData';
 
 type RouteMeta = {
@@ -146,9 +148,9 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/books" element={<About />} />
+        <Route path="/books" element={<Books />} />
         <Route path="/philosophy" element={<Philosophy />} />
-        <Route path="/process" element={<Philosophy />} />
+        <Route path="/process" element={<Process />} />
         <Route path="/journal" element={<PortfolioJournal />} />
         <Route path="/journal/:slug" element={<ArticleDetail type="journal" />} />
         <Route path="/portfolio" element={<CurrentPortfolio />} />

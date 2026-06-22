@@ -60,6 +60,43 @@
         padding-left: 16px;
       }
 
+      .static-fallback section,
+      .static-fallback article {
+        border-top: 1px solid #d8d0c0;
+        margin-top: 28px;
+        padding-top: 22px;
+      }
+
+      .static-fallback .static-grid {
+        display: grid;
+        gap: 14px;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        padding-left: 0;
+      }
+
+      .static-fallback .static-card,
+      .static-fallback .static-grid > div,
+      .static-fallback .static-grid > article {
+        background: #fffaf0;
+        border: 1px solid #d8d0c0;
+        padding: 16px;
+      }
+
+      .static-fallback dt {
+        color: #7f642d;
+        font-size: 0.75rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .static-fallback dd {
+        margin: 6px 0 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 1.35rem;
+        font-weight: 700;
+      }
+
       .js .static-fallback {
         display: none;
       }
