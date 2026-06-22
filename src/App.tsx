@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import About from './pages/About';
@@ -8,6 +8,7 @@ import Books from './pages/Books';
 import CurrentPortfolio from './pages/CurrentPortfolio';
 import Disclaimer from './pages/Disclaimer';
 import Home from './pages/Home';
+import NotFound from './pages/NotFound';
 import Philosophy from './pages/Philosophy';
 import PortfolioJournal from './pages/PortfolioJournal';
 import Process from './pages/Process';
@@ -61,6 +62,10 @@ const staticMeta: Record<string, RouteMeta> = {
   '/disclaimer': {
     title: 'Disclaimer | Codie Capital Research',
     description: brand.disclaimer,
+  },
+  '/404': {
+    title: 'Page Not Found | Codie Capital Research',
+    description: 'The requested page could not be found on Codie Capital Research.',
   },
 };
 
@@ -155,7 +160,7 @@ export default function App() {
         <Route path="/journal/:slug" element={<ArticleDetail type="journal" />} />
         <Route path="/portfolio" element={<CurrentPortfolio />} />
         <Route path="/disclaimer" element={<Disclaimer />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </div>

@@ -340,11 +340,11 @@ export const readingDevelopment: ReadingBook[] = [
     ],
   },
   {
-    title: "Man's Search for Meaning",
+    title: 'Man’s Search for Meaning',
     author: 'Viktor Frankl',
     category: 'Purpose / Resilience / Perspective',
     image: '/book-covers/mans-search-for-meaning.jpeg',
-    imageAlt: "Man's Search for Meaning book image.",
+    imageAlt: 'Man’s Search for Meaning book image.',
     paragraphs: [
       "Man's Search for Meaning was a deeply personal book for me. It taught me about what happened in the concentration camps and showed me a level of human suffering and resilience that I had never properly understood before.",
       'While reading it, my mind was genuinely blown by what people were able to endure. I did not realise human beings were capable of going through such extreme suffering and still finding meaning, purpose, and strength. It made me think very seriously about how lucky we are today, how careful we need to be with our decisions, and how important it is to treat other people properly.',

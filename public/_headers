@@ -12,3 +12,9 @@
 
 /robots.txt
   Content-Type: text/plain; charset=utf-8
+
+/ai/site-content.json
+  Content-Type: application/json; charset=utf-8
+
+/ai/*.html
+  Content-Type: text/html; charset=utf-8

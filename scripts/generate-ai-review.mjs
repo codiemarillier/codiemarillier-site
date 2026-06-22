@@ -6,6 +6,8 @@ const outputRoot = process.argv[2] || 'public';
 const aiRoot = `${outputRoot}/ai`;
 const tempModule = `/tmp/codie-site-data-${Date.now()}.mjs`;
 const siteUrl = 'https://codiemarillier.com';
+const latestReview = 'Week 15';
+const latestUpdated = '2026-06-16';
 
 await build({
   entryPoints: ['src/data/siteData.ts'],
@@ -27,62 +29,14 @@ const {
   portfolioSnapshot,
   processRules,
   readingDevelopment,
+  researchNotes,
   transactionSummary,
 } = await import(pathToFileURL(tempModule).href);
 
 await rm(aiRoot, { recursive: true, force: true });
 await mkdir(`${aiRoot}/journal`, { recursive: true });
+await mkdir(`${aiRoot}/research`, { recursive: true });
 await rm(tempModule, { force: true });
-
-const pages = [
-  {
-    path: '/',
-    title: 'Home',
-    summary:
-      'The homepage introduces Codie Capital Research as a personal investment journal, gives quick links to About, portfolio, weekly reviews, and the journal archive.',
-  },
-  {
-    path: '/about',
-    title: 'About Codie Marillier',
-    summary:
-      'The about page explains Codie as a private long-term investor managing his own portfolio, his early interest in markets, the COVID lockdown course, first Bitcoin investment, family real estate influence, mistakes from leveraged crypto trading, accountability, and reading development.',
-  },
-  {
-    path: '/books',
-    title: 'Books That Shaped My Thinking',
-    summary:
-      'A standalone reading and development page with full personal reflections on books that shaped Codie’s investing, money, discipline, purpose, risk, and long-term decision-making.',
-  },
-  {
-    path: '/philosophy',
-    title: 'Investment Philosophy',
-    summary:
-      'The philosophy page explains the personal approach: long-term investing in public companies, ETFs, selected assets, quality businesses at sensible prices, controlled risk, cash discipline, gold as a hedge, and avoiding leverage or emotional trading.',
-  },
-  {
-    path: '/process',
-    title: 'Investment Process',
-    summary:
-      'A standalone rulebook page covering capital protection, position sizing, written reasoning, cash discipline, no leverage, no impulsive trades, and the weekly review process.',
-  },
-  {
-    path: '/journal',
-    title: 'Portfolio Journal',
-    summary:
-      'The journal page lists weekly portfolio reviews, trade reflections, market notes, and lessons from Codie’s own portfolio record.',
-  },
-  {
-    path: '/portfolio',
-    title: 'Current Portfolio',
-    summary:
-      'The portfolio page records Codie’s own holdings, cash, transaction-backed notes, closed lessons, roles, and portfolio structure. It is not a model portfolio and not investment advice.',
-  },
-  {
-    path: '/disclaimer',
-    title: 'Disclaimer',
-    summary: brand.disclaimer,
-  },
-];
 
 function esc(value) {
   return String(value)
@@ -93,10 +47,22 @@ function esc(value) {
     .replaceAll("'", '&#039;');
 }
 
+function slugDate(value) {
+  if (/^\d{4}-\d{2}-\d{2}$/.test(value)) return value;
+  if (/June 2026/i.test(value)) return '2026-06-16';
+  return '2026-06-22';
+}
+
 function textBlock(lines) {
-  return lines
-    .map((line) => `<p>${esc(line).replaceAll('\n', '<br>')}</p>`)
-    .join('\n');
+  return lines.map((line) => `<p>${esc(line).replaceAll('\n', '<br>')}</p>`).join('\n');
+}
+
+function list(items) {
+  return `<ul>${items.map((item) => `<li>${esc(item)}</li>`).join('\n')}</ul>`;
+}
+
+function plain(lines) {
+  return lines.filter(Boolean).join('\n\n');
 }
 
 function layout({ title, description, canonicalPath = '/ai/', body }) {
@@ -110,6 +76,18 @@ function layout({ title, description, canonicalPath = '/ai/', body }) {
     <title>${esc(title)} | AI Review | Codie Capital Research</title>
     <meta name="description" content="${esc(description)}">
     <link rel="canonical" href="${esc(canonicalUrl)}">
+    <meta property="og:title" content="${esc(title)} | AI Review | Codie Capital Research">
+    <meta property="og:description" content="${esc(description)}">
+    <meta property="og:url" content="${esc(canonicalUrl)}">
+    <meta property="og:type" content="website">
+    <script type="application/ld+json">${JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      name: title,
+      description,
+      url: canonicalUrl,
+      isPartOf: { '@type': 'WebSite', name: brand.name, url: siteUrl },
+    })}</script>
     <style>
       body { margin: 0; background: #f6f1e8; color: #20201d; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.65; }
       main { max-width: 980px; margin: 0 auto; padding: 48px 20px 72px; }
@@ -119,6 +97,8 @@ function layout({ title, description, canonicalPath = '/ai/', body }) {
       h2 { font-size: 2rem; margin: 0 0 12px; }
       h3 { font-size: 1.35rem; margin: 24px 0 8px; }
       a { color: #183a34; font-weight: 700; }
+      table { border-collapse: collapse; width: 100%; }
+      th, td { border: 1px solid #d8d0c0; padding: 10px; text-align: left; vertical-align: top; }
       .eyebrow { color: #9a7a2f; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; }
       .note { background: #fffaf0; border: 1px solid #d8d0c0; padding: 16px; }
       .grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
@@ -133,7 +113,7 @@ function layout({ title, description, canonicalPath = '/ai/', body }) {
         <h1>${esc(title)}</h1>
         <p>${esc(description)}</p>
         <p class="note">${esc(brand.disclaimer)}</p>
-        <p><a href="/ai/index.html">Back to AI review index</a> · <a href="/">Open live React site</a></p>
+        <p><a href="/ai/">Back to AI review index</a> · <a href="/">Open public homepage</a> · <a href="/ai/site-content.json">Machine-readable JSON</a></p>
       </header>
       ${body}
     </main>
@@ -141,9 +121,225 @@ function layout({ title, description, canonicalPath = '/ai/', body }) {
 </html>`;
 }
 
+const currentHoldings = holdings.filter((holding) => !/^closed/i.test(holding.positionSize) && !/^closed/i.test(holding.status));
+
+const mainPages = [
+  {
+    path: '/',
+    title: 'Home',
+    pageType: 'homepage',
+    lastUpdated: '2026-06-22',
+    topics: ['personal investment journal', 'portfolio record', 'weekly reviews', 'investing process'],
+    summary:
+      'The homepage introduces Codie Capital Research as Codie Marillier’s personal investment journal and points readers to the portfolio, journal, books, process, about page, and disclaimer.',
+    contentText: plain([
+      `${brand.name} is the personal investment journal of Codie Marillier, a private long-term investor managing his own portfolio and documenting the process publicly.`,
+      'The site exists to track decisions, weekly reviews, holdings, mistakes, rules, and reading development. It is not a fund, advisory service, investment service, or capital-raising site.',
+      `Latest source-of-truth review: ${latestReview}. Current account value ${portfolioSnapshot.accountValue}, starting value ${portfolioSnapshot.startingCostBasis}, return ${portfolioSnapshot.currentReturn}, cash ${portfolioSnapshot.cashBalance}.`,
+    ]),
+    internalLinks: ['/about', '/portfolio', '/journal', '/books', '/process', '/disclaimer', '/ai/'],
+  },
+  {
+    path: '/portfolio',
+    title: 'Current Portfolio',
+    pageType: 'portfolio',
+    lastUpdated: latestUpdated,
+    topics: ['account value', 'cash balance', 'open holdings', 'portfolio roles', 'winners', 'drags', 'action plan'],
+    summary:
+      'The portfolio page records Codie’s own current holdings, Week 15 account value, starting value, cash, latest return, winners, drags, portfolio role notes, and latest action plan.',
+    contentText: plain([
+      `Current account value: ${portfolioSnapshot.accountValue}. Starting value: ${portfolioSnapshot.startingCostBasis}. Current return: ${portfolioSnapshot.currentReturn}. Cash balance: ${portfolioSnapshot.cashBalance}. Latest review: ${latestReview}.`,
+      `Open holdings: ${currentHoldings.map((holding) => `${holding.ticker} ${holding.positionSize} (${holding.role})`).join('; ')}.`,
+      `Current winners: ${portfolioCrawlerNotes.winners.join(' ')}`,
+      `Current drags: ${portfolioCrawlerNotes.drags.join(' ')}`,
+      `Latest action plan: ${portfolioCrawlerNotes.latestActionPlan.join(' ')}`,
+    ]),
+    internalLinks: ['/journal/week-15-portfolio-summary', '/journal', '/process', '/ai/portfolio.html'],
+  },
+  {
+    path: '/journal',
+    title: 'Portfolio Journal',
+    pageType: 'journal-index',
+    lastUpdated: latestUpdated,
+    topics: ['weekly reviews', 'trade reflections', 'market notes', 'lessons', 'Week 1 to Week 15'],
+    summary:
+      'The journal page lists weekly review cards and journal entries with dates, account values where available, main trades, and lessons.',
+    contentText: plain([
+      'The journal contains weekly portfolio reviews, trade reflections, market notes, and lessons from Codie’s own portfolio record.',
+      ...journalEntries.map((entry) => `${entry.title} (${entry.date}): ${entry.excerpt}`),
+    ]),
+    internalLinks: journalEntries.map((entry) => `/journal/${entry.slug}`),
+  },
+  {
+    path: '/books',
+    title: 'Books That Shaped My Thinking',
+    pageType: 'books',
+    lastUpdated: '2026-06-22',
+    topics: ['reading development', 'investing books', 'discipline', 'purpose', 'risk', 'money'],
+    summary:
+      'The books page contains the full Books That Shaped My Thinking section with personal reflections on every book and how each shaped Codie’s investing and personal development.',
+    contentText: plain([
+      'These are the books that have had the biggest influence on how Codie thinks about investing, money, discipline, purpose, risk, and long-term decision-making.',
+      ...readingDevelopment.map((book) => `${book.title} by ${book.author}. ${book.category}. ${book.paragraphs.join(' ')}`),
+    ]),
+    internalLinks: ['/about', '/process', '/portfolio'],
+  },
+  {
+    path: '/process',
+    title: 'Investment Process',
+    pageType: 'process',
+    lastUpdated: '2026-06-22',
+    topics: ['capital protection', 'position sizing', 'written reasoning', 'cash discipline', 'no leverage', 'no impulsive trades', 'weekly review process'],
+    summary:
+      'The process page sets out the investing rulebook: protect capital, size positions properly, write reasoning, keep cash discipline, avoid leverage and impulsive trades, and review weekly.',
+    contentText: plain(processRules.map((rule) => `${rule.title}: ${rule.text}`)),
+    internalLinks: ['/portfolio', '/journal', '/books'],
+  },
+  {
+    path: '/about',
+    title: 'About Codie Marillier',
+    pageType: 'about',
+    lastUpdated: '2026-06-22',
+    topics: ['personal background', 'early investing interest', 'Bitcoin', 'real estate influence', 'mistakes', 'reading development'],
+    summary:
+      'The about page explains Codie’s investing background, early interest in markets, first Bitcoin investment, family real estate influence, lessons from mistakes, and reading development.',
+    contentText: plain([
+      'Codie Marillier is a private, long-term investor managing his own portfolio and documenting the process publicly.',
+      'His interest in investing began seriously around age fourteen, when he understood that ordinary people could buy small pieces of real businesses through the stock market.',
+      'During the first COVID lockdown in 2020, he studied a stock trading course by Mohsin Hassan on Udemy and began learning fundamental analysis, technical analysis, market behaviour, risk, and trading psychology.',
+      'His first investment was Bitcoin in 2021 at roughly $21,000. A roughly $500 investment grew to around $1,500, which built confidence but also taught that early success does not mean risk is fully understood.',
+      'His family’s real estate background shaped how he thinks about ownership, assets, capital appreciation, rental income, and long-term wealth creation.',
+      'Losing money through leveraged crypto trading taught him the danger of emotional behaviour, adding to losing trades, hoping for reversals, and letting risk turn into gambling.',
+    ]),
+    internalLinks: ['/books', '/process', '/portfolio', '/journal'],
+  },
+  {
+    path: '/disclaimer',
+    title: 'Disclaimer',
+    pageType: 'disclaimer',
+    lastUpdated: '2026-06-22',
+    topics: ['not investment advice', 'not FCA authorised', 'personal portfolio', 'do not copy trades'],
+    summary:
+      'The disclaimer page explains that the site is a personal investment research and portfolio journal, not investment advice, not FCA-authorised, and not a recommendation.',
+    contentText: disclaimerPoints.join(' '),
+    internalLinks: ['/'],
+  },
+  {
+    path: '/ai/',
+    title: 'AI-Readable Review Index',
+    pageType: 'ai-index',
+    lastUpdated: '2026-06-22',
+    topics: ['AI archive', 'crawler-readable content', 'site manifest', 'portfolio snapshot', 'weekly summaries'],
+    summary:
+      'The AI page is a complete plain HTML archive for ChatGPT, AI review tools, Google crawlers, and simple browser-fetch tools.',
+    contentText:
+      'The AI-readable review index contains site purpose, disclaimer, latest portfolio snapshot, links to all public pages, weekly summaries, books, portfolio, process, sitemap-readable page, and JSON content archive.',
+    internalLinks: ['/ai/site-map-readable.html', '/ai/site-content.json', '/ai/portfolio.html', '/ai/pages.html', '/ai/all-content.txt'],
+  },
+];
+
+const journalRecords = journalEntries.map((entry) => ({
+  path: `/journal/${entry.slug}`,
+  title: entry.title,
+  pageType: entry.category === 'Weekly Reviews' ? 'weekly-summary' : 'journal-entry',
+  lastUpdated: slugDate(entry.date),
+  topics: [entry.category, ...(entry.tags ?? []), ...(entry.majorEvents ?? [])],
+  summary: entry.excerpt,
+  contentText: plain([`${entry.title}. ${entry.date}. ${entry.excerpt}`, ...entry.body]),
+  internalLinks: [entry.documentUrl, entry.documentPdfUrl, `/ai/journal/${entry.slug}.html`].filter(Boolean),
+}));
+
+const researchRecords = researchNotes.map((note) => ({
+  path: `/ai/research/${note.slug}.html`,
+  title: note.title,
+  pageType: 'research-note',
+  lastUpdated: slugDate(note.lastUpdated),
+  topics: [note.category, note.status, note.ticker, note.portfolioRole, note.riskLevel].filter(Boolean),
+  summary: note.excerpt,
+  contentText: plain([
+    `${note.title}. ${note.category}. ${note.status}. ${note.ticker ? `Ticker: ${note.ticker}.` : ''}`,
+    `Portfolio role: ${note.portfolioRole}. Risk level: ${note.riskLevel}. Research focus: ${note.researchFocus}. Decision impact: ${note.decisionImpact}.`,
+    ...note.body,
+  ]),
+  internalLinks: ['/ai/site-map-readable.html', '/portfolio', '/process'],
+}));
+
+const aiRecords = [
+  {
+    path: '/ai/pages.html',
+    title: 'Static Page Summaries',
+    pageType: 'ai-summary',
+    lastUpdated: '2026-06-22',
+    topics: ['page summaries', 'public routes'],
+    summary: 'Plain HTML summaries of the main public site routes.',
+    contentText: mainPages.map((page) => `${page.path} - ${page.summary}`).join('\n'),
+    internalLinks: mainPages.map((page) => page.path),
+  },
+  {
+    path: '/ai/portfolio.html',
+    title: 'Portfolio and Roles',
+    pageType: 'ai-portfolio',
+    lastUpdated: latestUpdated,
+    topics: ['portfolio snapshot', 'holdings', 'roles', 'change log', 'action plan'],
+    summary: 'AI-readable portfolio record, holdings, role structure, transaction summary, winners, drags, and action plan.',
+    contentText: plain([
+      `Account value ${portfolioSnapshot.accountValue}. Starting value ${portfolioSnapshot.startingCostBasis}. Return ${portfolioSnapshot.currentReturn}. Cash ${portfolioSnapshot.cashBalance}.`,
+      holdings.map((holding) => `${holding.ticker} ${holding.name}: ${holding.positionSize}, ${holding.role}, ${holding.status}.`).join('\n'),
+    ]),
+    internalLinks: ['/portfolio', '/journal/week-15-portfolio-summary'],
+  },
+  {
+    path: '/ai/site-map-readable.html',
+    title: 'Readable Route Manifest',
+    pageType: 'ai-manifest',
+    lastUpdated: '2026-06-22',
+    topics: ['route manifest', 'crawler map', 'AI navigation'],
+    summary: 'A plain HTML manifest listing every important page with URL, summary, topics, and last updated date.',
+    contentText: 'Machine-readable and human-readable route map for AI review tools and simple crawlers.',
+    internalLinks: ['/ai/site-content.json', '/sitemap.xml'],
+  },
+  {
+    path: '/ai/site-content.json',
+    title: 'Machine-Readable Site Content JSON',
+    pageType: 'json-manifest',
+    lastUpdated: '2026-06-22',
+    topics: ['JSON', 'site content', 'metadata'],
+    summary: 'A JSON file containing readable text content and metadata for every main page and journal page.',
+    contentText: 'JSON archive for AI tools that need all site content in one structured file.',
+    internalLinks: ['/ai/site-map-readable.html'],
+  },
+  {
+    path: '/ai/all-content.txt',
+    title: 'All Content Text Archive',
+    pageType: 'plain-text-archive',
+    lastUpdated: '2026-06-22',
+    topics: ['plain text archive', 'AI reading'],
+    summary: 'A plain text archive of site content, portfolio facts, books, process rules, and journal entries.',
+    contentText: 'Plain text archive generated from site data.',
+    internalLinks: ['/ai/'],
+  },
+];
+
+const allRecords = [...mainPages, ...journalRecords, ...researchRecords, ...aiRecords];
+
+function pageUrl(path) {
+  return path === '/' ? `${siteUrl}/` : `${siteUrl}${path}`;
+}
+
+function aiCard(record) {
+  return `<article class="card">
+    <h3><a href="${esc(record.path)}">${esc(record.title)}</a></h3>
+    <p><strong>URL:</strong> ${esc(pageUrl(record.path))}</p>
+    <p>${esc(record.summary)}</p>
+    <p><strong>Topics:</strong> ${esc(record.topics.join(', '))}</p>
+    <p><strong>Last updated:</strong> ${esc(record.lastUpdated)}</p>
+  </article>`;
+}
+
 const indexLinks = [
-  ...pages.map((page) => `<li><a href="${page.path === '/' ? '/' : page.path}">${esc(page.title)} live route</a> - <a href="/ai/pages.html#${esc(page.path)}">AI summary</a></li>`),
-  ...journalEntries.map((entry) => `<li><a href="/journal/${entry.slug}">${esc(entry.title)} live route</a> - <a href="/ai/journal/${entry.slug}.html">AI-readable full text</a></li>`),
+  ...mainPages.map((page) => `<li><a href="${page.path}">${esc(page.title)} public route</a> - ${esc(page.summary)}</li>`),
+  ...journalEntries.map((entry) => `<li><a href="/journal/${entry.slug}">${esc(entry.title)} public route</a> - <a href="/ai/journal/${entry.slug}.html">AI-readable full text</a></li>`),
+  ...researchNotes.map((note) => `<li><a href="/ai/research/${note.slug}.html">${esc(note.title)} AI-readable research note</a></li>`),
 ];
 
 await writeFile(
@@ -151,47 +347,41 @@ await writeFile(
   layout({
     title: 'Codie Capital Research Review Index',
     description:
-      'A plain HTML version of the site content for ChatGPT, search tools, and reviewers that cannot fully render the React app.',
+      'Complete plain HTML archive for ChatGPT, AI review tools, Google crawlers, and simple browser-fetch tools.',
     canonicalPath: '/ai/',
     body: `
       <section>
-        <h2>How to Review This Site</h2>
-        <p>This pack exists because some external tools can open the public URL but cannot reliably extract text from a JavaScript-rendered React app. These pages are static HTML and contain the same key record: pages, portfolio facts, journal entries, and disclaimer language.</p>
-        <p>Important context: this is Codie Marillier's personal investment research and portfolio journal. It is not investment advice, a fund, a service, or a capital-raising site.</p>
+        <h2>Site Purpose</h2>
+        <p>Codie Capital Research is Codie Marillier's personal investment research and portfolio journal. It documents his own portfolio, weekly reviews, holdings, books, process, mistakes, and long-term development as a private investor.</p>
+        <p>It is not a fund, advisory service, investment service, capital-raising site, or money-management business.</p>
+      </section>
+      <section>
+        <h2>Latest Portfolio Snapshot</h2>
+        <p><strong>Latest review:</strong> ${latestReview}</p>
+        <div class="grid">
+          <div class="card"><strong>Current account value</strong><br>${esc(portfolioSnapshot.accountValue)}</div>
+          <div class="card"><strong>Starting value</strong><br>${esc(portfolioSnapshot.startingCostBasis)}</div>
+          <div class="card"><strong>Current return</strong><br>${esc(portfolioSnapshot.currentReturn)}</div>
+          <div class="card"><strong>Cash balance</strong><br>${esc(portfolioSnapshot.cashBalance)}</div>
+        </div>
       </section>
       <section>
         <h2>Core Links</h2>
         <ul>${indexLinks.join('\n')}</ul>
       </section>
       <section>
-        <h2>Portfolio Snapshot</h2>
-        <p>Week 15 Portfolio Summary dated 16 June 2026 is the current source-of-truth update. Latest account value is £2,055.86, cash is £118.47, and latest return is +2.84% versus starting cost basis.</p>
-        <div class="grid">
-          ${Object.entries(portfolioSnapshot)
-            .map(([key, value]) => `<div class="card"><strong>${esc(key)}</strong><br>${esc(value)}</div>`)
-            .join('\n')}
-        </div>
-      </section>
-      <section>
-        <h2>Transaction Summary</h2>
-        <div class="grid">
-          ${transactionSummary
-            .map((item) => `<div class="card"><strong>${esc(item.label)}</strong><br>${esc(item.value)}</div>`)
-            .join('\n')}
-        </div>
+        <h2>AI Tools</h2>
+        <ul>
+          <li><a href="/ai/site-map-readable.html">Readable route manifest</a></li>
+          <li><a href="/ai/site-content.json">Machine-readable site content JSON</a></li>
+          <li><a href="/ai/all-content.txt">Plain text all-content archive</a></li>
+          <li><a href="/sitemap.xml">XML sitemap</a></li>
+          <li><a href="/robots.txt">robots.txt</a></li>
+        </ul>
       </section>
       <section>
         <h2>Portfolio Change Log</h2>
-        ${portfolioChangeLog
-          .map(
-            (change) => `<article class="card">
-              <h3>${esc(change.type)} - ${esc(change.title)}</h3>
-              <p><strong>Date:</strong> ${esc(change.date)}</p>
-              <p>${esc(change.text)}</p>
-              ${change.relatedSlug ? `<p><strong>Journal:</strong> /journal/${esc(change.relatedSlug)}</p>` : ''}
-            </article>`,
-          )
-          .join('\n')}
+        ${portfolioChangeLog.map((change) => `<article class="card"><h3>${esc(change.type)} - ${esc(change.title)}</h3><p><strong>Date:</strong> ${esc(change.date)}</p><p>${esc(change.text)}</p></article>`).join('\n')}
       </section>
     `,
   }),
@@ -203,16 +393,39 @@ await writeFile(
     title: 'Static Page Summaries',
     description: 'Plain HTML summaries of the main site routes.',
     canonicalPath: '/ai/pages.html',
-    body: pages
-      .map(
-        (page) => `<article id="${esc(page.path)}">
-          <p class="eyebrow">${esc(page.path)}</p>
-          <h2>${esc(page.title)}</h2>
-          <p>${esc(page.summary)}</p>
-          <p><a href="${page.path}">Open live route</a></p>
-        </article>`,
-      )
-      .join('\n'),
+    body: mainPages.map(aiCard).join('\n'),
+  }),
+);
+
+await writeFile(
+  `${aiRoot}/site-map-readable.html`,
+  layout({
+    title: 'Readable Route Manifest',
+    description: 'Every important page on CodieMarillier.com with URL, summary, topics, and last updated date.',
+    canonicalPath: '/ai/site-map-readable.html',
+    body: `
+      <section>
+        <h2>Route Manifest</h2>
+        <table>
+          <thead>
+            <tr><th>Page title</th><th>URL</th><th>Summary</th><th>Main topics</th><th>Last updated</th></tr>
+          </thead>
+          <tbody>
+            ${allRecords
+              .map(
+                (record) => `<tr>
+                  <td>${esc(record.title)}</td>
+                  <td><a href="${esc(record.path)}">${esc(pageUrl(record.path))}</a></td>
+                  <td>${esc(record.summary)}</td>
+                  <td>${esc(record.topics.join(', '))}</td>
+                  <td>${esc(record.lastUpdated)}</td>
+                </tr>`,
+              )
+              .join('\n')}
+          </tbody>
+        </table>
+      </section>
+    `,
   }),
 );
 
@@ -220,25 +433,19 @@ await writeFile(
   `${aiRoot}/portfolio.html`,
   layout({
     title: 'Portfolio and Roles',
-    description: 'AI-readable portfolio record, holdings, role structure, and transaction summary.',
+    description: 'AI-readable portfolio record, holdings, role structure, transaction summary, winners, drags, and action plan.',
     canonicalPath: '/ai/portfolio.html',
     body: `
       <section>
         <h2>Portfolio Snapshot</h2>
-        <p>Week 15 Portfolio Summary dated 16 June 2026 is the current source-of-truth update. Latest account value is £2,055.86, cash is £118.47, and latest return is +2.84% versus starting cost basis.</p>
+        <p>Week 15 Portfolio Summary dated 16 June 2026 is the current source-of-truth update.</p>
         <div class="grid">
-          ${Object.entries(portfolioSnapshot)
-            .map(([key, value]) => `<div class="card"><strong>${esc(key)}</strong><br>${esc(value)}</div>`)
-            .join('\n')}
+          ${Object.entries(portfolioSnapshot).map(([key, value]) => `<div class="card"><strong>${esc(key)}</strong><br>${esc(value)}</div>`).join('\n')}
         </div>
       </section>
       <section>
         <h2>Transaction Summary</h2>
-        <div class="grid">
-          ${transactionSummary
-            .map((item) => `<div class="card"><strong>${esc(item.label)}</strong><br>${esc(item.value)}</div>`)
-            .join('\n')}
-        </div>
+        <div class="grid">${transactionSummary.map((item) => `<div class="card"><strong>${esc(item.label)}</strong><br>${esc(item.value)}</div>`).join('\n')}</div>
       </section>
       <section>
         <h2>Current and Closed Holdings</h2>
@@ -255,41 +462,12 @@ await writeFile(
           )
           .join('\n')}
       </section>
-      <section>
-        <h2>Portfolio Change Log</h2>
-        ${portfolioChangeLog
-          .map(
-            (change) => `<article class="card">
-              <h3>${esc(change.type)} - ${esc(change.title)}</h3>
-              <p><strong>Date:</strong> ${esc(change.date)}</p>
-              <p>${esc(change.text)}</p>
-              ${change.relatedSlug ? `<p><strong>Journal:</strong> /journal/${esc(change.relatedSlug)}</p>` : ''}
-            </article>`,
-          )
-          .join('\n')}
-      </section>
-      <section>
-        <h2>Current Winners and Drags</h2>
-        <h3>Winners</h3>
-        <ul>${portfolioCrawlerNotes.winners.map((item) => `<li>${esc(item)}</li>`).join('\n')}</ul>
-        <h3>Drags</h3>
-        <ul>${portfolioCrawlerNotes.drags.map((item) => `<li>${esc(item)}</li>`).join('\n')}</ul>
-      </section>
-      <section>
-        <h2>Latest Action Plan</h2>
-        <ul>${portfolioCrawlerNotes.latestActionPlan.map((item) => `<li>${esc(item)}</li>`).join('\n')}</ul>
-      </section>
+      <section><h2>Current Winners</h2>${list(portfolioCrawlerNotes.winners)}</section>
+      <section><h2>Current Drags</h2>${list(portfolioCrawlerNotes.drags)}</section>
+      <section><h2>Latest Action Plan</h2>${list(portfolioCrawlerNotes.latestActionPlan)}</section>
       <section>
         <h2>Portfolio Roles</h2>
-        ${portfolioRoles
-          .map(
-            (role) => `<article class="card">
-              <h3>${esc(role.title)}</h3>
-              <p><strong>Examples:</strong> ${esc(role.examples)}</p>
-              <p>${esc(role.text)}</p>
-            </article>`,
-          )
-          .join('\n')}
+        ${portfolioRoles.map((role) => `<article class="card"><h3>${esc(role.title)}</h3><p><strong>Examples:</strong> ${esc(role.examples)}</p><p>${esc(role.text)}</p></article>`).join('\n')}
       </section>
     `,
   }),
@@ -302,36 +480,76 @@ for (const entry of journalEntries) {
       title: entry.title,
       description: `${entry.date}. ${entry.excerpt}`,
       canonicalPath: `/ai/journal/${entry.slug}.html`,
-      body: `
-        <article>
-          <p class="eyebrow">${esc(entry.date)} / ${esc(entry.category)}</p>
-          <h2>${esc(entry.title)}</h2>
-          <p>${esc(entry.excerpt)}</p>
-          ${textBlock(entry.body)}
-        </article>
-      `,
+      body: `<article><p class="eyebrow">${esc(entry.date)} / ${esc(entry.category)}</p><h2>${esc(entry.title)}</h2><p>${esc(entry.excerpt)}</p>${textBlock(entry.body)}</article>`,
     }),
   );
 }
+
+for (const note of researchNotes) {
+  await writeFile(
+    `${aiRoot}/research/${note.slug}.html`,
+    layout({
+      title: note.title,
+      description: note.excerpt,
+      canonicalPath: `/ai/research/${note.slug}.html`,
+      body: `<article>
+        <p class="eyebrow">${esc(note.category)} / ${esc(note.status)}</p>
+        <h2>${esc(note.title)}</h2>
+        <p>${esc(note.excerpt)}</p>
+        <p><strong>Portfolio role:</strong> ${esc(note.portfolioRole)}</p>
+        <p><strong>Risk level:</strong> ${esc(note.riskLevel)}</p>
+        <p><strong>Research focus:</strong> ${esc(note.researchFocus)}</p>
+        <p><strong>Decision impact:</strong> ${esc(note.decisionImpact)}</p>
+        ${textBlock(note.body)}
+      </article>`,
+    }),
+  );
+}
+
+const siteContent = {
+  site: {
+    name: brand.name,
+    url: siteUrl,
+    purpose: 'Personal investment research and portfolio journal by Codie Marillier.',
+    disclaimer: brand.disclaimer,
+    latestPortfolioSnapshot: {
+      latestReview,
+      currentAccountValue: portfolioSnapshot.accountValue,
+      startingValue: portfolioSnapshot.startingCostBasis,
+      currentReturn: portfolioSnapshot.currentReturn,
+      cashBalance: portfolioSnapshot.cashBalance,
+      lastUpdated: latestUpdated,
+    },
+  },
+  pages: allRecords.map((record) => ({
+    title: record.title,
+    url: pageUrl(record.path),
+    description: record.summary,
+    pageType: record.pageType,
+    lastUpdated: record.lastUpdated,
+    contentText: record.contentText,
+    internalLinks: record.internalLinks.map((link) => (link?.startsWith('http') ? link : `${siteUrl}${link}`)),
+  })),
+};
+
+await writeFile(`${aiRoot}/site-content.json`, `${JSON.stringify(siteContent, null, 2)}\n`);
 
 const allText = [
   `${brand.name} - ${brand.subtitle}`,
   brand.disclaimer,
   '',
+  'LATEST PORTFOLIO SNAPSHOT',
+  `Latest review: ${latestReview}`,
+  `Current account value: ${portfolioSnapshot.accountValue}`,
+  `Starting value: ${portfolioSnapshot.startingCostBasis}`,
+  `Current return: ${portfolioSnapshot.currentReturn}`,
+  `Cash balance: ${portfolioSnapshot.cashBalance}`,
+  '',
   'MAIN PAGES',
-  ...pages.map((page) => `${page.path} - ${page.title}\n${page.summary}`),
-  '',
-  'PORTFOLIO SNAPSHOT',
-  ...Object.entries(portfolioSnapshot).map(([key, value]) => `${key}: ${value}`),
-  '',
-  'TRANSACTION SUMMARY',
-  ...transactionSummary.map((item) => `${item.label}: ${item.value}`),
+  ...mainPages.map((page) => `${page.path} - ${page.title}\n${page.summary}\n${page.contentText}`),
   '',
   'HOLDINGS',
-  ...holdings.map(
-    (holding) =>
-      `${holding.ticker} - ${holding.name}\nPosition: ${holding.positionSize}\nSleeve: ${holding.sleeve}\nRole: ${holding.role}\nStatus: ${holding.status}\nNote: ${holding.transactionNote}`,
-  ),
+  ...holdings.map((holding) => `${holding.ticker} - ${holding.name}\nPosition: ${holding.positionSize}\nSleeve: ${holding.sleeve}\nRole: ${holding.role}\nStatus: ${holding.status}\nNote: ${holding.transactionNote}`),
   '',
   'PORTFOLIO WINNERS',
   ...portfolioCrawlerNotes.winners,
@@ -351,6 +569,9 @@ const allText = [
   'JOURNAL ENTRIES',
   ...journalEntries.map((entry) => `${entry.title}\n${entry.date} / ${entry.category}\n${entry.excerpt}\n${entry.body.join('\n\n')}`),
   '',
+  'RESEARCH NOTES',
+  ...researchNotes.map((note) => `${note.title}\n${note.category} / ${note.status}\n${note.excerpt}\n${note.body.join('\n\n')}`),
+  '',
   'DISCLAIMER POINTS',
   ...disclaimerPoints,
 ].join('\n\n');
@@ -358,13 +579,15 @@ const allText = [
 await writeFile(`${aiRoot}/all-content.txt`, allText);
 
 const sitemapRoutes = [
-  ...pages.map((page) => page.path),
-  '/ai/',
+  ...mainPages.map((page) => page.path),
   '/ai/pages.html',
   '/ai/portfolio.html',
+  '/ai/site-map-readable.html',
+  '/ai/site-content.json',
   '/ai/all-content.txt',
   ...journalEntries.map((entry) => `/journal/${entry.slug}`),
   ...journalEntries.map((entry) => `/ai/journal/${entry.slug}.html`),
+  ...researchNotes.map((note) => `/ai/research/${note.slug}.html`),
 ];
 
 const uniqueRoutes = Array.from(new Set(sitemapRoutes));
@@ -376,8 +599,8 @@ await writeFile(
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${uniqueRoutes
   .map((route) => {
-    const loc = route === '/' ? siteUrl : `${siteUrl}${route}`;
-    const priority = route === '/' ? '1.0' : route.startsWith('/journal/') ? '0.7' : '0.8';
+    const loc = route === '/' ? `${siteUrl}/` : `${siteUrl}${route}`;
+    const priority = route === '/' ? '1.0' : route.startsWith('/journal/') ? '0.7' : route.startsWith('/ai/') ? '0.6' : '0.8';
 
     return `  <url>
     <loc>${esc(loc)}</loc>
