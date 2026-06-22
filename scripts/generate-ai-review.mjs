@@ -5,6 +5,7 @@ import { pathToFileURL } from 'node:url';
 const outputRoot = process.argv[2] || 'public';
 const aiRoot = `${outputRoot}/ai`;
 const tempModule = `/tmp/codie-site-data-${Date.now()}.mjs`;
+const siteUrl = 'https://codiemarillier.com';
 
 await build({
   entryPoints: ['src/data/siteData.ts'],
@@ -44,10 +45,22 @@ const pages = [
       'The about page explains Codie as a private long-term investor managing his own portfolio, his early interest in markets, the COVID lockdown course, first Bitcoin investment, family real estate influence, mistakes from leveraged crypto trading, accountability, and reading development.',
   },
   {
+    path: '/books',
+    title: 'Books That Shaped My Thinking',
+    summary:
+      'A direct route to the reading and development section on the About page, covering books that shaped Codie’s investing, money, discipline, purpose, risk, and long-term decision-making.',
+  },
+  {
     path: '/philosophy',
     title: 'Investment Philosophy',
     summary:
       'The philosophy page explains the personal approach: long-term investing in public companies, ETFs, selected assets, quality businesses at sensible prices, controlled risk, cash discipline, gold as a hedge, and avoiding leverage or emotional trading.',
+  },
+  {
+    path: '/process',
+    title: 'Investment Process',
+    summary:
+      'A direct route to the investment philosophy and rules section, including long-term ownership, capital protection, written reasoning, cash discipline, and avoiding leverage.',
   },
   {
     path: '/journal',
@@ -83,7 +96,9 @@ function textBlock(lines) {
     .join('\n');
 }
 
-function layout({ title, description, body }) {
+function layout({ title, description, canonicalPath = '/ai/', body }) {
+  const canonicalUrl = canonicalPath.startsWith('http') ? canonicalPath : `${siteUrl}${canonicalPath}`;
+
   return `<!doctype html>
 <html lang="en-GB">
   <head>
@@ -91,6 +106,7 @@ function layout({ title, description, body }) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>${esc(title)} | AI Review | Codie Capital Research</title>
     <meta name="description" content="${esc(description)}">
+    <link rel="canonical" href="${esc(canonicalUrl)}">
     <style>
       body { margin: 0; background: #f6f1e8; color: #20201d; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.65; }
       main { max-width: 980px; margin: 0 auto; padding: 48px 20px 72px; }
@@ -133,6 +149,7 @@ await writeFile(
     title: 'Codie Capital Research Review Index',
     description:
       'A plain HTML version of the site content for ChatGPT, search tools, and reviewers that cannot fully render the React app.',
+    canonicalPath: '/ai/',
     body: `
       <section>
         <h2>How to Review This Site</h2>
@@ -181,6 +198,7 @@ await writeFile(
   layout({
     title: 'Static Page Summaries',
     description: 'Plain HTML summaries of the main site routes.',
+    canonicalPath: '/ai/pages.html',
     body: pages
       .map(
         (page) => `<article id="${esc(page.path)}">
@@ -199,6 +217,7 @@ await writeFile(
   layout({
     title: 'Portfolio and Roles',
     description: 'AI-readable portfolio record, holdings, role structure, and transaction summary.',
+    canonicalPath: '/ai/portfolio.html',
     body: `
       <section>
         <h2>Portfolio Snapshot</h2>
@@ -266,6 +285,7 @@ for (const entry of journalEntries) {
     layout({
       title: entry.title,
       description: `${entry.date}. ${entry.excerpt}`,
+      canonicalPath: `/ai/journal/${entry.slug}.html`,
       body: `
         <article>
           <p class="eyebrow">${esc(entry.date)} / ${esc(entry.category)}</p>
@@ -305,5 +325,48 @@ const allText = [
 ].join('\n\n');
 
 await writeFile(`${aiRoot}/all-content.txt`, allText);
+
+const sitemapRoutes = [
+  ...pages.map((page) => page.path),
+  '/ai/',
+  '/ai/pages.html',
+  '/ai/portfolio.html',
+  '/ai/all-content.txt',
+  ...journalEntries.map((entry) => `/journal/${entry.slug}`),
+  ...journalEntries.map((entry) => `/ai/journal/${entry.slug}.html`),
+];
+
+const uniqueRoutes = Array.from(new Set(sitemapRoutes));
+const today = new Date().toISOString().slice(0, 10);
+
+await writeFile(
+  `${outputRoot}/sitemap.xml`,
+  `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${uniqueRoutes
+  .map((route) => {
+    const loc = route === '/' ? siteUrl : `${siteUrl}${route}`;
+    const priority = route === '/' ? '1.0' : route.startsWith('/journal/') ? '0.7' : '0.8';
+
+    return `  <url>
+    <loc>${esc(loc)}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>${priority}</priority>
+  </url>`;
+  })
+  .join('\n')}
+</urlset>
+`,
+);
+
+await writeFile(
+  `${outputRoot}/robots.txt`,
+  `User-agent: *
+Allow: /
+
+Sitemap: ${siteUrl}/sitemap.xml
+`,
+);
 
 console.log(`Generated AI review pack at ${aiRoot}`);

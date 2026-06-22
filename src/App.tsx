@@ -22,6 +22,8 @@ const defaultMeta: RouteMeta = {
     "A personal investment journal documenting Codie Marillier's own portfolio reviews, holdings, philosophy, and lessons. Not investment advice.",
 };
 
+const siteUrl = 'https://codiemarillier.com';
+
 const staticMeta: Record<string, RouteMeta> = {
   '/': defaultMeta,
   '/about': {
@@ -29,10 +31,20 @@ const staticMeta: Record<string, RouteMeta> = {
     description:
       'The story behind Codie Capital Research, a personal investment journal by Codie Marillier documenting his own portfolio, mistakes, reading, and long-term investing development.',
   },
+  '/books': {
+    title: 'Books That Shaped My Thinking | Codie Capital Research',
+    description:
+      "Books that shaped Codie Marillier's thinking about investing, money, discipline, purpose, risk, and long-term decision-making.",
+  },
   '/philosophy': {
     title: 'Investment Philosophy | Codie Capital Research',
     description:
       "A private long-term investor's written philosophy around business quality, valuation discipline, risk control, cash patience, and learning from mistakes.",
+  },
+  '/process': {
+    title: 'Investment Process | Codie Capital Research',
+    description:
+      "Codie Marillier's personal investing process: long-term ownership, written reasoning, risk control, cash discipline, and avoiding leverage.",
   },
   '/journal': {
     title: 'Portfolio Journal | Codie Capital Research',
@@ -62,6 +74,18 @@ function upsertMeta(selector: string, attribute: 'name' | 'property', key: strin
   tag.setAttribute('content', content);
 }
 
+function upsertCanonical(href: string) {
+  let tag = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+
+  if (!tag) {
+    tag = document.createElement('link');
+    tag.setAttribute('rel', 'canonical');
+    document.head.appendChild(tag);
+  }
+
+  tag.setAttribute('href', href);
+}
+
 function getRouteMeta(pathname: string): RouteMeta {
   if (staticMeta[pathname]) {
     return staticMeta[pathname];
@@ -86,9 +110,10 @@ function PageMeta() {
 
   useEffect(() => {
     const meta = getRouteMeta(location.pathname);
-    const canonicalUrl = `${window.location.origin}${location.pathname}`;
+    const canonicalUrl = `${siteUrl}${location.pathname === '/' ? '/' : location.pathname}`;
 
     document.title = meta.title;
+    upsertCanonical(canonicalUrl);
     upsertMeta('meta[name="description"]', 'name', 'description', meta.description);
     upsertMeta('meta[property="og:title"]', 'property', 'og:title', meta.title);
     upsertMeta('meta[property="og:description"]', 'property', 'og:description', meta.description);
@@ -121,7 +146,9 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/books" element={<About />} />
         <Route path="/philosophy" element={<Philosophy />} />
+        <Route path="/process" element={<Philosophy />} />
         <Route path="/journal" element={<PortfolioJournal />} />
         <Route path="/journal/:slug" element={<ArticleDetail type="journal" />} />
         <Route path="/portfolio" element={<CurrentPortfolio />} />
