@@ -104,14 +104,16 @@ export default function About() {
         eyebrow="About"
         title="About Codie Marillier"
         intro="I started Codie Capital Research to document my development as a private, long-term investor. The goal is to build a transparent record of my thinking, decisions, mistakes, and process as I continue to refine how I allocate capital."
+        align="center"
       />
 
-      <section className="mx-auto grid max-w-7xl gap-12 px-5 py-16 md:px-8 md:py-24 lg:grid-cols-[0.75fr_1.25fr]">
+      <section className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24">
         <SectionHeader
           eyebrow="Investing background"
           title="A private, long-term investor building a written record."
+          align="center"
         />
-        <div className="space-y-6 text-lg leading-9 text-slateText">
+        <div className="mx-auto mt-12 max-w-5xl space-y-6 text-lg leading-9 text-slateText">
           <p>
             I am a private, long-term investor managing my own portfolio and documenting the process publicly.
           </p>
@@ -153,13 +155,14 @@ export default function About() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-7xl gap-12 px-5 py-16 md:px-8 md:py-24 lg:grid-cols-[0.8fr_1.2fr]">
+      <section className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24">
         <SectionHeader
           eyebrow="Process"
           title="Mistakes That Shaped My Process"
           text="The biggest lesson investing has taught me is patience. I still take risk, but I want that risk to be deliberate, properly sized, and backed by clear reasoning."
+          align="center"
         />
-        <div className="space-y-6 text-lg leading-9 text-slateText">
+        <div className="mx-auto mt-12 max-w-5xl space-y-6 text-lg leading-9 text-slateText">
           <p>
             Early Bitcoin and crypto success showed me what was possible. Losing money through leveraged crypto trading
             taught me more than making money early on.
