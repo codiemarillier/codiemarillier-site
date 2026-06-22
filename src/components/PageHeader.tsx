@@ -3,13 +3,15 @@ type PageHeaderProps = {
   title: string;
   intro: string;
   align?: 'left' | 'center';
+  tone?: 'paper' | 'ivory';
 };
 
-export default function PageHeader({ eyebrow, title, intro, align = 'left' }: PageHeaderProps) {
+export default function PageHeader({ eyebrow, title, intro, align = 'left', tone = 'paper' }: PageHeaderProps) {
   const centered = align === 'center';
+  const background = tone === 'ivory' ? 'bg-ivory' : 'bg-paper';
 
   return (
-    <header className="border-b border-line bg-paper">
+    <header className={`border-b border-line ${background}`}>
       <div className={`mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24 ${centered ? 'text-center' : ''}`}>
         {eyebrow && (
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-gold">{eyebrow}</p>

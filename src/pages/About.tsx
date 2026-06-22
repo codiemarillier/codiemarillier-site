@@ -105,6 +105,7 @@ export default function About() {
         title="About Codie Marillier"
         intro="I started Codie Capital Research to document my development as a private, long-term investor. The goal is to build a transparent record of my thinking, decisions, mistakes, and process as I continue to refine how I allocate capital."
         align="center"
+        tone="ivory"
       />
 
       <section className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24">
