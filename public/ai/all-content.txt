@@ -6,7 +6,7 @@ This website is a personal investment research and portfolio journal. It is not 
 
 LATEST PORTFOLIO SNAPSHOT
 
-Latest review: Week 15
+Latest review: Week 15 Portfolio Summary
 
 Current account value: £2,055.86
 
@@ -26,11 +26,11 @@ Codie Capital Research is the personal investment journal of Codie Marillier, a 
 
 The site exists to track decisions, weekly reviews, holdings, mistakes, rules, and reading development. It is not a fund, advisory service, investment service, or capital-raising site.
 
-Latest source-of-truth review: Week 15. Current account value £2,055.86, starting value £1,999, return +2.84%, cash £118.47.
+Latest source-of-truth review: Week 15 Portfolio Summary. Current account value £2,055.86, starting value £1,999, return +2.84%, cash £118.47.
 
 /portfolio - Current Portfolio
 The portfolio page records Codie’s own current holdings, Week 15 account value, starting value, cash, latest return, winners, drags, portfolio role notes, and latest action plan.
-Current account value: £2,055.86. Starting value: £1,999. Current return: +2.84%. Cash balance: £118.47. Latest review: Week 15.
+Current account value: £2,055.86. Starting value: £1,999. Current return: +2.84%. Cash balance: £118.47. Latest review: Week 15 Portfolio Summary.
 
 Open holdings: SGLN 5.7193202 shares (Portfolio hedge and macro protection); QQQA 5.56619718 shares (Broad technology-led US equity exposure); VUAG 2.03661797 shares (Broad US market exposure); RHM 0.08678 shares (Defence demand and European security exposure); O 3.27872926 shares (Real estate income exposure); NEE 2.04 shares (Utility and renewables exposure); META 0.51994241 shares (Advertising, AI, and platform scale); SYM 3.268 shares (Robotics and warehouse automation); SPCX 1 share (Early exposure to space infrastructure, satellites, and Starlink); ABNB 1.223 shares (Asset-light travel platform exposure); BRK.B 0.3884 shares (Diversified operating businesses and capital discipline); GOOGL 0.28 shares (Search, cloud, AI, and platform scale).
 
@@ -100,7 +100,7 @@ The Tipping Point by Malcolm Gladwell. Trends / Compounding / Behaviour. The Tip
 
 /process - Investment Process
 The process page sets out the investing rulebook: protect capital, size positions properly, write reasoning, keep cash discipline, avoid leverage and impulsive trades, and review weekly.
-Capital protection first: Avoiding permanent loss matters more than chasing quick performance. The first job is to stay in the game, protect the account, and make sure every decision can be explained calmly after the fact.
+Protect capital first: Avoiding permanent loss matters more than chasing quick performance. The first job is to stay in the game, protect the account, and make sure every decision can be explained calmly after the fact.
 
 Position sizing has to match risk: No individual position should move above 10% of the portfolio without a written reason. Higher-risk ideas can exist in the portfolio, but they need smaller sizing and stricter review.
 
@@ -108,7 +108,7 @@ Written reasoning before action: Every trade needs a reason before entry and a r
 
 Cash discipline: Cash is not a failure to act. It gives flexibility when opportunities are not attractive and stops me from forcing trades just because money is available.
 
-No leverage: Leveraged crypto trading taught me how quickly pressure can turn into gambling. I do not want leverage, revenge trading, or emotional overexposure driving the portfolio.
+Avoid leverage: No leverage. Leveraged crypto trading taught me how quickly pressure can turn into gambling. I do not want leverage, revenge trading, or emotional overexposure driving the portfolio.
 
 No impulsive trades: Avoid hype, panic, and quick emotional decisions. If a trade is only exciting because the price is moving, that is not enough.
 
@@ -289,7 +289,7 @@ Do not keep averaging down in Symbotic blindly; let the position prove itself.
 
 PROCESS RULES
 
-Capital protection first
+Protect capital first
 Avoiding permanent loss matters more than chasing quick performance. The first job is to stay in the game, protect the account, and make sure every decision can be explained calmly after the fact.
 
 Position sizing has to match risk
@@ -301,8 +301,8 @@ Every trade needs a reason before entry and a review after exit. If I cannot wri
 Cash discipline
 Cash is not a failure to act. It gives flexibility when opportunities are not attractive and stops me from forcing trades just because money is available.
 
-No leverage
-Leveraged crypto trading taught me how quickly pressure can turn into gambling. I do not want leverage, revenge trading, or emotional overexposure driving the portfolio.
+Avoid leverage
+No leverage. Leveraged crypto trading taught me how quickly pressure can turn into gambling. I do not want leverage, revenge trading, or emotional overexposure driving the portfolio.
 
 No impulsive trades
 Avoid hype, panic, and quick emotional decisions. If a trade is only exciting because the price is moving, that is not enough.

@@ -6,7 +6,7 @@ const outputRoot = process.argv[2] || 'public';
 const aiRoot = `${outputRoot}/ai`;
 const tempModule = `/tmp/codie-site-data-${Date.now()}.mjs`;
 const siteUrl = 'https://codiemarillier.com';
-const latestReview = 'Week 15';
+const latestReview = 'Week 15 Portfolio Summary';
 const latestUpdated = '2026-06-16';
 
 await build({
@@ -358,6 +358,11 @@ await writeFile(
       <section>
         <h2>Latest Portfolio Snapshot</h2>
         <p><strong>Latest review:</strong> ${latestReview}</p>
+        <pre class="card">accountValue: ${esc(portfolioSnapshot.accountValue)}
+startingCostBasis: ${esc(portfolioSnapshot.startingCostBasis)}
+currentReturn: ${esc(portfolioSnapshot.currentReturn)}
+cashBalance: ${esc(portfolioSnapshot.cashBalance)}
+latestReview: ${esc(latestReview)}</pre>
         <div class="grid">
           <div class="card"><strong>Current account value</strong><br>${esc(portfolioSnapshot.accountValue)}</div>
           <div class="card"><strong>Starting value</strong><br>${esc(portfolioSnapshot.startingCostBasis)}</div>

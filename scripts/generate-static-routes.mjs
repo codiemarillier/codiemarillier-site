@@ -275,6 +275,7 @@ const routes = [
       <p>About Codie Marillier</p>
       <h1>About Codie Marillier</h1>
       ${paragraph('I am a private, long-term investor managing my own portfolio and documenting the process publicly.')}
+      ${paragraph('This page covers Codie Marillier as a private long-term investor, his early interest in markets, the COVID lockdown course, first Bitcoin investment, family real estate influence, mistakes, and reading development.')}
       ${paragraph('My interest in investing began seriously around the age of fourteen, when I first understood that the stock market allowed ordinary people to buy small pieces of real businesses.')}
       ${paragraph('During the first COVID lockdown in 2020, my father encouraged me and my siblings to each choose an online course while we were at home. I chose a stock trading course by Mohsin Hassan on Udemy and began studying fundamental analysis, technical analysis, market behaviour, risk, and trading psychology.')}
       ${paragraph('My first investment was Bitcoin in 2021, when it was trading at roughly $21,000. I invested around $500, and within a few months that position had grown to approximately $1,500. That early success gave me confidence, but it also taught me that making money early does not always mean you fully understand risk.')}

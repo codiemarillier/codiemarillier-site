@@ -183,7 +183,7 @@ export const investmentRules = [
 
 export const processRules = [
   {
-    title: 'Capital protection first',
+    title: 'Protect capital first',
     text: 'Avoiding permanent loss matters more than chasing quick performance. The first job is to stay in the game, protect the account, and make sure every decision can be explained calmly after the fact.',
   },
   {
@@ -199,8 +199,8 @@ export const processRules = [
     text: 'Cash is not a failure to act. It gives flexibility when opportunities are not attractive and stops me from forcing trades just because money is available.',
   },
   {
-    title: 'No leverage',
-    text: 'Leveraged crypto trading taught me how quickly pressure can turn into gambling. I do not want leverage, revenge trading, or emotional overexposure driving the portfolio.',
+    title: 'Avoid leverage',
+    text: 'No leverage. Leveraged crypto trading taught me how quickly pressure can turn into gambling. I do not want leverage, revenge trading, or emotional overexposure driving the portfolio.',
   },
   {
     title: 'No impulsive trades',

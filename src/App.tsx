@@ -144,9 +144,18 @@ function ScrollToTop() {
   return null;
 }
 
+function ReactReady() {
+  useEffect(() => {
+    document.documentElement.classList.add('react-hydrated');
+  }, []);
+
+  return null;
+}
+
 export default function App() {
   return (
     <div className="min-h-screen bg-ivory text-charcoal">
+      <ReactReady />
       <PageMeta />
       <ScrollToTop />
       <Navbar />
