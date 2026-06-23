@@ -18,12 +18,15 @@ await build({
 
 const {
   brand,
+  decisionArchiveEntries,
   disclaimerPoints,
   holdings,
   journalEntries,
+  mistakeLessons,
   portfolioCrawlerNotes,
   portfolioRoles,
   portfolioSnapshot,
+  plannedLetters,
   processRules,
   readingDevelopment,
   researchNotes,
@@ -49,6 +52,10 @@ function paragraph(text) {
 
 function list(items) {
   return `<ul>${items.map((item) => `<li>${esc(item)}</li>`).join('')}</ul>`;
+}
+
+function linkList(items) {
+  return `<ul>${items.map((item) => `<li><a href="${esc(item.href)}">${esc(item.label)}</a> - ${esc(item.text)}</li>`).join('')}</ul>`;
 }
 
 function section(title, body) {
@@ -98,6 +105,48 @@ function weeklyCard(entry) {
     </dl>
     <p><a href="/journal/${esc(entry.slug)}">Read ${esc(entry.title)}</a></p>
   </article>`;
+}
+
+function letterCard(letter) {
+  return `<article class="static-card">
+    <p>${esc(letter.type)} / ${esc(letter.date)}</p>
+    <h3><a href="/letters/${esc(letter.slug)}">${esc(letter.title)}</a></h3>
+    <p>${esc(letter.summary)}</p>
+    <p><strong>Main themes:</strong> ${esc(letter.themes.join(', '))}</p>
+  </article>`;
+}
+
+function decisionCard(decision) {
+  return `<article class="static-card">
+    <p>${esc(decision.action)} / ${esc(decision.status)} / ${esc(decision.date)}</p>
+    <h3><a href="/decision-archive/${esc(decision.slug)}">${esc(decision.title)}</a></h3>
+    <p><strong>Holding/ticker:</strong> ${esc(decision.holding)}</p>
+    <p><strong>Position type:</strong> ${esc(decision.positionType)}</p>
+    <p>${esc(decision.summary)}</p>
+    <p><strong>Tags:</strong> ${esc(decision.tags.join(', '))}</p>
+    ${decision.relatedWeeklyReview ? `<p><strong>Related weekly review:</strong> <a href="/journal/${esc(decision.relatedWeeklyReview)}">${esc(decision.relatedWeeklyReview)}</a></p>` : ''}
+  </article>`;
+}
+
+function lessonCard(lesson) {
+  return `<article class="static-card">
+    <p>${esc(lesson.period)}</p>
+    <h3><a href="/mistakes-lessons/${esc(lesson.slug)}">${esc(lesson.title)}</a></h3>
+    <p>${esc(lesson.summary)}</p>
+    <p><strong>Main themes:</strong> ${esc(lesson.themes.join(', '))}</p>
+    ${lesson.relatedLink ? `<p><strong>Related link:</strong> <a href="${esc(lesson.relatedLink)}">${esc(lesson.relatedLink)}</a></p>` : ''}
+  </article>`;
+}
+
+function templatePage({ eyebrow, title, intro, backHref, backLabel, fields }) {
+  return `
+    <p>${esc(eyebrow)}</p>
+    <h1>${esc(title)}</h1>
+    ${paragraph(intro)}
+    ${section('Coming Soon', paragraph('This page is a prepared template for a future piece of writing. The full content has not been written yet, so the page is intentionally not pretending to be finished.'))}
+    ${section('Template Fields', list(fields.map((field) => `${field}: To be written.`)))}
+    ${section('Back Link', `<p><a href="${esc(backHref)}">Back to ${esc(backLabel)}</a></p>`)}
+  `;
 }
 
 function routeHtml({ path, title, description, fallback, pageType = 'WebPage' }) {
@@ -160,9 +209,20 @@ const homeRoute = {
         'About Codie Marillier: personal investing background, early interest in markets, Bitcoin, real estate influence, mistakes, and reading development.',
         'Current Portfolio: current account value, cash, holdings, winners, drags, roles, and action plan.',
         'Portfolio Journal: weekly summaries from Week 1 to Week 15 and trade reflections.',
+        'Letters: planned longer-form reflections on investing lessons, discipline, risk, and process development.',
+        'Decision Archive: planned structured decision memos covering reasoning, expectations, risks, outcomes, and lessons.',
+        'Mistakes & Lessons: planned notes on mistakes, difficult decisions, and improvements to the investing process.',
         'Books That Shaped My Thinking: full personal reflections on each book.',
         'Investment Process: capital protection, position sizing, written reasoning, cash discipline, no leverage, no impulsive trades, and weekly review process.',
       ]),
+    )}
+    ${section(
+      'Building the Process',
+      `<div class="static-grid">
+        <article><h3><a href="/letters">Letters</a></h3><p>Longer-form monthly or quarterly reflections on what I am learning, how my thinking is developing, and what I am trying to improve over time.</p></article>
+        <article><h3><a href="/decision-archive">Decision Archive</a></h3><p>A structured archive for future major decisions, including reasoning, expectations, risks, outcomes, and lessons learned.</p></article>
+        <article><h3><a href="/mistakes-lessons">Mistakes & Lessons</a></h3><p>A personal record of mistakes, difficult decisions, and process lessons from managing my own portfolio.</p></article>
+      </div>`,
     )}
     ${section(
       'Links',
@@ -170,6 +230,9 @@ const homeRoute = {
         <li><a href="/about">About</a></li>
         <li><a href="/portfolio">Portfolio</a></li>
         <li><a href="/journal">Journal</a></li>
+        <li><a href="/letters">Letters</a></li>
+        <li><a href="/decision-archive">Decision Archive</a></li>
+        <li><a href="/mistakes-lessons">Mistakes & Lessons</a></li>
         <li><a href="/books">Books</a></li>
         <li><a href="/process">Process</a></li>
         <li><a href="/disclaimer">Disclaimer</a></li>
@@ -225,6 +288,10 @@ const routes = [
         'Transaction Summary',
         `<dl class="static-grid">${transactionSummary.map((item) => `<div><dt>${esc(item.label)}</dt><dd>${esc(item.value)}</dd></div>`).join('')}</dl>`,
       )}
+      ${section(
+        'Related Decision Record',
+        '<p><a href="/decision-archive">See the Decision Archive for the reasoning behind major portfolio changes.</a></p>',
+      )}
     `,
   },
   {
@@ -236,7 +303,86 @@ const routes = [
       <p>Weekly review archive. Not investment advice.</p>
       <h1>Portfolio Journal</h1>
       ${paragraph('Weekly portfolio reviews documenting account value, positioning, lessons, mistakes, and market context from my own portfolio.')}
+      ${section(
+        'Related Sections',
+        linkList([
+          {
+            href: '/decision-archive',
+            label: 'Decision Archive',
+            text: 'Future major trades and portfolio decisions will be recorded as structured decision notes.',
+          },
+          {
+            href: '/letters',
+            label: 'Letters',
+            text: 'Longer reflections will sit separately from the weekly review archive.',
+          },
+        ]),
+      )}
       ${section('Weekly Review Cards', weeklyReviews.map(weeklyCard).join(''))}
+    `,
+  },
+  {
+    path: '/letters',
+    title: 'Letters | Codie Capital Research',
+    description:
+      "Longer-form reflections from Codie Marillier's personal investment journal, covering lessons, discipline, portfolio development, and investing process.",
+    fallback: `
+      <p>Letters</p>
+      <h1>Letters</h1>
+      ${paragraph('Letters are longer-form reflections on my investing journey. Unlike the weekly portfolio reviews, these are not only about what changed in the account. They are about what I am learning, how my thinking is developing, and what I am trying to improve over time.')}
+      ${section('Coming Soon', paragraph('These letters are planned but not written yet. The structure is here so future monthly letters, quarterly letters, and deeper reflections can sit alongside the weekly portfolio record.'))}
+      ${section('Planned Letter Cards', plannedLetters.map(letterCard).join(''))}
+      ${section(
+        'Related Sections',
+        linkList([
+          { href: '/journal', label: 'Portfolio Journal', text: 'Weekly review archive from Week 1 to Week 15.' },
+          { href: '/process', label: 'Investment Process', text: 'The rules and process these future letters will keep referring back to.' },
+          { href: '/mistakes-lessons', label: 'Mistakes & Lessons', text: 'A planned record for honest reviews and lessons.' },
+        ]),
+      )}
+    `,
+  },
+  {
+    path: '/decision-archive',
+    title: 'Decision Archive | Codie Capital Research',
+    description:
+      'A structured archive of major investment decisions, including reasoning, expectations, risks, outcomes, and lessons learned.',
+    fallback: `
+      <p>Decision Archive</p>
+      <h1>Decision Archive</h1>
+      ${paragraph('The Decision Archive is where I will record the most important investment decisions I make. The goal is not only to track outcomes, but to understand the reasoning behind each decision and whether the process was sound.')}
+      ${section('Coming Soon', paragraph('Initial decision notes will be added soon. Each future entry will record the decision, what I expected, what could go wrong, what actually happened, and what I learned afterwards.'))}
+      ${section('Filter Support', list(['Buy', 'Sell', 'Trim', 'Add', 'Hold', 'Mistake', 'Lesson', 'Speculative', 'Core holding', 'Hedge']))}
+      ${section('Planned Decision Cards', decisionArchiveEntries.map(decisionCard).join(''))}
+      ${section(
+        'Related Sections',
+        linkList([
+          { href: '/portfolio', label: 'Current Portfolio', text: 'Current holdings and portfolio role notes.' },
+          { href: '/journal', label: 'Portfolio Journal', text: 'Weekly reviews linked to future decision notes.' },
+          { href: '/mistakes-lessons', label: 'Mistakes & Lessons', text: 'Future lessons connected to reviewed decisions.' },
+        ]),
+      )}
+    `,
+  },
+  {
+    path: '/mistakes-lessons',
+    title: 'Mistakes & Lessons | Codie Capital Research',
+    description:
+      'A personal record of investing mistakes, difficult decisions, and lessons learned from managing a real portfolio over time.',
+    fallback: `
+      <p>Mistakes & Lessons</p>
+      <h1>Mistakes & Lessons</h1>
+      ${paragraph('This section is for recording mistakes, difficult decisions, and lessons from the portfolio. The aim is not to avoid mistakes completely, but to make sure I learn from them, improve my process, and do not repeat the same errors without understanding them.')}
+      ${section('Coming Soon', paragraph('These lesson cards are planned placeholders. Future entries will explain what happened, why it mattered, what I got wrong, what I learned, and what I would do differently.'))}
+      ${section('Planned Lesson Cards', mistakeLessons.map(lessonCard).join(''))}
+      ${section(
+        'Related Sections',
+        linkList([
+          { href: '/decision-archive', label: 'Decision Archive', text: 'Future decision memos that can connect to lesson notes.' },
+          { href: '/process', label: 'Investment Process', text: 'The rules that future lessons are meant to improve.' },
+          { href: '/about', label: 'About', text: 'The personal background behind the learning process.' },
+        ]),
+      )}
     `,
   },
   {
@@ -264,6 +410,21 @@ const routes = [
       <h1>Investment Process</h1>
       ${paragraph('A written rulebook for protecting capital, sizing positions properly, keeping cash discipline, avoiding leverage, and reviewing the portfolio every week.')}
       ${section('Full Investing Rules', processRules.map((rule) => `<article><h3>${esc(rule.title)}</h3><p>${esc(rule.text)}</p></article>`).join(''))}
+      ${section(
+        'Related Sections',
+        linkList([
+          {
+            href: '/decision-archive',
+            label: 'Decision Archive',
+            text: 'The future place for structured records of major buys, sells, trims, adds, holds, mistakes, and lessons.',
+          },
+          {
+            href: '/mistakes-lessons',
+            label: 'Mistakes & Lessons',
+            text: 'The future place for reviewing mistakes properly and improving the process over time.',
+          },
+        ]),
+      )}
     `,
   },
   {
@@ -341,6 +502,79 @@ for (const entry of journalEntries) {
   });
 }
 
+for (const letter of plannedLetters) {
+  await writeRoute({
+    path: `/letters/${letter.slug}`,
+    title: `${letter.title} | Letters | Codie Capital Research`,
+    description: letter.summary,
+    pageType: 'Article',
+    fallback: templatePage({
+      eyebrow: `${letter.type} / ${letter.date}`,
+      title: letter.title,
+      intro: letter.summary,
+      backHref: '/letters',
+      backLabel: 'Letters',
+      fields: ['Title', 'Date', 'Type', 'Short summary', 'Main themes', 'Full letter draft'],
+    }),
+  });
+}
+
+for (const decision of decisionArchiveEntries) {
+  await writeRoute({
+    path: `/decision-archive/${decision.slug}`,
+    title: `${decision.title} | Decision Archive | Codie Capital Research`,
+    description: decision.summary,
+    pageType: 'Article',
+    fallback: templatePage({
+      eyebrow: `${decision.action} / ${decision.positionType} / ${decision.status}`,
+      title: decision.title,
+      intro: `${decision.summary} Holding/ticker: ${decision.holding}. Related weekly review: ${decision.relatedWeeklyReview ?? 'To be confirmed'}.`,
+      backHref: '/decision-archive',
+      backLabel: 'Decision Archive',
+      fields: [
+        'Date',
+        'Decision title',
+        'Holding / ticker',
+        'Action taken',
+        'Position type',
+        'Why I made the decision',
+        'What I expected',
+        'What could go wrong',
+        'What actually happened',
+        'What I learned',
+        'Related weekly review',
+        'Status',
+      ],
+    }),
+  });
+}
+
+for (const lesson of mistakeLessons) {
+  await writeRoute({
+    path: `/mistakes-lessons/${lesson.slug}`,
+    title: `${lesson.title} | Mistakes & Lessons | Codie Capital Research`,
+    description: lesson.summary,
+    pageType: 'Article',
+    fallback: templatePage({
+      eyebrow: lesson.period,
+      title: lesson.title,
+      intro: `${lesson.summary} Related decision or weekly review: ${lesson.relatedLink ?? 'To be confirmed'}.`,
+      backHref: '/mistakes-lessons',
+      backLabel: 'Mistakes & Lessons',
+      fields: [
+        'Title',
+        'Date or period',
+        'What happened',
+        'Why it mattered',
+        'What I got wrong',
+        'What I learned',
+        'What I would do differently',
+        'Related decision or weekly review',
+      ],
+    }),
+  });
+}
+
 await writeFile(
   `${outputRoot}/404.html`,
   routeHtml({
@@ -351,7 +585,7 @@ await writeFile(
       <p>404</p>
       <h1>Page Not Found</h1>
       ${paragraph('The page you requested could not be found. Use the links below to return to the main public archive.')}
-      ${section('Useful Links', list(['/', '/portfolio', '/journal', '/books', '/process', '/about', '/ai/']))}
+      ${section('Useful Links', list(['/', '/portfolio', '/journal', '/letters', '/decision-archive', '/mistakes-lessons', '/books', '/process', '/about', '/ai/']))}
     `,
   }),
 );

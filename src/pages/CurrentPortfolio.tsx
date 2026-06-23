@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import CurrentHoldingsOverview from '../components/CurrentHoldingsOverview';
 import HoldingsTable from '../components/HoldingsTable';
 import PageHeader from '../components/PageHeader';
@@ -63,6 +64,9 @@ export default function CurrentPortfolio() {
           />
         </div>
         <CurrentHoldingsOverview />
+        <Link to="/decision-archive" className="mt-8 inline-flex text-sm font-semibold text-charcoal">
+          See the Decision Archive for the reasoning behind major portfolio changes.
+        </Link>
       </section>
 
       <section className="border-y border-line bg-paper">

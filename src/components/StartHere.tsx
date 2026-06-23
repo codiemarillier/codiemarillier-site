@@ -1,4 +1,4 @@
-import { ArrowRight, LineChart, ScrollText } from 'lucide-react';
+import { ArrowRight, Archive, FileText, LineChart, ScrollText, ShieldAlert } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { holdings, journalEntries, portfolioChangeLog } from '../data/siteData';
 
@@ -6,6 +6,27 @@ const visibleHoldings = holdings.filter((holding) => holding.positionSize !== 'C
 const latestWeeklyEntries = journalEntries
   .filter((entry) => entry.category === 'Weekly Reviews')
   .slice(0, 3);
+
+const processSections = [
+  {
+    title: 'Letters',
+    text: 'Longer-form monthly or quarterly reflections on what I am learning and how my thinking is developing.',
+    href: '/letters',
+    icon: FileText,
+  },
+  {
+    title: 'Decision Archive',
+    text: 'A structured place for major decisions, expectations, risks, outcomes, and lessons after the fact.',
+    href: '/decision-archive',
+    icon: Archive,
+  },
+  {
+    title: 'Mistakes & Lessons',
+    text: 'A record for difficult decisions, mistakes, and process lessons I want to understand properly.',
+    href: '/mistakes-lessons',
+    icon: ShieldAlert,
+  },
+];
 
 export default function StartHere() {
   return (
@@ -50,6 +71,37 @@ export default function StartHere() {
               View portfolio and change log
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
+          </div>
+        </article>
+
+        <article className="bg-paper p-6 md:p-7">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Building the process</p>
+            <h3 className="mt-3 font-serif text-3xl font-semibold text-charcoal md:text-5xl">
+              The record behind the results
+            </h3>
+            <p className="mt-4 text-base leading-8 text-slateText">
+              These sections are where the site will become more useful over time: longer reflections, structured
+              decision notes, and honest lessons from the portfolio.
+            </p>
+          </div>
+          <div className="mt-8 grid gap-3 md:grid-cols-3">
+            {processSections.map((item) => {
+              const Icon = item.icon;
+              return (
+                <Link key={item.href} to={item.href} className="group border border-line bg-ivory p-5 transition-colors hover:bg-paper">
+                  <span className="flex h-10 w-10 items-center justify-center border border-line bg-paper text-gold">
+                    <Icon className="h-5 w-5" aria-hidden="true" />
+                  </span>
+                  <h4 className="mt-4 font-serif text-2xl font-semibold leading-tight text-charcoal">{item.title}</h4>
+                  <p className="mt-3 text-sm leading-7 text-slateText">{item.text}</p>
+                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-charcoal">
+                    Open section
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                  </span>
+                </Link>
+              );
+            })}
           </div>
         </article>
 

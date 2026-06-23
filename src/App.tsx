@@ -6,13 +6,17 @@ import About from './pages/About';
 import ArticleDetail from './pages/ArticleDetail';
 import Books from './pages/Books';
 import CurrentPortfolio from './pages/CurrentPortfolio';
+import DecisionArchive from './pages/DecisionArchive';
 import Disclaimer from './pages/Disclaimer';
 import Home from './pages/Home';
+import Letters from './pages/Letters';
+import MistakesLessons from './pages/MistakesLessons';
 import NotFound from './pages/NotFound';
 import Philosophy from './pages/Philosophy';
+import PlannedEntryDetail from './pages/PlannedEntryDetail';
 import PortfolioJournal from './pages/PortfolioJournal';
 import Process from './pages/Process';
-import { brand, journalEntries } from './data/siteData';
+import { brand, decisionArchiveEntries, journalEntries, mistakeLessons, plannedLetters } from './data/siteData';
 
 type RouteMeta = {
   title: string;
@@ -54,6 +58,21 @@ const staticMeta: Record<string, RouteMeta> = {
     description:
       "Weekly portfolio reviews and trade reflections written for accountability around Codie Marillier's own portfolio. Not investment advice.",
   },
+  '/letters': {
+    title: 'Letters | Codie Capital Research',
+    description:
+      "Longer-form reflections from Codie Marillier's personal investment journal, covering lessons, discipline, portfolio development, and investing process.",
+  },
+  '/decision-archive': {
+    title: 'Decision Archive | Codie Capital Research',
+    description:
+      'A structured archive of major investment decisions, including reasoning, expectations, risks, outcomes, and lessons learned.',
+  },
+  '/mistakes-lessons': {
+    title: 'Mistakes & Lessons | Codie Capital Research',
+    description:
+      'A personal record of investing mistakes, difficult decisions, and lessons learned from managing a real portfolio over time.',
+  },
   '/portfolio': {
     title: 'Current Portfolio | Codie Capital Research',
     description:
@@ -94,17 +113,52 @@ function upsertCanonical(href: string) {
 }
 
 function getRouteMeta(pathname: string): RouteMeta {
-  if (staticMeta[pathname]) {
-    return staticMeta[pathname];
+  const normalizedPath = pathname !== '/' ? pathname.replace(/\/+$/, '') : pathname;
+
+  if (staticMeta[normalizedPath]) {
+    return staticMeta[normalizedPath];
   }
 
-  const journalSlug = pathname.match(/^\/journal\/([^/]+)$/)?.[1];
+  const journalSlug = normalizedPath.match(/^\/journal\/([^/]+)$/)?.[1];
   if (journalSlug) {
     const entry = journalEntries.find((item) => item.slug === journalSlug);
     if (entry) {
       return {
         title: `${entry.title} | Portfolio Journal | Codie Capital Research`,
         description: `${entry.excerpt} Personal portfolio journal entry by Codie Marillier. Not investment advice.`,
+      };
+    }
+  }
+
+  const letterSlug = normalizedPath.match(/^\/letters\/([^/]+)$/)?.[1];
+  if (letterSlug) {
+    const entry = plannedLetters.find((item) => item.slug === letterSlug);
+    if (entry) {
+      return {
+        title: `${entry.title} | Letters | Codie Capital Research`,
+        description: entry.summary,
+      };
+    }
+  }
+
+  const decisionSlug = normalizedPath.match(/^\/decision-archive\/([^/]+)$/)?.[1];
+  if (decisionSlug) {
+    const entry = decisionArchiveEntries.find((item) => item.slug === decisionSlug);
+    if (entry) {
+      return {
+        title: `${entry.title} | Decision Archive | Codie Capital Research`,
+        description: entry.summary,
+      };
+    }
+  }
+
+  const lessonSlug = normalizedPath.match(/^\/mistakes-lessons\/([^/]+)$/)?.[1];
+  if (lessonSlug) {
+    const entry = mistakeLessons.find((item) => item.slug === lessonSlug);
+    if (entry) {
+      return {
+        title: `${entry.title} | Mistakes & Lessons | Codie Capital Research`,
+        description: entry.summary,
       };
     }
   }
@@ -117,7 +171,8 @@ function PageMeta() {
 
   useEffect(() => {
     const meta = getRouteMeta(location.pathname);
-    const canonicalUrl = `${siteUrl}${location.pathname === '/' ? '/' : location.pathname}`;
+    const normalizedPath = location.pathname !== '/' ? location.pathname.replace(/\/+$/, '') : location.pathname;
+    const canonicalUrl = `${siteUrl}${normalizedPath === '/' ? '/' : normalizedPath}`;
 
     document.title = meta.title;
     upsertCanonical(canonicalUrl);
@@ -167,6 +222,12 @@ export default function App() {
         <Route path="/process" element={<Process />} />
         <Route path="/journal" element={<PortfolioJournal />} />
         <Route path="/journal/:slug" element={<ArticleDetail type="journal" />} />
+        <Route path="/letters" element={<Letters />} />
+        <Route path="/letters/:slug" element={<PlannedEntryDetail />} />
+        <Route path="/decision-archive" element={<DecisionArchive />} />
+        <Route path="/decision-archive/:slug" element={<PlannedEntryDetail />} />
+        <Route path="/mistakes-lessons" element={<MistakesLessons />} />
+        <Route path="/mistakes-lessons/:slug" element={<PlannedEntryDetail />} />
         <Route path="/portfolio" element={<CurrentPortfolio />} />
         <Route path="/disclaimer" element={<Disclaimer />} />
         <Route path="*" element={<NotFound />} />

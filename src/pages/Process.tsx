@@ -1,6 +1,21 @@
+import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader';
 import SectionHeader from '../components/SectionHeader';
 import { processRules } from '../data/siteData';
+
+const relatedSections = [
+  {
+    title: 'Decision Archive',
+    text: 'The place where major portfolio decisions will be recorded with reasoning, expectations, risks, outcomes, and lessons.',
+    href: '/decision-archive',
+  },
+  {
+    title: 'Mistakes & Lessons',
+    text: 'The place for reviewing difficult decisions honestly and turning mistakes into a stronger investment process.',
+    href: '/mistakes-lessons',
+  },
+];
 
 export default function Process() {
   return (
@@ -42,6 +57,26 @@ export default function Process() {
             emotional pressure, and the plan for the following week. The goal is to make the process visible enough
             that bad habits are harder to hide from.
           </p>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24">
+        <SectionHeader
+          eyebrow="Related sections"
+          title="Where the process gets tested."
+          text="The rulebook matters most when it is connected to real decisions and honest reviews."
+        />
+        <div className="mt-10 grid gap-px border border-line bg-line md:grid-cols-2">
+          {relatedSections.map((section) => (
+            <Link key={section.href} to={section.href} className="group bg-paper p-7 transition-colors hover:bg-ivory">
+              <h2 className="font-serif text-3xl font-semibold text-charcoal">{section.title}</h2>
+              <p className="mt-4 text-sm leading-7 text-slateText">{section.text}</p>
+              <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-charcoal">
+                Open section
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+              </span>
+            </Link>
+          ))}
         </div>
       </section>
     </main>

@@ -42,6 +42,7 @@
         "https://codiemarillier.com/journal/week-15-portfolio-summary",
         "https://codiemarillier.com/journal",
         "https://codiemarillier.com/process",
+        "https://codiemarillier.com/decision-archive",
         "https://codiemarillier.com/ai/portfolio.html"
       ]
     },
@@ -70,7 +71,57 @@
         "https://codiemarillier.com/journal/week-1-portfolio-summary",
         "https://codiemarillier.com/journal/why-the-rulebook-exists",
         "https://codiemarillier.com/journal/google-re-entry-plan",
-        "https://codiemarillier.com/journal/microsoft-trade-reflection"
+        "https://codiemarillier.com/journal/microsoft-trade-reflection",
+        "https://codiemarillier.com/decision-archive",
+        "https://codiemarillier.com/letters"
+      ]
+    },
+    {
+      "title": "Letters",
+      "url": "https://codiemarillier.com/letters",
+      "description": "The Letters page is a planned section for longer-form monthly or quarterly reflections on what Codie is learning, how his thinking is changing, and what he is trying to improve over time.",
+      "pageType": "letters-index",
+      "lastUpdated": "2026-06-23",
+      "contentText": "Letters are longer-form reflections on my investing journey. Unlike the weekly portfolio reviews, these are not only about what changed in the account. They are about what I am learning, how my thinking is developing, and what I am trying to improve over time.\n\nComing soon. These letters are planned but not written yet.\n\nWhat I Learned From the First 15 Weeks. Reflection. Coming soon. A planned long-form reflection on the first 15 weeks of public portfolio reviews, including discipline, mistakes, patience, and what the record is starting to teach me. Main themes: first 15 weeks, discipline, portfolio reviews, learning in public.\n\nWhy I Am Building an Investment Process. Monthly Letter. Coming soon. A planned letter on why the site is built around process, written reasoning, accountability, and long-term development rather than short-term excitement. Main themes: process, accountability, written reasoning, long-term development.\n\nWhat I Am Learning About Risk. Reflection. Coming soon. A planned reflection on position sizing, speculative ideas, hedges, leverage, and how risk feels different before and after a decision is tested. Main themes: risk, position sizing, speculation, hedges.\n\nWhy Discipline Matters More Than Excitement. Quarterly Letter. Coming soon. A planned letter on why calm, repeatable decision-making matters more than chasing trades that feel exciting in the moment. Main themes: discipline, patience, emotional control, repeatable process.",
+      "internalLinks": [
+        "https://codiemarillier.com/letters/what-i-learned-from-the-first-15-weeks",
+        "https://codiemarillier.com/letters/why-i-am-building-an-investment-process",
+        "https://codiemarillier.com/letters/what-i-am-learning-about-risk",
+        "https://codiemarillier.com/letters/why-discipline-matters-more-than-excitement"
+      ]
+    },
+    {
+      "title": "Decision Archive",
+      "url": "https://codiemarillier.com/decision-archive",
+      "description": "The Decision Archive is a planned structured archive for major investment decisions, including reasoning, expectations, risks, outcomes, and lessons learned.",
+      "pageType": "decision-archive",
+      "lastUpdated": "2026-06-23",
+      "contentText": "The Decision Archive is where I will record the most important investment decisions I make. The goal is not only to track outcomes, but to understand the reasoning behind each decision and whether the process was sound.\n\nInitial decision notes will be added soon.\n\nFilter support: Buy, Sell, Trim, Add, Hold, Mistake, Lesson, Speculative, Core holding, Hedge.\n\nBought SpaceX. SpaceX / SPCX. Action taken: Buy. Position type: Speculative. Status: Open. A future decision memo on why SpaceX was added as a small speculative long-term position. Tags: Buy, Speculative, SpaceX.\n\nSold ASML for a realised profit. ASML. Action taken: Sell. Position type: Watchlist. Status: Reviewed. A future decision memo on taking profit in ASML and the difference between trimming and fully exiting. Tags: Sell, Lesson, ASML.\n\nRe-entered Google around $360. Alphabet / GOOGL. Action taken: Buy. Position type: Core holding. Status: Open. A future decision memo on price discipline, re-entry patience, and rebuilding a small Alphabet position. Tags: Buy, Core holding, Google.\n\nAdded to gold as a hedge. iShares Physical Gold / SGLN. Action taken: Add. Position type: Hedge. Status: Open. A future decision memo on gold as a hedge and why hedges can feel uncomfortable when they are not working every week. Tags: Add, Hedge, Gold.\n\nAveraged down Symbotic. Symbotic / SYM. Action taken: Add. Position type: Speculative. Status: Open. A future decision memo on when averaging down is deliberate and when it risks becoming emotional. Tags: Add, Speculative, Symbotic.\n\nMicrosoft short-term trade. Microsoft / MSFT. Action taken: Sell. Position type: Lesson. Status: Closed. A future decision memo on a profitable Microsoft trade and whether the decision was repeatable. Tags: Sell, Lesson, Microsoft.\n\nHeld Rheinmetall despite weakness. Rheinmetall / RHM. Action taken: Hold. Position type: Watchlist. Status: Open. A future decision memo on separating thesis review from panic selling during weakness. Tags: Hold, Lesson, Rheinmetall.",
+      "internalLinks": [
+        "https://codiemarillier.com/decision-archive/bought-spacex",
+        "https://codiemarillier.com/decision-archive/sold-asml-for-realised-profit",
+        "https://codiemarillier.com/decision-archive/re-entered-google-around-360",
+        "https://codiemarillier.com/decision-archive/added-to-gold-as-a-hedge",
+        "https://codiemarillier.com/decision-archive/averaged-down-symbotic",
+        "https://codiemarillier.com/decision-archive/microsoft-short-term-trade",
+        "https://codiemarillier.com/decision-archive/held-rheinmetall-despite-weakness"
+      ]
+    },
+    {
+      "title": "Mistakes & Lessons",
+      "url": "https://codiemarillier.com/mistakes-lessons",
+      "description": "Mistakes & Lessons is a planned section for recording mistakes, difficult decisions, and lessons from managing a real portfolio over time.",
+      "pageType": "mistakes-lessons",
+      "lastUpdated": "2026-06-23",
+      "contentText": "This section is for recording mistakes, difficult decisions, and lessons from the portfolio. The aim is not to avoid mistakes completely, but to make sure I learn from them, improve my process, and do not repeat the same errors without understanding them.\n\nComing soon. These lesson cards are planned placeholders.\n\nSelling winners: ASML and the difference between trimming and exiting. Planned lesson. A future lesson on handling winners and deciding whether to trim, hold, or fully exit. Main themes: winners, ASML, trimming, discipline.\n\nCommunication discipline: recording trades properly. Planned lesson. A future lesson on keeping the record complete and writing decisions down before memory becomes vague. Main themes: communication, record keeping, accountability.\n\nAveraging down: when it is deliberate versus emotional. Planned lesson. A future lesson on averaging down, sizing, and making sure conviction is not just hope in disguise. Main themes: averaging down, position sizing, Symbotic.\n\nSpeculative excitement: keeping SpaceX position size controlled. Planned lesson. A future lesson on owning exciting ideas without letting excitement drive portfolio size. Main themes: SpaceX, speculation, position sizing.\n\nCash discipline: not forcing trades just because cash is available. Planned lesson. A future lesson on treating cash as patience and optionality rather than pressure to act. Main themes: cash, patience, discipline.\n\nGold hedge: understanding that a hedge will not work every week. Planned lesson. A future lesson on why a hedge can be useful even when it is not the best-performing part of the portfolio. Main themes: gold, hedge, portfolio balance.\n\nRisk management: why leverage does not belong in this portfolio. Planned lesson. A future lesson on leveraged crypto trading, emotional pressure, and why leverage does not fit the process. Main themes: leverage, risk management, mistakes.",
+      "internalLinks": [
+        "https://codiemarillier.com/mistakes-lessons/selling-winners-asml-trimming-vs-exiting",
+        "https://codiemarillier.com/mistakes-lessons/communication-discipline-recording-trades",
+        "https://codiemarillier.com/mistakes-lessons/averaging-down-deliberate-vs-emotional",
+        "https://codiemarillier.com/mistakes-lessons/speculative-excitement-spacex-size-control",
+        "https://codiemarillier.com/mistakes-lessons/cash-discipline-not-forcing-trades",
+        "https://codiemarillier.com/mistakes-lessons/gold-hedge-will-not-work-every-week",
+        "https://codiemarillier.com/mistakes-lessons/risk-management-why-leverage-does-not-belong"
       ]
     },
     {
@@ -96,7 +147,9 @@
       "internalLinks": [
         "https://codiemarillier.com/portfolio",
         "https://codiemarillier.com/journal",
-        "https://codiemarillier.com/books"
+        "https://codiemarillier.com/books",
+        "https://codiemarillier.com/decision-archive",
+        "https://codiemarillier.com/mistakes-lessons"
       ]
     },
     {
@@ -368,6 +421,240 @@
       ]
     },
     {
+      "title": "What I Learned From the First 15 Weeks",
+      "url": "https://codiemarillier.com/letters/what-i-learned-from-the-first-15-weeks",
+      "description": "A planned long-form reflection on the first 15 weeks of public portfolio reviews, including discipline, mistakes, patience, and what the record is starting to teach me.",
+      "pageType": "letter-template",
+      "lastUpdated": "2026-06-23",
+      "contentText": "What I Learned From the First 15 Weeks. Reflection. Coming soon.\n\nA planned long-form reflection on the first 15 weeks of public portfolio reviews, including discipline, mistakes, patience, and what the record is starting to teach me.\n\nMain themes: first 15 weeks, discipline, portfolio reviews, learning in public.\n\nTemplate fields: Title, Date, Type, Short summary, Main themes, Full letter draft. Full letter draft: To be written.",
+      "internalLinks": [
+        "https://codiemarillier.com/letters",
+        "https://codiemarillier.com/journal",
+        "https://codiemarillier.com/process"
+      ]
+    },
+    {
+      "title": "Why I Am Building an Investment Process",
+      "url": "https://codiemarillier.com/letters/why-i-am-building-an-investment-process",
+      "description": "A planned letter on why the site is built around process, written reasoning, accountability, and long-term development rather than short-term excitement.",
+      "pageType": "letter-template",
+      "lastUpdated": "2026-06-23",
+      "contentText": "Why I Am Building an Investment Process. Monthly Letter. Coming soon.\n\nA planned letter on why the site is built around process, written reasoning, accountability, and long-term development rather than short-term excitement.\n\nMain themes: process, accountability, written reasoning, long-term development.\n\nTemplate fields: Title, Date, Type, Short summary, Main themes, Full letter draft. Full letter draft: To be written.",
+      "internalLinks": [
+        "https://codiemarillier.com/letters",
+        "https://codiemarillier.com/journal",
+        "https://codiemarillier.com/process"
+      ]
+    },
+    {
+      "title": "What I Am Learning About Risk",
+      "url": "https://codiemarillier.com/letters/what-i-am-learning-about-risk",
+      "description": "A planned reflection on position sizing, speculative ideas, hedges, leverage, and how risk feels different before and after a decision is tested.",
+      "pageType": "letter-template",
+      "lastUpdated": "2026-06-23",
+      "contentText": "What I Am Learning About Risk. Reflection. Coming soon.\n\nA planned reflection on position sizing, speculative ideas, hedges, leverage, and how risk feels different before and after a decision is tested.\n\nMain themes: risk, position sizing, speculation, hedges.\n\nTemplate fields: Title, Date, Type, Short summary, Main themes, Full letter draft. Full letter draft: To be written.",
+      "internalLinks": [
+        "https://codiemarillier.com/letters",
+        "https://codiemarillier.com/journal",
+        "https://codiemarillier.com/process"
+      ]
+    },
+    {
+      "title": "Why Discipline Matters More Than Excitement",
+      "url": "https://codiemarillier.com/letters/why-discipline-matters-more-than-excitement",
+      "description": "A planned letter on why calm, repeatable decision-making matters more than chasing trades that feel exciting in the moment.",
+      "pageType": "letter-template",
+      "lastUpdated": "2026-06-23",
+      "contentText": "Why Discipline Matters More Than Excitement. Quarterly Letter. Coming soon.\n\nA planned letter on why calm, repeatable decision-making matters more than chasing trades that feel exciting in the moment.\n\nMain themes: discipline, patience, emotional control, repeatable process.\n\nTemplate fields: Title, Date, Type, Short summary, Main themes, Full letter draft. Full letter draft: To be written.",
+      "internalLinks": [
+        "https://codiemarillier.com/letters",
+        "https://codiemarillier.com/journal",
+        "https://codiemarillier.com/process"
+      ]
+    },
+    {
+      "title": "Bought SpaceX",
+      "url": "https://codiemarillier.com/decision-archive/bought-spacex",
+      "description": "A future decision memo on why SpaceX was added as a small speculative long-term position.",
+      "pageType": "decision-template",
+      "lastUpdated": "2026-06-23",
+      "contentText": "Bought SpaceX. Holding/ticker: SpaceX / SPCX. Action taken: Buy. Position type: Speculative. Status: Open. Date: Planned note.\n\nA future decision memo on why SpaceX was added as a small speculative long-term position.\n\nRelated weekly review: week-15-portfolio-summary.\n\nTemplate fields: Date, Decision title, Holding/ticker, Action taken, Position type, Why I made the decision, What I expected, What could go wrong, What actually happened, What I learned, Related weekly review, Status. Full decision memo: To be written.",
+      "internalLinks": [
+        "https://codiemarillier.com/decision-archive",
+        "https://codiemarillier.com/journal/week-15-portfolio-summary",
+        "https://codiemarillier.com/portfolio"
+      ]
+    },
+    {
+      "title": "Sold ASML for a realised profit",
+      "url": "https://codiemarillier.com/decision-archive/sold-asml-for-realised-profit",
+      "description": "A future decision memo on taking profit in ASML and the difference between trimming and fully exiting.",
+      "pageType": "decision-template",
+      "lastUpdated": "2026-06-23",
+      "contentText": "Sold ASML for a realised profit. Holding/ticker: ASML. Action taken: Sell. Position type: Watchlist. Status: Reviewed. Date: Planned note.\n\nA future decision memo on taking profit in ASML and the difference between trimming and fully exiting.\n\nRelated weekly review: week-15-portfolio-summary.\n\nTemplate fields: Date, Decision title, Holding/ticker, Action taken, Position type, Why I made the decision, What I expected, What could go wrong, What actually happened, What I learned, Related weekly review, Status. Full decision memo: To be written.",
+      "internalLinks": [
+        "https://codiemarillier.com/decision-archive",
+        "https://codiemarillier.com/journal/week-15-portfolio-summary",
+        "https://codiemarillier.com/portfolio"
+      ]
+    },
+    {
+      "title": "Re-entered Google around $360",
+      "url": "https://codiemarillier.com/decision-archive/re-entered-google-around-360",
+      "description": "A future decision memo on price discipline, re-entry patience, and rebuilding a small Alphabet position.",
+      "pageType": "decision-template",
+      "lastUpdated": "2026-06-23",
+      "contentText": "Re-entered Google around $360. Holding/ticker: Alphabet / GOOGL. Action taken: Buy. Position type: Core holding. Status: Open. Date: Planned note.\n\nA future decision memo on price discipline, re-entry patience, and rebuilding a small Alphabet position.\n\nRelated weekly review: week-14-portfolio-summary.\n\nTemplate fields: Date, Decision title, Holding/ticker, Action taken, Position type, Why I made the decision, What I expected, What could go wrong, What actually happened, What I learned, Related weekly review, Status. Full decision memo: To be written.",
+      "internalLinks": [
+        "https://codiemarillier.com/decision-archive",
+        "https://codiemarillier.com/journal/week-14-portfolio-summary",
+        "https://codiemarillier.com/portfolio"
+      ]
+    },
+    {
+      "title": "Added to gold as a hedge",
+      "url": "https://codiemarillier.com/decision-archive/added-to-gold-as-a-hedge",
+      "description": "A future decision memo on gold as a hedge and why hedges can feel uncomfortable when they are not working every week.",
+      "pageType": "decision-template",
+      "lastUpdated": "2026-06-23",
+      "contentText": "Added to gold as a hedge. Holding/ticker: iShares Physical Gold / SGLN. Action taken: Add. Position type: Hedge. Status: Open. Date: Planned note.\n\nA future decision memo on gold as a hedge and why hedges can feel uncomfortable when they are not working every week.\n\nRelated weekly review: week-15-portfolio-summary.\n\nTemplate fields: Date, Decision title, Holding/ticker, Action taken, Position type, Why I made the decision, What I expected, What could go wrong, What actually happened, What I learned, Related weekly review, Status. Full decision memo: To be written.",
+      "internalLinks": [
+        "https://codiemarillier.com/decision-archive",
+        "https://codiemarillier.com/journal/week-15-portfolio-summary",
+        "https://codiemarillier.com/portfolio"
+      ]
+    },
+    {
+      "title": "Averaged down Symbotic",
+      "url": "https://codiemarillier.com/decision-archive/averaged-down-symbotic",
+      "description": "A future decision memo on when averaging down is deliberate and when it risks becoming emotional.",
+      "pageType": "decision-template",
+      "lastUpdated": "2026-06-23",
+      "contentText": "Averaged down Symbotic. Holding/ticker: Symbotic / SYM. Action taken: Add. Position type: Speculative. Status: Open. Date: Planned note.\n\nA future decision memo on when averaging down is deliberate and when it risks becoming emotional.\n\nRelated weekly review: week-15-portfolio-summary.\n\nTemplate fields: Date, Decision title, Holding/ticker, Action taken, Position type, Why I made the decision, What I expected, What could go wrong, What actually happened, What I learned, Related weekly review, Status. Full decision memo: To be written.",
+      "internalLinks": [
+        "https://codiemarillier.com/decision-archive",
+        "https://codiemarillier.com/journal/week-15-portfolio-summary",
+        "https://codiemarillier.com/portfolio"
+      ]
+    },
+    {
+      "title": "Microsoft short-term trade",
+      "url": "https://codiemarillier.com/decision-archive/microsoft-short-term-trade",
+      "description": "A future decision memo on a profitable Microsoft trade and whether the decision was repeatable.",
+      "pageType": "decision-template",
+      "lastUpdated": "2026-06-23",
+      "contentText": "Microsoft short-term trade. Holding/ticker: Microsoft / MSFT. Action taken: Sell. Position type: Lesson. Status: Closed. Date: Planned note.\n\nA future decision memo on a profitable Microsoft trade and whether the decision was repeatable.\n\nRelated weekly review: week-13-portfolio-summary.\n\nTemplate fields: Date, Decision title, Holding/ticker, Action taken, Position type, Why I made the decision, What I expected, What could go wrong, What actually happened, What I learned, Related weekly review, Status. Full decision memo: To be written.",
+      "internalLinks": [
+        "https://codiemarillier.com/decision-archive",
+        "https://codiemarillier.com/journal/week-13-portfolio-summary",
+        "https://codiemarillier.com/portfolio"
+      ]
+    },
+    {
+      "title": "Held Rheinmetall despite weakness",
+      "url": "https://codiemarillier.com/decision-archive/held-rheinmetall-despite-weakness",
+      "description": "A future decision memo on separating thesis review from panic selling during weakness.",
+      "pageType": "decision-template",
+      "lastUpdated": "2026-06-23",
+      "contentText": "Held Rheinmetall despite weakness. Holding/ticker: Rheinmetall / RHM. Action taken: Hold. Position type: Watchlist. Status: Open. Date: Planned note.\n\nA future decision memo on separating thesis review from panic selling during weakness.\n\nRelated weekly review: week-15-portfolio-summary.\n\nTemplate fields: Date, Decision title, Holding/ticker, Action taken, Position type, Why I made the decision, What I expected, What could go wrong, What actually happened, What I learned, Related weekly review, Status. Full decision memo: To be written.",
+      "internalLinks": [
+        "https://codiemarillier.com/decision-archive",
+        "https://codiemarillier.com/journal/week-15-portfolio-summary",
+        "https://codiemarillier.com/portfolio"
+      ]
+    },
+    {
+      "title": "Selling winners: ASML and the difference between trimming and exiting",
+      "url": "https://codiemarillier.com/mistakes-lessons/selling-winners-asml-trimming-vs-exiting",
+      "description": "A future lesson on handling winners and deciding whether to trim, hold, or fully exit.",
+      "pageType": "lesson-template",
+      "lastUpdated": "2026-06-23",
+      "contentText": "Selling winners: ASML and the difference between trimming and exiting. Planned lesson.\n\nA future lesson on handling winners and deciding whether to trim, hold, or fully exit.\n\nMain themes: winners, ASML, trimming, discipline.\n\nRelated decision or weekly review: /decision-archive/sold-asml-for-realised-profit.\n\nTemplate fields: Title, Date or period, What happened, Why it mattered, What I got wrong, What I learned, What I would do differently, Related decision or weekly review. Full lesson: To be written.",
+      "internalLinks": [
+        "https://codiemarillier.com/mistakes-lessons",
+        "https://codiemarillier.com/decision-archive/sold-asml-for-realised-profit",
+        "https://codiemarillier.com/decision-archive"
+      ]
+    },
+    {
+      "title": "Communication discipline: recording trades properly",
+      "url": "https://codiemarillier.com/mistakes-lessons/communication-discipline-recording-trades",
+      "description": "A future lesson on keeping the record complete and writing decisions down before memory becomes vague.",
+      "pageType": "lesson-template",
+      "lastUpdated": "2026-06-23",
+      "contentText": "Communication discipline: recording trades properly. Planned lesson.\n\nA future lesson on keeping the record complete and writing decisions down before memory becomes vague.\n\nMain themes: communication, record keeping, accountability.\n\nRelated decision or weekly review: /journal/week-13-portfolio-summary.\n\nTemplate fields: Title, Date or period, What happened, Why it mattered, What I got wrong, What I learned, What I would do differently, Related decision or weekly review. Full lesson: To be written.",
+      "internalLinks": [
+        "https://codiemarillier.com/mistakes-lessons",
+        "https://codiemarillier.com/journal/week-13-portfolio-summary",
+        "https://codiemarillier.com/decision-archive"
+      ]
+    },
+    {
+      "title": "Averaging down: when it is deliberate versus emotional",
+      "url": "https://codiemarillier.com/mistakes-lessons/averaging-down-deliberate-vs-emotional",
+      "description": "A future lesson on averaging down, sizing, and making sure conviction is not just hope in disguise.",
+      "pageType": "lesson-template",
+      "lastUpdated": "2026-06-23",
+      "contentText": "Averaging down: when it is deliberate versus emotional. Planned lesson.\n\nA future lesson on averaging down, sizing, and making sure conviction is not just hope in disguise.\n\nMain themes: averaging down, position sizing, Symbotic.\n\nRelated decision or weekly review: /decision-archive/averaged-down-symbotic.\n\nTemplate fields: Title, Date or period, What happened, Why it mattered, What I got wrong, What I learned, What I would do differently, Related decision or weekly review. Full lesson: To be written.",
+      "internalLinks": [
+        "https://codiemarillier.com/mistakes-lessons",
+        "https://codiemarillier.com/decision-archive/averaged-down-symbotic",
+        "https://codiemarillier.com/decision-archive"
+      ]
+    },
+    {
+      "title": "Speculative excitement: keeping SpaceX position size controlled",
+      "url": "https://codiemarillier.com/mistakes-lessons/speculative-excitement-spacex-size-control",
+      "description": "A future lesson on owning exciting ideas without letting excitement drive portfolio size.",
+      "pageType": "lesson-template",
+      "lastUpdated": "2026-06-23",
+      "contentText": "Speculative excitement: keeping SpaceX position size controlled. Planned lesson.\n\nA future lesson on owning exciting ideas without letting excitement drive portfolio size.\n\nMain themes: SpaceX, speculation, position sizing.\n\nRelated decision or weekly review: /decision-archive/bought-spacex.\n\nTemplate fields: Title, Date or period, What happened, Why it mattered, What I got wrong, What I learned, What I would do differently, Related decision or weekly review. Full lesson: To be written.",
+      "internalLinks": [
+        "https://codiemarillier.com/mistakes-lessons",
+        "https://codiemarillier.com/decision-archive/bought-spacex",
+        "https://codiemarillier.com/decision-archive"
+      ]
+    },
+    {
+      "title": "Cash discipline: not forcing trades just because cash is available",
+      "url": "https://codiemarillier.com/mistakes-lessons/cash-discipline-not-forcing-trades",
+      "description": "A future lesson on treating cash as patience and optionality rather than pressure to act.",
+      "pageType": "lesson-template",
+      "lastUpdated": "2026-06-23",
+      "contentText": "Cash discipline: not forcing trades just because cash is available. Planned lesson.\n\nA future lesson on treating cash as patience and optionality rather than pressure to act.\n\nMain themes: cash, patience, discipline.\n\nRelated decision or weekly review: /process.\n\nTemplate fields: Title, Date or period, What happened, Why it mattered, What I got wrong, What I learned, What I would do differently, Related decision or weekly review. Full lesson: To be written.",
+      "internalLinks": [
+        "https://codiemarillier.com/mistakes-lessons",
+        "https://codiemarillier.com/process",
+        "https://codiemarillier.com/decision-archive"
+      ]
+    },
+    {
+      "title": "Gold hedge: understanding that a hedge will not work every week",
+      "url": "https://codiemarillier.com/mistakes-lessons/gold-hedge-will-not-work-every-week",
+      "description": "A future lesson on why a hedge can be useful even when it is not the best-performing part of the portfolio.",
+      "pageType": "lesson-template",
+      "lastUpdated": "2026-06-23",
+      "contentText": "Gold hedge: understanding that a hedge will not work every week. Planned lesson.\n\nA future lesson on why a hedge can be useful even when it is not the best-performing part of the portfolio.\n\nMain themes: gold, hedge, portfolio balance.\n\nRelated decision or weekly review: /decision-archive/added-to-gold-as-a-hedge.\n\nTemplate fields: Title, Date or period, What happened, Why it mattered, What I got wrong, What I learned, What I would do differently, Related decision or weekly review. Full lesson: To be written.",
+      "internalLinks": [
+        "https://codiemarillier.com/mistakes-lessons",
+        "https://codiemarillier.com/decision-archive/added-to-gold-as-a-hedge",
+        "https://codiemarillier.com/decision-archive"
+      ]
+    },
+    {
+      "title": "Risk management: why leverage does not belong in this portfolio",
+      "url": "https://codiemarillier.com/mistakes-lessons/risk-management-why-leverage-does-not-belong",
+      "description": "A future lesson on leveraged crypto trading, emotional pressure, and why leverage does not fit the process.",
+      "pageType": "lesson-template",
+      "lastUpdated": "2026-06-23",
+      "contentText": "Risk management: why leverage does not belong in this portfolio. Planned lesson.\n\nA future lesson on leveraged crypto trading, emotional pressure, and why leverage does not fit the process.\n\nMain themes: leverage, risk management, mistakes.\n\nRelated decision or weekly review: /about.\n\nTemplate fields: Title, Date or period, What happened, Why it mattered, What I got wrong, What I learned, What I would do differently, Related decision or weekly review. Full lesson: To be written.",
+      "internalLinks": [
+        "https://codiemarillier.com/mistakes-lessons",
+        "https://codiemarillier.com/about",
+        "https://codiemarillier.com/decision-archive"
+      ]
+    },
+    {
       "title": "Alphabet: Re-entry Discipline",
       "url": "https://codiemarillier.com/ai/research/alphabet-re-entry-discipline.html",
       "description": "Why a great business can still require patience on price.",
@@ -438,11 +725,14 @@
       "description": "Plain HTML summaries of the main public site routes.",
       "pageType": "ai-summary",
       "lastUpdated": "2026-06-22",
-      "contentText": "/ - The homepage introduces Codie Capital Research as Codie Marillier’s personal investment journal and points readers to the portfolio, journal, books, process, about page, and disclaimer.\n/portfolio - The portfolio page records Codie’s own current holdings, Week 15 account value, starting value, cash, latest return, winners, drags, portfolio role notes, and latest action plan.\n/journal - The journal page lists weekly review cards and journal entries with dates, account values where available, main trades, and lessons.\n/books - The books page contains the full Books That Shaped My Thinking section with personal reflections on every book and how each shaped Codie’s investing and personal development.\n/process - The process page sets out the investing rulebook: protect capital, size positions properly, write reasoning, keep cash discipline, avoid leverage and impulsive trades, and review weekly.\n/about - The about page explains Codie’s investing background, early interest in markets, first Bitcoin investment, family real estate influence, lessons from mistakes, and reading development.\n/disclaimer - The disclaimer page explains that the site is a personal investment research and portfolio journal, not investment advice, not FCA-authorised, and not a recommendation.\n/ai/ - The AI page is a complete plain HTML archive for ChatGPT, AI review tools, Google crawlers, and simple browser-fetch tools.",
+      "contentText": "/ - The homepage introduces Codie Capital Research as Codie Marillier’s personal investment journal and points readers to the portfolio, journal, books, process, about page, and disclaimer.\n/portfolio - The portfolio page records Codie’s own current holdings, Week 15 account value, starting value, cash, latest return, winners, drags, portfolio role notes, and latest action plan.\n/journal - The journal page lists weekly review cards and journal entries with dates, account values where available, main trades, and lessons.\n/letters - The Letters page is a planned section for longer-form monthly or quarterly reflections on what Codie is learning, how his thinking is changing, and what he is trying to improve over time.\n/decision-archive - The Decision Archive is a planned structured archive for major investment decisions, including reasoning, expectations, risks, outcomes, and lessons learned.\n/mistakes-lessons - Mistakes & Lessons is a planned section for recording mistakes, difficult decisions, and lessons from managing a real portfolio over time.\n/books - The books page contains the full Books That Shaped My Thinking section with personal reflections on every book and how each shaped Codie’s investing and personal development.\n/process - The process page sets out the investing rulebook: protect capital, size positions properly, write reasoning, keep cash discipline, avoid leverage and impulsive trades, and review weekly.\n/about - The about page explains Codie’s investing background, early interest in markets, first Bitcoin investment, family real estate influence, lessons from mistakes, and reading development.\n/disclaimer - The disclaimer page explains that the site is a personal investment research and portfolio journal, not investment advice, not FCA-authorised, and not a recommendation.\n/ai/ - The AI page is a complete plain HTML archive for ChatGPT, AI review tools, Google crawlers, and simple browser-fetch tools.",
       "internalLinks": [
         "https://codiemarillier.com/",
         "https://codiemarillier.com/portfolio",
         "https://codiemarillier.com/journal",
+        "https://codiemarillier.com/letters",
+        "https://codiemarillier.com/decision-archive",
+        "https://codiemarillier.com/mistakes-lessons",
         "https://codiemarillier.com/books",
         "https://codiemarillier.com/process",
         "https://codiemarillier.com/about",

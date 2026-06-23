@@ -19,6 +19,24 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://codiemarillier.com/letters</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://codiemarillier.com/decision-archive</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://codiemarillier.com/mistakes-lessons</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://codiemarillier.com/books</loc>
     <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
@@ -185,6 +203,114 @@
     <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://codiemarillier.com/letters/what-i-learned-from-the-first-15-weeks</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://codiemarillier.com/letters/why-i-am-building-an-investment-process</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://codiemarillier.com/letters/what-i-am-learning-about-risk</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://codiemarillier.com/letters/why-discipline-matters-more-than-excitement</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://codiemarillier.com/decision-archive/bought-spacex</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://codiemarillier.com/decision-archive/sold-asml-for-realised-profit</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://codiemarillier.com/decision-archive/re-entered-google-around-360</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://codiemarillier.com/decision-archive/added-to-gold-as-a-hedge</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://codiemarillier.com/decision-archive/averaged-down-symbotic</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://codiemarillier.com/decision-archive/microsoft-short-term-trade</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://codiemarillier.com/decision-archive/held-rheinmetall-despite-weakness</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://codiemarillier.com/mistakes-lessons/selling-winners-asml-trimming-vs-exiting</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://codiemarillier.com/mistakes-lessons/communication-discipline-recording-trades</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://codiemarillier.com/mistakes-lessons/averaging-down-deliberate-vs-emotional</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://codiemarillier.com/mistakes-lessons/speculative-excitement-spacex-size-control</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://codiemarillier.com/mistakes-lessons/cash-discipline-not-forcing-trades</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://codiemarillier.com/mistakes-lessons/gold-hedge-will-not-work-every-week</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://codiemarillier.com/mistakes-lessons/risk-management-why-leverage-does-not-belong</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://codiemarillier.com/ai/journal/week-15-portfolio-summary.html</loc>

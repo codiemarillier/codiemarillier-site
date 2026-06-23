@@ -68,6 +68,37 @@ export type ReadingBook = {
   paragraphs: string[];
 };
 
+export type PlannedLetter = {
+  slug: string;
+  title: string;
+  date: string;
+  type: 'Monthly Letter' | 'Quarterly Letter' | 'Reflection';
+  summary: string;
+  themes: string[];
+};
+
+export type DecisionArchiveEntry = {
+  slug: string;
+  date: string;
+  title: string;
+  holding: string;
+  action: 'Buy' | 'Sell' | 'Trim' | 'Add' | 'Hold' | 'Mistake' | 'Lesson';
+  positionType: 'Speculative' | 'Core holding' | 'Hedge' | 'Lesson' | 'Watchlist';
+  status: 'Open' | 'Reviewed' | 'Closed';
+  summary: string;
+  relatedWeeklyReview?: string;
+  tags: string[];
+};
+
+export type MistakeLesson = {
+  slug: string;
+  title: string;
+  period: string;
+  summary: string;
+  relatedLink?: string;
+  themes: string[];
+};
+
 export const brand = {
   name: 'Codie Capital Research',
   subtitle: 'An investment journal by Codie Marillier',
@@ -80,6 +111,9 @@ export const navLinks: NavLink[] = [
   { label: 'About', href: '/about' },
   { label: 'Philosophy', href: '/philosophy' },
   { label: 'Journal', href: '/journal' },
+  { label: 'Letters', href: '/letters' },
+  { label: 'Decisions', href: '/decision-archive' },
+  { label: 'Lessons', href: '/mistakes-lessons' },
   { label: 'Portfolio', href: '/portfolio' },
 ];
 
@@ -87,6 +121,9 @@ export const footerLinks: NavLink[] = [
   { label: 'About', href: '/about' },
   { label: 'Philosophy', href: '/philosophy' },
   { label: 'Journal', href: '/journal' },
+  { label: 'Letters', href: '/letters' },
+  { label: 'Decision Archive', href: '/decision-archive' },
+  { label: 'Mistakes & Lessons', href: '/mistakes-lessons' },
   { label: 'Portfolio', href: '/portfolio' },
   { label: 'Disclaimer', href: '/disclaimer' },
 ];
@@ -209,6 +246,191 @@ export const processRules = [
   {
     title: 'Weekly review process',
     text: 'Keep a short weekly summary covering account value, cash, what helped, what hurt, trades made, mistakes, and the plan for the next week.',
+  },
+];
+
+export const plannedLetters: PlannedLetter[] = [
+  {
+    slug: 'what-i-learned-from-the-first-15-weeks',
+    title: 'What I Learned From the First 15 Weeks',
+    date: 'Coming soon',
+    type: 'Reflection',
+    summary:
+      'A planned long-form reflection on the first 15 weeks of public portfolio reviews, including discipline, mistakes, patience, and what the record is starting to teach me.',
+    themes: ['first 15 weeks', 'discipline', 'portfolio reviews', 'learning in public'],
+  },
+  {
+    slug: 'why-i-am-building-an-investment-process',
+    title: 'Why I Am Building an Investment Process',
+    date: 'Coming soon',
+    type: 'Monthly Letter',
+    summary:
+      'A planned letter on why the site is built around process, written reasoning, accountability, and long-term development rather than short-term excitement.',
+    themes: ['process', 'accountability', 'written reasoning', 'long-term development'],
+  },
+  {
+    slug: 'what-i-am-learning-about-risk',
+    title: 'What I Am Learning About Risk',
+    date: 'Coming soon',
+    type: 'Reflection',
+    summary:
+      'A planned reflection on position sizing, speculative ideas, hedges, leverage, and how risk feels different before and after a decision is tested.',
+    themes: ['risk', 'position sizing', 'speculation', 'hedges'],
+  },
+  {
+    slug: 'why-discipline-matters-more-than-excitement',
+    title: 'Why Discipline Matters More Than Excitement',
+    date: 'Coming soon',
+    type: 'Quarterly Letter',
+    summary:
+      'A planned letter on why calm, repeatable decision-making matters more than chasing trades that feel exciting in the moment.',
+    themes: ['discipline', 'patience', 'emotional control', 'repeatable process'],
+  },
+];
+
+export const decisionArchiveEntries: DecisionArchiveEntry[] = [
+  {
+    slug: 'bought-spacex',
+    date: 'Planned note',
+    title: 'Bought SpaceX',
+    holding: 'SpaceX / SPCX',
+    action: 'Buy',
+    positionType: 'Speculative',
+    status: 'Open',
+    summary: 'A future decision memo on why SpaceX was added as a small speculative long-term position.',
+    relatedWeeklyReview: 'week-15-portfolio-summary',
+    tags: ['Buy', 'Speculative', 'SpaceX'],
+  },
+  {
+    slug: 'sold-asml-for-realised-profit',
+    date: 'Planned note',
+    title: 'Sold ASML for a realised profit',
+    holding: 'ASML',
+    action: 'Sell',
+    positionType: 'Watchlist',
+    status: 'Reviewed',
+    summary: 'A future decision memo on taking profit in ASML and the difference between trimming and fully exiting.',
+    relatedWeeklyReview: 'week-15-portfolio-summary',
+    tags: ['Sell', 'Lesson', 'ASML'],
+  },
+  {
+    slug: 're-entered-google-around-360',
+    date: 'Planned note',
+    title: 'Re-entered Google around $360',
+    holding: 'Alphabet / GOOGL',
+    action: 'Buy',
+    positionType: 'Core holding',
+    status: 'Open',
+    summary: 'A future decision memo on price discipline, re-entry patience, and rebuilding a small Alphabet position.',
+    relatedWeeklyReview: 'week-14-portfolio-summary',
+    tags: ['Buy', 'Core holding', 'Google'],
+  },
+  {
+    slug: 'added-to-gold-as-a-hedge',
+    date: 'Planned note',
+    title: 'Added to gold as a hedge',
+    holding: 'iShares Physical Gold / SGLN',
+    action: 'Add',
+    positionType: 'Hedge',
+    status: 'Open',
+    summary: 'A future decision memo on gold as a hedge and why hedges can feel uncomfortable when they are not working every week.',
+    relatedWeeklyReview: 'week-15-portfolio-summary',
+    tags: ['Add', 'Hedge', 'Gold'],
+  },
+  {
+    slug: 'averaged-down-symbotic',
+    date: 'Planned note',
+    title: 'Averaged down Symbotic',
+    holding: 'Symbotic / SYM',
+    action: 'Add',
+    positionType: 'Speculative',
+    status: 'Open',
+    summary: 'A future decision memo on when averaging down is deliberate and when it risks becoming emotional.',
+    relatedWeeklyReview: 'week-15-portfolio-summary',
+    tags: ['Add', 'Speculative', 'Symbotic'],
+  },
+  {
+    slug: 'microsoft-short-term-trade',
+    date: 'Planned note',
+    title: 'Microsoft short-term trade',
+    holding: 'Microsoft / MSFT',
+    action: 'Sell',
+    positionType: 'Lesson',
+    status: 'Closed',
+    summary: 'A future decision memo on a profitable Microsoft trade and whether the decision was repeatable.',
+    relatedWeeklyReview: 'week-13-portfolio-summary',
+    tags: ['Sell', 'Lesson', 'Microsoft'],
+  },
+  {
+    slug: 'held-rheinmetall-despite-weakness',
+    date: 'Planned note',
+    title: 'Held Rheinmetall despite weakness',
+    holding: 'Rheinmetall / RHM',
+    action: 'Hold',
+    positionType: 'Watchlist',
+    status: 'Open',
+    summary: 'A future decision memo on separating thesis review from panic selling during weakness.',
+    relatedWeeklyReview: 'week-15-portfolio-summary',
+    tags: ['Hold', 'Lesson', 'Rheinmetall'],
+  },
+];
+
+export const mistakeLessons: MistakeLesson[] = [
+  {
+    slug: 'selling-winners-asml-trimming-vs-exiting',
+    title: 'Selling winners: ASML and the difference between trimming and exiting',
+    period: 'Planned lesson',
+    summary: 'A future lesson on handling winners and deciding whether to trim, hold, or fully exit.',
+    relatedLink: '/decision-archive/sold-asml-for-realised-profit',
+    themes: ['winners', 'ASML', 'trimming', 'discipline'],
+  },
+  {
+    slug: 'communication-discipline-recording-trades',
+    title: 'Communication discipline: recording trades properly',
+    period: 'Planned lesson',
+    summary: 'A future lesson on keeping the record complete and writing decisions down before memory becomes vague.',
+    relatedLink: '/journal/week-13-portfolio-summary',
+    themes: ['communication', 'record keeping', 'accountability'],
+  },
+  {
+    slug: 'averaging-down-deliberate-vs-emotional',
+    title: 'Averaging down: when it is deliberate versus emotional',
+    period: 'Planned lesson',
+    summary: 'A future lesson on averaging down, sizing, and making sure conviction is not just hope in disguise.',
+    relatedLink: '/decision-archive/averaged-down-symbotic',
+    themes: ['averaging down', 'position sizing', 'Symbotic'],
+  },
+  {
+    slug: 'speculative-excitement-spacex-size-control',
+    title: 'Speculative excitement: keeping SpaceX position size controlled',
+    period: 'Planned lesson',
+    summary: 'A future lesson on owning exciting ideas without letting excitement drive portfolio size.',
+    relatedLink: '/decision-archive/bought-spacex',
+    themes: ['SpaceX', 'speculation', 'position sizing'],
+  },
+  {
+    slug: 'cash-discipline-not-forcing-trades',
+    title: 'Cash discipline: not forcing trades just because cash is available',
+    period: 'Planned lesson',
+    summary: 'A future lesson on treating cash as patience and optionality rather than pressure to act.',
+    relatedLink: '/process',
+    themes: ['cash', 'patience', 'discipline'],
+  },
+  {
+    slug: 'gold-hedge-will-not-work-every-week',
+    title: 'Gold hedge: understanding that a hedge will not work every week',
+    period: 'Planned lesson',
+    summary: 'A future lesson on why a hedge can be useful even when it is not the best-performing part of the portfolio.',
+    relatedLink: '/decision-archive/added-to-gold-as-a-hedge',
+    themes: ['gold', 'hedge', 'portfolio balance'],
+  },
+  {
+    slug: 'risk-management-why-leverage-does-not-belong',
+    title: 'Risk management: why leverage does not belong in this portfolio',
+    period: 'Planned lesson',
+    summary: 'A future lesson on leveraged crypto trading, emotional pressure, and why leverage does not fit the process.',
+    relatedLink: '/about',
+    themes: ['leverage', 'risk management', 'mistakes'],
   },
 ];
 

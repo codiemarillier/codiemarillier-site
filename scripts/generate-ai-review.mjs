@@ -20,13 +20,16 @@ await build({
 
 const {
   brand,
+  decisionArchiveEntries,
   disclaimerPoints,
   holdings,
   journalEntries,
+  mistakeLessons,
   portfolioChangeLog,
   portfolioCrawlerNotes,
   portfolioRoles,
   portfolioSnapshot,
+  plannedLetters,
   processRules,
   readingDevelopment,
   researchNotes,
@@ -154,7 +157,7 @@ const mainPages = [
       `Current drags: ${portfolioCrawlerNotes.drags.join(' ')}`,
       `Latest action plan: ${portfolioCrawlerNotes.latestActionPlan.join(' ')}`,
     ]),
-    internalLinks: ['/journal/week-15-portfolio-summary', '/journal', '/process', '/ai/portfolio.html'],
+    internalLinks: ['/journal/week-15-portfolio-summary', '/journal', '/process', '/decision-archive', '/ai/portfolio.html'],
   },
   {
     path: '/journal',
@@ -168,7 +171,61 @@ const mainPages = [
       'The journal contains weekly portfolio reviews, trade reflections, market notes, and lessons from Codie’s own portfolio record.',
       ...journalEntries.map((entry) => `${entry.title} (${entry.date}): ${entry.excerpt}`),
     ]),
-    internalLinks: journalEntries.map((entry) => `/journal/${entry.slug}`),
+    internalLinks: [...journalEntries.map((entry) => `/journal/${entry.slug}`), '/decision-archive', '/letters'],
+  },
+  {
+    path: '/letters',
+    title: 'Letters',
+    pageType: 'letters-index',
+    lastUpdated: '2026-06-23',
+    topics: ['monthly letters', 'quarterly letters', 'reflections', 'process development', 'discipline'],
+    summary:
+      'The Letters page is a planned section for longer-form monthly or quarterly reflections on what Codie is learning, how his thinking is changing, and what he is trying to improve over time.',
+    contentText: plain([
+      'Letters are longer-form reflections on my investing journey. Unlike the weekly portfolio reviews, these are not only about what changed in the account. They are about what I am learning, how my thinking is developing, and what I am trying to improve over time.',
+      'Coming soon. These letters are planned but not written yet.',
+      ...plannedLetters.map(
+        (letter) =>
+          `${letter.title}. ${letter.type}. ${letter.date}. ${letter.summary} Main themes: ${letter.themes.join(', ')}.`,
+      ),
+    ]),
+    internalLinks: plannedLetters.map((letter) => `/letters/${letter.slug}`),
+  },
+  {
+    path: '/decision-archive',
+    title: 'Decision Archive',
+    pageType: 'decision-archive',
+    lastUpdated: '2026-06-23',
+    topics: ['investment decisions', 'reasoning', 'expectations', 'risk', 'outcomes', 'lessons'],
+    summary:
+      'The Decision Archive is a planned structured archive for major investment decisions, including reasoning, expectations, risks, outcomes, and lessons learned.',
+    contentText: plain([
+      'The Decision Archive is where I will record the most important investment decisions I make. The goal is not only to track outcomes, but to understand the reasoning behind each decision and whether the process was sound.',
+      'Initial decision notes will be added soon.',
+      'Filter support: Buy, Sell, Trim, Add, Hold, Mistake, Lesson, Speculative, Core holding, Hedge.',
+      ...decisionArchiveEntries.map(
+        (decision) =>
+          `${decision.title}. ${decision.holding}. Action taken: ${decision.action}. Position type: ${decision.positionType}. Status: ${decision.status}. ${decision.summary} Tags: ${decision.tags.join(', ')}.`,
+      ),
+    ]),
+    internalLinks: decisionArchiveEntries.map((decision) => `/decision-archive/${decision.slug}`),
+  },
+  {
+    path: '/mistakes-lessons',
+    title: 'Mistakes & Lessons',
+    pageType: 'mistakes-lessons',
+    lastUpdated: '2026-06-23',
+    topics: ['mistakes', 'lessons', 'accountability', 'risk management', 'process improvement'],
+    summary:
+      'Mistakes & Lessons is a planned section for recording mistakes, difficult decisions, and lessons from managing a real portfolio over time.',
+    contentText: plain([
+      'This section is for recording mistakes, difficult decisions, and lessons from the portfolio. The aim is not to avoid mistakes completely, but to make sure I learn from them, improve my process, and do not repeat the same errors without understanding them.',
+      'Coming soon. These lesson cards are planned placeholders.',
+      ...mistakeLessons.map(
+        (lesson) => `${lesson.title}. ${lesson.period}. ${lesson.summary} Main themes: ${lesson.themes.join(', ')}.`,
+      ),
+    ]),
+    internalLinks: mistakeLessons.map((lesson) => `/mistakes-lessons/${lesson.slug}`),
   },
   {
     path: '/books',
@@ -193,7 +250,7 @@ const mainPages = [
     summary:
       'The process page sets out the investing rulebook: protect capital, size positions properly, write reasoning, keep cash discipline, avoid leverage and impulsive trades, and review weekly.',
     contentText: plain(processRules.map((rule) => `${rule.title}: ${rule.text}`)),
-    internalLinks: ['/portfolio', '/journal', '/books'],
+    internalLinks: ['/portfolio', '/journal', '/books', '/decision-archive', '/mistakes-lessons'],
   },
   {
     path: '/about',
@@ -247,6 +304,55 @@ const journalRecords = journalEntries.map((entry) => ({
   summary: entry.excerpt,
   contentText: plain([`${entry.title}. ${entry.date}. ${entry.excerpt}`, ...entry.body]),
   internalLinks: [entry.documentUrl, entry.documentPdfUrl, `/ai/journal/${entry.slug}.html`].filter(Boolean),
+}));
+
+const letterRecords = plannedLetters.map((letter) => ({
+  path: `/letters/${letter.slug}`,
+  title: letter.title,
+  pageType: 'letter-template',
+  lastUpdated: '2026-06-23',
+  topics: [letter.type, ...letter.themes],
+  summary: letter.summary,
+  contentText: plain([
+    `${letter.title}. ${letter.type}. ${letter.date}.`,
+    letter.summary,
+    `Main themes: ${letter.themes.join(', ')}.`,
+    'Template fields: Title, Date, Type, Short summary, Main themes, Full letter draft. Full letter draft: To be written.',
+  ]),
+  internalLinks: ['/letters', '/journal', '/process'],
+}));
+
+const decisionRecords = decisionArchiveEntries.map((decision) => ({
+  path: `/decision-archive/${decision.slug}`,
+  title: decision.title,
+  pageType: 'decision-template',
+  lastUpdated: '2026-06-23',
+  topics: [decision.action, decision.positionType, decision.status, ...decision.tags],
+  summary: decision.summary,
+  contentText: plain([
+    `${decision.title}. Holding/ticker: ${decision.holding}. Action taken: ${decision.action}. Position type: ${decision.positionType}. Status: ${decision.status}. Date: ${decision.date}.`,
+    decision.summary,
+    `Related weekly review: ${decision.relatedWeeklyReview ?? 'To be confirmed'}.`,
+    'Template fields: Date, Decision title, Holding/ticker, Action taken, Position type, Why I made the decision, What I expected, What could go wrong, What actually happened, What I learned, Related weekly review, Status. Full decision memo: To be written.',
+  ]),
+  internalLinks: ['/decision-archive', decision.relatedWeeklyReview ? `/journal/${decision.relatedWeeklyReview}` : '/journal', '/portfolio'],
+}));
+
+const lessonRecords = mistakeLessons.map((lesson) => ({
+  path: `/mistakes-lessons/${lesson.slug}`,
+  title: lesson.title,
+  pageType: 'lesson-template',
+  lastUpdated: '2026-06-23',
+  topics: lesson.themes,
+  summary: lesson.summary,
+  contentText: plain([
+    `${lesson.title}. ${lesson.period}.`,
+    lesson.summary,
+    `Main themes: ${lesson.themes.join(', ')}.`,
+    `Related decision or weekly review: ${lesson.relatedLink ?? 'To be confirmed'}.`,
+    'Template fields: Title, Date or period, What happened, Why it mattered, What I got wrong, What I learned, What I would do differently, Related decision or weekly review. Full lesson: To be written.',
+  ]),
+  internalLinks: ['/mistakes-lessons', lesson.relatedLink ?? '/process', '/decision-archive'],
 }));
 
 const researchRecords = researchNotes.map((note) => ({
@@ -320,7 +426,15 @@ const aiRecords = [
   },
 ];
 
-const allRecords = [...mainPages, ...journalRecords, ...researchRecords, ...aiRecords];
+const allRecords = [
+  ...mainPages,
+  ...journalRecords,
+  ...letterRecords,
+  ...decisionRecords,
+  ...lessonRecords,
+  ...researchRecords,
+  ...aiRecords,
+];
 
 function pageUrl(path) {
   return path === '/' ? `${siteUrl}/` : `${siteUrl}${path}`;
@@ -568,6 +682,20 @@ const allText = [
   'PROCESS RULES',
   ...processRules.map((rule) => `${rule.title}\n${rule.text}`),
   '',
+  'PLANNED LETTERS',
+  ...plannedLetters.map((letter) => `${letter.title}\n${letter.type} / ${letter.date}\n${letter.summary}\nThemes: ${letter.themes.join(', ')}`),
+  '',
+  'DECISION ARCHIVE PLACEHOLDERS',
+  ...decisionArchiveEntries.map(
+    (decision) =>
+      `${decision.title}\nHolding: ${decision.holding}\nAction: ${decision.action}\nPosition type: ${decision.positionType}\nStatus: ${decision.status}\n${decision.summary}\nTags: ${decision.tags.join(', ')}`,
+  ),
+  '',
+  'MISTAKES AND LESSONS PLACEHOLDERS',
+  ...mistakeLessons.map(
+    (lesson) => `${lesson.title}\n${lesson.period}\n${lesson.summary}\nThemes: ${lesson.themes.join(', ')}`,
+  ),
+  '',
   'BOOKS THAT SHAPED MY THINKING',
   ...readingDevelopment.map((book) => `${book.title} - ${book.author}\n${book.category}\n${book.paragraphs.join('\n\n')}`),
   '',
@@ -591,6 +719,9 @@ const sitemapRoutes = [
   '/ai/site-content.json',
   '/ai/all-content.txt',
   ...journalEntries.map((entry) => `/journal/${entry.slug}`),
+  ...plannedLetters.map((letter) => `/letters/${letter.slug}`),
+  ...decisionArchiveEntries.map((decision) => `/decision-archive/${decision.slug}`),
+  ...mistakeLessons.map((lesson) => `/mistakes-lessons/${lesson.slug}`),
   ...journalEntries.map((entry) => `/ai/journal/${entry.slug}.html`),
   ...researchNotes.map((note) => `/ai/research/${note.slug}.html`),
 ];
