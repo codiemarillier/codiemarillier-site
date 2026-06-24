@@ -8,6 +8,7 @@ const tempModule = `/tmp/codie-site-data-${Date.now()}.mjs`;
 const siteUrl = 'https://codiemarillier.com';
 const latestReview = 'Week 16 - A pullback and the Pershing Square buy';
 const latestUpdated = '2026-06-23';
+const lettersUpdated = '2026-06-24';
 
 await build({
   entryPoints: ['src/data/siteData.ts'],
@@ -126,6 +127,7 @@ function layout({ title, description, canonicalPath = '/ai/', body }) {
 }
 
 const currentHoldings = holdings.filter((holding) => !/^closed/i.test(holding.positionSize) && !/^closed/i.test(holding.status));
+const publishedLetters = plannedLetters.filter((letter) => letter.body?.length);
 
 const mainPages = [
   {
@@ -140,7 +142,7 @@ const mainPages = [
       `${brand.name} is my personal investment journal. I use it to record what I own, why I own it, what I am learning, and how my thinking changes over time.`,
       'The site exists to document my thinking, hold me accountable, create a public record over time, track portfolio decisions properly, and show how my process develops.',
       'The homepage sends first-time readers to the Current Portfolio, Portfolio Journal, Books, and Investment Process pages.',
-      'Letters is marked as coming soon, while Decision Archive and Mistakes & Lessons are described as future sections that stay empty until real entries exist.',
+      'Letters now includes My First Letter, while Decision Archive and Mistakes & Lessons are described as future sections that stay empty until real entries exist.',
       `Latest source-of-truth review: ${latestReview}. Current account value ${portfolioSnapshot.accountValue}, starting value ${portfolioSnapshot.startingCostBasis}, return ${portfolioSnapshot.currentReturn}, cash ${portfolioSnapshot.cashBalance}.`,
     ]),
     internalLinks: ['/portfolio', '/journal', '/books', '/process', '/letters', '/decision-archive', '/mistakes-lessons', '/about', '/disclaimer', '/ai/'],
@@ -180,18 +182,18 @@ const mainPages = [
     path: '/letters',
     title: 'Letters',
     pageType: 'letters-index',
-    lastUpdated: '2026-06-23',
+    lastUpdated: lettersUpdated,
     topics: ['letters', 'reflections', 'process development', 'discipline'],
     summary:
-      'The Letters page is prepared for longer-form reflections, with My First Letter marked as a draft in progress rather than a published letter.',
+      'The Letters page publishes My First Letter, a long-form reflection on discipline, patience, risk, and building a public investing record.',
     contentText: plain([
       'Weekly reviews are what happened. Letters are what I learned and how my thinking is changing.',
       ...plannedLetters.map(
         (letter) =>
-          `${letter.title}. ${letter.type}. ${letter.date}. ${letter.summary} Main themes: ${letter.themes.join(', ')}. Status: draft in progress, not yet published.`,
+          `${letter.title}. ${letter.type}. ${letter.date}. ${letter.readingTime ?? ''}. ${letter.summary} Main themes: ${letter.themes.join(', ')}. Status: ${letter.status ?? 'Draft in progress'}. ${(letter.body ?? []).join('\n\n')}`,
       ),
     ]),
-    internalLinks: ['/journal', '/process'],
+    internalLinks: ['/journal', '/process', ...plannedLetters.map((letter) => `/letters/${letter.slug}`)],
   },
   {
     path: '/decision-archive',
@@ -308,6 +310,20 @@ const journalRecords = journalEntries.map((entry) => ({
   internalLinks: [entry.documentUrl, entry.documentPdfUrl, `/ai/journal/${entry.slug}.html`].filter(Boolean),
 }));
 
+const letterRecords = plannedLetters.map((letter) => ({
+  path: `/letters/${letter.slug}`,
+  title: letter.title,
+  pageType: 'letter',
+  lastUpdated: letter.status === 'Published' ? lettersUpdated : slugDate(letter.date),
+  topics: ['letters', letter.type, ...(letter.themes ?? [])],
+  summary: letter.summary,
+  contentText: plain([
+    `${letter.title}. ${letter.type}. ${letter.date}. ${letter.readingTime ?? ''}. ${letter.summary}`,
+    ...(letter.body ?? []),
+  ]),
+  internalLinks: ['/letters', '/journal', '/process'],
+}));
+
 const researchRecords = researchNotes.map((note) => ({
   path: `/ai/research/${note.slug}.html`,
   title: note.title,
@@ -382,6 +398,7 @@ const aiRecords = [
 const allRecords = [
   ...mainPages,
   ...journalRecords,
+  ...letterRecords,
   ...researchRecords,
   ...aiRecords,
 ];
@@ -403,6 +420,7 @@ function aiCard(record) {
 const indexLinks = [
   ...mainPages.map((page) => `<li><a href="${page.path}">${esc(page.title)} public route</a> - ${esc(page.summary)}</li>`),
   ...journalEntries.map((entry) => `<li><a href="/journal/${entry.slug}">${esc(entry.title)} public route</a> - <a href="/ai/journal/${entry.slug}.html">AI-readable full text</a></li>`),
+  ...publishedLetters.map((letter) => `<li><a href="/letters/${letter.slug}">${esc(letter.title)} public letter</a> - ${esc(letter.summary)}</li>`),
   ...researchNotes.map((note) => `<li><a href="/ai/research/${note.slug}.html">${esc(note.title)} AI-readable research note</a></li>`),
 ];
 
@@ -457,7 +475,7 @@ latestReview: ${esc(latestReview)}</pre>
       <section>
         <h2>Still Being Built</h2>
         <ul>
-          <li><a href="/letters">Letters</a> - Longer reflections on what I am learning. The first letter is being written now.</li>
+          <li><a href="/letters">Letters</a> - Longer reflections on what I am learning. My First Letter is now live.</li>
           <li><a href="/decision-archive">Decision Archive</a> - A future archive for major investment decisions. This stays empty until full decision memos are written.</li>
           <li><a href="/mistakes-lessons">Mistakes &amp; Lessons</a> - A future record of mistakes, difficult decisions, and process lessons. This stays empty until proper entries are written.</li>
         </ul>
@@ -652,7 +670,7 @@ const allText = [
   'Investment Process - The rules and habits I am trying to build around capital protection, patience, position sizing, and written reasoning.',
   '',
   'HOMEPAGE STILL BEING BUILT',
-  'Letters - Longer reflections on what I am learning. The first letter is being written now.',
+  'Letters - Longer reflections on what I am learning. My First Letter is now live.',
   'Decision Archive - A future archive for major investment decisions. This stays empty until full decision memos are written.',
   'Mistakes & Lessons - A future record of mistakes, difficult decisions, and process lessons. This stays empty until proper entries are written.',
   '',
@@ -710,6 +728,7 @@ const sitemapRoutes = [
   '/ai/site-content.json',
   '/ai/all-content.txt',
   ...journalEntries.map((entry) => `/journal/${entry.slug}`),
+  ...plannedLetters.map((letter) => `/letters/${letter.slug}`),
   ...journalEntries.map((entry) => `/ai/journal/${entry.slug}.html`),
   ...researchNotes.map((note) => `/ai/research/${note.slug}.html`),
 ];

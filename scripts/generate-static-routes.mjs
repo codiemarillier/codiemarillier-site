@@ -47,7 +47,7 @@ function esc(value) {
 }
 
 function paragraph(text) {
-  return `<p>${esc(text)}</p>`;
+  return `<p>${esc(text).replaceAll('\n', '<br>')}</p>`;
 }
 
 function list(items) {
@@ -108,12 +108,14 @@ function weeklyCard(entry) {
 }
 
 function letterCard(letter) {
+  const published = Boolean(letter.body?.length);
   return `<article class="static-card">
-    <p>${esc(letter.type)} / ${esc(letter.date)}</p>
+    <p>${esc(letter.type)} / ${esc(letter.date)}${letter.readingTime ? ` / ${esc(letter.readingTime)}` : ''}</p>
     <h3>${esc(letter.title)}</h3>
     <p>${esc(letter.summary)}</p>
     <p><strong>Main themes:</strong> ${esc(letter.themes.join(', '))}</p>
-    <p><strong>Status:</strong> Draft in progress.</p>
+    <p><strong>Status:</strong> ${published ? 'Published.' : 'Draft in progress.'}</p>
+    <p><a href="/letters/${esc(letter.slug)}">${published ? 'Read letter' : 'Open letter page'}</a></p>
   </article>`;
 }
 
@@ -239,7 +241,7 @@ const homeRoute = {
         {
           label: 'Letters',
           href: '/letters',
-          text: 'Longer reflections on what I am learning. The first letter is being written now.',
+          text: 'Longer reflections on what I am learning. My First Letter is now live.',
         },
         {
           label: 'Decision Archive',
@@ -354,7 +356,7 @@ const routes = [
     fallback: `
       <p>Letters</p>
       <h1>Letters</h1>
-      ${paragraph('Weekly reviews are what happened. Letters are what I learned and how my thinking is changing. My First Letter is being drafted and is not published yet.')}
+      ${paragraph('Weekly reviews are what happened. Letters are what I learned and how my thinking is changing. My First Letter is now published.')}
       ${section('Letter Cards', plannedLetters.map(letterCard).join(''))}
       ${section(
         'Related Sections',
@@ -529,17 +531,18 @@ for (const entry of journalEntries) {
 }
 
 for (const letter of plannedLetters) {
+  const published = Boolean(letter.body?.length);
   await writeRoute({
     path: `/letters/${letter.slug}`,
     title: `${letter.title} | Letters | Codie Capital Research`,
     description: letter.summary,
     pageType: 'Article',
     fallback: `
-      <p>Coming soon</p>
+      <p>${published ? `${esc(letter.type)} / ${esc(letter.date)}${letter.readingTime ? ` / ${esc(letter.readingTime)}` : ''}` : 'Coming soon'}</p>
       <h1>${esc(letter.title)}</h1>
-      ${paragraph('This letter is being prepared, but it is not published yet.')}
       ${paragraph(letter.summary)}
       ${section('Main Themes', list(letter.themes))}
+      ${published ? section('Letter', textBlock(letter.body ?? [])) : paragraph('This letter is being prepared, but it is not published yet.')}
       ${section('Back Link', '<p><a href="/letters">Back to Letters</a></p>')}
     `,
   });

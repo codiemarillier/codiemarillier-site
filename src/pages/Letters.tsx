@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader';
 import { plannedLetters } from '../data/siteData';
 
@@ -17,6 +18,7 @@ export default function Letters() {
               <div className="flex flex-wrap items-center gap-3">
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">{letter.type}</p>
                 <p className="text-xs font-semibold text-slateText">{letter.date}</p>
+                {letter.readingTime ? <p className="text-xs font-semibold text-slateText">{letter.readingTime}</p> : null}
               </div>
               <h2 className="mt-4 font-serif text-3xl font-semibold leading-tight text-charcoal">{letter.title}</h2>
               <p className="mt-4 text-sm leading-7 text-slateText">{letter.summary}</p>
@@ -27,10 +29,10 @@ export default function Letters() {
                   </span>
                 ))}
               </div>
-              <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-charcoal">
-                Draft in progress
+              <Link to={`/letters/${letter.slug}`} className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-charcoal">
+                {letter.status === 'Published' ? 'Read letter' : 'Draft in progress'}
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </span>
+              </Link>
             </article>
           ))}
         </div>

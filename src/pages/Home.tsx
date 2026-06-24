@@ -49,7 +49,7 @@ const startHereCards = [
 const stillBuildingCards = [
   {
     title: 'Letters',
-    text: 'Longer reflections on what I am learning. The first letter is being written now.',
+    text: 'Longer reflections on what I am learning beyond the weekly account value. My First Letter is now live.',
     href: '/letters',
     action: 'Open letters',
     icon: FileText,

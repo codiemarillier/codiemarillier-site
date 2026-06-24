@@ -211,6 +211,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://codiemarillier.com/letters/my-first-letter</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://codiemarillier.com/ai/journal/week-16-portfolio-summary.html</loc>
     <lastmod>2026-06-24</lastmod>
     <changefreq>weekly</changefreq>

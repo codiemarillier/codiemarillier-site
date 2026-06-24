@@ -16,8 +16,8 @@ const startCards = [
   {
     title: 'Latest Letter',
     text: 'Longer personal reflections on what I am learning, beyond the weekly account value.',
-    href: '/letters',
-    action: 'Open letters',
+    href: '/letters/my-first-letter',
+    action: 'Read first letter',
     icon: FileText,
   },
   {

@@ -1,3 +1,5 @@
+import { myFirstLetterBody } from './myFirstLetter';
+
 export type NavLink = {
   label: string;
   href: string;
@@ -76,7 +78,9 @@ export type PlannedLetter = {
   type: 'Monthly Letter' | 'Quarterly Letter' | 'Reflection';
   summary: string;
   themes: string[];
-  body?: string[];
+  readingTime?: string;
+  status?: 'Published' | 'Draft in progress';
+  body?: readonly string[];
 };
 
 export type DecisionArchiveEntry = {
@@ -254,11 +258,14 @@ export const plannedLetters: PlannedLetter[] = [
   {
     slug: 'my-first-letter',
     title: 'My First Letter',
-    date: 'Drafting now',
+    date: '24 June 2026',
     type: 'Reflection',
+    readingTime: '14 min read',
+    status: 'Published',
     summary:
-      'A first proper letter on why the letters exist, what I am learning underneath the numbers, and why process matters more than short-term price action.',
-    themes: ['first letter', 'process', 'discipline', 'patience', 'risk'],
+      'A first proper letter on why the weekly reviews are only part of the record, and why discipline, patience, risk, and process matter more than short-term account value.',
+    themes: ['first letter', 'process', 'discipline', 'patience', 'risk', 'public record'],
+    body: myFirstLetterBody,
   },
 ];
 
