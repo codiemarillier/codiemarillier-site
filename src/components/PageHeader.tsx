@@ -1,12 +1,15 @@
+import type { ReactNode } from 'react';
+
 type PageHeaderProps = {
   eyebrow?: string;
   title: string;
   intro: string;
   align?: 'left' | 'center';
   tone?: 'paper' | 'ivory';
+  children?: ReactNode;
 };
 
-export default function PageHeader({ eyebrow, title, intro, align = 'left', tone = 'paper' }: PageHeaderProps) {
+export default function PageHeader({ eyebrow, title, intro, align = 'left', tone = 'paper', children }: PageHeaderProps) {
   const centered = align === 'center';
   const background = tone === 'ivory' ? 'bg-ivory' : 'bg-paper';
 
@@ -22,6 +25,7 @@ export default function PageHeader({ eyebrow, title, intro, align = 'left', tone
         <p className={`mt-7 text-lg leading-8 text-slateText md:text-xl ${centered ? 'mx-auto max-w-3xl' : 'max-w-3xl'}`}>
           {intro}
         </p>
+        {children && <div className={centered ? 'mt-8 flex justify-center' : 'mt-8'}>{children}</div>}
       </div>
     </header>
   );

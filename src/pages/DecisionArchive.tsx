@@ -1,5 +1,3 @@
-import { ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader';
 import SectionHeader from '../components/SectionHeader';
 import { decisionArchiveEntries } from '../data/siteData';
@@ -18,8 +16,8 @@ export default function DecisionArchive() {
       <section className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24">
         <SectionHeader
           eyebrow="Coming soon"
-          title="Initial decision notes will be added soon."
-          text="Each future entry will record the decision, what I expected, what could go wrong, what actually happened, and what I learned afterwards."
+          title="A future decision library."
+          text="This section will not only record whether a decision made money. It will record whether the reasoning was sound."
         />
 
         <div className="mt-8 flex flex-wrap gap-2">
@@ -32,7 +30,7 @@ export default function DecisionArchive() {
 
         <div className="mt-10 grid gap-px border border-line bg-line">
           {decisionArchiveEntries.map((decision) => (
-            <Link key={decision.slug} to={`/decision-archive/${decision.slug}`} className="group bg-paper p-6 transition-colors hover:bg-ivory md:p-8">
+            <article key={decision.slug} className="bg-paper p-6 md:p-8">
               <div className="grid gap-5 lg:grid-cols-[180px_1fr_auto] lg:items-start">
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">{decision.action}</p>
@@ -44,19 +42,18 @@ export default function DecisionArchive() {
                   <p className="mt-3 text-sm font-semibold text-slateText">{decision.holding}</p>
                   <p className="mt-4 max-w-3xl text-sm leading-7 text-slateText">{decision.summary}</p>
                   <div className="mt-5 flex flex-wrap gap-2">
-                    {[decision.positionType, ...decision.tags].map((tag) => (
-                      <span key={tag} className="border border-line bg-ivory px-3 py-1 text-xs font-semibold text-slateText">
+                    {[decision.positionType, ...decision.tags].map((tag, index) => (
+                      <span key={`${decision.slug}-${tag}-${index}`} className="border border-line bg-ivory px-3 py-1 text-xs font-semibold text-slateText">
                         {tag}
                       </span>
                     ))}
                   </div>
                 </div>
-                <span className="inline-flex items-center gap-2 text-sm font-semibold text-charcoal">
-                  Open template
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                <span className="inline-flex text-sm font-semibold text-charcoal">
+                  Planned memo
                 </span>
               </div>
-            </Link>
+            </article>
           ))}
         </div>
       </section>

@@ -18,10 +18,6 @@ export default function CurrentHoldingsOverview() {
           </div>
           <dl className="mt-6 grid gap-4">
             <div>
-              <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">Shares owned</dt>
-              <dd className="mt-1 font-serif text-2xl font-semibold text-charcoal">{holding.positionSize}</dd>
-            </div>
-            <div>
               <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">Role</dt>
               <dd className="mt-1 text-sm leading-6 text-slateText">{holding.role}</dd>
             </div>

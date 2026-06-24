@@ -10,7 +10,7 @@ import { portfolioRoles, transactionSummary } from '../data/siteData';
 const sleeves = [
   {
     title: 'Core Holdings',
-    text: 'Google, Meta, Berkshire Hathaway, Airbnb, and selected quality names are studied as potential compounders. The role is long-term growth with valuation discipline.',
+    text: 'Google, Meta, Berkshire Hathaway, Airbnb, Pershing Square, and selected quality names are studied as potential compounders. The role is long-term growth with valuation discipline.',
   },
   {
     title: 'Hedge / Defensive Sleeve',
@@ -22,7 +22,7 @@ const sleeves = [
   },
   {
     title: 'Cash and Watchlist',
-    text: 'The Google re-entry is now small rather than aggressive. ASML is closed after a realised gain but remains a watchlist name.',
+    text: 'Cash is lower after the Pershing Square buy, so rebuilding flexibility matters. ASML is closed after a realised gain but remains a watchlist name.',
   },
 ];
 
@@ -35,11 +35,25 @@ export default function CurrentPortfolio() {
         intro="This page documents my own portfolio structure for accountability. It is not investment advice, and it should not be treated as a model portfolio or copied without independent research."
       />
 
+      <section className="border-b border-line bg-paper">
+        <div className="mx-auto max-w-7xl px-5 py-12 md:px-8 md:py-16">
+          <PortfolioSnapshot />
+          <div className="mt-6 grid gap-px border border-line bg-line md:grid-cols-4">
+            {transactionSummary.map((item) => (
+              <div key={item.label} className="bg-paper p-5">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">{item.label}</p>
+                <p className="mt-3 font-serif text-2xl font-semibold text-charcoal">{item.value}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="mx-auto grid max-w-7xl gap-12 px-5 py-16 md:px-8 md:py-24 lg:grid-cols-[0.8fr_1.2fr]">
         <SectionHeader
-          eyebrow="Portfolio approach"
-          title="Each holding needs a role."
-          text="The portfolio is built around dominant technology companies, broad market ETFs, defensive and income-style holdings, selected macro hedges, and smaller higher-risk growth opportunities."
+          eyebrow="Week 16 dashboard"
+          title="Current snapshot first."
+          text="The latest published portfolio record is Week 16. This dashboard keeps the account value, cash, holdings, winners, drags, and action plan in one place."
         />
         <div className="grid gap-px border border-line bg-line md:grid-cols-2">
           {portfolioRoles.map((role, index) => (
@@ -60,27 +74,13 @@ export default function CurrentPortfolio() {
           <SectionHeader
             eyebrow="Current holdings"
             title="What I own right now."
-            text="A quick scan of the current holdings in my own portfolio. This view shows share counts and roles only, not live prices, current values, or recommendations."
+            text="A quick scan of the current holdings in my own portfolio. This view focuses on role and current view rather than raw export-style share counts."
           />
         </div>
         <CurrentHoldingsOverview />
         <Link to="/decision-archive" className="mt-8 inline-flex text-sm font-semibold text-charcoal">
           See the Decision Archive for the reasoning behind major portfolio changes.
         </Link>
-      </section>
-
-      <section className="border-y border-line bg-paper">
-        <div className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24">
-          <PortfolioSnapshot />
-          <div className="mt-6 grid gap-px border border-line bg-line md:grid-cols-4">
-            {transactionSummary.map((item) => (
-              <div key={item.label} className="bg-paper p-5">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">{item.label}</p>
-                <p className="mt-3 font-serif text-2xl font-semibold text-charcoal">{item.value}</p>
-              </div>
-            ))}
-          </div>
-        </div>
       </section>
 
       <section className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24">
@@ -98,7 +98,7 @@ export default function CurrentPortfolio() {
         <div className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24">
           <SectionHeader
             eyebrow="Full record"
-            title="Manual portfolio record."
+            title="Clean manual portfolio record."
             text="No live market prices are shown. This table combines current holdings with closed positions that are still useful for accountability and review."
           />
           <div className="mt-10">

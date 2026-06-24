@@ -38,6 +38,9 @@ export default function Books() {
                       <p key={paragraph}>{paragraph}</p>
                     ))}
                   </div>
+                  <p className="mt-6 border-l-2 border-gold bg-paper px-4 py-3 text-sm font-semibold leading-7 text-charcoal">
+                    Takeaway: {book.takeaway}
+                  </p>
                 </div>
               </article>
             ))}

@@ -8,7 +8,10 @@ export default function Footer() {
         <div>
           <p className="font-serif text-3xl font-semibold">{brand.name}</p>
           <p className="mt-2 text-sm uppercase tracking-[0.22em] text-[#c7bda9]">{brand.subtitle}</p>
-          <p className="mt-6 max-w-2xl text-sm leading-7 text-[#d8d0c0]">{brand.disclaimer}</p>
+          <p className="mt-6 max-w-2xl text-sm font-semibold leading-7 text-[#f4ead8]">
+            Personal investment journal only. Not financial advice. Do not copy my trades.
+          </p>
+          <p className="mt-3 max-w-2xl text-sm leading-7 text-[#d8d0c0]">{brand.disclaimer}</p>
         </div>
         <div className="grid grid-cols-2 gap-3 text-sm sm:grid-cols-3 md:justify-self-end">
           {footerLinks.map((link) => (

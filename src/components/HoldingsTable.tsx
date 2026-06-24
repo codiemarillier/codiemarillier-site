@@ -18,10 +18,6 @@ export default function HoldingsTable() {
 
             <dl className="mt-5 grid gap-4 text-sm leading-7">
               <div>
-                <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">Position</dt>
-                <dd className="mt-1 text-charcoal">{holding.positionSize}</dd>
-              </div>
-              <div>
                 <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">Sleeve</dt>
                 <dd className="mt-1 text-charcoal">{holding.sleeve}</dd>
               </div>
@@ -30,7 +26,7 @@ export default function HoldingsTable() {
                 <dd className="mt-1 text-slateText">{holding.role}</dd>
               </div>
               <div className="border-t border-line pt-4">
-                <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">Transaction note</dt>
+                <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">Current view</dt>
                 <dd className="mt-1 text-slateText">{holding.transactionNote}</dd>
               </div>
             </dl>
@@ -39,11 +35,11 @@ export default function HoldingsTable() {
       </div>
 
       <div className="hidden overflow-x-auto border border-line bg-paper lg:block">
-        <table className="w-full min-w-[1120px] border-collapse text-left text-sm">
+        <table className="w-full min-w-[900px] border-collapse text-left text-sm">
           <caption className="sr-only">Personal portfolio holdings table</caption>
           <thead className="bg-charcoal text-paper">
             <tr>
-              {['Holding', 'Ticker', 'Position', 'Sleeve', 'Role', 'Status', 'Transaction note'].map((heading) => (
+              {['Holding', 'Ticker', 'Role', 'Sleeve', 'Current view'].map((heading) => (
                 <th key={heading} scope="col" className="px-5 py-4 font-semibold">
                   {heading}
                 </th>
@@ -57,10 +53,8 @@ export default function HoldingsTable() {
                   {holding.name}
                 </th>
                 <td className="px-5 py-4 text-slateText">{holding.ticker}</td>
-                <td className="px-5 py-4 text-slateText">{holding.positionSize}</td>
-                <td className="px-5 py-4 text-slateText">{holding.sleeve}</td>
                 <td className="px-5 py-4 text-slateText">{holding.role}</td>
-                <td className="px-5 py-4 text-slateText">{holding.status}</td>
+                <td className="px-5 py-4 text-slateText">{holding.sleeve}</td>
                 <td className="px-5 py-4 text-slateText">{holding.transactionNote}</td>
               </tr>
             ))}

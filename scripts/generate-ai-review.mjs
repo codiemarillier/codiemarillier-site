@@ -6,8 +6,8 @@ const outputRoot = process.argv[2] || 'public';
 const aiRoot = `${outputRoot}/ai`;
 const tempModule = `/tmp/codie-site-data-${Date.now()}.mjs`;
 const siteUrl = 'https://codiemarillier.com';
-const latestReview = 'Week 15 Portfolio Summary';
-const latestUpdated = '2026-06-16';
+const latestReview = 'Week 16 - A pullback and the Pershing Square buy';
+const latestUpdated = '2026-06-23';
 
 await build({
   entryPoints: ['src/data/siteData.ts'],
@@ -52,6 +52,7 @@ function esc(value) {
 
 function slugDate(value) {
   if (/^\d{4}-\d{2}-\d{2}$/.test(value)) return value;
+  if (/23 June 2026/i.test(value)) return '2026-06-23';
   if (/June 2026/i.test(value)) return '2026-06-16';
   return '2026-06-22';
 }
@@ -131,16 +132,18 @@ const mainPages = [
     path: '/',
     title: 'Home',
     pageType: 'homepage',
-    lastUpdated: '2026-06-22',
-    topics: ['personal investment journal', 'portfolio record', 'weekly reviews', 'investing process'],
+    lastUpdated: '2026-06-24',
+    topics: ['personal investment journal', 'public record', 'portfolio snapshot', 'weekly reviews', 'investing process'],
     summary:
-      'The homepage introduces Codie Capital Research as Codie Marillier’s personal investment journal and points readers to the portfolio, journal, books, process, about page, and disclaimer.',
+      'The homepage presents Codie Capital Research as a serious personal investment journal, explains why the site exists, shows the latest Week 16 snapshot, highlights the best first-stop pages, and labels unfinished sections honestly.',
     contentText: plain([
-      `${brand.name} is the personal investment journal of Codie Marillier, a private long-term investor managing his own portfolio and documenting the process publicly.`,
-      'The site exists to track decisions, weekly reviews, holdings, mistakes, rules, and reading development. It is not a fund, advisory service, investment service, or capital-raising site.',
+      `${brand.name} is my personal investment journal. I use it to record what I own, why I own it, what I am learning, and how my thinking changes over time.`,
+      'The site exists to document my thinking, hold me accountable, create a public record over time, track portfolio decisions properly, and show how my process develops.',
+      'The homepage sends first-time readers to the Current Portfolio, Portfolio Journal, Books, and Investment Process pages.',
+      'Letters is marked as coming soon, while Decision Archive and Mistakes & Lessons are described as future sections that stay empty until real entries exist.',
       `Latest source-of-truth review: ${latestReview}. Current account value ${portfolioSnapshot.accountValue}, starting value ${portfolioSnapshot.startingCostBasis}, return ${portfolioSnapshot.currentReturn}, cash ${portfolioSnapshot.cashBalance}.`,
     ]),
-    internalLinks: ['/about', '/portfolio', '/journal', '/books', '/process', '/disclaimer', '/ai/'],
+    internalLinks: ['/portfolio', '/journal', '/books', '/process', '/letters', '/decision-archive', '/mistakes-lessons', '/about', '/disclaimer', '/ai/'],
   },
   {
     path: '/portfolio',
@@ -149,7 +152,7 @@ const mainPages = [
     lastUpdated: latestUpdated,
     topics: ['account value', 'cash balance', 'open holdings', 'portfolio roles', 'winners', 'drags', 'action plan'],
     summary:
-      'The portfolio page records Codie’s own current holdings, Week 15 account value, starting value, cash, latest return, winners, drags, portfolio role notes, and latest action plan.',
+      'The portfolio page records Codie’s own current holdings, Week 16 account value, starting value, cash, latest return, winners, drags, portfolio role notes, and latest action plan.',
     contentText: plain([
       `Current account value: ${portfolioSnapshot.accountValue}. Starting value: ${portfolioSnapshot.startingCostBasis}. Current return: ${portfolioSnapshot.currentReturn}. Cash balance: ${portfolioSnapshot.cashBalance}. Latest review: ${latestReview}.`,
       `Open holdings: ${currentHoldings.map((holding) => `${holding.ticker} ${holding.positionSize} (${holding.role})`).join('; ')}.`,
@@ -157,14 +160,14 @@ const mainPages = [
       `Current drags: ${portfolioCrawlerNotes.drags.join(' ')}`,
       `Latest action plan: ${portfolioCrawlerNotes.latestActionPlan.join(' ')}`,
     ]),
-    internalLinks: ['/journal/week-15-portfolio-summary', '/journal', '/process', '/decision-archive', '/ai/portfolio.html'],
+    internalLinks: ['/journal/week-16-portfolio-summary', '/journal', '/process', '/decision-archive', '/ai/portfolio.html'],
   },
   {
     path: '/journal',
     title: 'Portfolio Journal',
     pageType: 'journal-index',
     lastUpdated: latestUpdated,
-    topics: ['weekly reviews', 'trade reflections', 'market notes', 'lessons', 'Week 1 to Week 15'],
+    topics: ['weekly reviews', 'trade reflections', 'market notes', 'lessons', 'Week 1 to Week 16'],
     summary:
       'The journal page lists weekly review cards and journal entries with dates, account values where available, main trades, and lessons.',
     contentText: plain([
@@ -178,18 +181,17 @@ const mainPages = [
     title: 'Letters',
     pageType: 'letters-index',
     lastUpdated: '2026-06-23',
-    topics: ['monthly letters', 'quarterly letters', 'reflections', 'process development', 'discipline'],
+    topics: ['letters', 'reflections', 'process development', 'discipline'],
     summary:
-      'The Letters page is a planned section for longer-form monthly or quarterly reflections on what Codie is learning, how his thinking is changing, and what he is trying to improve over time.',
+      'The Letters page is prepared for longer-form reflections, with My First Letter marked as a draft in progress rather than a published letter.',
     contentText: plain([
-      'Letters are longer-form reflections on my investing journey. Unlike the weekly portfolio reviews, these are not only about what changed in the account. They are about what I am learning, how my thinking is developing, and what I am trying to improve over time.',
-      'Coming soon. These letters are planned but not written yet.',
+      'Weekly reviews are what happened. Letters are what I learned and how my thinking is changing.',
       ...plannedLetters.map(
         (letter) =>
-          `${letter.title}. ${letter.type}. ${letter.date}. ${letter.summary} Main themes: ${letter.themes.join(', ')}.`,
+          `${letter.title}. ${letter.type}. ${letter.date}. ${letter.summary} Main themes: ${letter.themes.join(', ')}. Status: draft in progress, not yet published.`,
       ),
     ]),
-    internalLinks: plannedLetters.map((letter) => `/letters/${letter.slug}`),
+    internalLinks: ['/journal', '/process'],
   },
   {
     path: '/decision-archive',
@@ -201,14 +203,14 @@ const mainPages = [
       'The Decision Archive is a planned structured archive for major investment decisions, including reasoning, expectations, risks, outcomes, and lessons learned.',
     contentText: plain([
       'The Decision Archive is where I will record the most important investment decisions I make. The goal is not only to track outcomes, but to understand the reasoning behind each decision and whether the process was sound.',
-      'Initial decision notes will be added soon.',
+      'Planned decision cards are visible on the main page, but they do not link to blank detail pages until full memos exist.',
       'Filter support: Buy, Sell, Trim, Add, Hold, Mistake, Lesson, Speculative, Core holding, Hedge.',
       ...decisionArchiveEntries.map(
         (decision) =>
           `${decision.title}. ${decision.holding}. Action taken: ${decision.action}. Position type: ${decision.positionType}. Status: ${decision.status}. ${decision.summary} Tags: ${decision.tags.join(', ')}.`,
       ),
     ]),
-    internalLinks: decisionArchiveEntries.map((decision) => `/decision-archive/${decision.slug}`),
+    internalLinks: ['/portfolio', '/journal', '/process'],
   },
   {
     path: '/mistakes-lessons',
@@ -220,12 +222,12 @@ const mainPages = [
       'Mistakes & Lessons is a planned section for recording mistakes, difficult decisions, and lessons from managing a real portfolio over time.',
     contentText: plain([
       'This section is for recording mistakes, difficult decisions, and lessons from the portfolio. The aim is not to avoid mistakes completely, but to make sure I learn from them, improve my process, and do not repeat the same errors without understanding them.',
-      'Coming soon. These lesson cards are planned placeholders.',
+      'Planned lesson cards are visible on the main page, but they do not link to blank detail pages until full notes exist.',
       ...mistakeLessons.map(
         (lesson) => `${lesson.title}. ${lesson.period}. ${lesson.summary} Main themes: ${lesson.themes.join(', ')}.`,
       ),
     ]),
-    internalLinks: mistakeLessons.map((lesson) => `/mistakes-lessons/${lesson.slug}`),
+    internalLinks: ['/decision-archive', '/process', '/journal'],
   },
   {
     path: '/books',
@@ -237,7 +239,7 @@ const mainPages = [
       'The books page contains the full Books That Shaped My Thinking section with personal reflections on every book and how each shaped Codie’s investing and personal development.',
     contentText: plain([
       'These are the books that have had the biggest influence on how Codie thinks about investing, money, discipline, purpose, risk, and long-term decision-making.',
-      ...readingDevelopment.map((book) => `${book.title} by ${book.author}. ${book.category}. ${book.paragraphs.join(' ')}`),
+      ...readingDevelopment.map((book) => `${book.title} by ${book.author}. ${book.category}. ${book.paragraphs.join(' ')} Takeaway: ${book.takeaway}`),
     ]),
     internalLinks: ['/about', '/process', '/portfolio'],
   },
@@ -304,55 +306,6 @@ const journalRecords = journalEntries.map((entry) => ({
   summary: entry.excerpt,
   contentText: plain([`${entry.title}. ${entry.date}. ${entry.excerpt}`, ...entry.body]),
   internalLinks: [entry.documentUrl, entry.documentPdfUrl, `/ai/journal/${entry.slug}.html`].filter(Boolean),
-}));
-
-const letterRecords = plannedLetters.map((letter) => ({
-  path: `/letters/${letter.slug}`,
-  title: letter.title,
-  pageType: 'letter-template',
-  lastUpdated: '2026-06-23',
-  topics: [letter.type, ...letter.themes],
-  summary: letter.summary,
-  contentText: plain([
-    `${letter.title}. ${letter.type}. ${letter.date}.`,
-    letter.summary,
-    `Main themes: ${letter.themes.join(', ')}.`,
-    'Template fields: Title, Date, Type, Short summary, Main themes, Full letter draft. Full letter draft: To be written.',
-  ]),
-  internalLinks: ['/letters', '/journal', '/process'],
-}));
-
-const decisionRecords = decisionArchiveEntries.map((decision) => ({
-  path: `/decision-archive/${decision.slug}`,
-  title: decision.title,
-  pageType: 'decision-template',
-  lastUpdated: '2026-06-23',
-  topics: [decision.action, decision.positionType, decision.status, ...decision.tags],
-  summary: decision.summary,
-  contentText: plain([
-    `${decision.title}. Holding/ticker: ${decision.holding}. Action taken: ${decision.action}. Position type: ${decision.positionType}. Status: ${decision.status}. Date: ${decision.date}.`,
-    decision.summary,
-    `Related weekly review: ${decision.relatedWeeklyReview ?? 'To be confirmed'}.`,
-    'Template fields: Date, Decision title, Holding/ticker, Action taken, Position type, Why I made the decision, What I expected, What could go wrong, What actually happened, What I learned, Related weekly review, Status. Full decision memo: To be written.',
-  ]),
-  internalLinks: ['/decision-archive', decision.relatedWeeklyReview ? `/journal/${decision.relatedWeeklyReview}` : '/journal', '/portfolio'],
-}));
-
-const lessonRecords = mistakeLessons.map((lesson) => ({
-  path: `/mistakes-lessons/${lesson.slug}`,
-  title: lesson.title,
-  pageType: 'lesson-template',
-  lastUpdated: '2026-06-23',
-  topics: lesson.themes,
-  summary: lesson.summary,
-  contentText: plain([
-    `${lesson.title}. ${lesson.period}.`,
-    lesson.summary,
-    `Main themes: ${lesson.themes.join(', ')}.`,
-    `Related decision or weekly review: ${lesson.relatedLink ?? 'To be confirmed'}.`,
-    'Template fields: Title, Date or period, What happened, Why it mattered, What I got wrong, What I learned, What I would do differently, Related decision or weekly review. Full lesson: To be written.',
-  ]),
-  internalLinks: ['/mistakes-lessons', lesson.relatedLink ?? '/process', '/decision-archive'],
 }));
 
 const researchRecords = researchNotes.map((note) => ({
@@ -429,9 +382,6 @@ const aiRecords = [
 const allRecords = [
   ...mainPages,
   ...journalRecords,
-  ...letterRecords,
-  ...decisionRecords,
-  ...lessonRecords,
   ...researchRecords,
   ...aiRecords,
 ];
@@ -466,8 +416,18 @@ await writeFile(
     body: `
       <section>
         <h2>Site Purpose</h2>
-        <p>Codie Capital Research is Codie Marillier's personal investment research and portfolio journal. It documents his own portfolio, weekly reviews, holdings, books, process, mistakes, and long-term development as a private investor.</p>
-        <p>It is not a fund, advisory service, investment service, capital-raising site, or money-management business.</p>
+        <p>Codie Capital Research is Codie Marillier's personal investment journal. It is used to record what he owns, why he owns it, what he is learning, and how his thinking changes over time.</p>
+        <p>The goal is to build a long-term public record of decisions, mistakes, lessons, and development as an investor. It is not financial advice, not a fund, and not a money-management service.</p>
+      </section>
+      <section>
+        <h2>Why I Built This</h2>
+        <ul>
+          <li>Document thinking before hindsight changes the story.</li>
+          <li>Hold the process accountable with a public record over time.</li>
+          <li>Track portfolio decisions properly instead of relying on memory or conversation.</li>
+          <li>Show how the investment process develops around risk, patience, position sizing, and written reasoning.</li>
+          <li>Record what was believed and what was actually done.</li>
+        </ul>
       </section>
       <section>
         <h2>Latest Portfolio Snapshot</h2>
@@ -483,6 +443,24 @@ latestReview: ${esc(latestReview)}</pre>
           <div class="card"><strong>Current return</strong><br>${esc(portfolioSnapshot.currentReturn)}</div>
           <div class="card"><strong>Cash balance</strong><br>${esc(portfolioSnapshot.cashBalance)}</div>
         </div>
+        <p>The snapshot is updated through the latest published weekly review.</p>
+      </section>
+      <section>
+        <h2>Start Here</h2>
+        <ul>
+          <li><a href="/portfolio">Current Portfolio</a> - What I currently own, how the portfolio is positioned, and what role each holding plays.</li>
+          <li><a href="/journal">Portfolio Journal</a> - My weekly record of portfolio changes, market thoughts, decisions, and lessons.</li>
+          <li><a href="/books">Books</a> - The books that have shaped how I think about money, markets, discipline, risk, and behaviour.</li>
+          <li><a href="/process">Investment Process</a> - The rules and habits I am trying to build around capital protection, patience, position sizing, and written reasoning.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Still Being Built</h2>
+        <ul>
+          <li><a href="/letters">Letters</a> - Longer reflections on what I am learning. The first letter is being written now.</li>
+          <li><a href="/decision-archive">Decision Archive</a> - A future archive for major investment decisions. This stays empty until full decision memos are written.</li>
+          <li><a href="/mistakes-lessons">Mistakes &amp; Lessons</a> - A future record of mistakes, difficult decisions, and process lessons. This stays empty until proper entries are written.</li>
+        </ul>
       </section>
       <section>
         <h2>Core Links</h2>
@@ -557,7 +535,7 @@ await writeFile(
     body: `
       <section>
         <h2>Portfolio Snapshot</h2>
-        <p>Week 15 Portfolio Summary dated 16 June 2026 is the current source-of-truth update.</p>
+        <p>Week 16 Portfolio Summary dated 23 June 2026 is the current source-of-truth update.</p>
         <div class="grid">
           ${Object.entries(portfolioSnapshot).map(([key, value]) => `<div class="card"><strong>${esc(key)}</strong><br>${esc(value)}</div>`).join('\n')}
         </div>
@@ -629,7 +607,7 @@ const siteContent = {
   site: {
     name: brand.name,
     url: siteUrl,
-    purpose: 'Personal investment research and portfolio journal by Codie Marillier.',
+    purpose: 'Personal investment journal and long-term public record by Codie Marillier.',
     disclaimer: brand.disclaimer,
     latestPortfolioSnapshot: {
       latestReview,
@@ -667,6 +645,17 @@ const allText = [
   'MAIN PAGES',
   ...mainPages.map((page) => `${page.path} - ${page.title}\n${page.summary}\n${page.contentText}`),
   '',
+  'HOMEPAGE START HERE',
+  'Current Portfolio - What I currently own, how the portfolio is positioned, and what role each holding plays.',
+  'Portfolio Journal - My weekly record of portfolio changes, market thoughts, decisions, and lessons.',
+  'Books - The books that have shaped how I think about money, markets, discipline, risk, and behaviour.',
+  'Investment Process - The rules and habits I am trying to build around capital protection, patience, position sizing, and written reasoning.',
+  '',
+  'HOMEPAGE STILL BEING BUILT',
+  'Letters - Longer reflections on what I am learning. The first letter is being written now.',
+  'Decision Archive - A future archive for major investment decisions. This stays empty until full decision memos are written.',
+  'Mistakes & Lessons - A future record of mistakes, difficult decisions, and process lessons. This stays empty until proper entries are written.',
+  '',
   'HOLDINGS',
   ...holdings.map((holding) => `${holding.ticker} - ${holding.name}\nPosition: ${holding.positionSize}\nSleeve: ${holding.sleeve}\nRole: ${holding.role}\nStatus: ${holding.status}\nNote: ${holding.transactionNote}`),
   '',
@@ -682,8 +671,10 @@ const allText = [
   'PROCESS RULES',
   ...processRules.map((rule) => `${rule.title}\n${rule.text}`),
   '',
-  'PLANNED LETTERS',
-  ...plannedLetters.map((letter) => `${letter.title}\n${letter.type} / ${letter.date}\n${letter.summary}\nThemes: ${letter.themes.join(', ')}`),
+  'LETTERS',
+  ...plannedLetters.map((letter) =>
+    [`${letter.title}\n${letter.type} / ${letter.date}\n${letter.summary}\nThemes: ${letter.themes.join(', ')}`, ...(letter.body ?? [])].join('\n\n'),
+  ),
   '',
   'DECISION ARCHIVE PLACEHOLDERS',
   ...decisionArchiveEntries.map(
@@ -697,7 +688,7 @@ const allText = [
   ),
   '',
   'BOOKS THAT SHAPED MY THINKING',
-  ...readingDevelopment.map((book) => `${book.title} - ${book.author}\n${book.category}\n${book.paragraphs.join('\n\n')}`),
+  ...readingDevelopment.map((book) => `${book.title} - ${book.author}\n${book.category}\n${book.paragraphs.join('\n\n')}\n\nTakeaway: ${book.takeaway}`),
   '',
   'JOURNAL ENTRIES',
   ...journalEntries.map((entry) => `${entry.title}\n${entry.date} / ${entry.category}\n${entry.excerpt}\n${entry.body.join('\n\n')}`),
@@ -719,9 +710,6 @@ const sitemapRoutes = [
   '/ai/site-content.json',
   '/ai/all-content.txt',
   ...journalEntries.map((entry) => `/journal/${entry.slug}`),
-  ...plannedLetters.map((letter) => `/letters/${letter.slug}`),
-  ...decisionArchiveEntries.map((decision) => `/decision-archive/${decision.slug}`),
-  ...mistakeLessons.map((lesson) => `/mistakes-lessons/${lesson.slug}`),
   ...journalEntries.map((entry) => `/ai/journal/${entry.slug}.html`),
   ...researchNotes.map((note) => `/ai/research/${note.slug}.html`),
 ];

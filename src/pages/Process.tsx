@@ -17,6 +17,23 @@ const relatedSections = [
   },
 ];
 
+const beforeBuy = [
+  'Why am I buying?',
+  'What is the thesis?',
+  'What could go wrong?',
+  'What would make me sell?',
+  'Is this core, hedge, speculative, or defensive?',
+  'Am I following a plan or reacting emotionally?',
+];
+
+const beforeSell = [
+  'Has the thesis changed?',
+  'Am I taking profit, managing risk, or panicking?',
+  'Should I trim instead of exiting fully?',
+  'What will I do with the cash?',
+  'What lesson should be recorded?',
+];
+
 export default function Process() {
   return (
     <main className="page-fade">
@@ -57,6 +74,32 @@ export default function Process() {
             emotional pressure, and the plan for the following week. The goal is to make the process visible enough
             that bad habits are harder to hide from.
           </p>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24">
+        <SectionHeader
+          eyebrow="Practical checklists"
+          title="Questions before action."
+          text="The rules only matter if they show up before I buy, sell, trim, or add to a position."
+          align="center"
+        />
+        <div className="mt-10 grid gap-px border border-line bg-line md:grid-cols-2">
+          {[
+            ['Before I buy', beforeBuy],
+            ['Before I sell', beforeSell],
+          ].map(([title, items]) => (
+            <article key={title as string} className="bg-paper p-7 md:p-8">
+              <h2 className="font-serif text-3xl font-semibold text-charcoal">{title as string}</h2>
+              <ul className="mt-6 grid gap-3">
+                {(items as string[]).map((item) => (
+                  <li key={item} className="border border-line bg-ivory px-4 py-3 text-sm font-semibold text-charcoal">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))}
         </div>
       </section>
 

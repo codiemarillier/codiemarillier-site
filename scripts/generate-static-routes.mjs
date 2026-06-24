@@ -80,18 +80,18 @@ function weeklyCard(entry) {
   const snapshot = entry.body[0] ?? '';
   const week = entry.title.match(/Week\s+\d+/i)?.[0] ?? entry.title;
   const accountValue =
-    readLabel(snapshot, ['Current account value', 'Account value', 'Total portfolio value', 'Portfolio value']) ||
-    'Recorded in weekly review';
-  const weeklyMove = readLabel(snapshot, ['Move since Week 14', 'Weekly move', 'Weekly change']) || 'Recorded in weekly review';
+    readLabel(snapshot, ['Account value at review', 'Current account value', 'Account value', 'Estimated account value', 'Total portfolio value', 'Portfolio value']) ||
+    'Not recorded';
+  const weeklyMove = readLabel(snapshot, ['Move since Week 14', 'Weekly move', 'Weekly change']) || 'Qualitative review only';
   const mainTrade =
-    readLabel(snapshot, ['Main realised trade', 'Main trade', 'Main new position']) ||
+    readLabel(snapshot, ['Main realised trade', 'Main trade', 'Main new trade', 'Main new position']) ||
     entry.majorEvents?.[0] ||
     'Reviewed in the weekly summary';
   const lessonBlock = entry.body.find((block) => /lesson|overall conclusion|action plan/i.test(block)) ?? entry.excerpt;
   const mainLesson =
     lessonBlock
       .replace(/^\d+\.\s*/g, '')
-      .replace(/^(Main lesson from the week|Overall conclusion|Action Plan)\n/i, '')
+      .replace(/^(Main lessons? from (the )?Week \d+|Main lesson from the week|Overall conclusion|Action Plan)\n/i, '')
       .split('\n')
       .find((line) => line.trim().length > 55) ?? entry.excerpt;
 
@@ -101,7 +101,7 @@ function weeklyCard(entry) {
       <div><dt>Account value</dt><dd>${esc(accountValue)}</dd></div>
       <div><dt>Weekly move</dt><dd>${esc(weeklyMove)}</dd></div>
       <div><dt>Main trade</dt><dd>${esc(mainTrade)}</dd></div>
-      <div><dt>Main lesson</dt><dd>${esc(mainLesson)}</dd></div>
+      <div><dt>Main lesson</dt><dd>${esc(mainLesson.replace(/\s+/g, ' ').slice(0, 170))}</dd></div>
     </dl>
     <p><a href="/journal/${esc(entry.slug)}">Read ${esc(entry.title)}</a></p>
   </article>`;
@@ -110,16 +110,17 @@ function weeklyCard(entry) {
 function letterCard(letter) {
   return `<article class="static-card">
     <p>${esc(letter.type)} / ${esc(letter.date)}</p>
-    <h3><a href="/letters/${esc(letter.slug)}">${esc(letter.title)}</a></h3>
+    <h3>${esc(letter.title)}</h3>
     <p>${esc(letter.summary)}</p>
     <p><strong>Main themes:</strong> ${esc(letter.themes.join(', '))}</p>
+    <p><strong>Status:</strong> Draft in progress.</p>
   </article>`;
 }
 
 function decisionCard(decision) {
   return `<article class="static-card">
     <p>${esc(decision.action)} / ${esc(decision.status)} / ${esc(decision.date)}</p>
-    <h3><a href="/decision-archive/${esc(decision.slug)}">${esc(decision.title)}</a></h3>
+    <h3>${esc(decision.title)}</h3>
     <p><strong>Holding/ticker:</strong> ${esc(decision.holding)}</p>
     <p><strong>Position type:</strong> ${esc(decision.positionType)}</p>
     <p>${esc(decision.summary)}</p>
@@ -131,22 +132,11 @@ function decisionCard(decision) {
 function lessonCard(lesson) {
   return `<article class="static-card">
     <p>${esc(lesson.period)}</p>
-    <h3><a href="/mistakes-lessons/${esc(lesson.slug)}">${esc(lesson.title)}</a></h3>
+    <h3>${esc(lesson.title)}</h3>
     <p>${esc(lesson.summary)}</p>
     <p><strong>Main themes:</strong> ${esc(lesson.themes.join(', '))}</p>
     ${lesson.relatedLink ? `<p><strong>Related link:</strong> <a href="${esc(lesson.relatedLink)}">${esc(lesson.relatedLink)}</a></p>` : ''}
   </article>`;
-}
-
-function templatePage({ eyebrow, title, intro, backHref, backLabel, fields }) {
-  return `
-    <p>${esc(eyebrow)}</p>
-    <h1>${esc(title)}</h1>
-    ${paragraph(intro)}
-    ${section('Coming Soon', paragraph('This page is a prepared template for a future piece of writing. The full content has not been written yet, so the page is intentionally not pretending to be finished.'))}
-    ${section('Template Fields', list(fields.map((field) => `${field}: To be written.`)))}
-    ${section('Back Link', `<p><a href="${esc(backHref)}">Back to ${esc(backLabel)}</a></p>`)}
-  `;
 }
 
 function routeHtml({ path, title, description, fallback, pageType = 'WebPage' }) {
@@ -182,61 +172,96 @@ async function writeRoute(route) {
 
 const currentHoldings = holdings.filter((holding) => !/^closed/i.test(holding.positionSize) && !/^closed/i.test(holding.status));
 const weeklyReviews = journalEntries.filter((entry) => entry.category === 'Weekly Reviews');
+const latestWeeklyReview = weeklyReviews[0];
+const latestReviewLabel = latestWeeklyReview?.title.match(/Week\s+\d+/i)?.[0] ?? 'Week 16';
 
 const homeRoute = {
   path: '/',
   title: 'Codie Capital Research | Investment Journal by Codie Marillier',
   description:
-    "Codie Marillier's personal investment journal documenting his own portfolio, weekly reviews, books, investing rules, and lessons. Not investment advice.",
+    "Codie Marillier's personal investment journal and public record of portfolio decisions, weekly reviews, process, and long-term learning. Not investment advice.",
   fallback: `
     <p>Personal investment journal</p>
     <h1>Codie Capital Research</h1>
-    ${paragraph('Codie Capital Research is the personal investment journal of Codie Marillier, a private long-term investor managing his own portfolio and documenting the process publicly.')}
-    ${paragraph('The site records portfolio holdings, weekly reviews, books that shaped Codie’s thinking, investment rules, mistakes, and public accountability. It is not a fund, advisory service, investment service, capital-raising site, or money-management business.')}
+    ${paragraph(
+      'Codie Capital Research is my personal investment journal. I use it to record what I own, why I own it, what I am learning, and how my thinking changes over time. The aim is to build a long-term public record of my decisions, mistakes, lessons, and development as an investor.',
+    )}
+    ${paragraph('This is a personal investment journal only. It is not financial advice, not a fund, and not a money-management service.')}
+    ${section(
+      'Why I Built This',
+      list([
+        'Document my thinking before hindsight changes the story.',
+        'Hold myself accountable with a public record over time.',
+        'Track portfolio decisions properly instead of relying on memory or conversation.',
+        'Show how my process develops around risk, patience, position sizing, and written reasoning.',
+        'Make sure I am recording what I believed and what I actually did.',
+      ]),
+    )}
     ${section(
       'Latest Portfolio Snapshot',
       `<dl class="static-grid">
-        <div><dt>Latest review</dt><dd>Week 15</dd></div>
+        <div><dt>Latest review</dt><dd>${esc(latestReviewLabel)}</dd></div>
         <div><dt>Current account value</dt><dd>${esc(portfolioSnapshot.accountValue)}</dd></div>
         <div><dt>Starting value</dt><dd>${esc(portfolioSnapshot.startingCostBasis)}</dd></div>
         <div><dt>Current return</dt><dd>${esc(portfolioSnapshot.currentReturn)}</dd></div>
         <div><dt>Cash balance</dt><dd>${esc(portfolioSnapshot.cashBalance)}</dd></div>
-      </dl>`,
+      </dl>
+      <p>The snapshot is updated through the latest published weekly review.</p>`,
     )}
     ${section(
-      'Main Pages',
-      list([
-        'About Codie Marillier: personal investing background, early interest in markets, Bitcoin, real estate influence, mistakes, and reading development.',
-        'Current Portfolio: current account value, cash, holdings, winners, drags, roles, and action plan.',
-        'Portfolio Journal: weekly summaries from Week 1 to Week 15 and trade reflections.',
-        'Letters: planned longer-form reflections on investing lessons, discipline, risk, and process development.',
-        'Decision Archive: planned structured decision memos covering reasoning, expectations, risks, outcomes, and lessons.',
-        'Mistakes & Lessons: planned notes on mistakes, difficult decisions, and improvements to the investing process.',
-        'Books That Shaped My Thinking: full personal reflections on each book.',
-        'Investment Process: capital protection, position sizing, written reasoning, cash discipline, no leverage, no impulsive trades, and weekly review process.',
+      'Start Here',
+      linkList([
+        {
+          label: 'Current Portfolio',
+          href: '/portfolio',
+          text: 'What I currently own, how the portfolio is positioned, and what role each holding plays.',
+        },
+        {
+          label: 'Portfolio Journal',
+          href: '/journal',
+          text: 'My weekly record of portfolio changes, market thoughts, decisions, and lessons.',
+        },
+        {
+          label: 'Books',
+          href: '/books',
+          text: 'The books that have shaped how I think about money, markets, discipline, risk, and behaviour.',
+        },
+        {
+          label: 'Investment Process',
+          href: '/process',
+          text: 'The rules and habits I am trying to build around capital protection, patience, position sizing, and written reasoning.',
+        },
       ]),
     )}
     ${section(
-      'Building the Process',
-      `<div class="static-grid">
-        <article><h3><a href="/letters">Letters</a></h3><p>Longer-form monthly or quarterly reflections on what I am learning, how my thinking is developing, and what I am trying to improve over time.</p></article>
-        <article><h3><a href="/decision-archive">Decision Archive</a></h3><p>A structured archive for future major decisions, including reasoning, expectations, risks, outcomes, and lessons learned.</p></article>
-        <article><h3><a href="/mistakes-lessons">Mistakes & Lessons</a></h3><p>A personal record of mistakes, difficult decisions, and process lessons from managing my own portfolio.</p></article>
-      </div>`,
+      'Still Being Built',
+      linkList([
+        {
+          label: 'Letters',
+          href: '/letters',
+          text: 'Longer reflections on what I am learning. The first letter is being written now.',
+        },
+        {
+          label: 'Decision Archive',
+          href: '/decision-archive',
+          text: 'A future archive for major investment decisions. This will stay empty until full decision memos are written.',
+        },
+        {
+          label: 'Mistakes & Lessons',
+          href: '/mistakes-lessons',
+          text: 'A future record of mistakes, difficult decisions, and process lessons. This will stay empty until proper entries are written.',
+        },
+      ]),
     )}
     ${section(
-      'Links',
+      'Next Pages',
       `<ul>
-        <li><a href="/about">About</a></li>
-        <li><a href="/portfolio">Portfolio</a></li>
-        <li><a href="/journal">Journal</a></li>
-        <li><a href="/letters">Letters</a></li>
-        <li><a href="/decision-archive">Decision Archive</a></li>
-        <li><a href="/mistakes-lessons">Mistakes & Lessons</a></li>
-        <li><a href="/books">Books</a></li>
-        <li><a href="/process">Process</a></li>
+        <li><a href="/portfolio">View Current Portfolio</a></li>
+        <li><a href="/journal">Read Portfolio Journal</a></li>
+        <li><a href="/process">See Investment Process</a></li>
+        <li><a href="/about">About Codie Marillier</a></li>
         <li><a href="/disclaimer">Disclaimer</a></li>
-        <li><a href="/ai/">AI-readable archive</a></li>
+        <li><a href="/ai/">Technical AI archive</a></li>
       </ul>`,
     )}
   `,
@@ -248,13 +273,13 @@ const routes = [
     path: '/portfolio',
     title: 'Current Portfolio | Codie Capital Research',
     description:
-      "Codie Marillier's current personal portfolio record: Week 15 account value, cash, return, open holdings, portfolio roles, winners, drags, and latest action plan.",
+      "Codie Marillier's current personal portfolio record: Week 16 account value, cash, return, open holdings, portfolio roles, winners, drags, and latest action plan.",
     fallback: `
       <p>Personal portfolio record. Not investment advice.</p>
       <h1>Current Portfolio</h1>
       ${paragraph('This page documents my own portfolio structure for accountability. It is not a model portfolio, not investment advice, and should not be copied.')}
       ${section(
-        'Week 15 Snapshot',
+        `${latestReviewLabel} Snapshot`,
         `<dl class="static-grid">
           <div><dt>Current account value</dt><dd>${esc(portfolioSnapshot.accountValue)}</dd></div>
           <div><dt>Starting value</dt><dd>${esc(portfolioSnapshot.startingCostBasis)}</dd></div>
@@ -329,14 +354,13 @@ const routes = [
     fallback: `
       <p>Letters</p>
       <h1>Letters</h1>
-      ${paragraph('Letters are longer-form reflections on my investing journey. Unlike the weekly portfolio reviews, these are not only about what changed in the account. They are about what I am learning, how my thinking is developing, and what I am trying to improve over time.')}
-      ${section('Coming Soon', paragraph('These letters are planned but not written yet. The structure is here so future monthly letters, quarterly letters, and deeper reflections can sit alongside the weekly portfolio record.'))}
-      ${section('Planned Letter Cards', plannedLetters.map(letterCard).join(''))}
+      ${paragraph('Weekly reviews are what happened. Letters are what I learned and how my thinking is changing. My First Letter is being drafted and is not published yet.')}
+      ${section('Letter Cards', plannedLetters.map(letterCard).join(''))}
       ${section(
         'Related Sections',
         linkList([
-          { href: '/journal', label: 'Portfolio Journal', text: 'Weekly review archive from Week 1 to Week 15.' },
-          { href: '/process', label: 'Investment Process', text: 'The rules and process these future letters will keep referring back to.' },
+          { href: '/journal', label: 'Portfolio Journal', text: 'Weekly review archive from Week 1 to Week 16.' },
+          { href: '/process', label: 'Investment Process', text: 'The rules and process these letters refer back to.' },
           { href: '/mistakes-lessons', label: 'Mistakes & Lessons', text: 'A planned record for honest reviews and lessons.' },
         ]),
       )}
@@ -351,7 +375,7 @@ const routes = [
       <p>Decision Archive</p>
       <h1>Decision Archive</h1>
       ${paragraph('The Decision Archive is where I will record the most important investment decisions I make. The goal is not only to track outcomes, but to understand the reasoning behind each decision and whether the process was sound.')}
-      ${section('Coming Soon', paragraph('Initial decision notes will be added soon. Each future entry will record the decision, what I expected, what could go wrong, what actually happened, and what I learned afterwards.'))}
+      ${section('Coming Soon', paragraph('This section will not only record whether a decision made money. It will record whether the reasoning was sound. Planned cards are not linked until full memos exist.'))}
       ${section('Filter Support', list(['Buy', 'Sell', 'Trim', 'Add', 'Hold', 'Mistake', 'Lesson', 'Speculative', 'Core holding', 'Hedge']))}
       ${section('Planned Decision Cards', decisionArchiveEntries.map(decisionCard).join(''))}
       ${section(
@@ -373,7 +397,7 @@ const routes = [
       <p>Mistakes & Lessons</p>
       <h1>Mistakes & Lessons</h1>
       ${paragraph('This section is for recording mistakes, difficult decisions, and lessons from the portfolio. The aim is not to avoid mistakes completely, but to make sure I learn from them, improve my process, and do not repeat the same errors without understanding them.')}
-      ${section('Coming Soon', paragraph('These lesson cards are planned placeholders. Future entries will explain what happened, why it mattered, what I got wrong, what I learned, and what I would do differently.'))}
+      ${section('Coming Soon', paragraph('These notes are not here to embarrass me. They are here to make the process more honest, more repeatable, and less dependent on memory. Planned cards are not linked until full notes exist.'))}
       ${section('Planned Lesson Cards', mistakeLessons.map(lessonCard).join(''))}
       ${section(
         'Related Sections',
@@ -395,7 +419,7 @@ const routes = [
       <h1>Books That Shaped My Thinking</h1>
       ${paragraph('These are the books that have had the biggest influence on how I think about investing, money, discipline, purpose, risk, and long-term decision-making.')}
       ${readingDevelopment
-        .map((book) => `<article><h2>${esc(book.title)}</h2><p><strong>${esc(book.author)}</strong> / ${esc(book.category)}</p>${textBlock(book.paragraphs)}</article>`)
+        .map((book) => `<article><h2>${esc(book.title)}</h2><p><strong>${esc(book.author)}</strong> / ${esc(book.category)}</p>${textBlock(book.paragraphs)}<p><strong>Takeaway:</strong> ${esc(book.takeaway)}</p></article>`)
         .join('')}
       ${paragraph('Together, these books have shaped the way I think about investing and life. I do not see investing as separate from personal development.')}
     `,
@@ -410,6 +434,8 @@ const routes = [
       <h1>Investment Process</h1>
       ${paragraph('A written rulebook for protecting capital, sizing positions properly, keeping cash discipline, avoiding leverage, and reviewing the portfolio every week.')}
       ${section('Full Investing Rules', processRules.map((rule) => `<article><h3>${esc(rule.title)}</h3><p>${esc(rule.text)}</p></article>`).join(''))}
+      ${section('Before I Buy', list(['Why am I buying?', 'What is the thesis?', 'What could go wrong?', 'What would make me sell?', 'Is this core, hedge, speculative, or defensive?', 'Am I following a plan or reacting emotionally?']))}
+      ${section('Before I Sell', list(['Has the thesis changed?', 'Am I taking profit, managing risk, or panicking?', 'Should I trim instead of exiting fully?', 'What will I do with the cash?', 'What lesson should be recorded?']))}
       ${section(
         'Related Sections',
         linkList([
@@ -436,7 +462,7 @@ const routes = [
       <p>About Codie Marillier</p>
       <h1>About Codie Marillier</h1>
       ${paragraph('I am a private, long-term investor managing my own portfolio and documenting the process publicly.')}
-      ${paragraph('This page covers Codie Marillier as a private long-term investor, his early interest in markets, the COVID lockdown course, first Bitcoin investment, family real estate influence, mistakes, and reading development.')}
+      ${paragraph('I started this site to build a public record of my investing process, not just a list of trades or returns.')}
       ${paragraph('My interest in investing began seriously around the age of fourteen, when I first understood that the stock market allowed ordinary people to buy small pieces of real businesses.')}
       ${paragraph('During the first COVID lockdown in 2020, my father encouraged me and my siblings to each choose an online course while we were at home. I chose a stock trading course by Mohsin Hassan on Udemy and began studying fundamental analysis, technical analysis, market behaviour, risk, and trading psychology.')}
       ${paragraph('My first investment was Bitcoin in 2021, when it was trading at roughly $21,000. I invested around $500, and within a few months that position had grown to approximately $1,500. That early success gave me confidence, but it also taught me that making money early does not always mean you fully understand risk.')}
@@ -447,9 +473,9 @@ const routes = [
         ${paragraph('Leveraged crypto trading became too close to gambling because it encouraged emotional behaviour, adding to losing trades, and hoping for reversals. I no longer want strategies that create revenge trading, overexposure, or emotional decision-making.')}`,
       )}
       ${section(
-        'Reading Development',
-        `${paragraph('Reading has become one of the most important parts of my investing process because it helps me think about patience, discipline, valuation, risk control, psychology, and clear thinking during emotional markets.')}
-        ${list(readingDevelopment.map((book) => `${book.title} by ${book.author} - ${book.category}`))}`,
+        'Why I Built This Website',
+        `${paragraph('I built this website to document my thinking, keep myself accountable, show what I believed at different moments, and create a broader reputational asset over time.')}
+        ${paragraph('The full reading list now lives on the Books page.')}`,
       )}
     `,
   },
@@ -508,70 +534,14 @@ for (const letter of plannedLetters) {
     title: `${letter.title} | Letters | Codie Capital Research`,
     description: letter.summary,
     pageType: 'Article',
-    fallback: templatePage({
-      eyebrow: `${letter.type} / ${letter.date}`,
-      title: letter.title,
-      intro: letter.summary,
-      backHref: '/letters',
-      backLabel: 'Letters',
-      fields: ['Title', 'Date', 'Type', 'Short summary', 'Main themes', 'Full letter draft'],
-    }),
-  });
-}
-
-for (const decision of decisionArchiveEntries) {
-  await writeRoute({
-    path: `/decision-archive/${decision.slug}`,
-    title: `${decision.title} | Decision Archive | Codie Capital Research`,
-    description: decision.summary,
-    pageType: 'Article',
-    fallback: templatePage({
-      eyebrow: `${decision.action} / ${decision.positionType} / ${decision.status}`,
-      title: decision.title,
-      intro: `${decision.summary} Holding/ticker: ${decision.holding}. Related weekly review: ${decision.relatedWeeklyReview ?? 'To be confirmed'}.`,
-      backHref: '/decision-archive',
-      backLabel: 'Decision Archive',
-      fields: [
-        'Date',
-        'Decision title',
-        'Holding / ticker',
-        'Action taken',
-        'Position type',
-        'Why I made the decision',
-        'What I expected',
-        'What could go wrong',
-        'What actually happened',
-        'What I learned',
-        'Related weekly review',
-        'Status',
-      ],
-    }),
-  });
-}
-
-for (const lesson of mistakeLessons) {
-  await writeRoute({
-    path: `/mistakes-lessons/${lesson.slug}`,
-    title: `${lesson.title} | Mistakes & Lessons | Codie Capital Research`,
-    description: lesson.summary,
-    pageType: 'Article',
-    fallback: templatePage({
-      eyebrow: lesson.period,
-      title: lesson.title,
-      intro: `${lesson.summary} Related decision or weekly review: ${lesson.relatedLink ?? 'To be confirmed'}.`,
-      backHref: '/mistakes-lessons',
-      backLabel: 'Mistakes & Lessons',
-      fields: [
-        'Title',
-        'Date or period',
-        'What happened',
-        'Why it mattered',
-        'What I got wrong',
-        'What I learned',
-        'What I would do differently',
-        'Related decision or weekly review',
-      ],
-    }),
+    fallback: `
+      <p>Coming soon</p>
+      <h1>${esc(letter.title)}</h1>
+      ${paragraph('This letter is being prepared, but it is not published yet.')}
+      ${paragraph(letter.summary)}
+      ${section('Main Themes', list(letter.themes))}
+      ${section('Back Link', '<p><a href="/letters">Back to Letters</a></p>')}
+    `,
   });
 }
 
