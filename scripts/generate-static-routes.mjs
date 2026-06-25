@@ -18,18 +18,16 @@ await build({
 
 const {
   brand,
-  decisionArchiveEntries,
   disclaimerPoints,
   holdings,
   journalEntries,
-  mistakeLessons,
+  latestPortfolioReview,
   portfolioCrawlerNotes,
   portfolioRoles,
   portfolioSnapshot,
   plannedLetters,
   processRules,
   readingDevelopment,
-  researchNotes,
   transactionSummary,
 } = await import(pathToFileURL(tempModule).href);
 
@@ -119,28 +117,6 @@ function letterCard(letter) {
   </article>`;
 }
 
-function decisionCard(decision) {
-  return `<article class="static-card">
-    <p>${esc(decision.action)} / ${esc(decision.status)} / ${esc(decision.date)}</p>
-    <h3>${esc(decision.title)}</h3>
-    <p><strong>Holding/ticker:</strong> ${esc(decision.holding)}</p>
-    <p><strong>Position type:</strong> ${esc(decision.positionType)}</p>
-    <p>${esc(decision.summary)}</p>
-    <p><strong>Tags:</strong> ${esc(decision.tags.join(', '))}</p>
-    ${decision.relatedWeeklyReview ? `<p><strong>Related weekly review:</strong> <a href="/journal/${esc(decision.relatedWeeklyReview)}">${esc(decision.relatedWeeklyReview)}</a></p>` : ''}
-  </article>`;
-}
-
-function lessonCard(lesson) {
-  return `<article class="static-card">
-    <p>${esc(lesson.period)}</p>
-    <h3>${esc(lesson.title)}</h3>
-    <p>${esc(lesson.summary)}</p>
-    <p><strong>Main themes:</strong> ${esc(lesson.themes.join(', '))}</p>
-    ${lesson.relatedLink ? `<p><strong>Related link:</strong> <a href="${esc(lesson.relatedLink)}">${esc(lesson.relatedLink)}</a></p>` : ''}
-  </article>`;
-}
-
 function routeHtml({ path, title, description, fallback, pageType = 'WebPage' }) {
   const canonical = `${siteUrl}${path === '/' ? '/' : path}`;
   const staticMain = `<main class="static-fallback" aria-label="Static page content">${fallback}</main>`;
@@ -173,9 +149,9 @@ async function writeRoute(route) {
 }
 
 const currentHoldings = holdings.filter((holding) => !/^closed/i.test(holding.positionSize) && !/^closed/i.test(holding.status));
+const publishedLetters = plannedLetters.filter((letter) => letter.body?.length);
 const weeklyReviews = journalEntries.filter((entry) => entry.category === 'Weekly Reviews');
-const latestWeeklyReview = weeklyReviews[0];
-const latestReviewLabel = latestWeeklyReview?.title.match(/Week\s+\d+/i)?.[0] ?? 'Week 16';
+const latestReviewLabel = latestPortfolioReview.label;
 
 const homeRoute = {
   path: '/',
@@ -224,34 +200,14 @@ const homeRoute = {
           text: 'My weekly record of portfolio changes, market thoughts, decisions, and lessons.',
         },
         {
-          label: 'Books',
-          href: '/books',
-          text: 'The books that have shaped how I think about money, markets, discipline, risk, and behaviour.',
-        },
-        {
           label: 'Investment Process',
           href: '/process',
           text: 'The rules and habits I am trying to build around capital protection, patience, position sizing, and written reasoning.',
         },
-      ]),
-    )}
-    ${section(
-      'Still Being Built',
-      linkList([
         {
-          label: 'Letters',
-          href: '/letters',
-          text: 'Longer reflections on what I am learning. My First Letter is now live.',
-        },
-        {
-          label: 'Decision Archive',
-          href: '/decision-archive',
-          text: 'A future archive for major investment decisions. This will stay empty until full decision memos are written.',
-        },
-        {
-          label: 'Mistakes & Lessons',
-          href: '/mistakes-lessons',
-          text: 'A future record of mistakes, difficult decisions, and process lessons. This will stay empty until proper entries are written.',
+          label: 'About',
+          href: '/about',
+          text: 'Who I am, why I started investing, and why this public record exists.',
         },
       ]),
     )}
@@ -261,9 +217,10 @@ const homeRoute = {
         <li><a href="/portfolio">View Current Portfolio</a></li>
         <li><a href="/journal">Read Portfolio Journal</a></li>
         <li><a href="/process">See Investment Process</a></li>
+        <li><a href="/books">Books That Shaped My Thinking</a></li>
+        <li><a href="/letters/my-first-letter">My First Letter</a></li>
         <li><a href="/about">About Codie Marillier</a></li>
         <li><a href="/disclaimer">Disclaimer</a></li>
-        <li><a href="/ai/">Technical AI archive</a></li>
       </ul>`,
     )}
   `,
@@ -315,10 +272,6 @@ const routes = [
         'Transaction Summary',
         `<dl class="static-grid">${transactionSummary.map((item) => `<div><dt>${esc(item.label)}</dt><dd>${esc(item.value)}</dd></div>`).join('')}</dl>`,
       )}
-      ${section(
-        'Related Decision Record',
-        '<p><a href="/decision-archive">See the Decision Archive for the reasoning behind major portfolio changes.</a></p>',
-      )}
     `,
   },
   {
@@ -331,12 +284,12 @@ const routes = [
       <h1>Portfolio Journal</h1>
       ${paragraph('Weekly portfolio reviews documenting account value, positioning, lessons, mistakes, and market context from my own portfolio.')}
       ${section(
-        'Related Sections',
+        'Useful Links',
         linkList([
           {
-            href: '/decision-archive',
-            label: 'Decision Archive',
-            text: 'Future major trades and portfolio decisions will be recorded as structured decision notes.',
+            href: `/journal/${latestPortfolioReview.slug}`,
+            label: 'Latest Review',
+            text: `${latestPortfolioReview.title} is the current source-of-truth portfolio update.`,
           },
           {
             href: '/letters',
@@ -357,13 +310,12 @@ const routes = [
       <p>Letters</p>
       <h1>Letters</h1>
       ${paragraph('Weekly reviews are what happened. Letters are what I learned and how my thinking is changing. My First Letter is now published.')}
-      ${section('Letter Cards', plannedLetters.map(letterCard).join(''))}
+      ${section('Published Letters', publishedLetters.map(letterCard).join(''))}
       ${section(
         'Related Sections',
         linkList([
           { href: '/journal', label: 'Portfolio Journal', text: 'Weekly review archive from Week 1 to Week 16.' },
           { href: '/process', label: 'Investment Process', text: 'The rules and process these letters refer back to.' },
-          { href: '/mistakes-lessons', label: 'Mistakes & Lessons', text: 'A planned record for honest reviews and lessons.' },
         ]),
       )}
     `,
@@ -377,15 +329,13 @@ const routes = [
       <p>Decision Archive</p>
       <h1>Decision Archive</h1>
       ${paragraph('The Decision Archive is where I will record the most important investment decisions I make. The goal is not only to track outcomes, but to understand the reasoning behind each decision and whether the process was sound.')}
-      ${section('Coming Soon', paragraph('This section will not only record whether a decision made money. It will record whether the reasoning was sound. Planned cards are not linked until full memos exist.'))}
-      ${section('Filter Support', list(['Buy', 'Sell', 'Trim', 'Add', 'Hold', 'Mistake', 'Lesson', 'Speculative', 'Core holding', 'Hedge']))}
-      ${section('Planned Decision Cards', decisionArchiveEntries.map(decisionCard).join(''))}
+      ${section('Coming Soon', paragraph('No full decision memos are published yet. Until they are written properly, this page stays simple rather than pretending unfinished notes are real entries.'))}
       ${section(
         'Related Sections',
         linkList([
           { href: '/portfolio', label: 'Current Portfolio', text: 'Current holdings and portfolio role notes.' },
-          { href: '/journal', label: 'Portfolio Journal', text: 'Weekly reviews linked to future decision notes.' },
-          { href: '/mistakes-lessons', label: 'Mistakes & Lessons', text: 'Future lessons connected to reviewed decisions.' },
+          { href: '/journal', label: 'Portfolio Journal', text: 'Weekly reviews and the latest source-of-truth portfolio update.' },
+          { href: '/process', label: 'Investment Process', text: 'The rules future decision notes will be judged against.' },
         ]),
       )}
     `,
@@ -399,14 +349,13 @@ const routes = [
       <p>Mistakes & Lessons</p>
       <h1>Mistakes & Lessons</h1>
       ${paragraph('This section is for recording mistakes, difficult decisions, and lessons from the portfolio. The aim is not to avoid mistakes completely, but to make sure I learn from them, improve my process, and do not repeat the same errors without understanding them.')}
-      ${section('Coming Soon', paragraph('These notes are not here to embarrass me. They are here to make the process more honest, more repeatable, and less dependent on memory. Planned cards are not linked until full notes exist.'))}
-      ${section('Planned Lesson Cards', mistakeLessons.map(lessonCard).join(''))}
+      ${section('Coming Soon', paragraph('No full lesson notes are published yet. Until they are written properly, this page stays simple rather than pretending unfinished notes are real entries.'))}
       ${section(
         'Related Sections',
         linkList([
-          { href: '/decision-archive', label: 'Decision Archive', text: 'Future decision memos that can connect to lesson notes.' },
           { href: '/process', label: 'Investment Process', text: 'The rules that future lessons are meant to improve.' },
-          { href: '/about', label: 'About', text: 'The personal background behind the learning process.' },
+          { href: '/journal', label: 'Portfolio Journal', text: 'The weekly record where lessons first show up.' },
+          { href: '/portfolio', label: 'Current Portfolio', text: 'The current holdings and portfolio role notes.' },
         ]),
       )}
     `,
@@ -442,14 +391,14 @@ const routes = [
         'Related Sections',
         linkList([
           {
-            href: '/decision-archive',
-            label: 'Decision Archive',
-            text: 'The future place for structured records of major buys, sells, trims, adds, holds, mistakes, and lessons.',
+            href: '/portfolio',
+            label: 'Current Portfolio',
+            text: 'The live portfolio record these rules are meant to support.',
           },
           {
-            href: '/mistakes-lessons',
-            label: 'Mistakes & Lessons',
-            text: 'The future place for reviewing mistakes properly and improving the process over time.',
+            href: '/journal',
+            label: 'Portfolio Journal',
+            text: 'The weekly record where the process is reviewed in practice.',
           },
         ]),
       )}
@@ -525,12 +474,12 @@ for (const entry of journalEntries) {
       ${entry.documentUrl ? paragraph(`Original document preview: ${entry.documentUrl}`) : ''}
       ${entry.documentPdfUrl ? paragraph(`PDF: ${entry.documentPdfUrl}`) : ''}
       ${textBlock(entry.body)}
-      ${section('Related Links', list(['/journal', '/portfolio', '/ai/', `/ai/journal/${entry.slug}.html`]))}
+      ${section('Related Links', list(['/journal', '/portfolio', '/ai/index.html', `/ai/journal/${entry.slug}.html`]))}
     `,
   });
 }
 
-for (const letter of plannedLetters) {
+for (const letter of publishedLetters) {
   const published = Boolean(letter.body?.length);
   await writeRoute({
     path: `/letters/${letter.slug}`,
@@ -558,7 +507,7 @@ await writeFile(
       <p>404</p>
       <h1>Page Not Found</h1>
       ${paragraph('The page you requested could not be found. Use the links below to return to the main public archive.')}
-      ${section('Useful Links', list(['/', '/portfolio', '/journal', '/letters', '/decision-archive', '/mistakes-lessons', '/books', '/process', '/about', '/ai/']))}
+      ${section('Useful Links', list(['/', '/portfolio', '/journal', '/letters', '/books', '/process', '/about', '/disclaimer', '/ai/index.html']))}
     `,
   }),
 );

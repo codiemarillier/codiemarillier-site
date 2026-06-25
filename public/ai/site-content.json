@@ -17,21 +17,18 @@
     {
       "title": "Home",
       "url": "https://codiemarillier.com/",
-      "description": "The homepage presents Codie Capital Research as a serious personal investment journal, explains why the site exists, shows the latest Week 16 snapshot, highlights the best first-stop pages, and labels unfinished sections honestly.",
+      "description": "The homepage presents Codie Capital Research as a serious personal investment journal, explains what the site is, shows the latest Week 16 snapshot, and points first-time visitors to the best live pages.",
       "pageType": "homepage",
-      "lastUpdated": "2026-06-24",
-      "contentText": "Codie Capital Research is my personal investment journal. I use it to record what I own, why I own it, what I am learning, and how my thinking changes over time.\n\nThe site exists to document my thinking, hold me accountable, create a public record over time, track portfolio decisions properly, and show how my process develops.\n\nThe homepage sends first-time readers to the Current Portfolio, Portfolio Journal, Books, and Investment Process pages.\n\nLetters now includes My First Letter, while Decision Archive and Mistakes & Lessons are described as future sections that stay empty until real entries exist.\n\nLatest source-of-truth review: Week 16 - A pullback and the Pershing Square buy. Current account value Around £1,981, starting value £1,999, return About -0.90%, cash £40.07.",
+      "lastUpdated": "2026-06-25",
+      "contentText": "Codie Capital Research is a public record of my personal investing process. I document what I own, why I own it, what I am learning, and how my thinking changes as I build a long-term portfolio.\n\nThe site is a personal investment journal only. It is not financial advice, not a fund, and not a money-management service.\n\nThe homepage sends first-time readers to the Current Portfolio, Portfolio Journal, Investment Process, and About pages.\n\nLetters includes My First Letter as a published long-form reflection.\n\nLatest source-of-truth review: Week 16 - A pullback and the Pershing Square buy. Current account value Around £1,981, starting value £1,999, return About -0.90%, cash £40.07.",
       "internalLinks": [
+        "https://codiemarillier.com/journal/week-16-portfolio-summary",
         "https://codiemarillier.com/portfolio",
         "https://codiemarillier.com/journal",
-        "https://codiemarillier.com/books",
         "https://codiemarillier.com/process",
-        "https://codiemarillier.com/letters",
-        "https://codiemarillier.com/decision-archive",
-        "https://codiemarillier.com/mistakes-lessons",
+        "https://codiemarillier.com/books",
         "https://codiemarillier.com/about",
-        "https://codiemarillier.com/disclaimer",
-        "https://codiemarillier.com/ai/"
+        "https://codiemarillier.com/letters"
       ]
     },
     {
@@ -45,7 +42,6 @@
         "https://codiemarillier.com/journal/week-16-portfolio-summary",
         "https://codiemarillier.com/journal",
         "https://codiemarillier.com/process",
-        "https://codiemarillier.com/decision-archive",
         "https://codiemarillier.com/ai/portfolio.html"
       ]
     },
@@ -76,8 +72,9 @@
         "https://codiemarillier.com/journal/why-the-rulebook-exists",
         "https://codiemarillier.com/journal/google-re-entry-plan",
         "https://codiemarillier.com/journal/microsoft-trade-reflection",
-        "https://codiemarillier.com/decision-archive",
-        "https://codiemarillier.com/letters"
+        "https://codiemarillier.com/letters",
+        "https://codiemarillier.com/portfolio",
+        "https://codiemarillier.com/process"
       ]
     },
     {
@@ -91,32 +88,6 @@
         "https://codiemarillier.com/journal",
         "https://codiemarillier.com/process",
         "https://codiemarillier.com/letters/my-first-letter"
-      ]
-    },
-    {
-      "title": "Decision Archive",
-      "url": "https://codiemarillier.com/decision-archive",
-      "description": "The Decision Archive is a planned structured archive for major investment decisions, including reasoning, expectations, risks, outcomes, and lessons learned.",
-      "pageType": "decision-archive",
-      "lastUpdated": "2026-06-23",
-      "contentText": "The Decision Archive is where I will record the most important investment decisions I make. The goal is not only to track outcomes, but to understand the reasoning behind each decision and whether the process was sound.\n\nPlanned decision cards are visible on the main page, but they do not link to blank detail pages until full memos exist.\n\nFilter support: Buy, Sell, Trim, Add, Hold, Mistake, Lesson, Speculative, Core holding, Hedge.\n\nBought SpaceX. SpaceX / SPCX. Action taken: Buy. Position type: Speculative. Status: Open. A future decision memo on why SpaceX was added as a small speculative long-term position. Tags: Buy, Speculative, SpaceX.\n\nSold ASML for a realised profit. ASML. Action taken: Sell. Position type: Watchlist. Status: Reviewed. A future decision memo on taking profit in ASML and the difference between trimming and fully exiting. Tags: Sell, Lesson, ASML.\n\nRe-entered Google around $360. Alphabet / GOOGL. Action taken: Buy. Position type: Core holding. Status: Open. A future decision memo on price discipline, re-entry patience, and rebuilding a small Alphabet position. Tags: Buy, Core holding, Google.\n\nAdded to gold as a hedge. iShares Physical Gold / SGLN. Action taken: Add. Position type: Hedge. Status: Open. A future decision memo on gold as a hedge and why hedges can feel uncomfortable when they are not working every week. Tags: Add, Hedge, Gold.\n\nAveraged down Symbotic. Symbotic / SYM. Action taken: Add. Position type: Speculative. Status: Open. A future decision memo on when averaging down is deliberate and when it risks becoming emotional. Tags: Add, Speculative, Symbotic.\n\nMicrosoft short-term trade. Microsoft / MSFT. Action taken: Sell. Position type: Lesson. Status: Closed. A future decision memo on a profitable Microsoft trade and whether the decision was repeatable. Tags: Sell, Lesson, Microsoft.\n\nHeld Rheinmetall despite weakness. Rheinmetall / RHM. Action taken: Hold. Position type: Watchlist. Status: Open. A future decision memo on separating thesis review from panic selling during weakness. Tags: Hold, Lesson, Rheinmetall.",
-      "internalLinks": [
-        "https://codiemarillier.com/portfolio",
-        "https://codiemarillier.com/journal",
-        "https://codiemarillier.com/process"
-      ]
-    },
-    {
-      "title": "Mistakes & Lessons",
-      "url": "https://codiemarillier.com/mistakes-lessons",
-      "description": "Mistakes & Lessons is a planned section for recording mistakes, difficult decisions, and lessons from managing a real portfolio over time.",
-      "pageType": "mistakes-lessons",
-      "lastUpdated": "2026-06-23",
-      "contentText": "This section is for recording mistakes, difficult decisions, and lessons from the portfolio. The aim is not to avoid mistakes completely, but to make sure I learn from them, improve my process, and do not repeat the same errors without understanding them.\n\nPlanned lesson cards are visible on the main page, but they do not link to blank detail pages until full notes exist.\n\nSelling winners: ASML and the difference between trimming and exiting. Planned lesson. A future lesson on handling winners and deciding whether to trim, hold, or fully exit. Main themes: winners, ASML, trimming, discipline.\n\nCommunication discipline: recording trades properly. Planned lesson. A future lesson on keeping the record complete and writing decisions down before memory becomes vague. Main themes: communication, record keeping, accountability.\n\nAveraging down: when it is deliberate versus emotional. Planned lesson. A future lesson on averaging down, sizing, and making sure conviction is not just hope in disguise. Main themes: averaging down, position sizing, Symbotic.\n\nSpeculative excitement: keeping SpaceX position size controlled. Planned lesson. A future lesson on owning exciting ideas without letting excitement drive portfolio size. Main themes: SpaceX, speculation, position sizing.\n\nCash discipline: not forcing trades just because cash is available. Planned lesson. A future lesson on treating cash as patience and optionality rather than pressure to act. Main themes: cash, patience, discipline.\n\nGold hedge: understanding that a hedge will not work every week. Planned lesson. A future lesson on why a hedge can be useful even when it is not the best-performing part of the portfolio. Main themes: gold, hedge, portfolio balance.\n\nRisk management: why leverage does not belong in this portfolio. Planned lesson. A future lesson on leveraged crypto trading, emotional pressure, and why leverage does not fit the process. Main themes: leverage, risk management, mistakes.",
-      "internalLinks": [
-        "https://codiemarillier.com/decision-archive",
-        "https://codiemarillier.com/process",
-        "https://codiemarillier.com/journal"
       ]
     },
     {
@@ -143,8 +114,7 @@
         "https://codiemarillier.com/portfolio",
         "https://codiemarillier.com/journal",
         "https://codiemarillier.com/books",
-        "https://codiemarillier.com/decision-archive",
-        "https://codiemarillier.com/mistakes-lessons"
+        "https://codiemarillier.com/about"
       ]
     },
     {
@@ -512,14 +482,12 @@
       "description": "Plain HTML summaries of the main public site routes.",
       "pageType": "ai-summary",
       "lastUpdated": "2026-06-22",
-      "contentText": "/ - The homepage presents Codie Capital Research as a serious personal investment journal, explains why the site exists, shows the latest Week 16 snapshot, highlights the best first-stop pages, and labels unfinished sections honestly.\n/portfolio - The portfolio page records Codie’s own current holdings, Week 16 account value, starting value, cash, latest return, winners, drags, portfolio role notes, and latest action plan.\n/journal - The journal page lists weekly review cards and journal entries with dates, account values where available, main trades, and lessons.\n/letters - The Letters page publishes My First Letter, a long-form reflection on discipline, patience, risk, and building a public investing record.\n/decision-archive - The Decision Archive is a planned structured archive for major investment decisions, including reasoning, expectations, risks, outcomes, and lessons learned.\n/mistakes-lessons - Mistakes & Lessons is a planned section for recording mistakes, difficult decisions, and lessons from managing a real portfolio over time.\n/books - The books page contains the full Books That Shaped My Thinking section with personal reflections on every book and how each shaped Codie’s investing and personal development.\n/process - The process page sets out the investing rulebook: protect capital, size positions properly, write reasoning, keep cash discipline, avoid leverage and impulsive trades, and review weekly.\n/about - The about page explains Codie’s investing background, early interest in markets, first Bitcoin investment, family real estate influence, lessons from mistakes, and reading development.\n/disclaimer - The disclaimer page explains that the site is a personal investment research and portfolio journal, not investment advice, not FCA-authorised, and not a recommendation.\n/ai/ - The AI page is a complete plain HTML archive for ChatGPT, AI review tools, Google crawlers, and simple browser-fetch tools.",
+      "contentText": "/ - The homepage presents Codie Capital Research as a serious personal investment journal, explains what the site is, shows the latest Week 16 snapshot, and points first-time visitors to the best live pages.\n/portfolio - The portfolio page records Codie’s own current holdings, Week 16 account value, starting value, cash, latest return, winners, drags, portfolio role notes, and latest action plan.\n/journal - The journal page lists weekly review cards and journal entries with dates, account values where available, main trades, and lessons.\n/letters - The Letters page publishes My First Letter, a long-form reflection on discipline, patience, risk, and building a public investing record.\n/books - The books page contains the full Books That Shaped My Thinking section with personal reflections on every book and how each shaped Codie’s investing and personal development.\n/process - The process page sets out the investing rulebook: protect capital, size positions properly, write reasoning, keep cash discipline, avoid leverage and impulsive trades, and review weekly.\n/about - The about page explains Codie’s investing background, early interest in markets, first Bitcoin investment, family real estate influence, lessons from mistakes, and reading development.\n/disclaimer - The disclaimer page explains that the site is a personal investment research and portfolio journal, not investment advice, not FCA-authorised, and not a recommendation.\n/ai/ - The AI page is a complete plain HTML archive for ChatGPT, AI review tools, Google crawlers, and simple browser-fetch tools.",
       "internalLinks": [
         "https://codiemarillier.com/",
         "https://codiemarillier.com/portfolio",
         "https://codiemarillier.com/journal",
         "https://codiemarillier.com/letters",
-        "https://codiemarillier.com/decision-archive",
-        "https://codiemarillier.com/mistakes-lessons",
         "https://codiemarillier.com/books",
         "https://codiemarillier.com/process",
         "https://codiemarillier.com/about",
@@ -536,7 +504,7 @@
       "contentText": "Account value Around £1,981. Starting value £1,999. Return About -0.90%. Cash £40.07.\n\nSGLN SGLN / iShares Physical Gold: 5.72 shares, Portfolio hedge and macro protection, Current holding.\nQQQA QQQA / Nasdaq-100 ETF: 5.57 shares, Broad technology-led US equity exposure, Current holding.\nVUAG VUAG / Vanguard S&P 500 ETF: 2.04 shares, Broad US market exposure, Current holding.\nRHM Rheinmetall: 0.087 shares, Defence demand and European security exposure, Current holding.\nO Realty Income: 3.28 shares, Real estate income exposure, Current holding.\nNEE NextEra Energy: 2.04 shares, Utility and renewables exposure, Current holding.\nMETA Meta Platforms: 0.52 shares, Advertising, AI, and platform scale, Current holding.\nSYM Symbotic: 3.268 shares, Robotics and warehouse automation, Current holding.\nSPCX SpaceX: 1 share, Early exposure to space infrastructure, satellites, and Starlink, Current holding.\nPSH Pershing Square Holdings: 2 shares, Discount-to-NAV exposure to Pershing Square portfolio and Bill Ackman’s capital allocation, Current holding.\nABNB Airbnb: 1.223 shares, Asset-light travel platform exposure, Current holding.\nBRK.B Berkshire Hathaway: 0.3884 shares, Diversified operating businesses and capital discipline, Current holding.\nGOOGL Alphabet (Class A): 0.28 shares, Search, cloud, AI, and platform scale, Small rebuilt position.\nASML ASML: Closed, Semiconductor equipment exposure, Closed on 9 June 2026.\nMSFT Microsoft: Closed, Quality software and AI infrastructure exposure, Closed on 1 June 2026.\nIONQ IonQ: Closed, Quantum computing exposure, Closed.",
       "internalLinks": [
         "https://codiemarillier.com/portfolio",
-        "https://codiemarillier.com/journal/week-15-portfolio-summary"
+        "https://codiemarillier.com/journal/week-16-portfolio-summary"
       ]
     },
     {
@@ -570,7 +538,7 @@
       "lastUpdated": "2026-06-22",
       "contentText": "Plain text archive generated from site data.",
       "internalLinks": [
-        "https://codiemarillier.com/ai/"
+        "https://codiemarillier.com/ai/index.html"
       ]
     }
   ]

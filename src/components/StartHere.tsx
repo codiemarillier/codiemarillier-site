@@ -1,4 +1,4 @@
-import { ArrowRight, Archive, BookOpen, FileText, LineChart, ScrollText, ShieldAlert } from 'lucide-react';
+import { ArrowRight, BookOpen, FileText, LineChart, ScrollText, UserRound } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { journalEntries, portfolioSnapshot } from '../data/siteData';
 
@@ -14,13 +14,6 @@ const startCards = [
     icon: LineChart,
   },
   {
-    title: 'Latest Letter',
-    text: 'Longer personal reflections on what I am learning, beyond the weekly account value.',
-    href: '/letters/my-first-letter',
-    action: 'Read first letter',
-    icon: FileText,
-  },
-  {
     title: 'Portfolio Journal',
     text: 'The weekly record of decisions, mistakes, market context, and lessons from the portfolio.',
     href: '/journal',
@@ -31,22 +24,22 @@ const startCards = [
 
 const processCards = [
   {
-    title: 'Decision Archive',
-    text: 'A future library for the reasoning behind major buys, sells, holds, and trims.',
-    href: '/decision-archive',
-    icon: Archive,
-  },
-  {
-    title: 'Mistakes & Lessons',
-    text: 'A mature record of what did not work, what changed, and how the process improves.',
-    href: '/mistakes-lessons',
-    icon: ShieldAlert,
-  },
-  {
     title: 'Investment Process',
     text: 'The written rulebook for buying, selling, sizing positions, and protecting capital.',
     href: '/process',
     icon: BookOpen,
+  },
+  {
+    title: 'Books',
+    text: 'The reading that shaped how I think about money, risk, discipline, and behaviour.',
+    href: '/books',
+    icon: FileText,
+  },
+  {
+    title: 'About',
+    text: 'Who I am, why I started investing, and why this public record exists.',
+    href: '/about',
+    icon: UserRound,
   },
 ];
 

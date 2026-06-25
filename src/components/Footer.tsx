@@ -14,11 +14,17 @@ export default function Footer() {
           <p className="mt-3 max-w-2xl text-sm leading-7 text-[#d8d0c0]">{brand.disclaimer}</p>
         </div>
         <div className="grid grid-cols-2 gap-3 text-sm sm:grid-cols-3 md:justify-self-end">
-          {footerLinks.map((link) => (
-            <Link key={link.href} to={link.href} className="text-[#e7decd] transition-colors hover:text-white">
-              {link.label}
-            </Link>
-          ))}
+          {footerLinks.map((link) =>
+            link.href.endsWith('.html') ? (
+              <a key={link.href} href={link.href} className="text-[#e7decd] transition-colors hover:text-white">
+                {link.label}
+              </a>
+            ) : (
+              <Link key={link.href} to={link.href} className="text-[#e7decd] transition-colors hover:text-white">
+                {link.label}
+              </Link>
+            ),
+          )}
         </div>
       </div>
       <div className="border-t border-white/10 px-5 py-5 text-center text-xs text-[#b8ad9a] md:px-8">

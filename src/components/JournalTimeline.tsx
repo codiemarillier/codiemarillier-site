@@ -21,6 +21,10 @@ function getCardFacts(entry: JournalEntry) {
   const weeklyMove =
     readLabel(snapshot, ['Move since Week 14', 'Weekly move']) ||
     (entry.category === 'Weekly Reviews' ? 'Qualitative review only' : 'Not recorded');
+  const mainTrade =
+    readLabel(snapshot, ['Main realised trade', 'Main trade', 'Main new trade', 'Main new position']) ||
+    entry.majorEvents?.[0] ||
+    'Review only';
   const mainLessonBlock =
     entry.body.find((block) => /main lesson|main lessons|overall conclusion/i.test(block)) ?? entry.excerpt;
   const mainLesson =
@@ -34,6 +38,7 @@ function getCardFacts(entry: JournalEntry) {
   return {
     accountValue,
     weeklyMove,
+    mainTrade,
     mainLesson: mainLesson.replace(/\s+/g, ' ').replace(/^The main lesson (this week )?is that /i, '').slice(0, 170),
   };
 }
@@ -56,7 +61,6 @@ export default function JournalTimeline({ entries }: { entries: JournalEntry[] }
               </div>
               <div>
                 <h2 className="font-serif text-3xl font-semibold text-charcoal">{entry.title}</h2>
-                <p className="mt-3 max-w-3xl text-sm leading-7 text-slateText">{entry.excerpt}</p>
               </div>
               <Link
                 to={`/journal/${entry.slug}`}
@@ -66,10 +70,11 @@ export default function JournalTimeline({ entries }: { entries: JournalEntry[] }
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
               </Link>
             </div>
-            <dl className="mt-6 grid gap-px border border-line bg-line md:grid-cols-3">
+            <dl className="mt-6 grid gap-px border border-line bg-line md:grid-cols-4">
               {[
                 ['Account value', facts.accountValue],
                 ['Weekly move', facts.weeklyMove],
+                ['Main trade', facts.mainTrade],
                 ['Main lesson', facts.mainLesson],
               ].map(([label, value]) => (
                 <div key={label} className="bg-ivory p-4">

@@ -1,11 +1,10 @@
-import { Link } from 'react-router-dom';
 import CurrentHoldingsOverview from '../components/CurrentHoldingsOverview';
 import HoldingsTable from '../components/HoldingsTable';
 import PageHeader from '../components/PageHeader';
 import PortfolioChangeLog from '../components/PortfolioChangeLog';
 import PortfolioSnapshot from '../components/PortfolioSnapshot';
 import SectionHeader from '../components/SectionHeader';
-import { portfolioRoles, transactionSummary } from '../data/siteData';
+import { latestPortfolioReview, portfolioRoles, transactionSummary } from '../data/siteData';
 
 const sleeves = [
   {
@@ -32,11 +31,14 @@ export default function CurrentPortfolio() {
       <PageHeader
         eyebrow="Portfolio"
         title="Current Portfolio"
-        intro="This page documents my own portfolio structure for accountability. It is not investment advice, and it should not be treated as a model portfolio or copied without independent research."
+        intro="This page documents my own portfolio structure for accountability. It is not investment advice, not a model portfolio, and should not be copied."
       />
 
       <section className="border-b border-line bg-paper">
         <div className="mx-auto max-w-7xl px-5 py-12 md:px-8 md:py-16">
+          <p className="mb-5 text-sm font-semibold text-charcoal">
+            Last updated: {latestPortfolioReview.label} / {latestPortfolioReview.date}
+          </p>
           <PortfolioSnapshot />
           <div className="mt-6 grid gap-px border border-line bg-line md:grid-cols-4">
             {transactionSummary.map((item) => (
@@ -53,7 +55,7 @@ export default function CurrentPortfolio() {
         <SectionHeader
           eyebrow="Week 16 dashboard"
           title="Current snapshot first."
-          text="The latest published portfolio record is Week 16. This dashboard keeps the account value, cash, holdings, winners, drags, and action plan in one place."
+          text="The latest published portfolio record is Week 16. This dashboard keeps the account value, cash, holdings, portfolio roles, and latest action plan in one place."
         />
         <div className="grid gap-px border border-line bg-line md:grid-cols-2">
           {portfolioRoles.map((role, index) => (
@@ -73,14 +75,11 @@ export default function CurrentPortfolio() {
         <div className="mb-10">
           <SectionHeader
             eyebrow="Current holdings"
-            title="What I own right now."
-            text="A quick scan of the current holdings in my own portfolio. This view focuses on role and current view rather than raw export-style share counts."
+            title="What I own right now, grouped by role."
+            text="A quick scan of the current holdings in my own portfolio. The grouping is for readability only and is not a recommendation."
           />
         </div>
         <CurrentHoldingsOverview />
-        <Link to="/decision-archive" className="mt-8 inline-flex text-sm font-semibold text-charcoal">
-          See the Decision Archive for the reasoning behind major portfolio changes.
-        </Link>
       </section>
 
       <section className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24">

@@ -21,14 +21,14 @@ Cash balance: £40.07
 MAIN PAGES
 
 / - Home
-The homepage presents Codie Capital Research as a serious personal investment journal, explains why the site exists, shows the latest Week 16 snapshot, highlights the best first-stop pages, and labels unfinished sections honestly.
-Codie Capital Research is my personal investment journal. I use it to record what I own, why I own it, what I am learning, and how my thinking changes over time.
+The homepage presents Codie Capital Research as a serious personal investment journal, explains what the site is, shows the latest Week 16 snapshot, and points first-time visitors to the best live pages.
+Codie Capital Research is a public record of my personal investing process. I document what I own, why I own it, what I am learning, and how my thinking changes as I build a long-term portfolio.
 
-The site exists to document my thinking, hold me accountable, create a public record over time, track portfolio decisions properly, and show how my process develops.
+The site is a personal investment journal only. It is not financial advice, not a fund, and not a money-management service.
 
-The homepage sends first-time readers to the Current Portfolio, Portfolio Journal, Books, and Investment Process pages.
+The homepage sends first-time readers to the Current Portfolio, Portfolio Journal, Investment Process, and About pages.
 
-Letters now includes My First Letter, while Decision Archive and Mistakes & Lessons are described as future sections that stay empty until real entries exist.
+Letters includes My First Letter as a published long-form reflection.
 
 Latest source-of-truth review: Week 16 - A pullback and the Pershing Square buy. Current account value Around £1,981, starting value £1,999, return About -0.90%, cash £40.07.
 
@@ -200,48 +200,6 @@ The money matters. But the process matters more.
 
 And if I can get both right over time, that is where things could become very interesting.
 
-/decision-archive - Decision Archive
-The Decision Archive is a planned structured archive for major investment decisions, including reasoning, expectations, risks, outcomes, and lessons learned.
-The Decision Archive is where I will record the most important investment decisions I make. The goal is not only to track outcomes, but to understand the reasoning behind each decision and whether the process was sound.
-
-Planned decision cards are visible on the main page, but they do not link to blank detail pages until full memos exist.
-
-Filter support: Buy, Sell, Trim, Add, Hold, Mistake, Lesson, Speculative, Core holding, Hedge.
-
-Bought SpaceX. SpaceX / SPCX. Action taken: Buy. Position type: Speculative. Status: Open. A future decision memo on why SpaceX was added as a small speculative long-term position. Tags: Buy, Speculative, SpaceX.
-
-Sold ASML for a realised profit. ASML. Action taken: Sell. Position type: Watchlist. Status: Reviewed. A future decision memo on taking profit in ASML and the difference between trimming and fully exiting. Tags: Sell, Lesson, ASML.
-
-Re-entered Google around $360. Alphabet / GOOGL. Action taken: Buy. Position type: Core holding. Status: Open. A future decision memo on price discipline, re-entry patience, and rebuilding a small Alphabet position. Tags: Buy, Core holding, Google.
-
-Added to gold as a hedge. iShares Physical Gold / SGLN. Action taken: Add. Position type: Hedge. Status: Open. A future decision memo on gold as a hedge and why hedges can feel uncomfortable when they are not working every week. Tags: Add, Hedge, Gold.
-
-Averaged down Symbotic. Symbotic / SYM. Action taken: Add. Position type: Speculative. Status: Open. A future decision memo on when averaging down is deliberate and when it risks becoming emotional. Tags: Add, Speculative, Symbotic.
-
-Microsoft short-term trade. Microsoft / MSFT. Action taken: Sell. Position type: Lesson. Status: Closed. A future decision memo on a profitable Microsoft trade and whether the decision was repeatable. Tags: Sell, Lesson, Microsoft.
-
-Held Rheinmetall despite weakness. Rheinmetall / RHM. Action taken: Hold. Position type: Watchlist. Status: Open. A future decision memo on separating thesis review from panic selling during weakness. Tags: Hold, Lesson, Rheinmetall.
-
-/mistakes-lessons - Mistakes & Lessons
-Mistakes & Lessons is a planned section for recording mistakes, difficult decisions, and lessons from managing a real portfolio over time.
-This section is for recording mistakes, difficult decisions, and lessons from the portfolio. The aim is not to avoid mistakes completely, but to make sure I learn from them, improve my process, and do not repeat the same errors without understanding them.
-
-Planned lesson cards are visible on the main page, but they do not link to blank detail pages until full notes exist.
-
-Selling winners: ASML and the difference between trimming and exiting. Planned lesson. A future lesson on handling winners and deciding whether to trim, hold, or fully exit. Main themes: winners, ASML, trimming, discipline.
-
-Communication discipline: recording trades properly. Planned lesson. A future lesson on keeping the record complete and writing decisions down before memory becomes vague. Main themes: communication, record keeping, accountability.
-
-Averaging down: when it is deliberate versus emotional. Planned lesson. A future lesson on averaging down, sizing, and making sure conviction is not just hope in disguise. Main themes: averaging down, position sizing, Symbotic.
-
-Speculative excitement: keeping SpaceX position size controlled. Planned lesson. A future lesson on owning exciting ideas without letting excitement drive portfolio size. Main themes: SpaceX, speculation, position sizing.
-
-Cash discipline: not forcing trades just because cash is available. Planned lesson. A future lesson on treating cash as patience and optionality rather than pressure to act. Main themes: cash, patience, discipline.
-
-Gold hedge: understanding that a hedge will not work every week. Planned lesson. A future lesson on why a hedge can be useful even when it is not the best-performing part of the portfolio. Main themes: gold, hedge, portfolio balance.
-
-Risk management: why leverage does not belong in this portfolio. Planned lesson. A future lesson on leveraged crypto trading, emotional pressure, and why leverage does not fit the process. Main themes: leverage, risk management, mistakes.
-
 /books - Books That Shaped My Thinking
 The books page contains the full Books That Shaped My Thinking section with personal reflections on every book and how each shaped Codie’s investing and personal development.
 These are the books that have had the biggest influence on how Codie thinks about investing, money, discipline, purpose, risk, and long-term decision-making.
@@ -306,19 +264,17 @@ Current Portfolio - What I currently own, how the portfolio is positioned, and w
 
 Portfolio Journal - My weekly record of portfolio changes, market thoughts, decisions, and lessons.
 
-Books - The books that have shaped how I think about money, markets, discipline, risk, and behaviour.
-
 Investment Process - The rules and habits I am trying to build around capital protection, patience, position sizing, and written reasoning.
 
+About - Who I am, why I became interested in investing, and why this public record exists.
 
 
-HOMEPAGE STILL BEING BUILT
 
-Letters - Longer reflections on what I am learning. My First Letter is now live.
+HOMEPAGE ALSO USEFUL
 
-Decision Archive - A future archive for major investment decisions. This stays empty until full decision memos are written.
+Books - The books that have shaped how I think about money, markets, discipline, risk, and behaviour.
 
-Mistakes & Lessons - A future record of mistakes, difficult decisions, and process lessons. This stays empty until proper entries are written.
+My First Letter is published as the first long-form reflection.
 
 
 
@@ -617,105 +573,6 @@ This is not financial advice. It is a record of my own thinking, my own portfoli
 The money matters. But the process matters more.
 
 And if I can get both right over time, that is where things could become very interesting.
-
-
-
-DECISION ARCHIVE PLACEHOLDERS
-
-Bought SpaceX
-Holding: SpaceX / SPCX
-Action: Buy
-Position type: Speculative
-Status: Open
-A future decision memo on why SpaceX was added as a small speculative long-term position.
-Tags: Buy, Speculative, SpaceX
-
-Sold ASML for a realised profit
-Holding: ASML
-Action: Sell
-Position type: Watchlist
-Status: Reviewed
-A future decision memo on taking profit in ASML and the difference between trimming and fully exiting.
-Tags: Sell, Lesson, ASML
-
-Re-entered Google around $360
-Holding: Alphabet / GOOGL
-Action: Buy
-Position type: Core holding
-Status: Open
-A future decision memo on price discipline, re-entry patience, and rebuilding a small Alphabet position.
-Tags: Buy, Core holding, Google
-
-Added to gold as a hedge
-Holding: iShares Physical Gold / SGLN
-Action: Add
-Position type: Hedge
-Status: Open
-A future decision memo on gold as a hedge and why hedges can feel uncomfortable when they are not working every week.
-Tags: Add, Hedge, Gold
-
-Averaged down Symbotic
-Holding: Symbotic / SYM
-Action: Add
-Position type: Speculative
-Status: Open
-A future decision memo on when averaging down is deliberate and when it risks becoming emotional.
-Tags: Add, Speculative, Symbotic
-
-Microsoft short-term trade
-Holding: Microsoft / MSFT
-Action: Sell
-Position type: Lesson
-Status: Closed
-A future decision memo on a profitable Microsoft trade and whether the decision was repeatable.
-Tags: Sell, Lesson, Microsoft
-
-Held Rheinmetall despite weakness
-Holding: Rheinmetall / RHM
-Action: Hold
-Position type: Watchlist
-Status: Open
-A future decision memo on separating thesis review from panic selling during weakness.
-Tags: Hold, Lesson, Rheinmetall
-
-
-
-MISTAKES AND LESSONS PLACEHOLDERS
-
-Selling winners: ASML and the difference between trimming and exiting
-Planned lesson
-A future lesson on handling winners and deciding whether to trim, hold, or fully exit.
-Themes: winners, ASML, trimming, discipline
-
-Communication discipline: recording trades properly
-Planned lesson
-A future lesson on keeping the record complete and writing decisions down before memory becomes vague.
-Themes: communication, record keeping, accountability
-
-Averaging down: when it is deliberate versus emotional
-Planned lesson
-A future lesson on averaging down, sizing, and making sure conviction is not just hope in disguise.
-Themes: averaging down, position sizing, Symbotic
-
-Speculative excitement: keeping SpaceX position size controlled
-Planned lesson
-A future lesson on owning exciting ideas without letting excitement drive portfolio size.
-Themes: SpaceX, speculation, position sizing
-
-Cash discipline: not forcing trades just because cash is available
-Planned lesson
-A future lesson on treating cash as patience and optionality rather than pressure to act.
-Themes: cash, patience, discipline
-
-Gold hedge: understanding that a hedge will not work every week
-Planned lesson
-A future lesson on why a hedge can be useful even when it is not the best-performing part of the portfolio.
-Themes: gold, hedge, portfolio balance
-
-Risk management: why leverage does not belong in this portfolio
-Planned lesson
-A future lesson on leveraged crypto trading, emotional pressure, and why leverage does not fit the process.
-Themes: leverage, risk management, mistakes
 
 
 

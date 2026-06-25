@@ -18,12 +18,18 @@ export default function NotFound() {
             ['Journal', '/journal'],
             ['Books', '/books'],
             ['Process', '/process'],
-            ['AI-readable archive', '/ai/'],
-          ].map(([label, href]) => (
-            <Link key={href} to={href} className="bg-paper p-6 font-semibold text-charcoal hover:bg-ivory">
-              {label}
-            </Link>
-          ))}
+            ['AI-readable archive', '/ai/index.html'],
+          ].map(([label, href]) =>
+            href.endsWith('.html') ? (
+              <a key={href} href={href} className="bg-paper p-6 font-semibold text-charcoal hover:bg-ivory">
+                {label}
+              </a>
+            ) : (
+              <Link key={href} to={href} className="bg-paper p-6 font-semibold text-charcoal hover:bg-ivory">
+                {label}
+              </Link>
+            ),
+          )}
         </div>
       </section>
     </main>

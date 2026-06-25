@@ -6,14 +6,14 @@ import { processRules } from '../data/siteData';
 
 const relatedSections = [
   {
-    title: 'Decision Archive',
-    text: 'The place where major portfolio decisions will be recorded with reasoning, expectations, risks, outcomes, and lessons.',
-    href: '/decision-archive',
+    title: 'Current Portfolio',
+    text: 'Where the current holdings, cash position, portfolio roles, and latest Week 16 snapshot are recorded.',
+    href: '/portfolio',
   },
   {
-    title: 'Mistakes & Lessons',
-    text: 'The place for reviewing difficult decisions honestly and turning mistakes into a stronger investment process.',
-    href: '/mistakes-lessons',
+    title: 'Portfolio Journal',
+    text: 'Where the weekly reviews show how the rules are being tested in the real portfolio record.',
+    href: '/journal',
   },
 ];
 
@@ -40,7 +40,7 @@ export default function Process() {
       <PageHeader
         eyebrow="Process"
         title="Investment Process"
-        intro="A written rulebook for protecting capital, sizing positions properly, keeping cash discipline, avoiding leverage, and reviewing the portfolio every week."
+        intro="These are the rules I use to judge my own decisions: protect capital, size risk properly, write the reasoning down, keep cash discipline, avoid leverage, and review the portfolio every week."
       />
 
       <section className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24">

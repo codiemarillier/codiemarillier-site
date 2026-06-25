@@ -46,33 +46,6 @@ export default function PortfolioJournal() {
       />
       <DisclaimerBanner compact />
 
-      <section className="border-b border-line bg-paper">
-        <div className="mx-auto grid max-w-7xl gap-px border-x border-line bg-line md:grid-cols-2">
-          <Link to="/decision-archive" className="group bg-paper p-6 transition-colors hover:bg-ivory md:p-8">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Major trades</p>
-            <h2 className="mt-3 font-serif text-3xl font-semibold text-charcoal">Decision Archive</h2>
-            <p className="mt-3 text-sm leading-7 text-slateText">
-              Major buys, sells, trims, holds, and lessons will be recorded here with the reasoning behind them.
-            </p>
-            <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-charcoal">
-              Open decision archive
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
-            </span>
-          </Link>
-          <Link to="/letters" className="group bg-paper p-6 transition-colors hover:bg-ivory md:p-8">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Deeper reflections</p>
-            <h2 className="mt-3 font-serif text-3xl font-semibold text-charcoal">Letters</h2>
-            <p className="mt-3 text-sm leading-7 text-slateText">
-              Longer monthly and quarterly reflections will sit beside the weekly reviews when they are written.
-            </p>
-            <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-charcoal">
-              Open letters
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
-            </span>
-          </Link>
-        </div>
-      </section>
-
       <section className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24">
         <div className="mb-10 grid gap-px border border-line bg-line lg:grid-cols-[1.15fr_0.85fr]">
           <article className="bg-paper p-6 md:p-8">

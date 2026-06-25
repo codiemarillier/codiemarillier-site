@@ -42,15 +42,6 @@ export type ResearchNote = {
   body: string[];
 };
 
-export type Letter = {
-  slug: string;
-  title: string;
-  date: string;
-  readingTime: string;
-  excerpt: string;
-  body: string[];
-};
-
 export type Holding = {
   name: string;
   ticker: string;
@@ -116,21 +107,21 @@ export const navLinks: NavLink[] = [
   { label: 'Home', href: '/' },
   { label: 'Portfolio', href: '/portfolio' },
   { label: 'Journal', href: '/journal' },
-  { label: 'Letters', href: '/letters' },
-  { label: 'Books', href: '/books' },
   { label: 'Process', href: '/process' },
+  { label: 'Books', href: '/books' },
   { label: 'About', href: '/about' },
 ];
 
 export const footerLinks: NavLink[] = [
+  { label: 'Home', href: '/' },
   { label: 'Portfolio', href: '/portfolio' },
+  { label: 'Journal', href: '/journal' },
+  { label: 'Letters', href: '/letters' },
   { label: 'Process', href: '/process' },
-  { label: 'Decision Archive', href: '/decision-archive' },
-  { label: 'Mistakes & Lessons', href: '/mistakes-lessons' },
   { label: 'Books', href: '/books' },
   { label: 'About', href: '/about' },
   { label: 'Disclaimer', href: '/disclaimer' },
-  { label: 'AI Archive', href: '/ai/' },
+  { label: 'AI Archive', href: '/ai/index.html' },
 ];
 
 export const whatThisIs = [
@@ -448,6 +439,15 @@ export const portfolioRoles = [
   },
 ];
 
+export const latestPortfolioReview = {
+  label: 'Week 16',
+  title: 'Week 16 - A pullback and the Pershing Square buy',
+  slug: 'week-16-portfolio-summary',
+  date: '23 June 2026',
+  shortDate: '23 Jun 2026',
+  mainNewTrade: 'Bought 2 shares of Pershing Square Holdings',
+};
+
 export const portfolioSnapshot = {
   accountValue: 'Around £1,981',
   startingCostBasis: '£1,999',
@@ -580,10 +580,10 @@ export const readingDevelopment: ReadingBook[] = [
 ];
 
 export const transactionSummary = [
-  { label: 'Latest review', value: 'Week 16' },
-  { label: 'Review date', value: '23 Jun 2026' },
-  { label: 'Cash balance', value: '£40.07' },
-  { label: 'Main new trade', value: '2 shares PSH' },
+  { label: 'Latest review', value: latestPortfolioReview.label },
+  { label: 'Review date', value: latestPortfolioReview.shortDate },
+  { label: 'Cash balance', value: portfolioSnapshot.cashBalance },
+  { label: 'Main new trade', value: latestPortfolioReview.mainNewTrade },
 ];
 
 export const holdings: Holding[] = [
@@ -1428,57 +1428,6 @@ export const researchNotes: ResearchNote[] = [
     body: [
       'The Rheinmetall review separates the long-term demand story from the practical risk of short-term price weakness.',
       'The question is not whether the theme is interesting. The question is whether the position size and entry price are sensible for the account.',
-    ],
-  },
-];
-
-export const letters: Letter[] = [
-  {
-    slug: 'letter-001-first-rule-survival',
-    title: 'Letter 001: The First Rule Is Survival',
-    date: 'June 2026',
-    readingTime: '6 min read',
-    excerpt:
-      'A first long-form reflection on why capital protection, patience, and written reasoning matter more than looking clever.',
-    body: [
-      'The first rule is survival. Growth matters, but the ability to remain in the game matters more.',
-      'This letter sets the tone for the journal: disciplined thinking, honest reviews, and a willingness to learn in public without pretending to be further along than I am.',
-    ],
-  },
-  {
-    slug: 'letter-002-cash-patience-opportunity',
-    title: 'Letter 002: Cash, Patience and Opportunity',
-    date: 'Coming soon',
-    readingTime: '5 min read',
-    excerpt:
-      'A letter on treating cash as an active choice rather than a failure to find something to buy.',
-    body: [
-      'Cash can feel uncomfortable because it does not produce visible action. In a small portfolio, that discomfort can lead to forced decisions.',
-      'This letter will focus on patience, optionality, and the discipline of waiting for clearer opportunities.',
-    ],
-  },
-  {
-    slug: 'letter-003-learning-to-handle-winners',
-    title: 'Letter 003: Learning to Handle Winners',
-    date: 'Coming soon',
-    readingTime: '7 min read',
-    excerpt:
-      'A reflection on profitable positions, position sizing, and the temptation to sell simply because a gain exists.',
-    body: [
-      'Winners can create their own pressure. The portfolio review has to decide whether a trim is risk management or simply nervousness.',
-      'This letter will study the difference between protecting capital and interrupting compounding too early.',
-    ],
-  },
-  {
-    slug: 'letter-004-process-matters',
-    title: 'Letter 004: Why Process Matters More Than One Good Trade',
-    date: 'Coming soon',
-    readingTime: '6 min read',
-    excerpt:
-      'A note on why repeatable decision quality matters more than a single trade that happened to work.',
-    body: [
-      'A good outcome can come from bad reasoning. A bad short-term result can come from sensible reasoning.',
-      'This letter will focus on building a process that can survive both luck and disappointment.',
     ],
   },
 ];

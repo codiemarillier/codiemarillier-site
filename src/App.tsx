@@ -16,7 +16,7 @@ import Philosophy from './pages/Philosophy';
 import PlannedEntryDetail from './pages/PlannedEntryDetail';
 import PortfolioJournal from './pages/PortfolioJournal';
 import Process from './pages/Process';
-import { brand, decisionArchiveEntries, journalEntries, mistakeLessons, plannedLetters } from './data/siteData';
+import { brand, journalEntries, plannedLetters } from './data/siteData';
 
 type RouteMeta = {
   title: string;
@@ -136,28 +136,6 @@ function getRouteMeta(pathname: string): RouteMeta {
     if (entry) {
       return {
         title: `${entry.title} | Letters | Codie Capital Research`,
-        description: entry.summary,
-      };
-    }
-  }
-
-  const decisionSlug = normalizedPath.match(/^\/decision-archive\/([^/]+)$/)?.[1];
-  if (decisionSlug) {
-    const entry = decisionArchiveEntries.find((item) => item.slug === decisionSlug);
-    if (entry) {
-      return {
-        title: `${entry.title} | Decision Archive | Codie Capital Research`,
-        description: entry.summary,
-      };
-    }
-  }
-
-  const lessonSlug = normalizedPath.match(/^\/mistakes-lessons\/([^/]+)$/)?.[1];
-  if (lessonSlug) {
-    const entry = mistakeLessons.find((item) => item.slug === lessonSlug);
-    if (entry) {
-      return {
-        title: `${entry.title} | Mistakes & Lessons | Codie Capital Research`,
         description: entry.summary,
       };
     }

@@ -1,6 +1,5 @@
+import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader';
-import SectionHeader from '../components/SectionHeader';
-import { mistakeLessons } from '../data/siteData';
 
 export default function MistakesLessons() {
   return (
@@ -8,34 +7,25 @@ export default function MistakesLessons() {
       <PageHeader
         eyebrow="Mistakes & Lessons"
         title="Mistakes & Lessons"
-        intro="This section is for recording mistakes, difficult decisions, and lessons from the portfolio. The aim is not to avoid mistakes completely, but to make sure I learn from them, improve my process, and do not repeat the same errors without understanding them."
+        intro="This section will become a proper record of mistakes, difficult decisions, and process lessons once full entries are written."
       />
 
-      <section className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24">
-        <SectionHeader
-          eyebrow="Coming soon"
-          title="A record for improving the process."
-          text="These notes are not here to embarrass me. They are here to make the process more honest, more repeatable, and less dependent on memory."
-        />
-
-        <div className="mt-10 grid gap-px border border-line bg-line md:grid-cols-2">
-          {mistakeLessons.map((lesson) => (
-            <article key={lesson.slug} className="bg-paper p-6 md:p-8">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">{lesson.period}</p>
-              <h2 className="mt-4 font-serif text-3xl font-semibold leading-tight text-charcoal">{lesson.title}</h2>
-              <p className="mt-4 text-sm leading-7 text-slateText">{lesson.summary}</p>
-              <div className="mt-5 flex flex-wrap gap-2">
-                {lesson.themes.map((theme) => (
-                  <span key={theme} className="border border-line bg-ivory px-3 py-1 text-xs font-semibold text-slateText">
-                    {theme}
-                  </span>
-                ))}
-              </div>
-              <span className="mt-6 inline-flex text-sm font-semibold text-charcoal">
-                Planned lesson
-              </span>
-            </article>
-          ))}
+      <section className="mx-auto max-w-4xl px-5 py-16 md:px-8 md:py-24">
+        <div className="border border-line bg-paper p-6 md:p-8">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Coming soon</p>
+          <h2 className="mt-4 font-serif text-3xl font-semibold text-charcoal">No full lesson notes are published yet.</h2>
+          <p className="mt-4 text-base leading-8 text-slateText">
+            I will use this page for real reviews of mistakes and difficult decisions. Until those are written properly,
+            the weekly journal and process page are the best places to read.
+          </p>
+          <div className="mt-7 flex flex-wrap gap-3">
+            <Link to="/journal" className="text-sm font-semibold text-charcoal">
+              Read the weekly journal
+            </Link>
+            <Link to="/process" className="text-sm font-semibold text-charcoal">
+              See the process
+            </Link>
+          </div>
         </div>
       </section>
     </main>
