@@ -9,6 +9,7 @@ import CurrentPortfolio from './pages/CurrentPortfolio';
 import DecisionArchive from './pages/DecisionArchive';
 import Disclaimer from './pages/Disclaimer';
 import Home from './pages/Home';
+import InstagramStart from './pages/InstagramStart';
 import Letters from './pages/Letters';
 import MistakesLessons from './pages/MistakesLessons';
 import NotFound from './pages/NotFound';
@@ -33,6 +34,11 @@ const siteUrl = 'https://codiemarillier.com';
 
 const staticMeta: Record<string, RouteMeta> = {
   '/': defaultMeta,
+  '/start': {
+    title: 'Start Here | Codie Capital Research',
+    description:
+      'A mobile-first starting page for Codie Capital Research, helping new visitors from Instagram understand the personal investment journal, first letter, latest portfolio update, and current portfolio.',
+  },
   '/about': {
     title: 'About | Codie Capital Research',
     description:
@@ -194,6 +200,7 @@ export default function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/start" element={<InstagramStart />} />
         <Route path="/about" element={<About />} />
         <Route path="/books" element={<Books />} />
         <Route path="/philosophy" element={<Philosophy />} />

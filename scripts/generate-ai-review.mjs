@@ -144,12 +144,29 @@ const mainPages = [
     contentText: plain([
       `${brand.name} is a public record of my personal investing process. I document what I own, why I own it, what I am learning, and how my thinking changes as I build a long-term portfolio.`,
       'The site is a personal investment journal only. It is not financial advice, not a fund, and not a money-management service.',
-      'The homepage sends first-time readers to the Current Portfolio, Portfolio Journal, Letters, Investment Process, and About pages.',
+      'The homepage sends first-time readers to the mobile-first Start Here page, Current Portfolio, Portfolio Journal, Letters, Investment Process, and About pages.',
       'Letters includes My First Letter as a published long-form reflection.',
       `Latest source-of-truth review: ${latestReview}. Current account value ${portfolioSnapshot.accountValue}, starting value ${portfolioSnapshot.startingCostBasis}, return ${portfolioSnapshot.currentReturn}, cash ${portfolioSnapshot.cashBalance}.`,
       `Portfolio value chart data: ${portfolioValueText.join(' ')}`,
     ]),
-    internalLinks: ['/journal/week-16-portfolio-summary', '/portfolio', '/journal', '/letters', '/process', '/books', '/about'],
+    internalLinks: ['/start', '/journal/week-16-portfolio-summary', '/portfolio', '/journal', '/letters', '/process', '/books', '/about'],
+  },
+  {
+    path: '/start',
+    title: 'Start Here',
+    pageType: 'instagram-start',
+    lastUpdated: latestUpdated,
+    topics: ['Instagram visitors', 'start here', 'first letter', 'latest portfolio update', 'current portfolio', 'mobile-first'],
+    summary:
+      'The Start Here page is a mobile-first entry point for new visitors from Instagram, pointing them to My First Letter, the latest portfolio update, current portfolio, and the main site sections.',
+    contentText: plain([
+      'Start Here explains Codie Capital Research quickly for new visitors from Instagram.',
+      'The site is a public record of Codie’s personal investing journey: what he owns, why he owns it, what he is learning, and how his thinking changes over time.',
+      'The recommended first reads are My First Letter, the latest portfolio update, and the Current Portfolio page.',
+      `Current snapshot: latest review ${latestPortfolioReview.label}, account value ${portfolioSnapshot.accountValue}, return ${portfolioSnapshot.currentReturn}, cash ${portfolioSnapshot.cashBalance}.`,
+      'The page explains that the site is a record, not a pitch, and that nothing on the site is investment advice.',
+    ]),
+    internalLinks: ['/letters/my-first-letter', `/journal/${latestPortfolioReview.slug}`, '/portfolio', '/journal', '/process', '/books', '/about', '/disclaimer'],
   },
   {
     path: '/portfolio',

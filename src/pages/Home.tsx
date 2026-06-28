@@ -71,34 +71,29 @@ export default function Home() {
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Link
-                to={`/journal/${latestPortfolioReview.slug}`}
-                className="inline-flex min-h-12 items-center justify-center gap-2 bg-charcoal px-6 text-sm font-semibold text-paper transition-colors hover:bg-navy"
+                to="/start"
+                className="inline-flex min-h-12 w-full items-center justify-center gap-2 bg-charcoal px-6 text-sm font-semibold text-paper transition-colors hover:bg-navy sm:w-auto"
               >
-                Read latest review
+                Start here
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+              <Link
+                to={`/journal/${latestPortfolioReview.slug}`}
+                className="inline-flex min-h-12 w-full items-center justify-center gap-2 border border-line bg-paper px-6 text-sm font-semibold text-charcoal transition-colors hover:border-gold hover:bg-ivory sm:w-auto"
+              >
+                Latest review
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
               <Link
                 to="/portfolio"
-                className="inline-flex min-h-12 items-center justify-center border border-line bg-paper px-6 text-sm font-semibold text-charcoal transition-colors hover:border-gold hover:bg-ivory"
+                className="inline-flex min-h-12 w-full items-center justify-center border border-line bg-paper px-6 text-sm font-semibold text-charcoal transition-colors hover:border-gold hover:bg-ivory sm:w-auto"
               >
-                View current portfolio
-              </Link>
-              <Link
-                to="/process"
-                className="inline-flex min-h-12 items-center justify-center border border-line bg-paper px-6 text-sm font-semibold text-charcoal transition-colors hover:border-gold hover:bg-ivory"
-              >
-                See my process
-              </Link>
-              <Link
-                to="/letters"
-                className="inline-flex min-h-12 items-center justify-center border border-line bg-paper px-6 text-sm font-semibold text-charcoal transition-colors hover:border-gold hover:bg-ivory"
-              >
-                Read letters
+                Current portfolio
               </Link>
             </div>
           </div>
 
-          <div className="relative">
+          <div className="relative hidden md:block">
             <div className="overflow-hidden border border-line bg-ivory p-3 shadow-editorial">
               <img
                 src={heroImage}

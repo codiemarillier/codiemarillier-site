@@ -15,21 +15,21 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-ivory/92 backdrop-blur">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8" aria-label="Primary">
-        <Link to="/" onClick={closeMenu} className="group">
-          <span className="block font-serif text-2xl font-semibold leading-none text-charcoal">{brand.name}</span>
-          <span className="mt-1 block text-[11px] font-medium uppercase tracking-[0.2em] text-slateText">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-5 md:px-8 md:py-4" aria-label="Primary">
+        <Link to="/" onClick={closeMenu} className="group min-w-0 pr-3">
+          <span className="block truncate font-serif text-xl font-semibold leading-none text-charcoal sm:text-2xl">{brand.name}</span>
+          <span className="mt-1 block max-w-[13rem] truncate text-[10px] font-medium uppercase tracking-[0.18em] text-slateText sm:max-w-none sm:text-[11px] sm:tracking-[0.2em]">
             {brand.subtitle}
           </span>
         </Link>
 
-        <div className="hidden items-center gap-5 xl:gap-7 lg:flex">
+        <div className="hidden items-center gap-4 xl:gap-6 lg:flex">
           {navLinks.map((item) => (
             <NavLink
               key={item.href}
               to={item.href}
               className={({ isActive }) =>
-                `text-[13px] font-medium transition-colors link-underline xl:text-sm ${
+                `text-xs font-medium transition-colors link-underline xl:text-sm ${
                   isActive ? 'text-charcoal' : 'text-slateText hover:text-charcoal'
                 }`
               }
@@ -53,12 +53,13 @@ export default function Navbar() {
       <div
         aria-hidden={!open}
         className={`overflow-hidden border-t border-line bg-paper transition-[max-height,opacity] duration-300 lg:hidden ${
-          open ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+          open ? 'max-h-[calc(100dvh-68px)] overflow-y-auto opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <div className="mx-auto grid max-w-7xl px-5 py-4 md:px-8">
+        <div className="mx-auto grid max-w-7xl gap-2 px-4 py-4 sm:px-5 md:px-8">
           {navLinks.map((item) => {
             const active = location.pathname === item.href || (item.href !== '/' && location.pathname.startsWith(item.href));
+            const featured = item.href === '/start';
             return (
               <Link
                 key={item.href}
@@ -66,8 +67,12 @@ export default function Navbar() {
                 onClick={closeMenu}
                 aria-current={active ? 'page' : undefined}
                 tabIndex={open ? undefined : -1}
-                className={`border-b border-line py-4 text-base font-medium ${
-                  active ? 'text-charcoal' : 'text-slateText'
+                className={`min-h-12 border-b border-line px-1 py-3 text-base font-medium ${
+                  featured
+                    ? 'border-charcoal bg-charcoal px-4 text-paper'
+                    : active
+                      ? 'text-charcoal'
+                      : 'text-slateText'
                 }`}
               >
                 {item.label}
