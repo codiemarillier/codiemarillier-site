@@ -27,6 +27,7 @@ const {
   portfolioCrawlerNotes,
   portfolioRoles,
   portfolioSnapshot,
+  portfolioValueHistory,
   plannedLetters,
   processRules,
   readingDevelopment,
@@ -127,6 +128,9 @@ const currentHoldings = holdings.filter((holding) => !/^closed/i.test(holding.po
 const publishedLetters = plannedLetters.filter((letter) => letter.body?.length);
 const latestReview = latestPortfolioReview.title;
 const latestUpdated = '2026-06-23';
+const portfolioValueText = portfolioValueHistory.map(
+  (point) => `${point.label} (${point.date}): ${point.valueLabel}. Source: ${point.source}.${point.note ? ` Note: ${point.note}` : ''}`,
+);
 
 const mainPages = [
   {
@@ -143,6 +147,7 @@ const mainPages = [
       'The homepage sends first-time readers to the Current Portfolio, Portfolio Journal, Investment Process, and About pages.',
       'Letters includes My First Letter as a published long-form reflection.',
       `Latest source-of-truth review: ${latestReview}. Current account value ${portfolioSnapshot.accountValue}, starting value ${portfolioSnapshot.startingCostBasis}, return ${portfolioSnapshot.currentReturn}, cash ${portfolioSnapshot.cashBalance}.`,
+      `Portfolio value chart data: ${portfolioValueText.join(' ')}`,
     ]),
     internalLinks: ['/journal/week-16-portfolio-summary', '/portfolio', '/journal', '/process', '/books', '/about', '/letters'],
   },
@@ -160,6 +165,7 @@ const mainPages = [
       `Current winners: ${portfolioCrawlerNotes.winners.join(' ')}`,
       `Current drags: ${portfolioCrawlerNotes.drags.join(' ')}`,
       `Latest action plan: ${portfolioCrawlerNotes.latestActionPlan.join(' ')}`,
+      `Portfolio value history: ${portfolioValueText.join(' ')}`,
     ]),
     internalLinks: ['/journal/week-16-portfolio-summary', '/journal', '/process', '/ai/portfolio.html'],
   },
@@ -427,6 +433,25 @@ latestReview: ${esc(latestReview)}</pre>
         <p>The snapshot is updated through the latest published weekly review.</p>
       </section>
       <section>
+        <h2>Portfolio Value History</h2>
+        <table>
+          <thead><tr><th>Week</th><th>Date</th><th>Portfolio value</th><th>Source</th><th>Note</th></tr></thead>
+          <tbody>
+            ${portfolioValueHistory
+              .map(
+                (point) => `<tr>
+                  <td>${esc(point.label)}</td>
+                  <td>${esc(point.date)}</td>
+                  <td>${esc(point.valueLabel)}</td>
+                  <td>${esc(point.source)}</td>
+                  <td>${esc(point.note ?? '')}</td>
+                </tr>`,
+              )
+              .join('\n')}
+          </tbody>
+        </table>
+      </section>
+      <section>
         <h2>Start Here</h2>
         <ul>
           <li><a href="/portfolio">Current Portfolio</a> - What I currently own, how the portfolio is positioned, and what role each holding plays.</li>
@@ -518,6 +543,25 @@ await writeFile(
         <div class="grid">${transactionSummary.map((item) => `<div class="card"><strong>${esc(item.label)}</strong><br>${esc(item.value)}</div>`).join('\n')}</div>
       </section>
       <section>
+        <h2>Portfolio Value History</h2>
+        <table>
+          <thead><tr><th>Week</th><th>Date</th><th>Portfolio value</th><th>Source</th><th>Note</th></tr></thead>
+          <tbody>
+            ${portfolioValueHistory
+              .map(
+                (point) => `<tr>
+                  <td>${esc(point.label)}</td>
+                  <td>${esc(point.date)}</td>
+                  <td>${esc(point.valueLabel)}</td>
+                  <td>${esc(point.source)}</td>
+                  <td>${esc(point.note ?? '')}</td>
+                </tr>`,
+              )
+              .join('\n')}
+          </tbody>
+        </table>
+      </section>
+      <section>
         <h2>Current and Closed Holdings</h2>
         ${holdings
           .map(
@@ -582,15 +626,24 @@ const siteContent = {
     url: siteUrl,
     purpose: 'Personal investment journal and long-term public record by Codie Marillier.',
     disclaimer: brand.disclaimer,
-    latestPortfolioSnapshot: {
-      latestReview,
-      currentAccountValue: portfolioSnapshot.accountValue,
+      latestPortfolioSnapshot: {
+        latestReview,
+        currentAccountValue: portfolioSnapshot.accountValue,
       startingValue: portfolioSnapshot.startingCostBasis,
       currentReturn: portfolioSnapshot.currentReturn,
       cashBalance: portfolioSnapshot.cashBalance,
-      lastUpdated: latestUpdated,
+        lastUpdated: latestUpdated,
+      },
+      portfolioValueHistory: portfolioValueHistory.map((point) => ({
+        week: point.week,
+        label: point.label,
+        date: point.date,
+        value: point.value,
+        valueLabel: point.valueLabel,
+        source: point.source,
+        note: point.note ?? '',
+      })),
     },
-  },
   pages: allRecords.map((record) => ({
     title: record.title,
     url: pageUrl(record.path),
@@ -614,6 +667,9 @@ const allText = [
   `Starting value: ${portfolioSnapshot.startingCostBasis}`,
   `Current return: ${portfolioSnapshot.currentReturn}`,
   `Cash balance: ${portfolioSnapshot.cashBalance}`,
+  '',
+  'PORTFOLIO VALUE HISTORY',
+  ...portfolioValueText,
   '',
   'MAIN PAGES',
   ...mainPages.map((page) => `${page.path} - ${page.title}\n${page.summary}\n${page.contentText}`),

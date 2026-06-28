@@ -25,6 +25,7 @@ const {
   portfolioCrawlerNotes,
   portfolioRoles,
   portfolioSnapshot,
+  portfolioValueHistory,
   plannedLetters,
   processRules,
   readingDevelopment,
@@ -117,6 +118,25 @@ function letterCard(letter) {
   </article>`;
 }
 
+function valueHistoryTable() {
+  return `<table>
+    <thead><tr><th>Week</th><th>Date</th><th>Portfolio value</th><th>Source</th></tr></thead>
+    <tbody>
+      ${portfolioValueHistory
+        .map(
+          (point) => `<tr>
+            <td>${esc(point.label)}</td>
+            <td>${esc(point.date)}</td>
+            <td>${esc(point.valueLabel)}</td>
+            <td>${esc(point.source)}</td>
+          </tr>`,
+        )
+        .join('')}
+    </tbody>
+  </table>
+  <p>Week 2 did not record a precise account value, so it is not plotted in the line chart.</p>`;
+}
+
 function routeHtml({ path, title, description, fallback, pageType = 'WebPage' }) {
   const canonical = `${siteUrl}${path === '/' ? '/' : path}`;
   const staticMain = `<main class="static-fallback" aria-label="Static page content">${fallback}</main>`;
@@ -186,6 +206,7 @@ const homeRoute = {
       </dl>
       <p>The snapshot is updated through the latest published weekly review.</p>`,
     )}
+    ${section('Portfolio Value History', valueHistoryTable())}
     ${section(
       'Start Here',
       linkList([
@@ -248,6 +269,7 @@ const routes = [
           <div><dt>Weekly move</dt><dd>${esc(portfolioSnapshot.weeklyMove)}</dd></div>
         </dl>`,
       )}
+      ${section('Portfolio Value History', valueHistoryTable())}
       ${section(
         'Open Holdings',
         `<div class="static-grid">${currentHoldings

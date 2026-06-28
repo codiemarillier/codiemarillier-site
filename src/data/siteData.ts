@@ -96,6 +96,16 @@ export type MistakeLesson = {
   themes: string[];
 };
 
+export type PortfolioValuePoint = {
+  week: number;
+  label: string;
+  date: string;
+  value: number;
+  valueLabel: string;
+  source: 'Baseline' | 'Recorded' | 'Approximate';
+  note?: string;
+};
+
 export const brand = {
   name: 'Codie Capital Research',
   subtitle: 'An investment journal by Codie Marillier',
@@ -461,6 +471,130 @@ export const portfolioSnapshot = {
   mainFocus: 'Rebuild cash slowly, protect capital first, and avoid reacting emotionally to one weak week',
   updateNote: 'Latest Week 16 portfolio review is the current source-of-truth update. Account value is around £1,981, cash is £40.07, and the account is about £18 below the original £1,999 starting capital.',
 };
+
+export const portfolioValueHistory: PortfolioValuePoint[] = [
+  {
+    week: 1,
+    label: 'Week 1',
+    date: '8 March 2026',
+    value: 1999,
+    valueLabel: 'Starting baseline: £1,999',
+    source: 'Baseline',
+    note: 'Week 1 was described as close to flat to slightly negative, so the chart uses the starting baseline.',
+  },
+  {
+    week: 3,
+    label: 'Week 3',
+    date: 'March 2026',
+    value: 1860.18,
+    valueLabel: '£1,860.18',
+    source: 'Recorded',
+  },
+  {
+    week: 4,
+    label: 'Week 4',
+    date: '30 March 2026',
+    value: 1860,
+    valueLabel: 'Around £1,860',
+    source: 'Approximate',
+  },
+  {
+    week: 5,
+    label: 'Week 5',
+    date: '05 April 2026',
+    value: 1931,
+    valueLabel: 'Around £1,931',
+    source: 'Approximate',
+  },
+  {
+    week: 6,
+    label: 'Week 6',
+    date: '12 April 2026',
+    value: 1960,
+    valueLabel: 'Around £1,960',
+    source: 'Approximate',
+  },
+  {
+    week: 7,
+    label: 'Week 7',
+    date: 'April 2026',
+    value: 2025.84,
+    valueLabel: '£2,025.84',
+    source: 'Recorded',
+  },
+  {
+    week: 8,
+    label: 'Week 8',
+    date: '28 April 2026',
+    value: 2008.07,
+    valueLabel: '£2,008.07',
+    source: 'Recorded',
+  },
+  {
+    week: 9,
+    label: 'Week 9',
+    date: '04 May 2026',
+    value: 2000,
+    valueLabel: 'Around £2,000',
+    source: 'Approximate',
+  },
+  {
+    week: 10,
+    label: 'Week 10',
+    date: '11 May 2026',
+    value: 1986.69,
+    valueLabel: '£1,986.69',
+    source: 'Recorded',
+  },
+  {
+    week: 11,
+    label: 'Week 11',
+    date: '15 May 2026',
+    value: 1974.37,
+    valueLabel: 'c. £1,974.37',
+    source: 'Recorded',
+  },
+  {
+    week: 12,
+    label: 'Week 12',
+    date: '22 May 2026',
+    value: 1983.39,
+    valueLabel: '£1,983.39',
+    source: 'Recorded',
+  },
+  {
+    week: 13,
+    label: 'Week 13',
+    date: '2 June 2026',
+    value: 2007,
+    valueLabel: 'Around £2,007',
+    source: 'Approximate',
+  },
+  {
+    week: 14,
+    label: 'Week 14',
+    date: '9 June 2026',
+    value: 1979.98,
+    valueLabel: 'Around £1,979.98',
+    source: 'Approximate',
+  },
+  {
+    week: 15,
+    label: 'Week 15',
+    date: '16 June 2026',
+    value: 2055.86,
+    valueLabel: '£2,055.86',
+    source: 'Recorded',
+  },
+  {
+    week: 16,
+    label: 'Week 16',
+    date: '23 June 2026',
+    value: 1981,
+    valueLabel: 'Around £1,981',
+    source: 'Approximate',
+  },
+];
 
 export const portfolioCrawlerNotes = {
   winners: [

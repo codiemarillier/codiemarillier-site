@@ -3,6 +3,7 @@ import HoldingsTable from '../components/HoldingsTable';
 import PageHeader from '../components/PageHeader';
 import PortfolioChangeLog from '../components/PortfolioChangeLog';
 import PortfolioSnapshot from '../components/PortfolioSnapshot';
+import PortfolioValueChart from '../components/PortfolioValueChart';
 import SectionHeader from '../components/SectionHeader';
 import { latestPortfolioReview, portfolioRoles, transactionSummary } from '../data/siteData';
 
@@ -40,6 +41,9 @@ export default function CurrentPortfolio() {
             Last updated: {latestPortfolioReview.label} / {latestPortfolioReview.date}
           </p>
           <PortfolioSnapshot />
+          <div className="mt-6">
+            <PortfolioValueChart />
+          </div>
           <div className="mt-6 grid gap-px border border-line bg-line md:grid-cols-4">
             {transactionSummary.map((item) => (
               <div key={item.label} className="bg-paper p-5">

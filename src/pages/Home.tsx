@@ -1,5 +1,6 @@
 import { ArrowRight, BookOpen, FileText, LineChart, ScrollText, UserRound } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import PortfolioValueChart from '../components/PortfolioValueChart';
 import heroImage from '../assets/portfolio-desk-hero.png';
 import { latestPortfolioReview, portfolioSnapshot } from '../data/siteData';
 
@@ -164,6 +165,9 @@ export default function Home() {
               </div>
             ))}
           </dl>
+          <div className="mt-8">
+            <PortfolioValueChart />
+          </div>
         </div>
       </section>
 

@@ -11,7 +11,144 @@
       "currentReturn": "About -0.90%",
       "cashBalance": "£40.07",
       "lastUpdated": "2026-06-23"
-    }
+    },
+    "portfolioValueHistory": [
+      {
+        "week": 1,
+        "label": "Week 1",
+        "date": "8 March 2026",
+        "value": 1999,
+        "valueLabel": "Starting baseline: £1,999",
+        "source": "Baseline",
+        "note": "Week 1 was described as close to flat to slightly negative, so the chart uses the starting baseline."
+      },
+      {
+        "week": 3,
+        "label": "Week 3",
+        "date": "March 2026",
+        "value": 1860.18,
+        "valueLabel": "£1,860.18",
+        "source": "Recorded",
+        "note": ""
+      },
+      {
+        "week": 4,
+        "label": "Week 4",
+        "date": "30 March 2026",
+        "value": 1860,
+        "valueLabel": "Around £1,860",
+        "source": "Approximate",
+        "note": ""
+      },
+      {
+        "week": 5,
+        "label": "Week 5",
+        "date": "05 April 2026",
+        "value": 1931,
+        "valueLabel": "Around £1,931",
+        "source": "Approximate",
+        "note": ""
+      },
+      {
+        "week": 6,
+        "label": "Week 6",
+        "date": "12 April 2026",
+        "value": 1960,
+        "valueLabel": "Around £1,960",
+        "source": "Approximate",
+        "note": ""
+      },
+      {
+        "week": 7,
+        "label": "Week 7",
+        "date": "April 2026",
+        "value": 2025.84,
+        "valueLabel": "£2,025.84",
+        "source": "Recorded",
+        "note": ""
+      },
+      {
+        "week": 8,
+        "label": "Week 8",
+        "date": "28 April 2026",
+        "value": 2008.07,
+        "valueLabel": "£2,008.07",
+        "source": "Recorded",
+        "note": ""
+      },
+      {
+        "week": 9,
+        "label": "Week 9",
+        "date": "04 May 2026",
+        "value": 2000,
+        "valueLabel": "Around £2,000",
+        "source": "Approximate",
+        "note": ""
+      },
+      {
+        "week": 10,
+        "label": "Week 10",
+        "date": "11 May 2026",
+        "value": 1986.69,
+        "valueLabel": "£1,986.69",
+        "source": "Recorded",
+        "note": ""
+      },
+      {
+        "week": 11,
+        "label": "Week 11",
+        "date": "15 May 2026",
+        "value": 1974.37,
+        "valueLabel": "c. £1,974.37",
+        "source": "Recorded",
+        "note": ""
+      },
+      {
+        "week": 12,
+        "label": "Week 12",
+        "date": "22 May 2026",
+        "value": 1983.39,
+        "valueLabel": "£1,983.39",
+        "source": "Recorded",
+        "note": ""
+      },
+      {
+        "week": 13,
+        "label": "Week 13",
+        "date": "2 June 2026",
+        "value": 2007,
+        "valueLabel": "Around £2,007",
+        "source": "Approximate",
+        "note": ""
+      },
+      {
+        "week": 14,
+        "label": "Week 14",
+        "date": "9 June 2026",
+        "value": 1979.98,
+        "valueLabel": "Around £1,979.98",
+        "source": "Approximate",
+        "note": ""
+      },
+      {
+        "week": 15,
+        "label": "Week 15",
+        "date": "16 June 2026",
+        "value": 2055.86,
+        "valueLabel": "£2,055.86",
+        "source": "Recorded",
+        "note": ""
+      },
+      {
+        "week": 16,
+        "label": "Week 16",
+        "date": "23 June 2026",
+        "value": 1981,
+        "valueLabel": "Around £1,981",
+        "source": "Approximate",
+        "note": ""
+      }
+    ]
   },
   "pages": [
     {
@@ -20,7 +157,7 @@
       "description": "The homepage presents Codie Capital Research as a serious personal investment journal, explains what the site is, shows the latest Week 16 snapshot, and points first-time visitors to the best live pages.",
       "pageType": "homepage",
       "lastUpdated": "2026-06-25",
-      "contentText": "Codie Capital Research is a public record of my personal investing process. I document what I own, why I own it, what I am learning, and how my thinking changes as I build a long-term portfolio.\n\nThe site is a personal investment journal only. It is not financial advice, not a fund, and not a money-management service.\n\nThe homepage sends first-time readers to the Current Portfolio, Portfolio Journal, Investment Process, and About pages.\n\nLetters includes My First Letter as a published long-form reflection.\n\nLatest source-of-truth review: Week 16 - A pullback and the Pershing Square buy. Current account value Around £1,981, starting value £1,999, return About -0.90%, cash £40.07.",
+      "contentText": "Codie Capital Research is a public record of my personal investing process. I document what I own, why I own it, what I am learning, and how my thinking changes as I build a long-term portfolio.\n\nThe site is a personal investment journal only. It is not financial advice, not a fund, and not a money-management service.\n\nThe homepage sends first-time readers to the Current Portfolio, Portfolio Journal, Investment Process, and About pages.\n\nLetters includes My First Letter as a published long-form reflection.\n\nLatest source-of-truth review: Week 16 - A pullback and the Pershing Square buy. Current account value Around £1,981, starting value £1,999, return About -0.90%, cash £40.07.\n\nPortfolio value chart data: Week 1 (8 March 2026): Starting baseline: £1,999. Source: Baseline. Note: Week 1 was described as close to flat to slightly negative, so the chart uses the starting baseline. Week 3 (March 2026): £1,860.18. Source: Recorded. Week 4 (30 March 2026): Around £1,860. Source: Approximate. Week 5 (05 April 2026): Around £1,931. Source: Approximate. Week 6 (12 April 2026): Around £1,960. Source: Approximate. Week 7 (April 2026): £2,025.84. Source: Recorded. Week 8 (28 April 2026): £2,008.07. Source: Recorded. Week 9 (04 May 2026): Around £2,000. Source: Approximate. Week 10 (11 May 2026): £1,986.69. Source: Recorded. Week 11 (15 May 2026): c. £1,974.37. Source: Recorded. Week 12 (22 May 2026): £1,983.39. Source: Recorded. Week 13 (2 June 2026): Around £2,007. Source: Approximate. Week 14 (9 June 2026): Around £1,979.98. Source: Approximate. Week 15 (16 June 2026): £2,055.86. Source: Recorded. Week 16 (23 June 2026): Around £1,981. Source: Approximate.",
       "internalLinks": [
         "https://codiemarillier.com/journal/week-16-portfolio-summary",
         "https://codiemarillier.com/portfolio",
@@ -37,7 +174,7 @@
       "description": "The portfolio page records Codie’s own current holdings, Week 16 account value, starting value, cash, latest return, winners, drags, portfolio role notes, and latest action plan.",
       "pageType": "portfolio",
       "lastUpdated": "2026-06-23",
-      "contentText": "Current account value: Around £1,981. Starting value: £1,999. Current return: About -0.90%. Cash balance: £40.07. Latest review: Week 16 - A pullback and the Pershing Square buy.\n\nOpen holdings: SGLN 5.72 shares (Portfolio hedge and macro protection); QQQA 5.57 shares (Broad technology-led US equity exposure); VUAG 2.04 shares (Broad US market exposure); RHM 0.087 shares (Defence demand and European security exposure); O 3.28 shares (Real estate income exposure); NEE 2.04 shares (Utility and renewables exposure); META 0.52 shares (Advertising, AI, and platform scale); SYM 3.268 shares (Robotics and warehouse automation); SPCX 1 share (Early exposure to space infrastructure, satellites, and Starlink); PSH 2 shares (Discount-to-NAV exposure to Pershing Square portfolio and Bill Ackman’s capital allocation); ABNB 1.223 shares (Asset-light travel platform exposure); BRK.B 0.3884 shares (Diversified operating businesses and capital discipline); GOOGL 0.28 shares (Search, cloud, AI, and platform scale).\n\nCurrent winners: QQQA remains one of the strongest contributors, showing roughly +24.84% in the Week 16 document. VUAG continues to support the portfolio through broad US market exposure, showing roughly +11.99%. Airbnb and Berkshire Hathaway remain positive contributors in the Week 16 holdings table. Pershing Square Holdings was added as a new investor-led holding because of the discount to NAV.\n\nCurrent drags: Gold remains the largest position and the biggest cash loss, but is still treated as a portfolio hedge. SpaceX pulled back sharply after the strong Week 15 move and was the main weekly drag. Meta, Symbotic, and Rheinmetall remain weak and need continued review rather than emotional selling. Cash fell to £40.07 after the Pershing Square purchase, so rebuilding flexibility is now important.\n\nLatest action plan: Rebuild cash slowly after the Pershing Square purchase. Hold SpaceX and avoid reacting emotionally to the first proper pullback. Keep gold as a hedge while continuing to review whether it is doing the job expected. Treat Pershing Square as a long-term investor-led holding, not a short-term trade. Keep protecting capital first and avoid becoming careless with the remaining cash.",
+      "contentText": "Current account value: Around £1,981. Starting value: £1,999. Current return: About -0.90%. Cash balance: £40.07. Latest review: Week 16 - A pullback and the Pershing Square buy.\n\nOpen holdings: SGLN 5.72 shares (Portfolio hedge and macro protection); QQQA 5.57 shares (Broad technology-led US equity exposure); VUAG 2.04 shares (Broad US market exposure); RHM 0.087 shares (Defence demand and European security exposure); O 3.28 shares (Real estate income exposure); NEE 2.04 shares (Utility and renewables exposure); META 0.52 shares (Advertising, AI, and platform scale); SYM 3.268 shares (Robotics and warehouse automation); SPCX 1 share (Early exposure to space infrastructure, satellites, and Starlink); PSH 2 shares (Discount-to-NAV exposure to Pershing Square portfolio and Bill Ackman’s capital allocation); ABNB 1.223 shares (Asset-light travel platform exposure); BRK.B 0.3884 shares (Diversified operating businesses and capital discipline); GOOGL 0.28 shares (Search, cloud, AI, and platform scale).\n\nCurrent winners: QQQA remains one of the strongest contributors, showing roughly +24.84% in the Week 16 document. VUAG continues to support the portfolio through broad US market exposure, showing roughly +11.99%. Airbnb and Berkshire Hathaway remain positive contributors in the Week 16 holdings table. Pershing Square Holdings was added as a new investor-led holding because of the discount to NAV.\n\nCurrent drags: Gold remains the largest position and the biggest cash loss, but is still treated as a portfolio hedge. SpaceX pulled back sharply after the strong Week 15 move and was the main weekly drag. Meta, Symbotic, and Rheinmetall remain weak and need continued review rather than emotional selling. Cash fell to £40.07 after the Pershing Square purchase, so rebuilding flexibility is now important.\n\nLatest action plan: Rebuild cash slowly after the Pershing Square purchase. Hold SpaceX and avoid reacting emotionally to the first proper pullback. Keep gold as a hedge while continuing to review whether it is doing the job expected. Treat Pershing Square as a long-term investor-led holding, not a short-term trade. Keep protecting capital first and avoid becoming careless with the remaining cash.\n\nPortfolio value history: Week 1 (8 March 2026): Starting baseline: £1,999. Source: Baseline. Note: Week 1 was described as close to flat to slightly negative, so the chart uses the starting baseline. Week 3 (March 2026): £1,860.18. Source: Recorded. Week 4 (30 March 2026): Around £1,860. Source: Approximate. Week 5 (05 April 2026): Around £1,931. Source: Approximate. Week 6 (12 April 2026): Around £1,960. Source: Approximate. Week 7 (April 2026): £2,025.84. Source: Recorded. Week 8 (28 April 2026): £2,008.07. Source: Recorded. Week 9 (04 May 2026): Around £2,000. Source: Approximate. Week 10 (11 May 2026): £1,986.69. Source: Recorded. Week 11 (15 May 2026): c. £1,974.37. Source: Recorded. Week 12 (22 May 2026): £1,983.39. Source: Recorded. Week 13 (2 June 2026): Around £2,007. Source: Approximate. Week 14 (9 June 2026): Around £1,979.98. Source: Approximate. Week 15 (16 June 2026): £2,055.86. Source: Recorded. Week 16 (23 June 2026): Around £1,981. Source: Approximate.",
       "internalLinks": [
         "https://codiemarillier.com/journal/week-16-portfolio-summary",
         "https://codiemarillier.com/journal",
