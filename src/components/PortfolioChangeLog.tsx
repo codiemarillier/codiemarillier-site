@@ -16,7 +16,7 @@ export default function PortfolioChangeLog() {
       {portfolioChangeLog.map((change) => (
         <article
           key={`${change.date}-${change.title}`}
-          className="grid gap-5 border-b border-line bg-paper px-5 py-6 last:border-b-0 md:grid-cols-[160px_1fr_auto] md:items-center md:px-7"
+          className="grid gap-5 border-b border-line px-5 py-6 last:border-b-0 md:grid-cols-[160px_1fr_auto] md:items-center md:px-7"
         >
           <div>
             <p className="text-sm font-semibold text-charcoal">{change.date}</p>

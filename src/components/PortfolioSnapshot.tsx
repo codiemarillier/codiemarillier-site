@@ -10,7 +10,7 @@ const stats = [
 
 export default function PortfolioSnapshot() {
   return (
-    <section className="border border-line bg-paper">
+    <section className="border-y border-line">
       <div className="grid divide-y divide-line md:grid-cols-5 md:divide-x md:divide-y-0">
         {stats.map(([label, value]) => (
           <div key={label} className="p-6">
@@ -30,7 +30,7 @@ export default function PortfolioSnapshot() {
           <strong className="text-charcoal">Positioning note:</strong> Manual record only, not a recommendation or model portfolio.
         </p>
       </div>
-      <p className="border-t border-line bg-ivory px-6 py-4 text-xs leading-6 text-slateText">
+      <p className="border-t border-line px-6 py-4 text-xs leading-6 text-slateText">
         {portfolioSnapshot.updateNote}
       </p>
     </section>

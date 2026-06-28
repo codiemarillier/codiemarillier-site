@@ -42,11 +42,11 @@ export default function CurrentPortfolio() {
           </p>
           <PortfolioSnapshot />
           <div className="mt-6">
-            <PortfolioValueChart />
+            <PortfolioValueChart variant="blend" />
           </div>
-          <div className="mt-6 grid gap-px border border-line bg-line md:grid-cols-4">
+          <div className="mt-8 grid gap-5 border-y border-line py-5 md:grid-cols-4">
             {transactionSummary.map((item) => (
-              <div key={item.label} className="bg-paper p-5">
+              <div key={item.label} className="border-l-2 border-gold/60 pl-4">
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">{item.label}</p>
                 <p className="mt-3 font-serif text-2xl font-semibold text-charcoal">{item.value}</p>
               </div>
@@ -61,11 +61,11 @@ export default function CurrentPortfolio() {
           title="Current snapshot first."
           text="The latest published portfolio record is Week 16. This dashboard keeps the account value, cash, holdings, portfolio roles, and latest action plan in one place."
         />
-        <div className="grid gap-px border border-line bg-line md:grid-cols-2">
+        <div className="grid gap-x-10 gap-y-8 md:grid-cols-2">
           {portfolioRoles.map((role, index) => (
             <article
               key={role.title}
-              className={`bg-paper p-6 ${portfolioRoles.length % 2 === 1 && index === portfolioRoles.length - 1 ? 'md:col-span-2' : ''}`}
+              className={`border-t border-line pt-6 ${portfolioRoles.length % 2 === 1 && index === portfolioRoles.length - 1 ? 'md:col-span-2' : ''}`}
             >
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">{role.title}</p>
               <h2 className="mt-4 font-serif text-2xl font-semibold text-charcoal">{role.examples}</h2>
@@ -114,9 +114,9 @@ export default function CurrentPortfolio() {
       </section>
 
       <section className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24">
-        <div className="grid gap-px border border-line bg-line md:grid-cols-2">
+        <div className="grid gap-x-10 gap-y-8 md:grid-cols-2">
           {sleeves.map((sleeve) => (
-            <article key={sleeve.title} className="bg-paper p-7">
+            <article key={sleeve.title} className="border-t border-line pt-6">
               <h2 className="font-serif text-3xl font-semibold text-charcoal">{sleeve.title}</h2>
               <p className="mt-4 text-sm leading-7 text-slateText">{sleeve.text}</p>
             </article>

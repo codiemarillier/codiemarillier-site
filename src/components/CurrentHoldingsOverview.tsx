@@ -35,25 +35,25 @@ function matchesGroup(sleeve: string, group: (typeof sleeveGroups)[number]) {
 
 export default function CurrentHoldingsOverview() {
   return (
-    <div className="grid gap-5">
+    <div className="grid gap-10">
       {sleeveGroups.map((group) => {
         const groupHoldings = currentHoldings.filter((holding) => matchesGroup(holding.sleeve, group));
         if (!groupHoldings.length) return null;
 
         return (
-          <section key={group.title} className="border border-line bg-line">
-            <div className="bg-charcoal px-5 py-4 text-paper">
-              <h3 className="font-serif text-2xl font-semibold">{group.title}</h3>
+          <section key={group.title} className="border-y border-line py-5">
+            <div className="pb-4">
+              <h3 className="font-serif text-2xl font-semibold text-charcoal">{group.title}</h3>
             </div>
-            <div className="grid gap-px md:grid-cols-2 xl:grid-cols-3">
+            <div className="grid gap-x-8 md:grid-cols-2 xl:grid-cols-3">
               {groupHoldings.map((holding) => (
-                <article key={holding.ticker} className="bg-paper p-5">
+                <article key={holding.ticker} className="border-t border-line py-5">
                   <div className="flex items-start justify-between gap-4">
                     <div>
                       <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold">{holding.ticker}</p>
                       <h4 className="mt-3 font-serif text-2xl font-semibold leading-tight text-charcoal">{holding.name}</h4>
                     </div>
-                    <span className="border border-line bg-ivory px-2.5 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-slateText">
+                    <span className="border border-line px-2.5 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-slateText">
                       {holding.positionSize}
                     </span>
                   </div>

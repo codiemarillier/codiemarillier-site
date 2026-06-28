@@ -31,7 +31,12 @@ function getRange(values: number[]) {
   return { min, max };
 }
 
-export default function PortfolioValueChart() {
+type PortfolioValueChartProps = {
+  variant?: 'card' | 'blend';
+};
+
+export default function PortfolioValueChart({ variant = 'card' }: PortfolioValueChartProps) {
+  const isBlend = variant === 'blend';
   const values = portfolioValueHistory.map((point) => point.value);
   const { min, max } = getRange(values);
   const minWeek = Math.min(...portfolioValueHistory.map((point) => point.week));
@@ -52,10 +57,25 @@ export default function PortfolioValueChart() {
   const latestChange = latestPoint.value - startingValue;
   const yTicks = [min, Math.round((min + max) / 2), max];
   const xTicks = portfolioValueHistory.filter((point) => [1, 4, 8, 12, 16].includes(point.week));
+  const headerStatsClassName = isBlend
+    ? 'grid gap-4 sm:grid-cols-3 md:text-right'
+    : 'grid gap-px border border-line bg-line text-center sm:grid-cols-3';
+  const headerStatClassName = isBlend ? 'min-w-0 border-l-2 border-gold/60 pl-4' : 'min-w-0 bg-ivory px-3 py-3';
+  const footerStatsClassName = isBlend
+    ? 'grid gap-5 border-t border-line py-5 md:grid-cols-3'
+    : 'grid gap-px border-t border-line bg-line md:grid-cols-3';
+  const footerStatClassName = isBlend ? 'border-l border-line pl-4' : 'bg-ivory p-5';
 
   return (
-    <section className="border border-line bg-paper shadow-editorial" data-chart="portfolio-value-history">
-      <div className="grid gap-6 border-b border-line p-6 md:grid-cols-[1fr_auto] md:items-end md:p-8">
+    <section
+      className={isBlend ? 'border-y border-line' : 'border border-line bg-paper shadow-editorial'}
+      data-chart="portfolio-value-history"
+    >
+      <div
+        className={`grid gap-6 border-b border-line md:grid-cols-[1fr_auto] md:items-end ${
+          isBlend ? 'py-6' : 'p-6 md:p-8'
+        }`}
+      >
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Portfolio value over time</p>
           <h2 className="mt-3 font-serif text-3xl font-semibold leading-tight text-charcoal md:text-4xl">
@@ -66,13 +86,13 @@ export default function PortfolioValueChart() {
             rounded value shown in the journal.
           </p>
         </div>
-        <div className="grid gap-px border border-line bg-line text-center sm:grid-cols-3">
+        <div className={headerStatsClassName}>
           {[
             ['Latest', latestPoint.valueLabel],
             ['High', `${highestPoint.label} / ${highestPoint.valueLabel}`],
             ['Low', `${lowestPoint.label} / ${lowestPoint.valueLabel}`],
           ].map(([label, value]) => (
-            <div key={label} className="min-w-0 bg-ivory px-3 py-3">
+            <div key={label} className={headerStatClassName}>
               <p className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-gold">{label}</p>
               <p className="mt-1 text-sm font-semibold leading-5 text-charcoal">{value}</p>
             </div>
@@ -80,7 +100,7 @@ export default function PortfolioValueChart() {
         </div>
       </div>
 
-      <div className="p-4 md:p-6">
+      <div className={isBlend ? 'py-4 md:py-6' : 'p-4 md:p-6'}>
         <svg
           className="h-auto w-full"
           viewBox={`0 0 ${chart.width} ${chart.height}`}
@@ -157,19 +177,19 @@ export default function PortfolioValueChart() {
         </svg>
       </div>
 
-      <div className="grid gap-px border-t border-line bg-line md:grid-cols-3">
-        <div className="bg-ivory p-5">
+      <div className={footerStatsClassName}>
+        <div className={footerStatClassName}>
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold">Change from start</p>
           <p className="mt-2 font-serif text-2xl font-semibold text-charcoal">
             {latestChange >= 0 ? '+' : ''}
             {formatCurrency(latestChange)}
           </p>
         </div>
-        <div className="bg-ivory p-5">
+        <div className={footerStatClassName}>
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold">Latest plotted value</p>
           <p className="mt-2 font-serif text-2xl font-semibold text-charcoal">{latestPoint.valueLabel}</p>
         </div>
-        <div className="bg-ivory p-5">
+        <div className={footerStatClassName}>
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold">Source</p>
           <p className="mt-2 text-sm font-semibold leading-6 text-charcoal">Published weekly portfolio reviews</p>
         </div>
