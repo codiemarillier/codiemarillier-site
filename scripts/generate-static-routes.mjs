@@ -221,6 +221,11 @@ const homeRoute = {
           text: 'My weekly record of portfolio changes, market thoughts, decisions, and lessons.',
         },
         {
+          label: 'Letters',
+          href: '/letters',
+          text: 'Longer reflections behind the weekly reviews, starting with My First Letter.',
+        },
+        {
           label: 'Investment Process',
           href: '/process',
           text: 'The rules and habits I am trying to build around capital protection, patience, position sizing, and written reasoning.',
@@ -237,6 +242,7 @@ const homeRoute = {
       `<ul>
         <li><a href="/portfolio">View Current Portfolio</a></li>
         <li><a href="/journal">Read Portfolio Journal</a></li>
+        <li><a href="/letters">Read Letters</a></li>
         <li><a href="/process">See Investment Process</a></li>
         <li><a href="/books">Books That Shaped My Thinking</a></li>
         <li><a href="/letters/my-first-letter">My First Letter</a></li>

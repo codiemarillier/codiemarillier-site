@@ -1,4 +1,4 @@
-import { ArrowRight, BookOpen, FileText, LineChart, ScrollText, UserRound } from 'lucide-react';
+import { ArrowRight, BookOpen, FileText, LineChart, PenLine, ScrollText, UserRound } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import PortfolioValueChart from '../components/PortfolioValueChart';
 import heroImage from '../assets/portfolio-desk-hero.png';
@@ -27,6 +27,13 @@ const startHereCards = [
     href: '/journal',
     action: 'Read journal',
     icon: ScrollText,
+  },
+  {
+    title: 'Letters',
+    text: 'Read the longer reflections behind the weekly reviews, starting with My First Letter.',
+    href: '/letters',
+    action: 'Read letters',
+    icon: PenLine,
   },
   {
     title: 'Investment Process',
@@ -81,6 +88,12 @@ export default function Home() {
                 className="inline-flex min-h-12 items-center justify-center border border-line bg-paper px-6 text-sm font-semibold text-charcoal transition-colors hover:border-gold hover:bg-ivory"
               >
                 See my process
+              </Link>
+              <Link
+                to="/letters"
+                className="inline-flex min-h-12 items-center justify-center border border-line bg-paper px-6 text-sm font-semibold text-charcoal transition-colors hover:border-gold hover:bg-ivory"
+              >
+                Read letters
               </Link>
             </div>
           </div>
@@ -203,14 +216,14 @@ export default function Home() {
           <div className="max-w-3xl">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Best place to start</p>
             <h2 className="mt-4 font-serif text-4xl font-semibold text-charcoal md:text-5xl">
-              Four pages that explain the site quickly.
+              Five pages that explain the site quickly.
             </h2>
             <p className="mt-5 text-base leading-8 text-slateText">
               These pages are the cleanest route for a first-time visitor: the current portfolio, the weekly journal,
-              the rules behind the decisions, and the personal background behind the project.
+              the longer letters, the rules behind the decisions, and the personal background behind the project.
             </p>
           </div>
-          <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
             {startHereCards.map((item) => {
               const Icon = item.icon;
 
@@ -244,7 +257,7 @@ export default function Home() {
               Reading and longer reflections sit beside the portfolio record.
             </h2>
             <p className="mt-4 max-w-3xl text-base leading-8 text-slateText">
-              The books page explains the ideas shaping the process, and My First Letter explains why the record matters
+              The books page explains the ideas shaping the process, and the letters page explains why the record matters
               beyond weekly account value.
             </p>
           </div>
@@ -257,10 +270,10 @@ export default function Home() {
               Books
             </Link>
             <Link
-              to="/letters/my-first-letter"
+              to="/letters"
               className="inline-flex min-h-11 items-center justify-center gap-2 border border-line bg-paper px-5 text-sm font-semibold text-charcoal transition-colors hover:border-gold"
             >
-              My First Letter
+              Letters
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           </div>

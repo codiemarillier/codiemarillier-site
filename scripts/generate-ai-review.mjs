@@ -144,12 +144,12 @@ const mainPages = [
     contentText: plain([
       `${brand.name} is a public record of my personal investing process. I document what I own, why I own it, what I am learning, and how my thinking changes as I build a long-term portfolio.`,
       'The site is a personal investment journal only. It is not financial advice, not a fund, and not a money-management service.',
-      'The homepage sends first-time readers to the Current Portfolio, Portfolio Journal, Investment Process, and About pages.',
+      'The homepage sends first-time readers to the Current Portfolio, Portfolio Journal, Letters, Investment Process, and About pages.',
       'Letters includes My First Letter as a published long-form reflection.',
       `Latest source-of-truth review: ${latestReview}. Current account value ${portfolioSnapshot.accountValue}, starting value ${portfolioSnapshot.startingCostBasis}, return ${portfolioSnapshot.currentReturn}, cash ${portfolioSnapshot.cashBalance}.`,
       `Portfolio value chart data: ${portfolioValueText.join(' ')}`,
     ]),
-    internalLinks: ['/journal/week-16-portfolio-summary', '/portfolio', '/journal', '/process', '/books', '/about', '/letters'],
+    internalLinks: ['/journal/week-16-portfolio-summary', '/portfolio', '/journal', '/letters', '/process', '/books', '/about'],
   },
   {
     path: '/portfolio',

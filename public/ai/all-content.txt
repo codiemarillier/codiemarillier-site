@@ -60,7 +60,7 @@ Codie Capital Research is a public record of my personal investing process. I do
 
 The site is a personal investment journal only. It is not financial advice, not a fund, and not a money-management service.
 
-The homepage sends first-time readers to the Current Portfolio, Portfolio Journal, Investment Process, and About pages.
+The homepage sends first-time readers to the Current Portfolio, Portfolio Journal, Letters, Investment Process, and About pages.
 
 Letters includes My First Letter as a published long-form reflection.
 
