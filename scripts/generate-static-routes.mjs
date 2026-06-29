@@ -168,6 +168,31 @@ async function writeRoute(route) {
   await writeFile(file, routeHtml(route));
 }
 
+async function writeRedirectRoute({ path, target, title }) {
+  const file = `${outputRoot}${path}/index.html`;
+  const html = `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, follow" />
+    <meta http-equiv="refresh" content="0; url=${esc(target)}" />
+    <link rel="canonical" href="${esc(`${siteUrl}${target}`)}" />
+    <title>${esc(title)}</title>
+    <script>window.location.replace(${JSON.stringify(target)});</script>
+  </head>
+  <body>
+    <main>
+      <h1>${esc(title)}</h1>
+      <p>This page has moved to <a href="${esc(target)}">${esc(`${siteUrl}${target}`)}</a>.</p>
+    </main>
+  </body>
+</html>`;
+
+  await mkdir(dirname(file), { recursive: true });
+  await writeFile(file, html);
+}
+
 const currentHoldings = holdings.filter((holding) => !/^closed/i.test(holding.positionSize) && !/^closed/i.test(holding.status));
 const publishedLetters = plannedLetters.filter((letter) => letter.body?.length);
 const firstPublishedLetter = publishedLetters[0];
@@ -494,6 +519,12 @@ const routes = [
 for (const route of routes) {
   await writeRoute(route);
 }
+
+await writeRedirectRoute({
+  path: '/start',
+  target: '/',
+  title: 'Redirecting to Codie Capital Research',
+});
 
 for (const entry of journalEntries) {
   await writeRoute({
