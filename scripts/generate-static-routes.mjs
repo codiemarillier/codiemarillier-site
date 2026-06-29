@@ -174,16 +174,18 @@ const firstPublishedLetter = publishedLetters[0];
 const weeklyReviews = journalEntries.filter((entry) => entry.category === 'Weekly Reviews');
 const latestReviewLabel = latestPortfolioReview.label;
 
-const startRoute = {
-  path: '/start',
-  title: 'Start Here | Codie Capital Research',
+const homeRoute = {
+  path: '/',
+  title: 'Codie Capital Research | Investment Journal by Codie Marillier',
   description:
-    'A mobile-first starting page for new visitors from Instagram, with the first letter, latest portfolio update, current portfolio, and main site sections.',
+    "Codie Marillier's personal investment journal and public record of portfolio decisions, weekly reviews, process, and long-term learning. Not investment advice.",
   fallback: `
-    <p>Start here from Instagram</p>
+    <p>Personal investment journal</p>
     <h1>Codie Capital Research</h1>
-    ${paragraph('I am documenting my personal investing journey in public: what I own, why I own it, what I am learning, and how my thinking changes over time.')}
-    ${paragraph('Personal journal only. Not financial advice, not a fund, and not a recommendation to copy anything I do.')}
+    ${paragraph(
+      'Codie Capital Research is my personal investment journal. I use it to record what I own, why I own it, what I am learning, and how my thinking changes over time. The aim is to build a long-term public record of my decisions, mistakes, lessons, and development as an investor.',
+    )}
+    ${paragraph('This is a personal investment journal only. It is not financial advice, not a fund, and not a money-management service.')}
     ${section(
       'Best First Reads',
       linkList([
@@ -205,57 +207,6 @@ const startRoute = {
       ]),
     )}
     ${section(
-      'Current Snapshot',
-      `<dl class="static-grid">
-        <div><dt>Latest review</dt><dd>${esc(latestReviewLabel)}</dd></div>
-        <div><dt>Account value</dt><dd>${esc(portfolioSnapshot.accountValue)}</dd></div>
-        <div><dt>Return</dt><dd>${esc(portfolioSnapshot.currentReturn)}</dd></div>
-        <div><dt>Cash</dt><dd>${esc(portfolioSnapshot.cashBalance)}</dd></div>
-      </dl>`,
-    )}
-    ${section(
-      'How To Read The Site',
-      list([
-        'Read the first letter for the why.',
-        'Check the current portfolio for the latest position.',
-        'Use the journal to see the record week by week.',
-      ]),
-    )}
-    ${section(
-      'More Sections',
-      linkList([
-        { href: '/journal', label: 'Portfolio Journal', text: 'Weekly reviews from the beginning of the public record.' },
-        { href: '/process', label: 'Investment Process', text: 'The rules I use for buying, selling, sizing, and reviewing decisions.' },
-        { href: '/books', label: 'Books', text: 'The books shaping how I think about risk, money, and discipline.' },
-        { href: '/about', label: 'About', text: 'Who I am, why I started investing, and why I built the site.' },
-      ]),
-    )}
-  `,
-};
-
-const homeRoute = {
-  path: '/',
-  title: 'Codie Capital Research | Investment Journal by Codie Marillier',
-  description:
-    "Codie Marillier's personal investment journal and public record of portfolio decisions, weekly reviews, process, and long-term learning. Not investment advice.",
-  fallback: `
-    <p>Personal investment journal</p>
-    <h1>Codie Capital Research</h1>
-    ${paragraph(
-      'Codie Capital Research is my personal investment journal. I use it to record what I own, why I own it, what I am learning, and how my thinking changes over time. The aim is to build a long-term public record of my decisions, mistakes, lessons, and development as an investor.',
-    )}
-    ${paragraph('This is a personal investment journal only. It is not financial advice, not a fund, and not a money-management service.')}
-    ${section(
-      'Why I Built This',
-      list([
-        'Document my thinking before hindsight changes the story.',
-        'Hold myself accountable with a public record over time.',
-        'Track portfolio decisions properly instead of relying on memory or conversation.',
-        'Show how my process develops around risk, patience, position sizing, and written reasoning.',
-        'Make sure I am recording what I believed and what I actually did.',
-      ]),
-    )}
-    ${section(
       'Latest Portfolio Snapshot',
       `<dl class="static-grid">
         <div><dt>Latest review</dt><dd>${esc(latestReviewLabel)}</dd></div>
@@ -268,18 +219,8 @@ const homeRoute = {
     )}
     ${section('Portfolio Value History', valueHistoryTable())}
     ${section(
-      'Start Here',
+      'More Sections',
       linkList([
-        {
-          label: 'Start Here',
-          href: '/start',
-          text: 'The fastest mobile-first route for new visitors from Instagram.',
-        },
-        {
-          label: 'Current Portfolio',
-          href: '/portfolio',
-          text: 'What I currently own, how the portfolio is positioned, and what role each holding plays.',
-        },
         {
           label: 'Portfolio Journal',
           href: '/journal',
@@ -305,7 +246,6 @@ const homeRoute = {
     ${section(
       'Next Pages',
       `<ul>
-        <li><a href="/start">Start Here</a></li>
         <li><a href="/portfolio">View Current Portfolio</a></li>
         <li><a href="/journal">Read Portfolio Journal</a></li>
         <li><a href="/letters">Read Letters</a></li>
@@ -320,7 +260,6 @@ const homeRoute = {
 };
 
 const routes = [
-  startRoute,
   homeRoute,
   {
     path: '/portfolio',
@@ -602,7 +541,7 @@ await writeFile(
       <p>404</p>
       <h1>Page Not Found</h1>
       ${paragraph('The page you requested could not be found. Use the links below to return to the main public archive.')}
-      ${section('Useful Links', list(['/start', '/', '/portfolio', '/journal', '/letters', '/books', '/process', '/about', '/disclaimer', '/ai/index.html']))}
+      ${section('Useful Links', list(['/', '/portfolio', '/journal', '/letters', '/books', '/process', '/about', '/disclaimer', '/ai/index.html']))}
     `,
   }),
 );

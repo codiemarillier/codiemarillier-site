@@ -115,7 +115,6 @@ export const brand = {
 
 export const navLinks: NavLink[] = [
   { label: 'Home', href: '/' },
-  { label: 'Start Here', href: '/start' },
   { label: 'Portfolio', href: '/portfolio' },
   { label: 'Journal', href: '/journal' },
   { label: 'Letters', href: '/letters' },
@@ -126,7 +125,6 @@ export const navLinks: NavLink[] = [
 
 export const footerLinks: NavLink[] = [
   { label: 'Home', href: '/' },
-  { label: 'Start Here', href: '/start' },
   { label: 'Portfolio', href: '/portfolio' },
   { label: 'Journal', href: '/journal' },
   { label: 'Letters', href: '/letters' },

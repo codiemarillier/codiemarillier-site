@@ -59,7 +59,6 @@ export default function Navbar() {
         <div className="mx-auto grid max-w-7xl gap-2 px-4 py-4 sm:px-5 md:px-8">
           {navLinks.map((item) => {
             const active = location.pathname === item.href || (item.href !== '/' && location.pathname.startsWith(item.href));
-            const featured = item.href === '/start';
             return (
               <Link
                 key={item.href}
@@ -68,11 +67,7 @@ export default function Navbar() {
                 aria-current={active ? 'page' : undefined}
                 tabIndex={open ? undefined : -1}
                 className={`min-h-12 border-b border-line px-1 py-3 text-base font-medium ${
-                  featured
-                    ? 'border-charcoal bg-charcoal px-4 text-paper'
-                    : active
-                      ? 'text-charcoal'
-                      : 'text-slateText'
+                  active ? 'text-charcoal' : 'text-slateText'
                 }`}
               >
                 {item.label}

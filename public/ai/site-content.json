@@ -154,12 +154,12 @@
     {
       "title": "Home",
       "url": "https://codiemarillier.com/",
-      "description": "The homepage presents Codie Capital Research as a serious personal investment journal, explains what the site is, shows the latest Week 16 snapshot, and points first-time visitors to the best live pages.",
+      "description": "The homepage is the mobile-first entry point for Codie Capital Research, explaining the site quickly and pointing first-time visitors to My First Letter, the latest portfolio update, current portfolio, and the main sections.",
       "pageType": "homepage",
       "lastUpdated": "2026-06-25",
-      "contentText": "Codie Capital Research is a public record of my personal investing process. I document what I own, why I own it, what I am learning, and how my thinking changes as I build a long-term portfolio.\n\nThe site is a personal investment journal only. It is not financial advice, not a fund, and not a money-management service.\n\nThe homepage sends first-time readers to the mobile-first Start Here page, Current Portfolio, Portfolio Journal, Letters, Investment Process, and About pages.\n\nLetters includes My First Letter as a published long-form reflection.\n\nLatest source-of-truth review: Week 16 - A pullback and the Pershing Square buy. Current account value Around £1,981, starting value £1,999, return About -0.90%, cash £40.07.\n\nPortfolio value chart data: Week 1 (8 March 2026): Starting baseline: £1,999. Source: Baseline. Note: Week 1 was described as close to flat to slightly negative, so the chart uses the starting baseline. Week 3 (March 2026): £1,860.18. Source: Recorded. Week 4 (30 March 2026): Around £1,860. Source: Approximate. Week 5 (05 April 2026): Around £1,931. Source: Approximate. Week 6 (12 April 2026): Around £1,960. Source: Approximate. Week 7 (April 2026): £2,025.84. Source: Recorded. Week 8 (28 April 2026): £2,008.07. Source: Recorded. Week 9 (04 May 2026): Around £2,000. Source: Approximate. Week 10 (11 May 2026): £1,986.69. Source: Recorded. Week 11 (15 May 2026): c. £1,974.37. Source: Recorded. Week 12 (22 May 2026): £1,983.39. Source: Recorded. Week 13 (2 June 2026): Around £2,007. Source: Approximate. Week 14 (9 June 2026): Around £1,979.98. Source: Approximate. Week 15 (16 June 2026): £2,055.86. Source: Recorded. Week 16 (23 June 2026): Around £1,981. Source: Approximate.",
+      "contentText": "Codie Capital Research is a public record of my personal investing process. I document what I own, why I own it, what I am learning, and how my thinking changes as I build a long-term portfolio.\n\nThe site is a personal investment journal only. It is not financial advice, not a fund, and not a money-management service.\n\nThe homepage itself is now the start page for first-time readers, especially mobile visitors arriving from Instagram.\n\nThe recommended first reads are My First Letter, the latest portfolio update, and the Current Portfolio page.\n\nLetters includes My First Letter as a published long-form reflection.\n\nLatest source-of-truth review: Week 16 - A pullback and the Pershing Square buy. Current account value Around £1,981, starting value £1,999, return About -0.90%, cash £40.07.\n\nPortfolio value chart data: Week 1 (8 March 2026): Starting baseline: £1,999. Source: Baseline. Note: Week 1 was described as close to flat to slightly negative, so the chart uses the starting baseline. Week 3 (March 2026): £1,860.18. Source: Recorded. Week 4 (30 March 2026): Around £1,860. Source: Approximate. Week 5 (05 April 2026): Around £1,931. Source: Approximate. Week 6 (12 April 2026): Around £1,960. Source: Approximate. Week 7 (April 2026): £2,025.84. Source: Recorded. Week 8 (28 April 2026): £2,008.07. Source: Recorded. Week 9 (04 May 2026): Around £2,000. Source: Approximate. Week 10 (11 May 2026): £1,986.69. Source: Recorded. Week 11 (15 May 2026): c. £1,974.37. Source: Recorded. Week 12 (22 May 2026): £1,983.39. Source: Recorded. Week 13 (2 June 2026): Around £2,007. Source: Approximate. Week 14 (9 June 2026): Around £1,979.98. Source: Approximate. Week 15 (16 June 2026): £2,055.86. Source: Recorded. Week 16 (23 June 2026): Around £1,981. Source: Approximate.",
       "internalLinks": [
-        "https://codiemarillier.com/start",
+        "https://codiemarillier.com/letters/my-first-letter",
         "https://codiemarillier.com/journal/week-16-portfolio-summary",
         "https://codiemarillier.com/portfolio",
         "https://codiemarillier.com/journal",
@@ -167,24 +167,6 @@
         "https://codiemarillier.com/process",
         "https://codiemarillier.com/books",
         "https://codiemarillier.com/about"
-      ]
-    },
-    {
-      "title": "Start Here",
-      "url": "https://codiemarillier.com/start",
-      "description": "The Start Here page is a mobile-first entry point for new visitors from Instagram, pointing them to My First Letter, the latest portfolio update, current portfolio, and the main site sections.",
-      "pageType": "instagram-start",
-      "lastUpdated": "2026-06-23",
-      "contentText": "Start Here explains Codie Capital Research quickly for new visitors from Instagram.\n\nThe site is a public record of Codie’s personal investing journey: what he owns, why he owns it, what he is learning, and how his thinking changes over time.\n\nThe recommended first reads are My First Letter, the latest portfolio update, and the Current Portfolio page.\n\nCurrent snapshot: latest review Week 16, account value Around £1,981, return About -0.90%, cash £40.07.\n\nThe page explains that the site is a record, not a pitch, and that nothing on the site is investment advice.",
-      "internalLinks": [
-        "https://codiemarillier.com/letters/my-first-letter",
-        "https://codiemarillier.com/journal/week-16-portfolio-summary",
-        "https://codiemarillier.com/portfolio",
-        "https://codiemarillier.com/journal",
-        "https://codiemarillier.com/process",
-        "https://codiemarillier.com/books",
-        "https://codiemarillier.com/about",
-        "https://codiemarillier.com/disclaimer"
       ]
     },
     {
@@ -638,10 +620,9 @@
       "description": "Plain HTML summaries of the main public site routes.",
       "pageType": "ai-summary",
       "lastUpdated": "2026-06-22",
-      "contentText": "/ - The homepage presents Codie Capital Research as a serious personal investment journal, explains what the site is, shows the latest Week 16 snapshot, and points first-time visitors to the best live pages.\n/start - The Start Here page is a mobile-first entry point for new visitors from Instagram, pointing them to My First Letter, the latest portfolio update, current portfolio, and the main site sections.\n/portfolio - The portfolio page records Codie’s own current holdings, Week 16 account value, starting value, cash, latest return, winners, drags, portfolio role notes, and latest action plan.\n/journal - The journal page lists weekly review cards and journal entries with dates, account values where available, main trades, and lessons.\n/letters - The Letters page publishes My First Letter, a long-form reflection on discipline, patience, risk, and building a public investing record.\n/books - The books page contains the full Books That Shaped My Thinking section with personal reflections on every book and how each shaped Codie’s investing and personal development.\n/process - The process page sets out the investing rulebook: protect capital, size positions properly, write reasoning, keep cash discipline, avoid leverage and impulsive trades, and review weekly.\n/about - The about page explains Codie’s investing background, early interest in markets, first Bitcoin investment, family real estate influence, lessons from mistakes, and reading development.\n/disclaimer - The disclaimer page explains that the site is a personal investment research and portfolio journal, not investment advice, not FCA-authorised, and not a recommendation.\n/ai/ - The AI page is a complete plain HTML archive for ChatGPT, AI review tools, Google crawlers, and simple browser-fetch tools.",
+      "contentText": "/ - The homepage is the mobile-first entry point for Codie Capital Research, explaining the site quickly and pointing first-time visitors to My First Letter, the latest portfolio update, current portfolio, and the main sections.\n/portfolio - The portfolio page records Codie’s own current holdings, Week 16 account value, starting value, cash, latest return, winners, drags, portfolio role notes, and latest action plan.\n/journal - The journal page lists weekly review cards and journal entries with dates, account values where available, main trades, and lessons.\n/letters - The Letters page publishes My First Letter, a long-form reflection on discipline, patience, risk, and building a public investing record.\n/books - The books page contains the full Books That Shaped My Thinking section with personal reflections on every book and how each shaped Codie’s investing and personal development.\n/process - The process page sets out the investing rulebook: protect capital, size positions properly, write reasoning, keep cash discipline, avoid leverage and impulsive trades, and review weekly.\n/about - The about page explains Codie’s investing background, early interest in markets, first Bitcoin investment, family real estate influence, lessons from mistakes, and reading development.\n/disclaimer - The disclaimer page explains that the site is a personal investment research and portfolio journal, not investment advice, not FCA-authorised, and not a recommendation.\n/ai/ - The AI page is a complete plain HTML archive for ChatGPT, AI review tools, Google crawlers, and simple browser-fetch tools.",
       "internalLinks": [
         "https://codiemarillier.com/",
-        "https://codiemarillier.com/start",
         "https://codiemarillier.com/portfolio",
         "https://codiemarillier.com/journal",
         "https://codiemarillier.com/letters",

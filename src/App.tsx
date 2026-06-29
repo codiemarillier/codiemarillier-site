@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import About from './pages/About';
@@ -9,7 +9,6 @@ import CurrentPortfolio from './pages/CurrentPortfolio';
 import DecisionArchive from './pages/DecisionArchive';
 import Disclaimer from './pages/Disclaimer';
 import Home from './pages/Home';
-import InstagramStart from './pages/InstagramStart';
 import Letters from './pages/Letters';
 import MistakesLessons from './pages/MistakesLessons';
 import NotFound from './pages/NotFound';
@@ -34,11 +33,6 @@ const siteUrl = 'https://codiemarillier.com';
 
 const staticMeta: Record<string, RouteMeta> = {
   '/': defaultMeta,
-  '/start': {
-    title: 'Start Here | Codie Capital Research',
-    description:
-      'A mobile-first starting page for Codie Capital Research, helping new visitors from Instagram understand the personal investment journal, first letter, latest portfolio update, and current portfolio.',
-  },
   '/about': {
     title: 'About | Codie Capital Research',
     description:
@@ -200,7 +194,7 @@ export default function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/start" element={<InstagramStart />} />
+        <Route path="/start" element={<Navigate to="/" replace />} />
         <Route path="/about" element={<About />} />
         <Route path="/books" element={<Books />} />
         <Route path="/philosophy" element={<Philosophy />} />
