@@ -67,7 +67,9 @@ src/App.tsx
 
 ## Analytics
 
-The site includes an optional Cloudflare Web Analytics hook. It stays inactive unless this Vite environment variable is set:
+The site includes Cloudflare Web Analytics using the token for `codiemarillier.com`.
+
+If the Cloudflare Web Analytics site is recreated later, the token can be overridden with this Vite environment variable:
 
 ```text
 VITE_CLOUDFLARE_WEB_ANALYTICS_TOKEN=your-cloudflare-token
