@@ -712,6 +712,22 @@ export const readingDevelopment: ReadingBook[] = [
     ],
     takeaway: 'Small actions, repeated over time, can quietly build into something much larger.',
   },
+  {
+    title: 'Material World',
+    author: 'Ed Conway',
+    category: 'Commodities / Supply Chains / Civilisation / Investing',
+    image: '/book-covers/material-world.jpg',
+    imageAlt: 'Material World book cover.',
+    paragraphs: [
+      'Material World completely changed the way I look at the modern world. The book explains how six basic materials, sand, salt, iron, copper, oil, and lithium, are the foundation of civilisation as we know it today. Before reading it, I understood that materials and commodities were important, but I did not properly appreciate how deeply they sit underneath almost everything we use.',
+      'Sand stood out to me the most. It was the first material covered in the book, and it immediately hooked me because I had never really thought about sand as one of the most important substances in the world. From concrete and glass to the technology behind semiconductors, it made me realise that the modern world is not as “weightless” or digital as it sometimes seems. Even the most advanced companies still depend on physical materials, huge supply chains, and years of human knowledge.',
+      'What blew my mind most was how all these materials work together. Without one of them, the world would look completely different. Copper is needed for electricity, oil has powered modern industry, iron built the physical world around us, and lithium is becoming more important as the world moves towards batteries and electrification. The book also made me think more seriously about companies such as ASML and the semiconductor supply chain, because it showed how complicated and fragile the systems behind modern technology really are.',
+      'It also made me think about the uncomfortable side of progress. Mining can be destructive, and some of the stories in the book showed how much damage can be done to land, history, and local communities. At the same time, the world still depends on these materials, and demand is likely to keep increasing. That tension is something I found really important. It made me realise that investing in the future is not only about looking at exciting technologies, but also understanding the raw materials, supply chains, and physical foundations that make those technologies possible.',
+      'For my own investing journey, this book reminded me to look beneath the surface. A company might look like a software, technology, or clean energy business, but behind it there are often mines, factories, logistics networks, energy needs, and scarce resources. Material World made me want to become better at understanding the full chain behind an investment, not just the company name or share price.',
+    ],
+    takeaway:
+      'The modern world is built on physical materials, and understanding them helps me understand the real foundations of businesses, technology, and future investment opportunities.',
+  },
 ];
 
 export const transactionSummary = [
