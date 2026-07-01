@@ -65,6 +65,18 @@ The main router is:
 src/App.tsx
 ```
 
+## Analytics
+
+The site includes an optional Cloudflare Web Analytics hook. It stays inactive unless this Vite environment variable is set:
+
+```text
+VITE_CLOUDFLARE_WEB_ANALYTICS_TOKEN=your-cloudflare-token
+```
+
+For Cloudflare Pages, add that variable in the Pages project settings, then redeploy. Leave `VITE_ANALYTICS_ENABLE_DEV=false` locally unless you specifically want to test analytics on the dev server.
+
+Cloudflare Web Analytics is the preferred option for this site because it can show page views, popular pages, referrers, countries, devices, browsers, and performance data without adding heavier ad-style tracking.
+
 ## Edit colours and fonts
 
 Tailwind theme values are in:

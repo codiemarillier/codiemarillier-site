@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
+import Analytics from './components/Analytics';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import About from './pages/About';
@@ -188,6 +189,7 @@ function ReactReady() {
 export default function App() {
   return (
     <div className="min-h-screen bg-ivory text-charcoal">
+      <Analytics />
       <ReactReady />
       <PageMeta />
       <ScrollToTop />
