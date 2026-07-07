@@ -22,7 +22,7 @@ const sleeves = [
   },
   {
     title: 'Cash and Watchlist',
-    text: 'Cash is lower after the Pershing Square buy, so rebuilding flexibility matters. ASML is closed after a realised gain but remains a watchlist name.',
+    text: 'Cash remains limited after the latest review, so rebuilding flexibility matters. ASML is closed after a realised gain but remains a watchlist name.',
   },
 ];
 
@@ -57,9 +57,9 @@ export default function CurrentPortfolio() {
 
       <section className="mx-auto grid max-w-7xl gap-12 px-5 py-16 md:px-8 md:py-24 lg:grid-cols-[0.8fr_1.2fr]">
         <SectionHeader
-          eyebrow="Week 16 dashboard"
+          eyebrow={`${latestPortfolioReview.label} dashboard`}
           title="Current snapshot first."
-          text="The latest published portfolio record is Week 16. This dashboard keeps the account value, cash, holdings, portfolio roles, and latest action plan in one place."
+          text={`The latest published portfolio record is ${latestPortfolioReview.label}. This dashboard keeps the account value, cash, holdings, portfolio roles, and latest action plan in one place.`}
         />
         <div className="grid gap-x-10 gap-y-8 md:grid-cols-2">
           {portfolioRoles.map((role, index) => (

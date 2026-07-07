@@ -6,9 +6,9 @@ import JournalTimeline from '../components/JournalTimeline';
 import PageHeader from '../components/PageHeader';
 import { journalEntries } from '../data/siteData';
 
-const filters = ['All Entries', 'Weekly Reviews', 'Trade Reflections', 'Market Notes', 'Lessons'];
+const filters = ['All Entries', 'Weekly Reviews', 'Fortnightly Reviews', 'Trade Reflections', 'Market Notes', 'Lessons'];
 const latestEntry = journalEntries[0];
-const weeklyCount = journalEntries.filter((entry) => entry.category === 'Weekly Reviews').length;
+const reviewCount = journalEntries.filter((entry) => ['Weekly Reviews', 'Fortnightly Reviews'].includes(entry.category)).length;
 const allTags = Array.from(new Set(journalEntries.flatMap((entry) => entry.tags ?? []))).slice(0, 12);
 
 export default function PortfolioJournal() {
@@ -42,14 +42,14 @@ export default function PortfolioJournal() {
       <PageHeader
         eyebrow="Journal"
         title="Portfolio Journal"
-        intro="Weekly portfolio reviews documenting account value, positioning, lessons, mistakes, and market context."
+        intro="Weekly and fortnightly portfolio reviews documenting account value, positioning, lessons, mistakes, and market context."
       />
       <DisclaimerBanner compact />
 
       <section className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24">
         <div className="mb-10 grid gap-px border border-line bg-line lg:grid-cols-[1.15fr_0.85fr]">
           <article className="bg-paper p-6 md:p-8">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Latest weekly review</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Latest review</p>
             <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight text-charcoal md:text-5xl">
               {latestEntry.title}
             </h2>
@@ -79,8 +79,8 @@ export default function PortfolioJournal() {
                 <dd className="mt-2 font-serif text-4xl font-semibold text-charcoal">{journalEntries.length}</dd>
               </div>
               <div className="bg-ivory p-5">
-                <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">Weekly reviews</dt>
-                <dd className="mt-2 font-serif text-4xl font-semibold text-charcoal">{weeklyCount}</dd>
+                <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">Portfolio reviews</dt>
+                <dd className="mt-2 font-serif text-4xl font-semibold text-charcoal">{reviewCount}</dd>
               </div>
               <div className="bg-ivory p-5">
                 <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">Latest date</dt>

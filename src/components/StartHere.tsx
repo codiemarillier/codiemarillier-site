@@ -1,9 +1,8 @@
 import { ArrowRight, BookOpen, FileText, LineChart, ScrollText, UserRound } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { journalEntries, portfolioSnapshot } from '../data/siteData';
+import { latestPortfolioReview, portfolioSnapshot } from '../data/siteData';
 
-const latestWeeklyEntry = journalEntries.find((entry) => entry.category === 'Weekly Reviews');
-const latestReviewLabel = latestWeeklyEntry?.title.match(/Week\s+\d+/i)?.[0] ?? 'Week 16';
+const latestReviewLabel = latestPortfolioReview.label;
 
 const startCards = [
   {
@@ -15,7 +14,7 @@ const startCards = [
   },
   {
     title: 'Portfolio Journal',
-    text: 'The weekly record of decisions, mistakes, market context, and lessons from the portfolio.',
+    text: 'The regular record of decisions, mistakes, market context, and lessons from the portfolio.',
     href: '/journal',
     action: 'Read journal',
     icon: ScrollText,
@@ -58,8 +57,8 @@ export default function StartHere() {
                 {latestReviewLabel} is the latest published review. The snapshot is manual, public for accountability, and not
                 a live recommendation to buy or sell anything.
               </p>
-              {latestWeeklyEntry ? (
-                <Link to={`/journal/${latestWeeklyEntry.slug}`} className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-charcoal">
+              {latestPortfolioReview ? (
+                <Link to={`/journal/${latestPortfolioReview.slug}`} className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-charcoal">
                   Read {latestReviewLabel} review
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Link>

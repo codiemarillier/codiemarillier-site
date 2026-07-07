@@ -81,11 +81,13 @@ function weeklyCard(entry) {
   const accountValue =
     readLabel(snapshot, ['Account value at review', 'Current account value', 'Account value', 'Estimated account value', 'Total portfolio value', 'Portfolio value']) ||
     'Not recorded';
-  const weeklyMove = readLabel(snapshot, ['Move since Week 14', 'Weekly move', 'Weekly change']) || 'Qualitative review only';
+  const weeklyMove =
+    readLabel(snapshot, ['Move since Week 16', 'Move since Week 14', 'Fortnightly move', 'Weekly move', 'Weekly change']) ||
+    'Qualitative review only';
   const mainTrade =
-    readLabel(snapshot, ['Main realised trade', 'Main trade', 'Main new trade', 'Main new position']) ||
+    readLabel(snapshot, ['Short-term trade', 'Main realised trade', 'Main trade', 'Main new trade', 'Main new position']) ||
     entry.majorEvents?.[0] ||
-    'Reviewed in the weekly summary';
+    'Reviewed in the portfolio summary';
   const lessonBlock = entry.body.find((block) => /lesson|overall conclusion|action plan/i.test(block)) ?? entry.excerpt;
   const mainLesson =
     lessonBlock
@@ -196,14 +198,14 @@ async function writeRedirectRoute({ path, target, title }) {
 const currentHoldings = holdings.filter((holding) => !/^closed/i.test(holding.positionSize) && !/^closed/i.test(holding.status));
 const publishedLetters = plannedLetters.filter((letter) => letter.body?.length);
 const firstPublishedLetter = publishedLetters[0];
-const weeklyReviews = journalEntries.filter((entry) => entry.category === 'Weekly Reviews');
+const portfolioReviews = journalEntries.filter((entry) => ['Weekly Reviews', 'Fortnightly Reviews'].includes(entry.category));
 const latestReviewLabel = latestPortfolioReview.label;
 
 const homeRoute = {
   path: '/',
   title: 'Codie Capital Research | Investment Journal by Codie Marillier',
   description:
-    "Codie Marillier's personal investment journal and public record of portfolio decisions, weekly reviews, process, and long-term learning. Not investment advice.",
+    "Codie Marillier's personal investment journal and public record of portfolio decisions, regular reviews, process, and long-term learning. Not investment advice.",
   fallback: `
     <p>Personal investment journal</p>
     <h1>Codie Capital Research</h1>
@@ -240,7 +242,7 @@ const homeRoute = {
         <div><dt>Current return</dt><dd>${esc(portfolioSnapshot.currentReturn)}</dd></div>
         <div><dt>Cash balance</dt><dd>${esc(portfolioSnapshot.cashBalance)}</dd></div>
       </dl>
-      <p>The snapshot is updated through the latest published weekly review.</p>`,
+      <p>The snapshot is updated through the latest published portfolio review.</p>`,
     )}
     ${section('Portfolio Value History', valueHistoryTable())}
     ${section(
@@ -249,12 +251,12 @@ const homeRoute = {
         {
           label: 'Portfolio Journal',
           href: '/journal',
-          text: 'My weekly record of portfolio changes, market thoughts, decisions, and lessons.',
+          text: 'My regular record of portfolio changes, market thoughts, decisions, and lessons.',
         },
         {
           label: 'Letters',
           href: '/letters',
-          text: 'Longer reflections behind the weekly reviews, starting with My First Letter.',
+          text: 'Longer reflections behind the portfolio reviews, starting with My First Letter.',
         },
         {
           label: 'Investment Process',
@@ -290,7 +292,7 @@ const routes = [
     path: '/portfolio',
     title: 'Current Portfolio | Codie Capital Research',
     description:
-      "Codie Marillier's current personal portfolio record: Week 16 account value, cash, return, open holdings, portfolio roles, winners, drags, and latest action plan.",
+      `Codie Marillier's current personal portfolio record: ${latestPortfolioReview.label} account value, cash, return, open holdings, portfolio roles, winners, drags, and latest action plan.`,
     fallback: `
       <p>Personal portfolio record. Not investment advice.</p>
       <h1>Current Portfolio</h1>
@@ -337,11 +339,11 @@ const routes = [
     path: '/journal',
     title: 'Portfolio Journal | Codie Capital Research',
     description:
-      "Weekly portfolio review cards with week number, date, account value, weekly move, main trade, and main lesson from Codie Marillier's personal investment journal.",
+      "Portfolio review cards with week number, date, account value, review move, main trade, and main lesson from Codie Marillier's personal investment journal.",
     fallback: `
-      <p>Weekly review archive. Not investment advice.</p>
+      <p>Portfolio review archive. Not investment advice.</p>
       <h1>Portfolio Journal</h1>
-      ${paragraph('Weekly portfolio reviews documenting account value, positioning, lessons, mistakes, and market context from my own portfolio.')}
+      ${paragraph('Weekly and fortnightly portfolio reviews documenting account value, positioning, lessons, mistakes, and market context from my own portfolio.')}
       ${section(
         'Useful Links',
         linkList([
@@ -353,11 +355,11 @@ const routes = [
           {
             href: '/letters',
             label: 'Letters',
-            text: 'Longer reflections will sit separately from the weekly review archive.',
+            text: 'Longer reflections will sit separately from the portfolio review archive.',
           },
         ]),
       )}
-      ${section('Weekly Review Cards', weeklyReviews.map(weeklyCard).join(''))}
+      ${section('Portfolio Review Cards', portfolioReviews.map(weeklyCard).join(''))}
     `,
   },
   {
@@ -368,12 +370,12 @@ const routes = [
     fallback: `
       <p>Letters</p>
       <h1>Letters</h1>
-      ${paragraph('Weekly reviews are what happened. Letters are what I learned and how my thinking is changing. My First Letter is now published.')}
+      ${paragraph('Portfolio reviews are what happened. Letters are what I learned and how my thinking is changing. My First Letter is now published.')}
       ${section('Published Letters', publishedLetters.map(letterCard).join(''))}
       ${section(
         'Related Sections',
         linkList([
-          { href: '/journal', label: 'Portfolio Journal', text: 'Weekly review archive from Week 1 to Week 16.' },
+          { href: '/journal', label: 'Portfolio Journal', text: 'Portfolio review archive from Week 1 to Week 18.' },
           { href: '/process', label: 'Investment Process', text: 'The rules and process these letters refer back to.' },
         ]),
       )}
@@ -393,7 +395,7 @@ const routes = [
         'Related Sections',
         linkList([
           { href: '/portfolio', label: 'Current Portfolio', text: 'Current holdings and portfolio role notes.' },
-          { href: '/journal', label: 'Portfolio Journal', text: 'Weekly reviews and the latest source-of-truth portfolio update.' },
+          { href: '/journal', label: 'Portfolio Journal', text: 'Portfolio reviews and the latest source-of-truth portfolio update.' },
           { href: '/process', label: 'Investment Process', text: 'The rules future decision notes will be judged against.' },
         ]),
       )}
@@ -413,7 +415,7 @@ const routes = [
         'Related Sections',
         linkList([
           { href: '/process', label: 'Investment Process', text: 'The rules that future lessons are meant to improve.' },
-          { href: '/journal', label: 'Portfolio Journal', text: 'The weekly record where lessons first show up.' },
+          { href: '/journal', label: 'Portfolio Journal', text: 'The regular record where lessons first show up.' },
           { href: '/portfolio', label: 'Current Portfolio', text: 'The current holdings and portfolio role notes.' },
         ]),
       )}
@@ -438,11 +440,11 @@ const routes = [
     path: '/process',
     title: 'Investment Process | Codie Capital Research',
     description:
-      "Codie Marillier's investing rules: capital protection, position sizing, written reasoning, cash discipline, no leverage, no impulsive trades, and weekly review process.",
+      "Codie Marillier's investing rules: capital protection, position sizing, written reasoning, cash discipline, no leverage, no impulsive trades, and regular review process.",
     fallback: `
       <p>Investment process</p>
       <h1>Investment Process</h1>
-      ${paragraph('A written rulebook for protecting capital, sizing positions properly, keeping cash discipline, avoiding leverage, and reviewing the portfolio every week.')}
+      ${paragraph('A written rulebook for protecting capital, sizing positions properly, keeping cash discipline, avoiding leverage, and reviewing the portfolio regularly.')}
       ${section('Full Investing Rules', processRules.map((rule) => `<article><h3>${esc(rule.title)}</h3><p>${esc(rule.text)}</p></article>`).join(''))}
       ${section('Before I Buy', list(['Why am I buying?', 'What is the thesis?', 'What could go wrong?', 'What would make me sell?', 'Is this core, hedge, speculative, or defensive?', 'Am I following a plan or reacting emotionally?']))}
       ${section('Before I Sell', list(['Has the thesis changed?', 'Am I taking profit, managing risk, or panicking?', 'Should I trim instead of exiting fully?', 'What will I do with the cash?', 'What lesson should be recorded?']))}
@@ -457,7 +459,7 @@ const routes = [
           {
             href: '/journal',
             label: 'Portfolio Journal',
-            text: 'The weekly record where the process is reviewed in practice.',
+            text: 'The regular record where the process is reviewed in practice.',
           },
         ]),
       )}

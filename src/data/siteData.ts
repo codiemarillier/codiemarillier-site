@@ -9,7 +9,7 @@ export type JournalEntry = {
   slug: string;
   title: string;
   date: string;
-  category: 'Weekly Reviews' | 'Trade Reflections' | 'Market Notes' | 'Lessons';
+  category: 'Weekly Reviews' | 'Fortnightly Reviews' | 'Trade Reflections' | 'Market Notes' | 'Lessons';
   excerpt: string;
   body: string[];
   tags?: string[];
@@ -138,11 +138,11 @@ export const footerLinks: NavLink[] = [
 export const whatThisIs = [
   {
     title: 'Portfolio Journal',
-    text: 'Weekly reflections on performance, mistakes, risk, and positioning.',
+    text: 'Weekly and fortnightly reflections on performance, mistakes, risk, and positioning.',
   },
   {
     title: 'Portfolio Record',
-    text: 'A record of current holdings, weekly reviews, mistakes, decisions, and lessons from managing my own portfolio.',
+    text: 'A record of current holdings, regular reviews, mistakes, decisions, and lessons from managing my own portfolio.',
   },
   {
     title: 'Investment Philosophy',
@@ -180,7 +180,7 @@ export const startHere = [
   {
     eyebrow: 'Decision notes',
     title: 'Read the journal',
-    text: 'Scroll through the weekly reviews and trade reflections that show how the portfolio record is developing.',
+    text: 'Scroll through the portfolio reviews and trade reflections that show how the portfolio record is developing.',
     href: '/journal',
     action: 'Open journal',
   },
@@ -221,7 +221,7 @@ export const investmentRules = [
   'Focus on quality companies, index ETFs, and clearly defined portfolio roles.',
   'Avoid hype, impulsive trades, and emotional decisions.',
   'Diversify across several stocks, ETFs, and selected hedges.',
-  'Keep a short trade journal and weekly summary.',
+  'Keep a short trade journal and regular summary.',
   'Treat learning and discipline as the primary goal.',
 ];
 
@@ -251,8 +251,8 @@ export const processRules = [
     text: 'Avoid hype, panic, and quick emotional decisions. If a trade is only exciting because the price is moving, that is not enough.',
   },
   {
-    title: 'Weekly review process',
-    text: 'Keep a short weekly summary covering account value, cash, what helped, what hurt, trades made, mistakes, and the plan for the next week.',
+    title: 'Regular review process',
+    text: 'Keep a short weekly or fortnightly summary covering account value, cash, what helped, what hurt, trades made, mistakes, and the plan for the next period.',
   },
 ];
 
@@ -451,26 +451,26 @@ export const portfolioRoles = [
 ];
 
 export const latestPortfolioReview = {
-  label: 'Week 16',
-  title: 'Week 16 - A pullback and the Pershing Square buy',
-  slug: 'week-16-portfolio-summary',
-  date: '23 June 2026',
-  shortDate: '23 Jun 2026',
-  mainNewTrade: 'Bought 2 shares of Pershing Square Holdings',
+  label: 'Week 18',
+  title: 'Week 18 - A longer view and a lesson in discipline',
+  slug: 'week-18-portfolio-summary',
+  date: '7 July 2026',
+  shortDate: '7 Jul 2026',
+  mainNewTrade: 'No permanent portfolio changes; Robinhood opened and closed as a short-term trade',
 };
 
 export const portfolioSnapshot = {
-  accountValue: 'Around £1,981',
+  accountValue: '£2,008',
   startingCostBasis: '£1,999',
-  currentReturn: 'About -0.90%',
-  cashBalance: '£40.07',
-  weeklyMove: 'About -£74.86 since Week 15',
-  investments: 'Around £1,940.90',
-  status: 'Week 16 source-of-truth update, 23 June 2026',
+  currentReturn: 'About +0.45%',
+  cashBalance: '£41',
+  weeklyMove: 'About +£27 since Week 16',
+  investments: 'About £1,967',
+  status: 'Week 18 source-of-truth update, 7 July 2026',
   googlePosition: 'Small Alphabet position remains in the portfolio after earlier profit-taking',
   microsoftTrade: 'Closed profitably on 1 June 2026 with roughly £13.94 realised result',
-  mainFocus: 'Rebuild cash slowly, protect capital first, and avoid reacting emotionally to one weak week',
-  updateNote: 'Latest Week 16 portfolio review is the current source-of-truth update. Account value is around £1,981, cash is £40.07, and the account is about £18 below the original £1,999 starting capital.',
+  mainFocus: 'Stay patient, rebuild cash where sensible, and only act when both the opportunity and process are strong',
+  updateNote: 'Latest Week 18 portfolio review is the current source-of-truth update. Account value is £2,008, cash is about £41, and the account is about £9 above the original £1,999 starting capital.',
 };
 
 export const portfolioValueHistory: PortfolioValuePoint[] = [
@@ -595,27 +595,36 @@ export const portfolioValueHistory: PortfolioValuePoint[] = [
     valueLabel: 'Around £1,981',
     source: 'Approximate',
   },
+  {
+    week: 18,
+    label: 'Week 18',
+    date: '7 July 2026',
+    value: 2008,
+    valueLabel: '£2,008',
+    source: 'Recorded',
+    note: 'Week 17 was skipped because the review cycle moved to every two weeks.',
+  },
 ];
 
 export const portfolioCrawlerNotes = {
   winners: [
-    'QQQA remains one of the strongest contributors, showing roughly +24.84% in the Week 16 document.',
-    'VUAG continues to support the portfolio through broad US market exposure, showing roughly +11.99%.',
-    'Airbnb and Berkshire Hathaway remain positive contributors in the Week 16 holdings table.',
-    'Pershing Square Holdings was added as a new investor-led holding because of the discount to NAV.',
+    'Gold has started recovering from its recent low while still being treated as a portfolio hedge.',
+    'Rheinmetall has improved from roughly -40% to around -30% in the portfolio, although it remains a significant unrealised loss.',
+    'Meta was helped by encouraging reports around the possible Meta Compute initiative.',
+    'Robinhood was opened and closed profitably, but the trade is recorded mainly as a process lesson.',
   ],
   drags: [
-    'Gold remains the largest position and the biggest cash loss, but is still treated as a portfolio hedge.',
-    'SpaceX pulled back sharply after the strong Week 15 move and was the main weekly drag.',
-    'Meta, Symbotic, and Rheinmetall remain weak and need continued review rather than emotional selling.',
-    'Cash fell to £40.07 after the Pershing Square purchase, so rebuilding flexibility is now important.',
+    'SpaceX is back close to break-even after previously showing a much stronger gain.',
+    'Cash remains limited at about £41, or roughly 2% of the account.',
+    'Rheinmetall is still a major unrealised loss despite improving from its worst point.',
+    'The semiconductor sell-off keeps ASML on the watchlist, but the €1,550 level is a watch level rather than an automatic buy.',
   ],
   latestActionPlan: [
-    'Rebuild cash slowly after the Pershing Square purchase.',
-    'Hold SpaceX and avoid reacting emotionally to the first proper pullback.',
-    'Keep gold as a hedge while continuing to review whether it is doing the job expected.',
-    'Treat Pershing Square as a long-term investor-led holding, not a short-term trade.',
-    'Keep protecting capital first and avoid becoming careless with the remaining cash.',
+    'Continue the fortnightly review cycle to reduce short-term noise.',
+    'Stay patient and rebuild cash where sensible.',
+    'Avoid emotional live-event trades, even when the outcome is profitable.',
+    'Watch ASML around €1,550 but only buy if the thesis still looks intact.',
+    'Hold the unchanged long-term portfolio unless conviction changes.',
   ],
 };
 
@@ -886,6 +895,13 @@ export const holdings: Holding[] = [
 
 export const portfolioChangeLog: PortfolioChange[] = [
   {
+    date: '2 July 2026',
+    type: 'Lesson',
+    title: 'Closed Robinhood profitably as a process lesson',
+    text: 'Opened Robinhood during a live event and closed it quickly for a small profit, but recorded it as an emotional-process warning rather than a repeatable trade.',
+    relatedSlug: 'week-18-portfolio-summary',
+  },
+  {
     date: '23 June 2026',
     type: 'Buy',
     title: 'Bought 2 shares of Pershing Square Holdings',
@@ -958,6 +974,44 @@ export const portfolioChangeLog: PortfolioChange[] = [
 ];
 
 export const journalEntries: JournalEntry[] = [
+  {
+    "slug": "week-18-portfolio-summary",
+    "title": "Week 18 - A longer view and a lesson in discipline",
+    "date": "7 July 2026",
+    "category": "Fortnightly Reviews",
+    "excerpt": "The portfolio recovered to £2,008 over the fortnight, while a brief Robinhood trade provided a useful reminder that a profitable result does not automatically make the decision-making process correct.",
+    "tags": [
+      "Robinhood",
+      "Gold",
+      "Rheinmetall",
+      "Meta",
+      "SpaceX",
+      "Cash",
+      "ASML"
+    ],
+    "majorEvents": [
+      "Moved to fortnightly portfolio reviews",
+      "Opened and closed Robinhood for a small profit",
+      "Portfolio recovered to £2,008 with no permanent holding changes"
+    ],
+    "documentUrl": "/documents/weekly-summaries/view/week-18-portfolio-summary/",
+    "body": [
+      "I missed Week 17, so this is the first review covering a full two-week period. I have decided that writing these summaries every two weeks is probably better for me. I am still following the portfolio and the wider market day to day, but the longer review cycle gives me more distance from short-term price movements and helps me stop chasing the account as closely.",
+      "Snapshot\nCurrent account value\n£2,008\nWeek 16 account value\nAbout £1,981\nFortnightly move\nAbout +£27 / Approximately +1.36%\nStarting capital\n£1,999\nPosition versus start\nAbout +£9 / Approximately +0.45%\nInvestments\nAbout £1,967\nCash balance\n£41 / Approximately 2.04% of the account\nDeposits or withdrawals\nNone\nMain permanent portfolio change\nNone. The long-term holdings remained unchanged.\nShort-term trade\nRobinhood opened on 1 July and closed on 2 July.\nRobinhood result\nApproximately £1.09 profit after the two currency-conversion fees, or about 2.7% on the £40.28 deployed.\nIncome received\n18p net Meta dividend and 6p cash interest.\nMain positive developments\nGold recovering from its recent low, Rheinmetall improving from roughly -40% to around -30% in the portfolio, and encouraging reports around Meta Compute.\nMain disappointment\nSpaceX remaining close to break-even after previously showing a much stronger gain.\nMain lesson\nA positive outcome does not excuse an emotional process. Longer review periods should help improve discipline.",
+      "How the two weeks felt\nThe two weeks felt good overall. The account moved up and down, as it always does, but I have been pleased with the performance and I am very happy with where the portfolio currently sits. The value is now slightly above the original starting capital again, and there were signs of recovery in some of the positions that had been causing the most frustration.\nMoving from weekly to fortnightly reviews should also improve the quality of these summaries. A two-week period gives me more to write about, but more importantly, it gives me a wider view of what is actually happening. I can still keep track of daily market developments without feeling that every short-term move needs to become part of the portfolio story.",
+      "The Robinhood trade\nOn 1 July, I joined Robinhood's live event, The World is Flat. During the stream, I heard announcements that I thought were extremely positive for the company, including its international expansion, Robinhood Chain and new products connecting traditional finance with decentralised markets. Because the information was being announced live, I believed the share price was likely to react positively and immediately placed an order for 0.493849 shares.\nThe position cost £40.28. Robinhood subsequently rose by as much as roughly 10% from the level I was watching, although I did not hold it for the full move. I sold the following day for £41.37. Trading 212 recorded a £1.21 result before the two 6p currency-conversion fees, leaving an approximate net profit of £1.09, or around 2.7%.\nFinancially, the trade worked. From a discipline point of view, however, it was not a particularly good trade. I acted immediately because I felt confident and excited by what I was hearing in the live stream. I did not complete the kind of structured research I would normally expect before opening a position. The fact that the share price went up does not mean the process was correct.\nThe useful lesson is to separate outcome from process. I am happy that the trade ended positively and that I exited quickly, but I do not want a small win to encourage more emotionally driven trades in the future.",
+      "Portfolio structure\nNo permanent holdings were added or removed during the fortnight. The Robinhood position was opened and closed within the period, leaving the long-term portfolio structure unchanged.\n\nHolding | Ticker | Week 18 view\niShares Physical Gold | SGLN | Still the largest position and still held as a hedge. Recent recovery has been encouraging.\nVanguard S&P 500 (Acc) | VUAG | Core broad-market exposure; no change in thesis.\nMeta Platforms | META | Meta Compute reports are potentially positive, but the plans are still developing and execution remains important.\nRealty Income | O | Long-term income holding; no change in conviction.\nUBS Nasdaq-100 (Acc) | QQQA | Continues to provide diversified large-cap technology exposure.\nBerkshire Hathaway | BRK.B | Long-term quality and capital-allocation holding.\nNextEra Energy | NEE | No change in the long-term energy and infrastructure thesis.\nAirbnb | ABNB | No change in conviction.\nSpaceX | SPCX | Still around break-even and slightly disappointing, but the position remains long term.\nSymbotic | SYM | Volatile robotics exposure; no change in conviction.\nRheinmetall | RHM | The drawdown has improved from roughly -40% to around -30%. The F126 cancellation was meaningful, but the broader defence thesis remains intact for now.\nPershing Square Holdings | PSH | Still down roughly 1% to 2%. I remain interested in adding, but I am not making that decision yet.\nAlphabet Class A | GOOGL | Long-term technology and advertising exposure; no change in conviction.",
+      "SpaceX\nSpaceX has again been a little disappointing because the position is still sitting around break-even. It previously moved up sharply, so watching that gain disappear has not been ideal, but I am not worried. I bought the company because I believe in it over the long term, not because I expected a straight line upwards immediately after buying.\nThe most important point is that the share-price movement has not changed my conviction. I am not looking to sell simply because the position has become less exciting in the short term.",
+      "Gold\nGold appears to be recovering slightly after a very difficult period. That is encouraging because it remains the largest position and has been one of the biggest sources of unrealised loss in the account. The recent movement does not remove the drawdown, but it supports the decision not to react emotionally at the worst point.\nThe longer-term argument also remains relevant. Central-bank demand continues to support the structural case for gold, even though higher interest-rate expectations and a stronger dollar have created significant short-term pressure. I still see the position primarily as a hedge rather than something that must outperform every month.",
+      "Rheinmetall\nRheinmetall fell heavily during the period and at one stage was around 40% down in the portfolio. It has since recovered to approximately 30% down, which is still a significant loss but is an improvement.\nThe fall was connected to Germany cancelling the delayed F126 frigate programme. It is important to describe this accurately: Rheinmetall did not lose the project because it failed to deliver an existing Rheinmetall contract. The company had expected to take over the troubled programme, and the cancellation removed a major prospective order. Rheinmetall said the decision would create a €20 billion shortfall in expected quarterly order nominations, even while confirming that its wider second-quarter trading update remained on track.\nThis was a meaningful setback and should not be dismissed, particularly because it exposed some risk around Rheinmetall's expansion into naval shipbuilding. However, I do not currently believe it breaks the broader thesis around increased European defence spending and long-term demand for the company's core products. For now, I am holding and watching how management addresses the financial impact.",
+      "Meta and Meta Compute\nMeta was helped by reports that the company is developing a cloud business that could sell access to excess AI computing capacity and hosted AI models. The internal initiative has been referred to as Meta Compute.\nI see this as potentially positive because it could give Meta another way to earn a return on the enormous amount of money it is spending on AI infrastructure. It could also create a revenue stream outside the company's advertising business. However, Meta has not formally confirmed the reported plan, and entering cloud infrastructure would mean competing with much more established providers. It is positive for the thesis, but it is not yet a guaranteed success.",
+      "Pershing Square Holdings\nPershing Square is currently only around 1% to 2% down in the portfolio. I remain interested in buying more because the discount to net asset value is still large. At the end of June, the reported GBP NAV was £55.96 per share while the London share price was £37.30, implying a discount of roughly one third.\nThe company has also continued repurchasing shares. Buying back its own stock below NAV can increase NAV per remaining share, although it does not guarantee that the market discount will close. I am happy to continue holding and watching rather than rushing to increase the position immediately.",
+      "ASML and the semiconductor watchlist\nThe portfolio no longer has direct semiconductor-company exposure, which has helped during the recent sector sell-off. Semiconductor shares have been hit by concerns that valuations and expectations around AI spending had moved too far, too quickly. ASML was pulled down with the wider sector rather than because of one clear new failure in its own business.\nI would be interested in returning to ASML if the price approaches approximately €1,550, but that is a watch level rather than an automatic purchase instruction. Before buying, I would still need to check whether the decline is simply market sentiment or whether something has changed in ASML's orders, outlook or long-term competitive position.",
+      "Cash and the next period\nThe account currently holds £41 in cash, equal to roughly 2% of the portfolio. That is almost unchanged from Week 16 and still leaves limited flexibility. I may consider making some sales in the future to build a larger cash reserve and wait for better opportunities, particularly if the semiconductor sell-off creates a genuinely attractive ASML entry point.\nI am not forcing that decision now. I am happy with the portfolio and no convictions have changed. I am also becoming more excited about what the next few weeks could offer across the market, but I need to make sure excitement does not turn into another impulsive trade.",
+      "The lesson this fortnight\nThe biggest improvement is the decision to step back and review the portfolio every two weeks. It gives me a better chance of separating normal volatility from genuine changes in a company's investment thesis.\nThe Robinhood trade showed the other side of that lesson. I reacted to live information, made money and exited quickly, but the decision came from emotion rather than a repeatable process. I should be pleased with the result without pretending that the process was ideal.\nGoing into Week 19 and Week 20, the aim is to remain patient, rebuild cash where sensible and only act when both the opportunity and the decision-making process are strong.",
+      "Sources checked for market context\nRobinhood: The World is Flat product announcements, 1 July 2026\nReuters: Meta's reported cloud business and excess AI capacity, 1 July 2026\nRheinmetall: assessment of the F126 programme cancellation\nReuters: European technology and semiconductor sell-off, 7 July 2026\nPershing Square Holdings: NAV and market-price data\nPershing Square Holdings: share repurchase, 30 June 2026\nWorld Gold Council: Central Bank Gold Reserves Survey 2026"
+    ]
+  },
   {
     "slug": "week-16-portfolio-summary",
     "title": "Week 16 - A pullback and the Pershing Square buy",
@@ -1594,8 +1648,8 @@ export const rulebook = [
   'Do not let one position dominate the portfolio.',
   'Separate thesis breaks from price volatility.',
   'Keep cash for opportunity.',
-  'Review the portfolio weekly.',
-  'Keep a short trade journal and weekly summary.',
+  'Review the portfolio regularly.',
+  'Keep a short trade journal and regular summary.',
   'Treat learning and discipline as the primary goal.',
   'Learn from mistakes without hiding them.',
   'Never confuse a good outcome with a good decision.',

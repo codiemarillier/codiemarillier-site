@@ -35,13 +35,13 @@ const primaryLinks = [
 const secondaryLinks = [
   {
     title: 'Portfolio Journal',
-    text: 'Weekly reviews from the beginning of the public record.',
+    text: 'Portfolio reviews from the beginning of the public record.',
     href: '/journal',
     icon: ScrollText,
   },
   {
     title: 'Letters',
-    text: 'Longer reflections behind the weekly reviews and portfolio updates.',
+    text: 'Longer reflections behind the portfolio reviews and updates.',
     href: '/letters',
     icon: PenLine,
   },

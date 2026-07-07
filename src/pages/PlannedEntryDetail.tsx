@@ -106,7 +106,7 @@ export default function PlannedEntryDetail() {
           <div className="sticky top-24 border-y border-line py-5">
             <p className="font-serif text-2xl font-semibold leading-tight text-charcoal">A longer reflection, not a weekly update.</p>
             <p className="mt-4 text-sm leading-7 text-slateText">
-              The weekly reviews record what happened. This letter explains the thinking underneath the record.
+              The portfolio reviews record what happened. This letter explains the thinking underneath the record.
             </p>
           </div>
         </aside>
@@ -146,7 +146,7 @@ export default function PlannedEntryDetail() {
                 <BookOpen className="mt-0.5 h-5 w-5 flex-none text-gold" aria-hidden="true" />
                 <div>
                   <p className="text-sm font-semibold text-charcoal">Long-form reflection</p>
-                  <p className="mt-1 text-sm leading-6 text-slateText">Written to explain the process behind the weekly record.</p>
+                  <p className="mt-1 text-sm leading-6 text-slateText">Written to explain the process behind the regular record.</p>
                 </div>
               </div>
               <div className="flex gap-3 border border-line bg-ivory p-4">

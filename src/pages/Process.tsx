@@ -2,17 +2,17 @@ import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader';
 import SectionHeader from '../components/SectionHeader';
-import { processRules } from '../data/siteData';
+import { latestPortfolioReview, processRules } from '../data/siteData';
 
 const relatedSections = [
   {
     title: 'Current Portfolio',
-    text: 'Where the current holdings, cash position, portfolio roles, and latest Week 16 snapshot are recorded.',
+    text: `Where the current holdings, cash position, portfolio roles, and latest ${latestPortfolioReview.label} snapshot are recorded.`,
     href: '/portfolio',
   },
   {
     title: 'Portfolio Journal',
-    text: 'Where the weekly reviews show how the rules are being tested in the real portfolio record.',
+    text: 'Where the regular reviews show how the rules are being tested in the real portfolio record.',
     href: '/journal',
   },
 ];
@@ -40,7 +40,7 @@ export default function Process() {
       <PageHeader
         eyebrow="Process"
         title="Investment Process"
-        intro="These are the rules I use to judge my own decisions: protect capital, size risk properly, write the reasoning down, keep cash discipline, avoid leverage, and review the portfolio every week."
+        intro="These are the rules I use to judge my own decisions: protect capital, size risk properly, write the reasoning down, keep cash discipline, avoid leverage, and review the portfolio regularly."
       />
 
       <section className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24">
@@ -65,13 +65,13 @@ export default function Process() {
 
       <section className="border-y border-line bg-paper">
         <div className="mx-auto max-w-5xl px-5 py-16 text-center md:px-8 md:py-24">
-          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-gold">Weekly review process</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-gold">Review process</p>
           <h2 className="mt-5 font-serif text-4xl font-semibold leading-tight text-charcoal md:text-5xl">
             The record matters because memory is vague.
           </h2>
           <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-slateText md:text-lg md:leading-9">
-            Each weekly review should record account value, cash, what helped, what hurt, trades made, mistakes,
-            emotional pressure, and the plan for the following week. The goal is to make the process visible enough
+            Each regular review should record account value, cash, what helped, what hurt, trades made, mistakes,
+            emotional pressure, and the plan for the following period. The goal is to make the process visible enough
             that bad habits are harder to hide from.
           </p>
         </div>

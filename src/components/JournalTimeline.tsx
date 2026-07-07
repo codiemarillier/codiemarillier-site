@@ -19,10 +19,10 @@ function getCardFacts(entry: JournalEntry) {
     readLabel(snapshot, ['Account value at review', 'Current account value', 'Account value', 'Estimated account value']) ||
     'Not recorded';
   const weeklyMove =
-    readLabel(snapshot, ['Move since Week 14', 'Weekly move']) ||
-    (entry.category === 'Weekly Reviews' ? 'Qualitative review only' : 'Not recorded');
+    readLabel(snapshot, ['Move since Week 16', 'Move since Week 14', 'Fortnightly move', 'Weekly move', 'Weekly change']) ||
+    (['Weekly Reviews', 'Fortnightly Reviews'].includes(entry.category) ? 'Qualitative review only' : 'Not recorded');
   const mainTrade =
-    readLabel(snapshot, ['Main realised trade', 'Main trade', 'Main new trade', 'Main new position']) ||
+    readLabel(snapshot, ['Short-term trade', 'Main realised trade', 'Main trade', 'Main new trade', 'Main new position']) ||
     entry.majorEvents?.[0] ||
     'Review only';
   const mainLessonBlock =
@@ -73,7 +73,7 @@ export default function JournalTimeline({ entries }: { entries: JournalEntry[] }
             <dl className="mt-6 grid gap-px border border-line bg-line md:grid-cols-4">
               {[
                 ['Account value', facts.accountValue],
-                ['Weekly move', facts.weeklyMove],
+                ['Review move', facts.weeklyMove],
                 ['Main trade', facts.mainTrade],
                 ['Main lesson', facts.mainLesson],
               ].map(([label, value]) => (

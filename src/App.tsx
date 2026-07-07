@@ -27,7 +27,7 @@ type RouteMeta = {
 const defaultMeta: RouteMeta = {
   title: 'Codie Capital Research | Investment Journal by Codie Marillier',
   description:
-    "Codie Marillier's personal investment journal: a public record of portfolio decisions, weekly reviews, process, and long-term learning. Not investment advice.",
+    "Codie Marillier's personal investment journal: a public record of portfolio decisions, regular reviews, process, and long-term learning. Not investment advice.",
 };
 
 const siteUrl = 'https://codiemarillier.com';
@@ -57,7 +57,7 @@ const staticMeta: Record<string, RouteMeta> = {
   '/journal': {
     title: 'Portfolio Journal | Codie Capital Research',
     description:
-      "Weekly portfolio reviews and trade reflections written for accountability around Codie Marillier's own portfolio. Not investment advice.",
+      "Portfolio reviews and trade reflections written for accountability around Codie Marillier's own portfolio. Not investment advice.",
   },
   '/letters': {
     title: 'Letters | Codie Capital Research',

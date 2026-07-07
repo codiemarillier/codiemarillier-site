@@ -14,7 +14,7 @@ export default function Hero() {
             Building a disciplined investment track record, one decision at a time.
           </h1>
           <p className="mt-7 max-w-2xl text-lg leading-8 text-slateText md:text-xl">
-            Codie Capital Research is my personal investment journal - documenting portfolio reviews, weekly summaries,
+            Codie Capital Research is my personal investment journal - documenting portfolio reviews, regular summaries,
             market reflections, and the lessons that come from managing my own portfolio.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">

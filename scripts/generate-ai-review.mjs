@@ -51,6 +51,7 @@ function esc(value) {
 
 function slugDate(value) {
   if (/^\d{4}-\d{2}-\d{2}$/.test(value)) return value;
+  if (/7 July 2026/i.test(value)) return '2026-07-07';
   if (/23 June 2026/i.test(value)) return '2026-06-23';
   if (/June 2026/i.test(value)) return '2026-06-16';
   return '2026-06-22';
@@ -127,7 +128,8 @@ function layout({ title, description, canonicalPath = '/ai/', body }) {
 const currentHoldings = holdings.filter((holding) => !/^closed/i.test(holding.positionSize) && !/^closed/i.test(holding.status));
 const publishedLetters = plannedLetters.filter((letter) => letter.body?.length);
 const latestReview = latestPortfolioReview.title;
-const latestUpdated = '2026-06-23';
+const latestUpdated = '2026-07-07';
+const latestReviewPath = `/journal/${latestPortfolioReview.slug}`;
 const portfolioValueText = portfolioValueHistory.map(
   (point) => `${point.label} (${point.date}): ${point.valueLabel}. Source: ${point.source}.${point.note ? ` Note: ${point.note}` : ''}`,
 );
@@ -138,7 +140,7 @@ const mainPages = [
     title: 'Home',
     pageType: 'homepage',
     lastUpdated: '2026-06-25',
-    topics: ['personal investment journal', 'public record', 'portfolio snapshot', 'weekly reviews', 'investing process'],
+    topics: ['personal investment journal', 'public record', 'portfolio snapshot', 'portfolio reviews', 'investing process'],
     summary:
       'The homepage is the mobile-first entry point for Codie Capital Research, explaining the site quickly and pointing first-time visitors to My First Letter, the latest portfolio update, current portfolio, and the main sections.',
     contentText: plain([
@@ -150,7 +152,7 @@ const mainPages = [
       `Latest source-of-truth review: ${latestReview}. Current account value ${portfolioSnapshot.accountValue}, starting value ${portfolioSnapshot.startingCostBasis}, return ${portfolioSnapshot.currentReturn}, cash ${portfolioSnapshot.cashBalance}.`,
       `Portfolio value chart data: ${portfolioValueText.join(' ')}`,
     ]),
-    internalLinks: ['/letters/my-first-letter', '/journal/week-16-portfolio-summary', '/portfolio', '/journal', '/letters', '/process', '/books', '/about'],
+    internalLinks: ['/letters/my-first-letter', latestReviewPath, '/portfolio', '/journal', '/letters', '/process', '/books', '/about'],
   },
   {
     path: '/portfolio',
@@ -159,7 +161,7 @@ const mainPages = [
     lastUpdated: latestUpdated,
     topics: ['account value', 'cash balance', 'open holdings', 'portfolio roles', 'winners', 'drags', 'action plan'],
     summary:
-      'The portfolio page records Codie’s own current holdings, Week 16 account value, starting value, cash, latest return, winners, drags, portfolio role notes, and latest action plan.',
+      `The portfolio page records Codie’s own current holdings, ${latestPortfolioReview.label} account value, starting value, cash, latest return, winners, drags, portfolio role notes, and latest action plan.`,
     contentText: plain([
       `Current account value: ${portfolioSnapshot.accountValue}. Starting value: ${portfolioSnapshot.startingCostBasis}. Current return: ${portfolioSnapshot.currentReturn}. Cash balance: ${portfolioSnapshot.cashBalance}. Latest review: ${latestReview}.`,
       `Open holdings: ${currentHoldings.map((holding) => `${holding.ticker} ${holding.positionSize} (${holding.role})`).join('; ')}.`,
@@ -168,18 +170,18 @@ const mainPages = [
       `Latest action plan: ${portfolioCrawlerNotes.latestActionPlan.join(' ')}`,
       `Portfolio value history: ${portfolioValueText.join(' ')}`,
     ]),
-    internalLinks: ['/journal/week-16-portfolio-summary', '/journal', '/process', '/ai/portfolio.html'],
+    internalLinks: [latestReviewPath, '/journal', '/process', '/ai/portfolio.html'],
   },
   {
     path: '/journal',
     title: 'Portfolio Journal',
     pageType: 'journal-index',
     lastUpdated: latestUpdated,
-    topics: ['weekly reviews', 'trade reflections', 'market notes', 'lessons', 'Week 1 to Week 16'],
+    topics: ['weekly reviews', 'fortnightly reviews', 'trade reflections', 'market notes', 'lessons', 'Week 1 to Week 18'],
     summary:
-      'The journal page lists weekly review cards and journal entries with dates, account values where available, main trades, and lessons.',
+      'The journal page lists portfolio review cards and journal entries with dates, account values where available, main trades, and lessons.',
     contentText: plain([
-      'The journal contains weekly portfolio reviews, trade reflections, market notes, and lessons from Codie’s own portfolio record.',
+      'The journal contains weekly and fortnightly portfolio reviews, trade reflections, market notes, and lessons from Codie’s own portfolio record.',
       ...journalEntries.map((entry) => `${entry.title} (${entry.date}): ${entry.excerpt}`),
     ]),
     internalLinks: [...journalEntries.map((entry) => `/journal/${entry.slug}`), '/letters', '/portfolio', '/process'],
@@ -193,7 +195,7 @@ const mainPages = [
     summary:
       'The Letters page publishes My First Letter, a long-form reflection on discipline, patience, risk, and building a public investing record.',
     contentText: plain([
-      'Weekly reviews are what happened. Letters are what I learned and how my thinking is changing.',
+      'Portfolio reviews are what happened. Letters are what I learned and how my thinking is changing.',
       ...publishedLetters.map(
         (letter) =>
           `${letter.title}. ${letter.type}. ${letter.date}. ${letter.readingTime ?? ''}. ${letter.summary} Main themes: ${letter.themes.join(', ')}. Status: ${letter.status ?? 'Draft in progress'}. ${(letter.body ?? []).join('\n\n')}`,
@@ -220,9 +222,9 @@ const mainPages = [
     title: 'Investment Process',
     pageType: 'process',
     lastUpdated: '2026-06-22',
-    topics: ['capital protection', 'position sizing', 'written reasoning', 'cash discipline', 'no leverage', 'no impulsive trades', 'weekly review process'],
+    topics: ['capital protection', 'position sizing', 'written reasoning', 'cash discipline', 'no leverage', 'no impulsive trades', 'regular review process'],
     summary:
-      'The process page sets out the investing rulebook: protect capital, size positions properly, write reasoning, keep cash discipline, avoid leverage and impulsive trades, and review weekly.',
+      'The process page sets out the investing rulebook: protect capital, size positions properly, write reasoning, keep cash discipline, avoid leverage and impulsive trades, and review regularly.',
     contentText: plain(processRules.map((rule) => `${rule.title}: ${rule.text}`)),
     internalLinks: ['/portfolio', '/journal', '/books', '/about'],
   },
@@ -260,11 +262,11 @@ const mainPages = [
     title: 'AI-Readable Review Index',
     pageType: 'ai-index',
     lastUpdated: '2026-06-22',
-    topics: ['AI archive', 'crawler-readable content', 'site manifest', 'portfolio snapshot', 'weekly summaries'],
+    topics: ['AI archive', 'crawler-readable content', 'site manifest', 'portfolio snapshot', 'portfolio summaries'],
     summary:
       'The AI page is a complete plain HTML archive for ChatGPT, AI review tools, Google crawlers, and simple browser-fetch tools.',
     contentText:
-      'The AI-readable review index contains site purpose, disclaimer, latest portfolio snapshot, links to all public pages, weekly summaries, books, portfolio, process, sitemap-readable page, and JSON content archive.',
+      'The AI-readable review index contains site purpose, disclaimer, latest portfolio snapshot, links to all public pages, portfolio summaries, books, portfolio, process, sitemap-readable page, and JSON content archive.',
     internalLinks: ['/ai/site-map-readable.html', '/ai/site-content.json', '/ai/portfolio.html', '/ai/pages.html', '/ai/all-content.txt'],
   },
 ];
@@ -272,7 +274,7 @@ const mainPages = [
 const journalRecords = journalEntries.map((entry) => ({
   path: `/journal/${entry.slug}`,
   title: entry.title,
-  pageType: entry.category === 'Weekly Reviews' ? 'weekly-summary' : 'journal-entry',
+  pageType: ['Weekly Reviews', 'Fortnightly Reviews'].includes(entry.category) ? 'portfolio-summary' : 'journal-entry',
   lastUpdated: slugDate(entry.date),
   topics: [entry.category, ...(entry.tags ?? []), ...(entry.majorEvents ?? [])],
   summary: entry.excerpt,
@@ -331,7 +333,7 @@ const aiRecords = [
       `Account value ${portfolioSnapshot.accountValue}. Starting value ${portfolioSnapshot.startingCostBasis}. Return ${portfolioSnapshot.currentReturn}. Cash ${portfolioSnapshot.cashBalance}.`,
       holdings.map((holding) => `${holding.ticker} ${holding.name}: ${holding.positionSize}, ${holding.role}, ${holding.status}.`).join('\n'),
     ]),
-    internalLinks: ['/portfolio', '/journal/week-16-portfolio-summary'],
+    internalLinks: ['/portfolio', latestReviewPath],
   },
   {
     path: '/ai/site-map-readable.html',
@@ -431,7 +433,7 @@ latestReview: ${esc(latestReview)}</pre>
           <div class="card"><strong>Current return</strong><br>${esc(portfolioSnapshot.currentReturn)}</div>
           <div class="card"><strong>Cash balance</strong><br>${esc(portfolioSnapshot.cashBalance)}</div>
         </div>
-        <p>The snapshot is updated through the latest published weekly review.</p>
+        <p>The snapshot is updated through the latest published portfolio review.</p>
       </section>
       <section>
         <h2>Portfolio Value History</h2>
@@ -456,7 +458,7 @@ latestReview: ${esc(latestReview)}</pre>
         <h2>Start Here</h2>
         <ul>
           <li><a href="/portfolio">Current Portfolio</a> - What I currently own, how the portfolio is positioned, and what role each holding plays.</li>
-          <li><a href="/journal">Portfolio Journal</a> - My weekly record of portfolio changes, market thoughts, decisions, and lessons.</li>
+          <li><a href="/journal">Portfolio Journal</a> - My regular record of portfolio changes, market thoughts, decisions, and lessons.</li>
           <li><a href="/process">Investment Process</a> - The rules and habits I am trying to build around capital protection, patience, position sizing, and written reasoning.</li>
           <li><a href="/about">About</a> - Who I am, why I became interested in investing, and why this public record exists.</li>
         </ul>
@@ -534,7 +536,7 @@ await writeFile(
     body: `
       <section>
         <h2>Portfolio Snapshot</h2>
-        <p>Week 16 Portfolio Summary dated 23 June 2026 is the current source-of-truth update.</p>
+        <p>${esc(latestPortfolioReview.title)} dated ${esc(latestPortfolioReview.date)} is the current source-of-truth update.</p>
         <div class="grid">
           ${Object.entries(portfolioSnapshot).map(([key, value]) => `<div class="card"><strong>${esc(key)}</strong><br>${esc(value)}</div>`).join('\n')}
         </div>
@@ -677,7 +679,7 @@ const allText = [
   '',
   'HOMEPAGE START HERE',
   'Current Portfolio - What I currently own, how the portfolio is positioned, and what role each holding plays.',
-  'Portfolio Journal - My weekly record of portfolio changes, market thoughts, decisions, and lessons.',
+  'Portfolio Journal - My regular record of portfolio changes, market thoughts, decisions, and lessons.',
   'Investment Process - The rules and habits I am trying to build around capital protection, patience, position sizing, and written reasoning.',
   'About - Who I am, why I became interested in investing, and why this public record exists.',
   '',

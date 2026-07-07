@@ -10,7 +10,7 @@ type CTASectionProps = {
 
 export default function CTASection({
   title = 'Read the portfolio journal',
-  text = 'This site is designed to document decisions, lessons, weekly reviews, and the development of a personal investment record over time.',
+  text = 'This site is designed to document decisions, lessons, regular portfolio reviews, and the development of a personal investment record over time.',
   buttonLabel = 'Open the journal',
   href = '/journal',
 }: CTASectionProps) {

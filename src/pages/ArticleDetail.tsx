@@ -12,7 +12,7 @@ type ArticleDetailProps = {
 const articleContext = {
   journal: {
     label: 'Portfolio journal entry',
-    purpose: 'A public record of my own portfolio decisions, lessons, and weekly review discipline.',
+    purpose: 'A public record of my own portfolio decisions, lessons, and regular review discipline.',
     prompts: ['What changed?', 'Was the reasoning clear?', 'What should be watched next?'],
   },
 };
@@ -29,6 +29,7 @@ function isArticleSectionHeading(text: string) {
         'Current view',
         'Weekly Commentary',
         'How the week felt',
+        'How the two weeks felt',
         'What helped the portfolio',
         'What helped and what hurt',
         'What still concerns me',
@@ -43,6 +44,17 @@ function isArticleSectionHeading(text: string) {
         'What may happen this week',
         'Position review',
         'Google cash plan',
+        'The Robinhood trade',
+        'Portfolio structure',
+        'SpaceX',
+        'Gold',
+        'Rheinmetall',
+        'Meta and Meta Compute',
+        'Pershing Square Holdings',
+        'ASML and the semiconductor watchlist',
+        'Cash and the next period',
+        'The lesson this fortnight',
+        'Sources checked for market context',
       ].includes(firstLine))
   );
 }
@@ -53,6 +65,104 @@ function splitArticleSection(text: string) {
     heading: heading.trim(),
     content: rest.join('\n').trim(),
   };
+}
+
+function parsePipeRow(line: string) {
+  return line
+    .split('|')
+    .map((cell) => cell.trim())
+    .filter(Boolean);
+}
+
+function isPipeTableLine(line: string) {
+  return line.includes('|') && parsePipeRow(line).length >= 3;
+}
+
+function renderTextBlock(text: string, key: string) {
+  const trimmed = text.trim();
+
+  if (!trimmed) return null;
+
+  return (
+    <p key={key} className="mt-4 whitespace-pre-line text-base leading-8 text-slateText md:text-lg md:leading-9">
+      {trimmed}
+    </p>
+  );
+}
+
+function renderPipeTable(lines: string[], key: string) {
+  const [headerLine, ...rowLines] = lines;
+  const headers = parsePipeRow(headerLine);
+  const rows = rowLines.map(parsePipeRow).filter((row) => row.length >= 3);
+
+  return (
+    <div key={key} className="mt-5 overflow-x-auto border border-line bg-ivory">
+      <table className="min-w-[680px] w-full border-collapse text-left text-sm leading-6">
+        <thead className="bg-charcoal text-paper">
+          <tr>
+            {headers.map((header) => (
+              <th key={header} scope="col" className="border-r border-white/10 px-4 py-3 font-semibold last:border-r-0">
+                {header}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, rowIndex) => (
+            <tr key={`${key}-${rowIndex}`} className="border-t border-line bg-paper align-top">
+              {headers.map((header, cellIndex) => (
+                <td
+                  key={`${header}-${cellIndex}`}
+                  className={`border-r border-line px-4 py-3 last:border-r-0 ${
+                    cellIndex === 0 ? 'font-semibold text-charcoal' : 'text-slateText'
+                  }`}
+                >
+                  {row[cellIndex] ?? ''}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+function renderSectionContent(content: string) {
+  const rendered: JSX.Element[] = [];
+  let textLines: string[] = [];
+  let tableLines: string[] = [];
+
+  const flushText = () => {
+    const block = renderTextBlock(textLines.join('\n'), `text-${rendered.length}`);
+    if (block) rendered.push(block);
+    textLines = [];
+  };
+
+  const flushTable = () => {
+    if (tableLines.length > 1) {
+      rendered.push(renderPipeTable(tableLines, `table-${rendered.length}`));
+    } else if (tableLines.length === 1) {
+      textLines.push(tableLines[0]);
+    }
+    tableLines = [];
+  };
+
+  content.split('\n').forEach((line) => {
+    if (isPipeTableLine(line)) {
+      flushText();
+      tableLines.push(line);
+      return;
+    }
+
+    flushTable();
+    textLines.push(line);
+  });
+
+  flushTable();
+  flushText();
+
+  return rendered;
 }
 
 export default function ArticleDetail({ type }: ArticleDetailProps) {
@@ -96,7 +206,7 @@ export default function ArticleDetail({ type }: ArticleDetailProps) {
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Original document preview</p>
                   <p className="mt-2 text-sm leading-6 text-slateText">
-                    This weekly review is shown as rendered pages from the original document, so it works even if the browser PDF viewer fails.
+                    This review is shown as rendered pages from the original document, so it works even if the browser PDF viewer fails.
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 sm:flex-row">
@@ -127,6 +237,26 @@ export default function ArticleDetail({ type }: ArticleDetailProps) {
             </section>
           ) : null}
 
+          {!hasDocumentPreview && article.documentUrl ? (
+            <section className="mb-8 border border-line bg-ivory p-5">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Source document</p>
+                  <p className="mt-2 text-sm leading-6 text-slateText">
+                    The readable article is shown below. The original Week 18 preview is kept as a source document.
+                  </p>
+                </div>
+                <a
+                  href={article.documentUrl}
+                  className="inline-flex min-h-11 items-center justify-center gap-2 border border-line bg-paper px-4 text-sm font-semibold text-charcoal transition-colors hover:border-gold hover:bg-ivory"
+                >
+                  Open Document
+                  <ExternalLink className="h-4 w-4" aria-hidden="true" />
+                </a>
+              </div>
+            </section>
+          ) : null}
+
           {!hasDocumentPreview ? (
             <div className="space-y-7 text-lg leading-9 text-slateText">
               {article.body.map((paragraph, index) => {
@@ -136,9 +266,7 @@ export default function ArticleDetail({ type }: ArticleDetailProps) {
                   return (
                     <section key={`${section.heading}-${index}`} className="border-t border-line pt-7 first:border-t-0 first:pt-0">
                       <h2 className="font-serif text-3xl font-semibold leading-tight text-charcoal">{section.heading}</h2>
-                      <p className="mt-4 whitespace-pre-line text-base leading-8 text-slateText md:text-lg md:leading-9">
-                        {section.content}
-                      </p>
+                      {renderSectionContent(section.content)}
                     </section>
                   );
                 }

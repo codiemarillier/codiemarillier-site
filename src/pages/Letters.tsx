@@ -12,7 +12,7 @@ export default function Letters() {
     <main className="page-fade">
       <PageHeader
         title="Letters"
-        intro="Weekly reviews record what happened. Letters are longer reflections on what I am learning underneath the weekly account value."
+        intro="Portfolio reviews record what happened. Letters are longer reflections on what I am learning underneath the account value."
       />
 
       <section className="mx-auto max-w-5xl px-5 py-12 md:px-8 md:py-16">

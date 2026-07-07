@@ -56,7 +56,7 @@ export default function PortfolioValueChart({ variant = 'card' }: PortfolioValue
   const lowestPoint = portfolioValueHistory.reduce((low, point) => (point.value < low.value ? point : low), portfolioValueHistory[0]);
   const latestChange = latestPoint.value - startingValue;
   const yTicks = [min, Math.round((min + max) / 2), max];
-  const xTicks = portfolioValueHistory.filter((point) => [1, 4, 8, 12, 16].includes(point.week));
+  const xTicks = portfolioValueHistory.filter((point) => [1, 4, 8, 12, 16, 18].includes(point.week));
   const headerStatsClassName = isBlend
     ? 'grid gap-4 sm:grid-cols-3 md:text-right'
     : 'grid gap-px border border-line bg-line text-center sm:grid-cols-3';
@@ -79,10 +79,10 @@ export default function PortfolioValueChart({ variant = 'card' }: PortfolioValue
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Portfolio value over time</p>
           <h2 className="mt-3 font-serif text-3xl font-semibold leading-tight text-charcoal md:text-4xl">
-            Weekly account value since the portfolio started.
+            Account value since the portfolio started.
           </h2>
           <p className="mt-4 max-w-3xl text-sm leading-7 text-slateText">
-            Manual weekly account values from the published portfolio reviews. Approximate weeks are plotted using the
+            Manual account values from the published portfolio reviews. Approximate periods are plotted using the
             rounded value shown in the journal.
           </p>
         </div>
@@ -107,10 +107,10 @@ export default function PortfolioValueChart({ variant = 'card' }: PortfolioValue
           role="img"
           aria-labelledby="portfolio-value-chart-title portfolio-value-chart-description"
         >
-          <title id="portfolio-value-chart-title">Portfolio value chart from Week 1 to Week 16</title>
+          <title id="portfolio-value-chart-title">Portfolio value chart from Week 1 to Week 18</title>
           <desc id="portfolio-value-chart-description">
             Line chart showing the account moving from the starting baseline around 1999 pounds, down to a low around
-            1860 pounds, up to a high of 2055 pounds in Week 15, and back to around 1981 pounds in Week 16.
+            1860 pounds, up to a high of 2055 pounds in Week 15, and to 2008 pounds in Week 18.
           </desc>
           <defs>
             <linearGradient id="portfolioValueArea" x1="0" x2="0" y1="0" y2="1">
@@ -191,7 +191,7 @@ export default function PortfolioValueChart({ variant = 'card' }: PortfolioValue
         </div>
         <div className={footerStatClassName}>
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold">Source</p>
-          <p className="mt-2 text-sm font-semibold leading-6 text-charcoal">Published weekly portfolio reviews</p>
+          <p className="mt-2 text-sm font-semibold leading-6 text-charcoal">Published portfolio reviews</p>
         </div>
       </div>
     </section>

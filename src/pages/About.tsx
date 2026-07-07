@@ -1,6 +1,7 @@
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader';
+import { latestPortfolioReview } from '../data/siteData';
 
 const sections = [
   {
@@ -38,12 +39,12 @@ const sections = [
 const startLinks = [
   {
     title: 'Current Portfolio',
-    text: 'The latest Week 16 snapshot, current holdings, cash, and portfolio role notes.',
+    text: `The latest ${latestPortfolioReview.label} snapshot, current holdings, cash, and portfolio role notes.`,
     href: '/portfolio',
   },
   {
     title: 'Portfolio Journal',
-    text: 'The weekly record of portfolio changes, lessons, and decision context.',
+    text: 'The regular record of portfolio changes, lessons, and decision context.',
     href: '/journal',
   },
   {
@@ -85,7 +86,7 @@ export default function About() {
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c8aa6e]">Where to start</p>
             <h2 className="mt-4 font-serif text-4xl font-semibold md:text-5xl">Read the live record first.</h2>
             <p className="mt-4 text-base leading-8 text-[#d8d0c0]">
-              The most useful pages are the ones with the actual portfolio record, weekly reviews, and rules behind the
+              The most useful pages are the ones with the actual portfolio record, regular reviews, and rules behind the
               decisions.
             </p>
           </div>
