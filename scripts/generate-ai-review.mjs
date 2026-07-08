@@ -205,17 +205,17 @@ const mainPages = [
   },
   {
     path: '/books',
-    title: 'Books That Shaped My Thinking',
+    title: 'Books I Have Read',
     pageType: 'books',
-    lastUpdated: '2026-06-22',
+    lastUpdated: '2026-07-08',
     topics: ['reading development', 'investing books', 'discipline', 'purpose', 'risk', 'money'],
     summary:
-      'The books page contains the full Books That Shaped My Thinking section with personal reflections on every book and how each shaped Codie’s investing and personal development.',
+      'The books page is a bookshelf index of books Codie has read, with each book linking to its own full reflection page.',
     contentText: plain([
-      'These are the books that have had the biggest influence on how Codie thinks about investing, money, discipline, purpose, risk, and long-term decision-making.',
-      ...readingDevelopment.map((book) => `${book.title} by ${book.author}. ${book.category}. ${book.paragraphs.join(' ')} Takeaway: ${book.takeaway}`),
+      'The books page lists books that have shaped how Codie thinks about investing, money, discipline, purpose, risk, and long-term decision-making.',
+      ...readingDevelopment.map((book) => `${book.title} by ${book.author}. ${book.category}. Takeaway: ${book.takeaway}. Full reflection: /books/${book.slug}`),
     ]),
-    internalLinks: ['/about', '/process', '/portfolio'],
+    internalLinks: ['/about', '/process', '/portfolio', ...readingDevelopment.map((book) => `/books/${book.slug}`)],
   },
   {
     path: '/process',
@@ -296,6 +296,17 @@ const letterRecords = publishedLetters.map((letter) => ({
   internalLinks: ['/letters', '/journal', '/process'],
 }));
 
+const bookRecords = readingDevelopment.map((book) => ({
+  path: `/books/${book.slug}`,
+  title: book.title,
+  pageType: 'book-reflection',
+  lastUpdated: '2026-07-08',
+  topics: ['book reflection', book.author, ...book.category.split('/').map((tag) => tag.trim())],
+  summary: book.takeaway,
+  contentText: plain([`${book.title} by ${book.author}. ${book.category}. Takeaway: ${book.takeaway}`, ...book.paragraphs]),
+  internalLinks: ['/books', '/process', '/portfolio'],
+}));
+
 const researchRecords = researchNotes.map((note) => ({
   path: `/ai/research/${note.slug}.html`,
   title: note.title,
@@ -371,6 +382,7 @@ const allRecords = [
   ...mainPages,
   ...journalRecords,
   ...letterRecords,
+  ...bookRecords,
   ...researchRecords,
   ...aiRecords,
 ];
@@ -393,6 +405,7 @@ const indexLinks = [
   ...mainPages.map((page) => `<li><a href="${page.path}">${esc(page.title)} public route</a> - ${esc(page.summary)}</li>`),
   ...journalEntries.map((entry) => `<li><a href="/journal/${entry.slug}">${esc(entry.title)} public route</a> - <a href="/ai/journal/${entry.slug}.html">AI-readable full text</a></li>`),
   ...publishedLetters.map((letter) => `<li><a href="/letters/${letter.slug}">${esc(letter.title)} public letter</a> - ${esc(letter.summary)}</li>`),
+  ...readingDevelopment.map((book) => `<li><a href="/books/${book.slug}">${esc(book.title)} book reflection</a> - ${esc(book.takeaway)}</li>`),
   ...researchNotes.map((note) => `<li><a href="/ai/research/${note.slug}.html">${esc(note.title)} AI-readable research note</a></li>`),
 ];
 

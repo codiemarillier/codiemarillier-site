@@ -53,6 +53,7 @@ export type Holding = {
 };
 
 export type ReadingBook = {
+  slug: string;
   title: string;
   author: string;
   category: string;
@@ -630,6 +631,7 @@ export const portfolioCrawlerNotes = {
 
 export const readingDevelopment: ReadingBook[] = [
   {
+    slug: 'the-dhandho-investor',
     title: 'The Dhandho Investor',
     author: 'Mohnish Pabrai',
     category: 'Value Investing / Business / Low-Risk Opportunity',
@@ -643,6 +645,7 @@ export const readingDevelopment: ReadingBook[] = [
     takeaway: 'Look for simple opportunities where the downside is controlled and the upside is still meaningful.',
   },
   {
+    slug: 'the-most-important-thing',
     title: 'The Most Important Thing',
     author: 'Howard Marks',
     category: 'Risk / Contrarian Thinking / Market Psychology',
@@ -656,6 +659,7 @@ export const readingDevelopment: ReadingBook[] = [
     takeaway: 'Risk is not just volatility; it is the chance of being wrong when the consequences matter.',
   },
   {
+    slug: 'the-intelligent-investor',
     title: 'The Intelligent Investor',
     author: 'Benjamin Graham',
     category: 'Value Investing / Discipline / Intrinsic Value',
@@ -670,6 +674,7 @@ export const readingDevelopment: ReadingBook[] = [
     takeaway: 'Price and value are not the same thing.',
   },
   {
+    slug: 'the-alchemist',
     title: 'The Alchemist',
     author: 'Paulo Coelho',
     category: 'Purpose / Ambition / Personal Journey',
@@ -683,6 +688,7 @@ export const readingDevelopment: ReadingBook[] = [
     takeaway: 'The journey can teach more than the final result.',
   },
   {
+    slug: 'the-art-of-spending-money',
     title: 'The Art of Spending Money',
     author: 'Morgan Housel',
     category: 'Money / Lifestyle / Financial Discipline',
@@ -696,6 +702,7 @@ export const readingDevelopment: ReadingBook[] = [
     takeaway: 'Do not let income growth automatically become lifestyle inflation.',
   },
   {
+    slug: 'mans-search-for-meaning',
     title: 'Man’s Search for Meaning',
     author: 'Viktor Frankl',
     category: 'Purpose / Resilience / Perspective',
@@ -709,6 +716,7 @@ export const readingDevelopment: ReadingBook[] = [
     takeaway: 'Perspective and purpose matter most when things are difficult.',
   },
   {
+    slug: 'the-tipping-point',
     title: 'The Tipping Point',
     author: 'Malcolm Gladwell',
     category: 'Trends / Compounding / Behaviour',
@@ -722,6 +730,7 @@ export const readingDevelopment: ReadingBook[] = [
     takeaway: 'Small actions, repeated over time, can quietly build into something much larger.',
   },
   {
+    slug: 'material-world',
     title: 'Material World',
     author: 'Ed Conway',
     category: 'Commodities / Supply Chains / Civilisation / Investing',

@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import About from './pages/About';
 import ArticleDetail from './pages/ArticleDetail';
+import BookDetail from './pages/BookDetail';
 import Books from './pages/Books';
 import CurrentPortfolio from './pages/CurrentPortfolio';
 import DecisionArchive from './pages/DecisionArchive';
@@ -17,7 +18,7 @@ import Philosophy from './pages/Philosophy';
 import PlannedEntryDetail from './pages/PlannedEntryDetail';
 import PortfolioJournal from './pages/PortfolioJournal';
 import Process from './pages/Process';
-import { brand, journalEntries, plannedLetters } from './data/siteData';
+import { brand, journalEntries, plannedLetters, readingDevelopment } from './data/siteData';
 
 type RouteMeta = {
   title: string;
@@ -40,9 +41,9 @@ const staticMeta: Record<string, RouteMeta> = {
       'The story behind Codie Capital Research, a personal investment journal by Codie Marillier documenting his own portfolio, mistakes, reading, and long-term investing development.',
   },
   '/books': {
-    title: 'Books That Shaped My Thinking | Codie Capital Research',
+    title: 'Books I Have Read | Codie Capital Research',
     description:
-      "Books that shaped Codie Marillier's thinking about investing, money, discipline, purpose, risk, and long-term decision-making.",
+      "A bookshelf of books Codie Marillier has read, with reflections on investing, money, discipline, purpose, risk, and long-term decision-making.",
   },
   '/philosophy': {
     title: 'Investment Philosophy | Codie Capital Research',
@@ -142,6 +143,17 @@ function getRouteMeta(pathname: string): RouteMeta {
     }
   }
 
+  const bookSlug = normalizedPath.match(/^\/books\/([^/]+)$/)?.[1];
+  if (bookSlug) {
+    const book = readingDevelopment.find((item) => item.slug === bookSlug);
+    if (book) {
+      return {
+        title: `${book.title} | Books | Codie Capital Research`,
+        description: `${book.takeaway} Book reflection by Codie Marillier.`,
+      };
+    }
+  }
+
   return defaultMeta;
 }
 
@@ -199,6 +211,7 @@ export default function App() {
         <Route path="/start" element={<Navigate to="/" replace />} />
         <Route path="/about" element={<About />} />
         <Route path="/books" element={<Books />} />
+        <Route path="/books/:slug" element={<BookDetail />} />
         <Route path="/philosophy" element={<Philosophy />} />
         <Route path="/process" element={<Process />} />
         <Route path="/journal" element={<PortfolioJournal />} />

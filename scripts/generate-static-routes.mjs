@@ -423,15 +423,21 @@ const routes = [
   },
   {
     path: '/books',
-    title: 'Books That Shaped My Thinking | Codie Capital Research',
+    title: 'Books I Have Read | Codie Capital Research',
     description:
-      'The full Books That Shaped My Thinking section, covering investing, risk, money, discipline, purpose, resilience, and long-term decision-making.',
+      'A bookshelf of the books Codie Marillier has read, with summaries covering investing, risk, money, discipline, purpose, resilience, and long-term decision-making.',
     fallback: `
       <p>Reading and development</p>
-      <h1>Books That Shaped My Thinking</h1>
-      ${paragraph('These are the books that have had the biggest influence on how I think about investing, money, discipline, purpose, risk, and long-term decision-making.')}
+      <h1>Books I Have Read</h1>
+      ${paragraph('A simple bookshelf of the books that have shaped how I think about investing, money, discipline, purpose, risk, and long-term decision-making. Click a book to read the full reflection.')}
       ${readingDevelopment
-        .map((book) => `<article><h2>${esc(book.title)}</h2><p><strong>${esc(book.author)}</strong> / ${esc(book.category)}</p>${textBlock(book.paragraphs)}<p><strong>Takeaway:</strong> ${esc(book.takeaway)}</p></article>`)
+        .map(
+          (book) => `<article class="static-card">
+            <h2><a href="/books/${esc(book.slug)}">${esc(book.title)}</a></h2>
+            <p><strong>${esc(book.author)}</strong> / ${esc(book.category)}</p>
+            <p><strong>Takeaway:</strong> ${esc(book.takeaway)}</p>
+          </article>`,
+        )
         .join('')}
       ${paragraph('Together, these books have shaped the way I think about investing and life. I do not see investing as separate from personal development.')}
     `,
@@ -560,6 +566,22 @@ for (const letter of publishedLetters) {
       ${section('Main Themes', list(letter.themes))}
       ${published ? section('Letter', textBlock(letter.body ?? [])) : paragraph('This letter is being prepared, but it is not published yet.')}
       ${section('Back Link', '<p><a href="/letters">Back to Letters</a></p>')}
+    `,
+  });
+}
+
+for (const book of readingDevelopment) {
+  await writeRoute({
+    path: `/books/${book.slug}`,
+    title: `${book.title} | Books | Codie Capital Research`,
+    description: book.takeaway,
+    pageType: 'Article',
+    fallback: `
+      <p>${esc(book.author)} / ${esc(book.category)}</p>
+      <h1>${esc(book.title)}</h1>
+      ${section('Main Takeaway', paragraph(book.takeaway))}
+      ${section('Book Reflection', textBlock(book.paragraphs))}
+      ${section('Back Link', '<p><a href="/books">Back to Books</a></p>')}
     `,
   });
 }
