@@ -183,7 +183,6 @@ export default function ArticleDetail({ type }: ArticleDetailProps) {
   const backHref = '/journal';
   const meta = `${article.date} / ${article.category}`;
   const hasDocumentPreview = 'documentPages' in article && Boolean(article.documentPages?.length);
-  const shouldRenderDocumentSheet = !hasDocumentPreview && article.slug === 'week-18-portfolio-summary';
 
   return (
     <main className="page-fade">
@@ -238,62 +237,7 @@ export default function ArticleDetail({ type }: ArticleDetailProps) {
             </section>
           ) : null}
 
-          {shouldRenderDocumentSheet ? (
-            <section id="document-preview" className="mb-10 border border-line bg-ivory p-3 shadow-editorial">
-              <div className="flex flex-col gap-3 border-b border-line bg-paper p-4 md:flex-row md:items-center md:justify-between">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Document view</p>
-                  <p className="mt-2 text-sm leading-6 text-slateText">
-                    This review is shown on a white document sheet to match the earlier weekly summaries.
-                  </p>
-                </div>
-                {article.documentUrl ? (
-                  <a
-                    href={article.documentUrl}
-                    className="inline-flex min-h-11 items-center justify-center gap-2 border border-line bg-ivory px-4 text-sm font-semibold text-charcoal transition-colors hover:border-gold hover:bg-paper"
-                  >
-                    Open Document
-                    <ExternalLink className="h-4 w-4" aria-hidden="true" />
-                  </a>
-                ) : null}
-              </div>
-              <div className="bg-[#efe7da] p-3 md:p-6">
-                <div className="mx-auto max-w-[880px] border border-line bg-white px-5 py-8 shadow-editorial md:px-12 md:py-12">
-                  <div className="border-b border-line pb-6">
-                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Portfolio review document</p>
-                    <h2 className="mt-4 font-serif text-3xl font-semibold leading-tight text-charcoal md:text-5xl">
-                      {article.title}
-                    </h2>
-                    <p className="mt-4 text-sm font-semibold uppercase tracking-[0.16em] text-slateText">{meta}</p>
-                  </div>
-                  <div className="mt-8 space-y-7">
-                    {article.body.map((paragraph, index) => {
-                      if (isArticleSectionHeading(paragraph)) {
-                        const section = splitArticleSection(paragraph);
-
-                        return (
-                          <section key={`${section.heading}-${index}`} className="border-t border-line pt-7 first:border-t-0 first:pt-0">
-                            <h3 className="font-serif text-2xl font-semibold leading-tight text-charcoal md:text-3xl">
-                              {section.heading}
-                            </h3>
-                            {renderSectionContent(section.content)}
-                          </section>
-                        );
-                      }
-
-                      return (
-                        <p key={`${paragraph.slice(0, 32)}-${index}`} className="whitespace-pre-line text-base leading-8 text-slateText md:text-lg md:leading-9">
-                          {paragraph}
-                        </p>
-                      );
-                    })}
-                  </div>
-                </div>
-              </div>
-            </section>
-          ) : null}
-
-          {!hasDocumentPreview && !shouldRenderDocumentSheet && article.documentUrl ? (
+          {!hasDocumentPreview && article.documentUrl ? (
             <section className="mb-8 border border-line bg-ivory p-5">
               <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                 <div>
@@ -313,7 +257,7 @@ export default function ArticleDetail({ type }: ArticleDetailProps) {
             </section>
           ) : null}
 
-          {!hasDocumentPreview && !shouldRenderDocumentSheet ? (
+          {!hasDocumentPreview ? (
             <div className="space-y-7 text-lg leading-9 text-slateText">
               {article.body.map((paragraph, index) => {
                 if (isArticleSectionHeading(paragraph)) {

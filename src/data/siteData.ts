@@ -1030,6 +1030,16 @@ export const journalEntries: JournalEntry[] = [
       "Portfolio recovered to £2,008 with no permanent holding changes"
     ],
     "documentUrl": "/documents/weekly-summaries/view/week-18-portfolio-summary/",
+    "documentPdfUrl": "/documents/weekly-summaries/week-18-portfolio-summary.pdf",
+    "documentPages": [
+      "/documents/weekly-summaries/pages/week-18-portfolio-summary/page-01.png",
+      "/documents/weekly-summaries/pages/week-18-portfolio-summary/page-02.png",
+      "/documents/weekly-summaries/pages/week-18-portfolio-summary/page-03.png",
+      "/documents/weekly-summaries/pages/week-18-portfolio-summary/page-04.png",
+      "/documents/weekly-summaries/pages/week-18-portfolio-summary/page-05.png",
+      "/documents/weekly-summaries/pages/week-18-portfolio-summary/page-06.png",
+      "/documents/weekly-summaries/pages/week-18-portfolio-summary/page-07.png"
+    ],
     "body": [
       "I missed Week 17, so this is the first review covering a full two-week period. I have decided that writing these summaries every two weeks is probably better for me. I am still following the portfolio and the wider market day to day, but the longer review cycle gives me more distance from short-term price movements and helps me stop chasing the account as closely.",
       "Snapshot\nCurrent account value\n£2,008\nWeek 16 account value\nAbout £1,981\nFortnightly move\nAbout +£27 / Approximately +1.36%\nStarting capital\n£1,999\nPosition versus start\nAbout +£9 / Approximately +0.45%\nInvestments\nAbout £1,967\nCash balance\n£41 / Approximately 2.04% of the account\nDeposits or withdrawals\nNone\nMain permanent portfolio change\nNone. The long-term holdings remained unchanged.\nShort-term trade\nRobinhood opened on 1 July and closed on 2 July.\nRobinhood result\nApproximately £1.09 profit after the two currency-conversion fees, or about 2.7% on the £40.28 deployed.\nIncome received\n18p net Meta dividend and 6p cash interest.\nMain positive developments\nGold recovering from its recent low, Rheinmetall improving from roughly -40% to around -30% in the portfolio, and encouraging reports around Meta Compute.\nMain disappointment\nSpaceX remaining close to break-even after previously showing a much stronger gain.\nMain lesson\nA positive outcome does not excuse an emotional process. Longer review periods should help improve discipline.",
