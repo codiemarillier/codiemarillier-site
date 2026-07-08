@@ -75,8 +75,12 @@ function readLabel(block, labels) {
   return '';
 }
 
+function getSnapshotBlock(entry) {
+  return entry.body.find((block) => block.split('\n')[0]?.trim().toLowerCase() === 'snapshot') ?? entry.body[0] ?? '';
+}
+
 function weeklyCard(entry) {
-  const snapshot = entry.body[0] ?? '';
+  const snapshot = getSnapshotBlock(entry);
   const week = entry.title.match(/Week\s+\d+/i)?.[0] ?? entry.title;
   const accountValue =
     readLabel(snapshot, ['Account value at review', 'Current account value', 'Account value', 'Estimated account value', 'Total portfolio value', 'Portfolio value']) ||

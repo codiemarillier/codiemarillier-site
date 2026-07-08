@@ -13,8 +13,12 @@ function readLabel(block: string, labels: string[]) {
   return '';
 }
 
+function getSnapshotBlock(entry: JournalEntry) {
+  return entry.body.find((block) => block.split('\n')[0]?.trim().toLowerCase() === 'snapshot') ?? entry.body[0] ?? '';
+}
+
 function getCardFacts(entry: JournalEntry) {
-  const snapshot = entry.body[0] ?? '';
+  const snapshot = getSnapshotBlock(entry);
   const accountValue =
     readLabel(snapshot, ['Account value at review', 'Current account value', 'Account value', 'Estimated account value']) ||
     'Not recorded';
