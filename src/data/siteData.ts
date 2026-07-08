@@ -746,6 +746,32 @@ export const readingDevelopment: ReadingBook[] = [
     takeaway:
       'The modern world is built on physical materials, and understanding them helps me understand the real foundations of businesses, technology, and future investment opportunities.',
   },
+  {
+    slug: 'atomic-habits',
+    title: 'Atomic Habits',
+    author: 'James Clear',
+    category: 'Habits / Discipline / Personal Development',
+    image: '/book-covers/atomic-habits.jpeg',
+    imageAlt: 'Atomic Habits book cover.',
+    paragraphs: [
+      'I started reading Atomic Habits at the beginning of the year because I had started developing a few bad habits at university. They were things that I knew were not healthy for me, especially in the long term. I knew that if I wanted to get to where I wanted to be in life, I needed to stop doing them. The problem was that I did not really know how to stop. I wanted to become more disciplined and consistent, but I did not have any sort of framework to work with.',
+      'I had heard a lot of people say that Atomic Habits was an incredible book, so I decided to read it. To be honest, it definitely lived up to its reputation. It was really easy to understand, genuinely useful, and probably one of the best personal-development books I have read.',
+      'The main thing I took from the book was the idea of becoming 1% better every day. One small improvement does not seem like it is going to change much, but when you continue doing it over a long period, it starts to compound. The same thing can happen with bad habits. One bad decision might not feel particularly serious, but if you continue making that same decision every day, it can slowly become part of your normal routine.',
+      'That was something I began to notice in myself. Some of the habits I had developed were slowly starting to become part of who I was. I was lucky that I noticed it early enough to change them before they became a proper part of my identity.',
+      'Another big lesson for me was focusing more on systems rather than only focusing on goals. It is easy to say that you want to become more disciplined, healthier, more successful, or more consistent. However, saying that does not actually change anything. You need to create a system and an environment that makes it easier for you to do the right things.',
+      'The book made me realise how much my environment was affecting my behaviour. A lot of the bad habits I had created started because of the environments I was putting myself in. Those environments then created routines, and eventually those routines started to feel normal.',
+      'Probably the most useful thing I learned from the entire book was to never miss twice. The idea is that you are never going to be perfect. You are going to make mistakes, break habits, or miss days. However, you should never allow yourself to do it twice in a row.',
+      'For example, if you are trying to stop doing something and you fall back into it one day, you should make sure you do not repeat it again the following day. One mistake does not have to destroy all the progress you have already made.',
+      'I have used this idea a lot with writing. I have always enjoyed writing, and ideally I would like to write something every day. However, I had become really inconsistent with it. Since reading the book, I have tried to follow the rule that missing one day is not good, but it is okay. What I cannot do is miss two days in a row.',
+      'At first, this was quite difficult, but over time it has worked really well for me. Instead of missing one day and then completely falling out of the routine, I make sure I get back into it the following day.',
+      'I have also used the ideas from the book to stop some of the bad habits I had developed. I am obviously not perfect, and there are still things I need to improve, but the book gave me a much better way of thinking about discipline.',
+      'Before reading it, I think I viewed discipline as something you either had or did not have. Now I think it is something you can build through your environment, your routines, and the small decisions you make every day.',
+      'The book also applies to investing. Being a good investor is not just about finding one incredible company or making one great trade. It is about building good habits around researching businesses, controlling your emotions, reviewing your mistakes, and continuing to learn.',
+      'Overall, Atomic Habits taught me that I do not need to completely change my life overnight. I just need to make slightly better decisions, repeat them consistently, and make sure that whenever I make a mistake, I do not allow it to happen twice in a row.',
+    ],
+    takeaway:
+      'Small decisions do not feel important at the time, but when you repeat them every day, they eventually have a massive effect on the person you become and the direction your life goes in.',
+  },
 ];
 
 export const transactionSummary = [
