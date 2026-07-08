@@ -77,7 +77,9 @@ export default function Books() {
           </div>
 
           <div className="mx-auto mt-12 max-w-4xl border border-line bg-ivory p-6 text-center text-base leading-8 text-slateText md:p-8 md:text-lg md:leading-9">
-            Together, these books have shaped the way I think about investing and life. I do not see investing as
+            Together, these books have shaped the way I think about investing and life. The investing books have taught
+            me about value, risk, discipline, contrarian thinking, and protecting capital. The personal books have taught
+            me about purpose, resilience, ambition, perspective, and using money properly. I do not see investing as
             separate from personal development. To become a better investor, I also need to become more patient, more
             disciplined, more thoughtful, and more aware of my own behaviour.
           </div>

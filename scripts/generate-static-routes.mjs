@@ -443,7 +443,7 @@ const routes = [
           </article>`,
         )
         .join('')}
-      ${paragraph('Together, these books have shaped the way I think about investing and life. I do not see investing as separate from personal development.')}
+      ${paragraph('Together, these books have shaped the way I think about investing and life. The investing books have taught me about value, risk, discipline, contrarian thinking, and protecting capital. The personal books have taught me about purpose, resilience, ambition, perspective, and using money properly. I do not see investing as separate from personal development. To become a better investor, I also need to become more patient, more disciplined, more thoughtful, and more aware of my own behaviour.')}
     `,
   },
   {

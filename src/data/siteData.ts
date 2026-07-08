@@ -642,7 +642,7 @@ export const readingDevelopment: ReadingBook[] = [
       'One of the examples that stood out to me was the Patel family and the motel business. By using their own family as receptionists, cleaners, managers, and operators, they were able to keep costs extremely low. That meant they could offer better prices than neighbouring motels while still making the business work. That idea really interested me because it showed how using your own network, family, contacts, and available resources can create an advantage at the start of a business.',
       'The book did not completely change the way I think, but it taught me valuable lessons about finding overlooked opportunities, keeping costs low, and thinking carefully about downside risk. It also helped me understand how value can exist where other people are not looking properly. For my own investing journey, the biggest lesson is to look for situations where the risk is controlled, the price is sensible, and the potential reward is still attractive.',
     ],
-    takeaway: 'Look for simple opportunities where the downside is controlled and the upside is still meaningful.',
+    takeaway: 'Look for simple, understandable opportunities where the downside is limited and the upside is meaningful.',
   },
   {
     slug: 'the-most-important-thing',
@@ -656,7 +656,7 @@ export const readingDevelopment: ReadingBook[] = [
       'The biggest lesson I took from this book was contrarian thinking. It taught me that some of the best investment decisions can come from questioning the popular view and being willing to think differently from the crowd. If everyone agrees that something is obvious, it may already be priced in. That does not mean always doing the opposite for the sake of it, but it does mean slowing down, thinking independently, and asking whether the market has become too optimistic or too pessimistic.',
       'This book has made me want to become a more conservative and thoughtful investor. It reminded me that avoiding big mistakes is just as important as finding big winners. It also helped me understand that market cycles are emotional, and that investors often become most confident at exactly the wrong time.',
     ],
-    takeaway: 'Risk is not just volatility; it is the chance of being wrong when the consequences matter.',
+    takeaway: 'Do not just follow the crowd. Think independently, understand risk, and be patient when markets become emotional.',
   },
   {
     slug: 'the-intelligent-investor',
@@ -671,7 +671,7 @@ export const readingDevelopment: ReadingBook[] = [
       'The Intelligent Investor also made me think differently about market emotions. The idea of "Mr Market" helped me understand that prices move around every day, but that does not mean the real value of a business changes every day. Sometimes the market is overly excited, and sometimes it is overly fearful. My job is not to react emotionally, but to stay disciplined and make decisions based on reasoning.',
       'This book has played a massive part in how I want to pursue investing for the rest of my life. It made me more serious about writing down my reasoning, reviewing my decisions, and not letting short-term price movements control my behaviour.',
     ],
-    takeaway: 'Price and value are not the same thing.',
+    takeaway: 'Investing should be based on discipline, intrinsic value, patience, and protecting capital.',
   },
   {
     slug: 'the-alchemist',
@@ -685,7 +685,7 @@ export const readingDevelopment: ReadingBook[] = [
       'The book taught me that the lessons you learn along the way can sometimes be more valuable than the final reward. That really connects with my investing journey because I am not only trying to make money. I am trying to build a way of thinking, a process, and a long-term skill that can stay with me for life.',
       'The Alchemist also made me think about ambition and self-belief. It reminded me that if you genuinely care about something, you have to keep moving towards it even when the result is not immediate. That applies to investing, business, and life in general. There will be setbacks, mistakes, and periods where things do not go to plan, but those moments are part of the process.',
     ],
-    takeaway: 'The journey can teach more than the final result.',
+    takeaway: 'The journey, the lessons, and the person you become are just as important as the final result.',
   },
   {
     slug: 'the-art-of-spending-money',
@@ -699,7 +699,7 @@ export const readingDevelopment: ReadingBook[] = [
       'I know what I need to survive each week, and as my income grows, I do not want my spending to rise at the same speed. I want to keep living within my means and use extra money to invest, build assets, and create more income streams. That does not mean never enjoying money, but it does mean being intentional with it.',
       'The book also told interesting stories about how people made and lost money, which helped me think more carefully about financial behaviour. Building wealth is not only about what you earn. It is also about what you keep, how you spend, and whether your decisions are helping your future or just feeding short-term image and lifestyle pressure.',
     ],
-    takeaway: 'Do not let income growth automatically become lifestyle inflation.',
+    takeaway: 'Do not increase your lifestyle just because your income rises. Spend intentionally and use money to build long-term freedom.',
   },
   {
     slug: 'mans-search-for-meaning',
@@ -713,7 +713,7 @@ export const readingDevelopment: ReadingBook[] = [
       'While reading it, my mind was genuinely blown by what people were able to endure. I did not realise human beings were capable of going through such extreme suffering and still finding meaning, purpose, and strength. It made me think very seriously about how lucky we are today, how careful we need to be with our decisions, and how important it is to treat other people properly.',
       'The book also taught me that meaning can help people survive incredibly difficult situations. That lesson applies far beyond history. It applies to personal setbacks, pressure, mistakes, and difficult periods in life. For my investing journey, it gives me perspective. A bad week in the market, a losing trade, or a mistake is not the end of the world. What matters is how I respond, what I learn, and whether I keep moving forward with purpose.',
     ],
-    takeaway: 'Perspective and purpose matter most when things are difficult.',
+    takeaway: 'Human beings are incredibly resilient, and having meaning can help you endure almost anything.',
   },
   {
     slug: 'the-tipping-point',
@@ -727,7 +727,7 @@ export const readingDevelopment: ReadingBook[] = [
       'The book showed me that small changes can have huge effects once they compound for long enough. A product, idea, behaviour, or trend might look small at first, but if the right conditions come together, it can suddenly spread very quickly. That is useful for thinking about companies, especially businesses that rely on networks, platforms, consumer behaviour, or cultural change.',
       'It also made me think about my own habits. Small good decisions repeated over time can compound into something powerful. But the opposite is also true. Small bad decisions can also build up and create bigger problems later. That is why process matters. Whether it is investing, money, discipline, or business, the small things I do consistently are what eventually create the bigger outcome.',
     ],
-    takeaway: 'Small actions, repeated over time, can quietly build into something much larger.',
+    takeaway: 'Small actions, habits, ideas, and trends can compound quietly before reaching a point where they suddenly accelerate.',
   },
   {
     slug: 'material-world',
