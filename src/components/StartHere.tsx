@@ -49,7 +49,7 @@ export default function StartHere() {
         <article className="bg-paper p-6 md:p-8 lg:p-10">
           <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Latest {latestReviewLabel} snapshot</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slateText">Latest {latestReviewLabel} snapshot</p>
               <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight text-charcoal md:text-5xl">
                 Current portfolio record
               </h2>
@@ -58,7 +58,7 @@ export default function StartHere() {
                 a live recommendation to buy or sell anything.
               </p>
               {latestPortfolioReview ? (
-                <Link to={`/journal/${latestPortfolioReview.slug}`} className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-charcoal">
+                <Link to={`/journal/${latestPortfolioReview.slug}`} className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-link">
                   Read {latestReviewLabel} review
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Link>
@@ -71,8 +71,8 @@ export default function StartHere() {
                 ['Current return', portfolioSnapshot.currentReturn],
                 ['Cash balance', portfolioSnapshot.cashBalance],
               ].map(([label, value]) => (
-                <div key={label} className="bg-ivory p-5">
-                  <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">{label}</dt>
+                <div key={label} className="bg-paper p-5">
+                  <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-slateText">{label}</dt>
                   <dd className="mt-2 font-serif text-3xl font-semibold text-charcoal">{value}</dd>
                 </div>
               ))}
@@ -82,7 +82,7 @@ export default function StartHere() {
 
         <article className="bg-paper p-6 md:p-7">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Start here</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slateText">Start here</p>
             <h3 className="mt-3 font-serif text-3xl font-semibold text-charcoal md:text-5xl">Best places to begin</h3>
             <p className="mt-4 text-base leading-8 text-slateText">
               The site is built so normal readers can quickly understand what it is, why it exists, and how the process
@@ -93,8 +93,8 @@ export default function StartHere() {
             {startCards.map((item) => {
               const Icon = item.icon;
               return (
-                <Link key={item.href} to={item.href} className="group border border-line bg-ivory p-5 transition-colors hover:bg-paper">
-                  <span className="flex h-10 w-10 items-center justify-center border border-line bg-paper text-gold">
+                <Link key={item.href} to={item.href} className="group border border-line bg-paper p-5 transition-colors hover:bg-paper">
+                  <span className="flex h-10 w-10 items-center justify-center border border-line bg-paper text-slateText">
                     <Icon className="h-5 w-5" aria-hidden="true" />
                   </span>
                   <h4 className="mt-4 font-serif text-2xl font-semibold leading-tight text-charcoal">{item.title}</h4>
@@ -111,7 +111,7 @@ export default function StartHere() {
 
         <article className="bg-paper p-6 md:p-7">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Building the process</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slateText">Building the process</p>
             <h3 className="mt-3 font-serif text-3xl font-semibold text-charcoal md:text-5xl">
               The record behind the results
             </h3>
@@ -123,8 +123,8 @@ export default function StartHere() {
             {processCards.map((item) => {
               const Icon = item.icon;
               return (
-              <Link key={item.href} to={item.href} className="group border border-line bg-ivory p-5 transition-colors hover:bg-paper">
-                <span className="flex h-10 w-10 items-center justify-center border border-line bg-paper text-gold">
+              <Link key={item.href} to={item.href} className="group border border-line bg-paper p-5 transition-colors hover:bg-paper">
+                <span className="flex h-10 w-10 items-center justify-center border border-line bg-paper text-slateText">
                   <Icon className="h-5 w-5" aria-hidden="true" />
                 </span>
                 <h4 className="mt-4 font-serif text-2xl font-semibold leading-tight text-charcoal">{item.title}</h4>

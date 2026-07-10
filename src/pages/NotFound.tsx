@@ -21,11 +21,11 @@ export default function NotFound() {
             ['AI-readable archive', '/ai/index.html'],
           ].map(([label, href]) =>
             href.endsWith('.html') ? (
-              <a key={href} href={href} className="bg-paper p-6 font-semibold text-charcoal hover:bg-ivory">
+              <a key={href} href={href} className="bg-paper p-6 font-semibold text-link hover:bg-ivory">
                 {label}
               </a>
             ) : (
-              <Link key={href} to={href} className="bg-paper p-6 font-semibold text-charcoal hover:bg-ivory">
+              <Link key={href} to={href} className="bg-paper p-6 font-semibold text-link hover:bg-ivory">
                 {label}
               </Link>
             ),

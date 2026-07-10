@@ -3,6 +3,7 @@ import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import Analytics from './components/Analytics';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
+import ReadingProgress from './components/ReadingProgress';
 import About from './pages/About';
 import ArticleDetail from './pages/ArticleDetail';
 import BookDetail from './pages/BookDetail';
@@ -200,32 +201,38 @@ function ReactReady() {
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-ivory text-charcoal">
+    <div className="min-h-screen bg-ivory text-bodyText">
+      <a href="#main-content" className="fixed left-4 top-4 z-[100] -translate-y-24 rounded-full bg-link px-5 py-3 text-sm font-semibold text-white transition-transform focus:translate-y-0">
+        Skip to content
+      </a>
       <Analytics />
       <ReactReady />
       <PageMeta />
       <ScrollToTop />
+      <ReadingProgress />
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/start" element={<Navigate to="/" replace />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/books" element={<Books />} />
-        <Route path="/books/:slug" element={<BookDetail />} />
-        <Route path="/philosophy" element={<Philosophy />} />
-        <Route path="/process" element={<Process />} />
-        <Route path="/journal" element={<PortfolioJournal />} />
-        <Route path="/journal/:slug" element={<ArticleDetail type="journal" />} />
-        <Route path="/letters" element={<Letters />} />
-        <Route path="/letters/:slug" element={<PlannedEntryDetail />} />
-        <Route path="/decision-archive" element={<DecisionArchive />} />
-        <Route path="/decision-archive/:slug" element={<PlannedEntryDetail />} />
-        <Route path="/mistakes-lessons" element={<MistakesLessons />} />
-        <Route path="/mistakes-lessons/:slug" element={<PlannedEntryDetail />} />
-        <Route path="/portfolio" element={<CurrentPortfolio />} />
-        <Route path="/disclaimer" element={<Disclaimer />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <div id="main-content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/start" element={<Navigate to="/" replace />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/books" element={<Books />} />
+          <Route path="/books/:slug" element={<BookDetail />} />
+          <Route path="/philosophy" element={<Philosophy />} />
+          <Route path="/process" element={<Process />} />
+          <Route path="/journal" element={<PortfolioJournal />} />
+          <Route path="/journal/:slug" element={<ArticleDetail type="journal" />} />
+          <Route path="/letters" element={<Letters />} />
+          <Route path="/letters/:slug" element={<PlannedEntryDetail />} />
+          <Route path="/decision-archive" element={<DecisionArchive />} />
+          <Route path="/decision-archive/:slug" element={<PlannedEntryDetail />} />
+          <Route path="/mistakes-lessons" element={<MistakesLessons />} />
+          <Route path="/mistakes-lessons/:slug" element={<PlannedEntryDetail />} />
+          <Route path="/portfolio" element={<CurrentPortfolio />} />
+          <Route path="/disclaimer" element={<Disclaimer />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
       <Footer />
     </div>
   );

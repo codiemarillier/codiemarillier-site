@@ -12,7 +12,7 @@ export default function Disclaimer() {
 
       <section className="mx-auto max-w-5xl px-5 py-16 md:px-8 md:py-24">
         <div className="border border-line bg-paper p-7 md:p-10">
-          <div className="space-y-5 text-base leading-8 text-slateText">
+          <div className="space-y-5 text-base leading-8 text-bodyText">
             {disclaimerPoints.map((point) => (
               <p key={point}>{point}</p>
             ))}

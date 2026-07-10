@@ -19,7 +19,7 @@ export default function Letters() {
         {featuredLetter ? (
           <article className="border border-line bg-paper p-6 shadow-editorial md:p-8 lg:p-10">
             <div className="flex flex-wrap items-center gap-3">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">{featuredLetter.type}</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slateText">{featuredLetter.type}</p>
               <p className="text-xs font-semibold text-slateText">{featuredLetter.date}</p>
               {featuredLetter.readingTime ? (
                 <p className="text-xs font-semibold text-slateText">{featuredLetter.readingTime}</p>
@@ -31,7 +31,7 @@ export default function Letters() {
             <p className="mt-5 max-w-3xl text-base leading-8 text-slateText">{featuredLetter.summary}</p>
             <div className="mt-6 flex flex-wrap gap-2">
               {featuredLetter.themes.map((theme) => (
-                <span key={theme} className="border border-line bg-ivory px-3 py-1 text-xs font-semibold text-slateText">
+                <span key={theme} className="border border-line bg-paper px-3 py-1 text-xs font-semibold text-slateText">
                   {theme}
                 </span>
               ))}

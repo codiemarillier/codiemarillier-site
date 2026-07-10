@@ -70,7 +70,7 @@ export default function About() {
           {sections.map((section) => (
             <article key={section.title} className="border border-line bg-paper p-6 md:p-8">
               <h2 className="font-serif text-3xl font-semibold text-charcoal">{section.title}</h2>
-              <div className="mt-5 grid gap-5 text-base leading-8 text-slateText md:text-lg md:leading-9">
+              <div className="mt-5 grid gap-5 text-base leading-8 text-bodyText md:text-lg md:leading-9">
                 {section.body.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}
@@ -83,18 +83,18 @@ export default function About() {
       <section className="border-y border-line bg-charcoal text-paper">
         <div className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-20">
           <div className="max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c8aa6e]">Where to start</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Where to start</p>
             <h2 className="mt-4 font-serif text-4xl font-semibold md:text-5xl">Read the live record first.</h2>
-            <p className="mt-4 text-base leading-8 text-[#d8d0c0]">
+            <p className="mt-4 text-base leading-8 text-white/70">
               The most useful pages are the ones with the actual portfolio record, regular reviews, and rules behind the
               decisions.
             </p>
           </div>
           <div className="mt-8 grid gap-px border border-white/10 bg-white/10 md:grid-cols-3">
             {startLinks.map((item) => (
-              <Link key={item.href} to={item.href} className="group bg-charcoal p-6 transition-colors hover:bg-[#24231f]">
+              <Link key={item.href} to={item.href} className="group bg-charcoal p-6 transition-colors hover:bg-link">
                 <h3 className="font-serif text-2xl font-semibold text-paper">{item.title}</h3>
-                <p className="mt-4 text-sm leading-7 text-[#d8d0c0]">{item.text}</p>
+                <p className="mt-4 text-sm leading-7 text-white/70">{item.text}</p>
                 <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-paper">
                   Open page
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />

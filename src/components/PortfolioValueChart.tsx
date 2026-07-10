@@ -60,11 +60,11 @@ export default function PortfolioValueChart({ variant = 'card' }: PortfolioValue
   const headerStatsClassName = isBlend
     ? 'grid gap-4 sm:grid-cols-3 md:text-right'
     : 'grid gap-px border border-line bg-line text-center sm:grid-cols-3';
-  const headerStatClassName = isBlend ? 'min-w-0 border-l-2 border-gold/60 pl-4' : 'min-w-0 bg-ivory px-3 py-3';
+  const headerStatClassName = isBlend ? 'min-w-0 border-l-2 border-gold/60 pl-4' : 'min-w-0 bg-paper px-3 py-3';
   const footerStatsClassName = isBlend
     ? 'grid gap-5 border-t border-line py-5 md:grid-cols-3'
     : 'grid gap-px border-t border-line bg-line md:grid-cols-3';
-  const footerStatClassName = isBlend ? 'border-l border-line pl-4' : 'bg-ivory p-5';
+  const footerStatClassName = isBlend ? 'border-l border-line pl-4' : 'bg-paper p-5';
 
   return (
     <section
@@ -77,7 +77,7 @@ export default function PortfolioValueChart({ variant = 'card' }: PortfolioValue
         }`}
       >
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Portfolio value over time</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slateText">Portfolio value over time</p>
           <h2 className="mt-3 font-serif text-3xl font-semibold leading-tight text-charcoal md:text-4xl">
             Account value since the portfolio started.
           </h2>
@@ -93,7 +93,7 @@ export default function PortfolioValueChart({ variant = 'card' }: PortfolioValue
             ['Low', `${lowestPoint.label} / ${lowestPoint.valueLabel}`],
           ].map(([label, value]) => (
             <div key={label} className={headerStatClassName}>
-              <p className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-gold">{label}</p>
+              <p className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-slateText">{label}</p>
               <p className="mt-1 text-sm font-semibold leading-5 text-charcoal">{value}</p>
             </div>
           ))}
@@ -112,13 +112,6 @@ export default function PortfolioValueChart({ variant = 'card' }: PortfolioValue
             Line chart showing the account moving from the starting baseline around 1999 pounds, down to a low around
             1860 pounds, up to a high of 2055 pounds in Week 15, and to 2008 pounds in Week 18.
           </desc>
-          <defs>
-            <linearGradient id="portfolioValueArea" x1="0" x2="0" y1="0" y2="1">
-              <stop offset="0%" stopColor="#1f3a2f" stopOpacity="0.26" />
-              <stop offset="100%" stopColor="#1f3a2f" stopOpacity="0.02" />
-            </linearGradient>
-          </defs>
-
           {yTicks.map((tick) => (
             <g key={tick}>
               <line
@@ -126,7 +119,7 @@ export default function PortfolioValueChart({ variant = 'card' }: PortfolioValue
                 x2={chart.width - chart.padding.right}
                 y1={y(tick)}
                 y2={y(tick)}
-                stroke="#d8d0c0"
+                stroke="#DDE3E8"
                 strokeDasharray="4 6"
               />
               <text x={chart.padding.left - 12} y={y(tick) + 4} textAnchor="end" className="fill-slateText text-[13px]">
@@ -140,24 +133,24 @@ export default function PortfolioValueChart({ variant = 'card' }: PortfolioValue
             x2={chart.width - chart.padding.right}
             y1={baselineY}
             y2={baselineY}
-            stroke="#9a7a2f"
+            stroke="#B08D3A"
             strokeWidth="2"
           />
           <text
             x={chart.width - chart.padding.right}
             y={baselineY - 8}
             textAnchor="end"
-            className="fill-[#7f642d] text-[13px] font-semibold"
+            className="fill-gold text-[13px] font-semibold"
           >
             Starting value {portfolioSnapshot.startingCostBasis}
           </text>
 
-          <path d={fillPath} fill="url(#portfolioValueArea)" />
-          <path d={path} fill="none" stroke="#1f3a2f" strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" />
+          <path d={fillPath} fill="#137A5A" fillOpacity="0.07" />
+          <path d={path} className="chart-draw" fill="none" stroke="#137A5A" strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" />
 
           {portfolioValueHistory.map((point) => (
             <g key={point.label}>
-              <circle cx={x(point.week)} cy={y(point.value)} r="5.5" fill="#fffaf0" stroke="#1f3a2f" strokeWidth="3">
+              <circle cx={x(point.week)} cy={y(point.value)} r="5.5" fill="#FFFFFF" stroke="#137A5A" strokeWidth="3">
                 <title>{`${point.label}: ${point.valueLabel}`}</title>
               </circle>
             </g>
@@ -179,18 +172,18 @@ export default function PortfolioValueChart({ variant = 'card' }: PortfolioValue
 
       <div className={footerStatsClassName}>
         <div className={footerStatClassName}>
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold">Change from start</p>
-          <p className="mt-2 font-serif text-2xl font-semibold text-charcoal">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slateText">Change from start</p>
+          <p className={`mt-2 font-serif text-2xl font-semibold ${latestChange >= 0 ? 'text-positive' : 'text-negative'}`}>
             {latestChange >= 0 ? '+' : ''}
             {formatCurrency(latestChange)}
           </p>
         </div>
         <div className={footerStatClassName}>
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold">Latest plotted value</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slateText">Latest plotted value</p>
           <p className="mt-2 font-serif text-2xl font-semibold text-charcoal">{latestPoint.valueLabel}</p>
         </div>
         <div className={footerStatClassName}>
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold">Source</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slateText">Source</p>
           <p className="mt-2 text-sm font-semibold leading-6 text-charcoal">Published portfolio reviews</p>
         </div>
       </div>

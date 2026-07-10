@@ -47,7 +47,7 @@ export default function CurrentPortfolio() {
           <div className="mt-8 grid gap-5 border-y border-line py-5 md:grid-cols-4">
             {transactionSummary.map((item) => (
               <div key={item.label} className="border-l-2 border-gold/60 pl-4">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">{item.label}</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slateText">{item.label}</p>
                 <p className="mt-3 font-serif text-2xl font-semibold text-charcoal">{item.value}</p>
               </div>
             ))}
@@ -67,9 +67,9 @@ export default function CurrentPortfolio() {
               key={role.title}
               className={`border-t border-line pt-6 ${portfolioRoles.length % 2 === 1 && index === portfolioRoles.length - 1 ? 'md:col-span-2' : ''}`}
             >
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">{role.title}</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-bodyText">{role.title}</p>
               <h2 className="mt-4 font-serif text-2xl font-semibold text-charcoal">{role.examples}</h2>
-              <p className="mt-4 text-sm leading-7 text-slateText">{role.text}</p>
+              <p className="mt-4 text-sm leading-7 text-bodyText">{role.text}</p>
             </article>
           ))}
         </div>
@@ -118,7 +118,7 @@ export default function CurrentPortfolio() {
           {sleeves.map((sleeve) => (
             <article key={sleeve.title} className="border-t border-line pt-6">
               <h2 className="font-serif text-3xl font-semibold text-charcoal">{sleeve.title}</h2>
-              <p className="mt-4 text-sm leading-7 text-slateText">{sleeve.text}</p>
+              <p className="mt-4 text-sm leading-7 text-bodyText">{sleeve.text}</p>
             </article>
           ))}
         </div>

@@ -7,7 +7,7 @@ export default function Hero() {
     <section className="relative overflow-hidden border-b border-line bg-paper">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 md:px-8 md:py-20 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
         <div className="page-fade">
-          <p className="mb-5 text-xs font-semibold uppercase tracking-[0.24em] text-gold">
+          <p className="mb-5 text-xs font-semibold uppercase tracking-[0.24em] text-slateText">
             Personal investment journal
           </p>
           <h1 className="max-w-4xl font-serif text-5xl font-semibold leading-none text-charcoal md:text-7xl">
@@ -27,7 +27,7 @@ export default function Hero() {
             </Link>
             <Link
               to="/portfolio"
-              className="inline-flex min-h-12 items-center justify-center border border-line bg-paper px-6 text-sm font-semibold text-charcoal transition-colors hover:border-gold hover:bg-ivory"
+              className="inline-flex min-h-12 items-center justify-center border border-line bg-paper px-6 text-sm font-semibold text-link transition-colors hover:border-link hover:bg-ivory"
             >
               View Portfolio
             </Link>
@@ -38,7 +38,7 @@ export default function Hero() {
         </div>
 
         <div className="relative">
-          <div className="border border-line bg-ivory p-3 shadow-editorial">
+          <div className="border border-line bg-paper p-3 shadow-editorial">
             <img
               src={heroImage}
               alt="Investment desk with a laptop chart, notebook, and printed portfolio report"
@@ -47,18 +47,18 @@ export default function Hero() {
           </div>
           <div className="absolute -bottom-6 left-6 right-6 border border-line bg-paper p-5 shadow-editorial sm:left-10 sm:right-auto sm:w-80">
             <div className="mb-4 flex items-center gap-3">
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-forest text-paper">
+              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-link text-paper">
                 <Library className="h-5 w-5" aria-hidden="true" />
               </span>
               <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-gold">Portfolio record</p>
+                <p className="text-xs uppercase tracking-[0.2em] text-slateText">Portfolio record</p>
                 <p className="font-serif text-2xl font-semibold text-charcoal">Journal / Portfolio / Philosophy</p>
               </div>
             </div>
             <div className="grid grid-cols-3 gap-2 text-center text-xs text-slateText">
-              <span className="border border-line bg-ivory py-2">Reviews</span>
-              <span className="border border-line bg-ivory py-2">Holdings</span>
-              <span className="border border-line bg-ivory py-2">Lessons</span>
+              <span className="border border-line bg-paper py-2">Reviews</span>
+              <span className="border border-line bg-paper py-2">Holdings</span>
+              <span className="border border-line bg-paper py-2">Lessons</span>
             </div>
           </div>
         </div>

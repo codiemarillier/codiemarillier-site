@@ -14,7 +14,7 @@ export default function WeeklySummariesRail() {
           title="Scroll through the portfolio record."
           text="Each portfolio summary shows what changed, what helped, what hurt, and what I wanted to watch next. This is the main accountability record."
         />
-        <Link to="/journal" className="inline-flex items-center gap-2 text-sm font-semibold text-charcoal">
+        <Link to="/journal" className="inline-flex items-center gap-2 text-sm font-semibold text-link">
           View all entries
           <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </Link>
@@ -27,7 +27,7 @@ export default function WeeklySummariesRail() {
             to={`/journal/${entry.slug}`}
             className="group flex min-h-[330px] w-[82vw] max-w-[360px] flex-none snap-start flex-col border border-line bg-paper p-6 transition-colors hover:bg-ivory sm:w-[360px]"
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold">{entry.date}</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slateText">{entry.date}</p>
             <h3 className="mt-5 font-serif text-3xl font-semibold leading-tight text-charcoal">{entry.title}</h3>
             <p className="mt-4 line-clamp-5 flex-1 text-sm leading-7 text-slateText">{entry.excerpt}</p>
             <span className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-charcoal">

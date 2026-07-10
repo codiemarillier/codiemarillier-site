@@ -41,7 +41,7 @@ export default function CurrentHoldingsOverview() {
         if (!groupHoldings.length) return null;
 
         return (
-          <section key={group.title} className="border-y border-line py-5">
+          <section key={group.title} className="border-y border-line bg-paper px-5 py-5 md:px-6">
             <div className="pb-4">
               <h3 className="font-serif text-2xl font-semibold text-charcoal">{group.title}</h3>
             </div>
@@ -50,7 +50,7 @@ export default function CurrentHoldingsOverview() {
                 <article key={holding.ticker} className="border-t border-line py-5">
                   <div className="flex items-start justify-between gap-4">
                     <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold">{holding.ticker}</p>
+                      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slateText">{holding.ticker}</p>
                       <h4 className="mt-3 font-serif text-2xl font-semibold leading-tight text-charcoal">{holding.name}</h4>
                     </div>
                     <span className="border border-line px-2.5 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-slateText">
@@ -59,11 +59,11 @@ export default function CurrentHoldingsOverview() {
                   </div>
                   <dl className="mt-6 grid gap-4">
                     <div>
-                      <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">Role</dt>
+                      <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-slateText">Role</dt>
                       <dd className="mt-1 text-sm leading-6 text-slateText">{holding.role}</dd>
                     </div>
                     <div>
-                      <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">Latest note</dt>
+                      <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-slateText">Latest note</dt>
                       <dd className="mt-1 text-sm leading-6 text-slateText">{holding.transactionNote}</dd>
                     </div>
                   </dl>

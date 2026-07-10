@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import { portfolioChangeLog } from '../data/siteData';
 
 const typeStyles: Record<string, string> = {
-  Buy: 'border-forest/30 bg-forest/10 text-forest',
-  Sell: 'border-gold/40 bg-gold/10 text-charcoal',
-  Trim: 'border-navy/30 bg-navy/10 text-navy',
+  Buy: 'border-link/30 bg-link/10 text-link',
+  Sell: 'border-line bg-ivory text-charcoal',
+  Trim: 'border-link/30 bg-link/10 text-link',
   Update: 'border-line bg-ivory text-slateText',
   Lesson: 'border-charcoal/20 bg-charcoal/10 text-charcoal',
 };
@@ -35,7 +35,7 @@ export default function PortfolioChangeLog() {
           {change.relatedSlug && (
             <Link
               to={`/journal/${change.relatedSlug}`}
-              className="inline-flex items-center gap-2 text-sm font-semibold text-charcoal"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-link"
             >
               Journal context
               <ArrowRight className="h-4 w-4" aria-hidden="true" />

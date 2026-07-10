@@ -28,12 +28,12 @@ export default function Books() {
               behaviour, patience, ambition, and using money properly. Click a book to read the full reflection.
             </p>
             <dl className="grid grid-cols-2 gap-px border border-line bg-line text-center sm:min-w-[300px]">
-              <div className="bg-ivory px-4 py-4">
-                <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">Books</dt>
+              <div className="bg-paper px-4 py-4">
+                <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-slateText">Books</dt>
                 <dd className="mt-1 font-serif text-3xl font-semibold text-charcoal">{readingDevelopment.length}</dd>
               </div>
-              <div className="bg-ivory px-4 py-4">
-                <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">Themes</dt>
+              <div className="bg-paper px-4 py-4">
+                <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-slateText">Themes</dt>
                 <dd className="mt-1 font-serif text-3xl font-semibold text-charcoal">{categoryCount}</dd>
               </div>
             </dl>
@@ -44,7 +44,7 @@ export default function Books() {
               <Link
                 key={book.slug}
                 to={`/books/${book.slug}`}
-                className="group flex min-h-[520px] flex-col border border-line bg-ivory p-4 shadow-editorial transition-colors hover:bg-paper focus:outline-none focus:ring-2 focus:ring-gold"
+                className="group flex min-h-[520px] flex-col border border-line bg-paper p-4 shadow-editorial transition-colors hover:bg-paper focus:outline-none focus:ring-2 focus:ring-link"
               >
                 <div className="aspect-[3/4] overflow-hidden border border-line bg-paper p-2">
                   <img
@@ -76,7 +76,7 @@ export default function Books() {
             ))}
           </div>
 
-          <div className="mx-auto mt-12 max-w-4xl border border-line bg-ivory p-6 text-center text-base leading-8 text-slateText md:p-8 md:text-lg md:leading-9">
+          <div className="mx-auto mt-12 max-w-4xl border border-line bg-paper p-6 text-center text-base leading-8 text-slateText md:p-8 md:text-lg md:leading-9">
             Together, these books have shaped the way I think about investing and life. The investing books have taught
             me about value, risk, discipline, contrarian thinking, and protecting capital. The personal books have taught
             me about purpose, resilience, ambition, perspective, and using money properly. I do not see investing as

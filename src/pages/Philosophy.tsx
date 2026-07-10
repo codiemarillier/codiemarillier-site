@@ -49,7 +49,7 @@ export default function Philosophy() {
         <div className="grid gap-px border border-line bg-line">
           {sections.map((section, index) => (
             <article key={section.title} className="grid gap-6 bg-paper p-7 md:grid-cols-[170px_1fr] md:p-9">
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-gold">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slateText">
                 Principle {String(index + 1).padStart(2, '0')}
               </p>
               <div>
@@ -64,15 +64,15 @@ export default function Philosophy() {
       <section className="border-y border-line bg-paper">
         <div className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24">
           <div className="max-w-3xl">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.24em] text-gold">Investing rules</p>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.24em] text-slateText">Investing rules</p>
             <h2 className="font-serif text-4xl font-semibold leading-tight text-charcoal md:text-5xl">
               Rules that keep the process grounded.
             </h2>
           </div>
           <div className="mt-10 grid gap-px border border-line bg-line md:grid-cols-3">
             {investmentRules.map((rule, index) => (
-              <div key={rule} className="bg-ivory p-5">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">
+              <div key={rule} className="bg-paper p-5">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slateText">
                   {String(index + 1).padStart(2, '0')}
                 </p>
                 <p className="mt-4 text-sm font-semibold leading-7 text-charcoal">{rule}</p>

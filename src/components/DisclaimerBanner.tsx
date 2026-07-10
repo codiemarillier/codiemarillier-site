@@ -7,10 +7,10 @@ type DisclaimerBannerProps = {
 
 export default function DisclaimerBanner({ compact = false }: DisclaimerBannerProps) {
   return (
-    <aside className="border-y border-line bg-[#efe7da]">
+    <aside className="border-y border-line bg-ivory">
       <div className={`mx-auto flex max-w-7xl gap-3 px-5 md:px-8 ${compact ? 'py-3' : 'py-5'}`}>
-        <AlertTriangle className="mt-0.5 h-5 w-5 flex-none text-gold" aria-hidden="true" />
-        <p className="text-sm leading-6 text-slateText">{brand.disclaimer}</p>
+        <AlertTriangle className="mt-0.5 h-4 w-4 flex-none text-gold" aria-hidden="true" />
+        <p className="font-mono text-[10px] leading-5 text-bodyText">{brand.disclaimer}</p>
       </div>
     </aside>
   );

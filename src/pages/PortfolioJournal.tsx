@@ -49,7 +49,7 @@ export default function PortfolioJournal() {
       <section className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24">
         <div className="mb-10 grid gap-px border border-line bg-line lg:grid-cols-[1.15fr_0.85fr]">
           <article className="bg-paper p-6 md:p-8">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Latest review</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slateText">Latest review</p>
             <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight text-charcoal md:text-5xl">
               {latestEntry.title}
             </h2>
@@ -57,7 +57,7 @@ export default function PortfolioJournal() {
             {latestEntry.majorEvents?.length ? (
               <div className="mt-7 grid gap-3 sm:grid-cols-3">
                 {latestEntry.majorEvents.map((event) => (
-                  <div key={event} className="border border-line bg-ivory p-4">
+                  <div key={event} className="border border-line bg-paper p-4">
                     <p className="text-sm font-semibold leading-6 text-charcoal">{event}</p>
                   </div>
                 ))}
@@ -65,25 +65,25 @@ export default function PortfolioJournal() {
             ) : null}
             <Link
               to={`/journal/${latestEntry.slug}`}
-              className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-charcoal"
+              className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-link"
             >
               Read latest review
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           </article>
           <aside className="bg-paper p-6 md:p-8">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Archive snapshot</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slateText">Archive snapshot</p>
             <dl className="mt-6 grid gap-px border border-line bg-line">
-              <div className="bg-ivory p-5">
-                <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">Entries</dt>
+              <div className="bg-paper p-5">
+                <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-slateText">Entries</dt>
                 <dd className="mt-2 font-serif text-4xl font-semibold text-charcoal">{journalEntries.length}</dd>
               </div>
-              <div className="bg-ivory p-5">
-                <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">Portfolio reviews</dt>
+              <div className="bg-paper p-5">
+                <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-slateText">Portfolio reviews</dt>
                 <dd className="mt-2 font-serif text-4xl font-semibold text-charcoal">{reviewCount}</dd>
               </div>
-              <div className="bg-ivory p-5">
-                <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">Latest date</dt>
+              <div className="bg-paper p-5">
+                <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-slateText">Latest date</dt>
                 <dd className="mt-2 font-serif text-3xl font-semibold text-charcoal">{latestEntry.date}</dd>
               </div>
             </dl>
@@ -94,19 +94,19 @@ export default function PortfolioJournal() {
           <div className="grid gap-4 lg:grid-cols-[1fr_auto] lg:items-center">
             <label className="relative block">
               <span className="sr-only">Search portfolio journal</span>
-              <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-gold" aria-hidden="true" />
+              <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slateText" aria-hidden="true" />
               <input
                 type="search"
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
                 placeholder="Search portfolio journal"
-                className="min-h-12 w-full border border-line bg-ivory pl-11 pr-4 text-sm font-medium text-charcoal outline-none transition focus:ring-2 focus:ring-gold"
+                className="min-h-12 w-full border border-line bg-paper pl-11 pr-4 text-sm font-medium text-charcoal outline-none transition focus:ring-2 focus:ring-link"
               />
             </label>
             <button
               type="button"
               onClick={clearFilters}
-              className="inline-flex min-h-12 items-center justify-center gap-2 border border-line bg-ivory px-4 text-sm font-semibold text-charcoal transition-colors hover:bg-paper focus:outline-none focus:ring-2 focus:ring-gold"
+              className="inline-flex min-h-12 items-center justify-center gap-2 border border-line bg-paper px-4 text-sm font-semibold text-charcoal transition-colors hover:bg-paper focus:outline-none focus:ring-2 focus:ring-link"
             >
               <X className="h-4 w-4" aria-hidden="true" />
               Clear
@@ -127,13 +127,13 @@ export default function PortfolioJournal() {
                   type="button"
                   aria-pressed={active}
                   onClick={() => setActiveFilter(filter)}
-                  className={`border px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] transition-colors focus:outline-none focus:ring-2 focus:ring-gold ${
+                  className={`border px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] transition-colors focus:outline-none focus:ring-2 focus:ring-link ${
                     active
                       ? 'border-charcoal bg-charcoal text-paper'
-                      : 'border-line bg-ivory text-slateText hover:bg-paper hover:text-charcoal'
+                      : 'border-line bg-paper text-slateText hover:bg-ivory hover:text-charcoal'
                   }`}
                 >
-                  {filter} <span className={active ? 'text-paper/75' : 'text-gold'}>{count}</span>
+                  {filter} <span className={active ? 'text-paper/75' : 'text-slateText'}>{count}</span>
                 </button>
               );
             })}
@@ -141,7 +141,7 @@ export default function PortfolioJournal() {
 
           {allTags.length > 0 && (
             <div className="mt-5 border-t border-line pt-5">
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-gold">Filter by theme</p>
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-slateText">Filter by theme</p>
               <div className="flex flex-wrap gap-2">
                 {['All Themes', ...allTags].map((tag) => {
                   const active = activeTag === tag;
@@ -152,10 +152,10 @@ export default function PortfolioJournal() {
                       type="button"
                       aria-pressed={active}
                       onClick={() => setActiveTag(tag)}
-                      className={`border px-3 py-2 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-gold ${
+                      className={`border px-3 py-2 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-link ${
                         active
                           ? 'border-charcoal bg-charcoal text-paper'
-                          : 'border-line bg-ivory text-slateText hover:bg-paper hover:text-charcoal'
+                          : 'border-line bg-paper text-slateText hover:bg-ivory hover:text-charcoal'
                       }`}
                     >
                       {tag}

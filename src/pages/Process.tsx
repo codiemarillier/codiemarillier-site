@@ -53,7 +53,7 @@ export default function Process() {
         <div className="mt-10 grid gap-px border border-line bg-line md:grid-cols-2">
           {processRules.map((rule, index) => (
             <article key={rule.title} className="bg-paper p-7 md:p-8">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slateText">
                 Rule {String(index + 1).padStart(2, '0')}
               </p>
               <h2 className="mt-4 font-serif text-3xl font-semibold leading-tight text-charcoal">{rule.title}</h2>
@@ -65,7 +65,7 @@ export default function Process() {
 
       <section className="border-y border-line bg-paper">
         <div className="mx-auto max-w-5xl px-5 py-16 text-center md:px-8 md:py-24">
-          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-gold">Review process</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slateText">Review process</p>
           <h2 className="mt-5 font-serif text-4xl font-semibold leading-tight text-charcoal md:text-5xl">
             The record matters because memory is vague.
           </h2>
@@ -93,7 +93,7 @@ export default function Process() {
               <h2 className="font-serif text-3xl font-semibold text-charcoal">{title as string}</h2>
               <ul className="mt-6 grid gap-3">
                 {(items as string[]).map((item) => (
-                  <li key={item} className="border border-line bg-ivory px-4 py-3 text-sm font-semibold text-charcoal">
+                  <li key={item} className="border border-line bg-paper px-4 py-3 text-sm font-semibold text-charcoal">
                     {item}
                   </li>
                 ))}

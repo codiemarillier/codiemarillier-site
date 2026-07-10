@@ -14,8 +14,8 @@ export default function PortfolioSnapshot() {
       <div className="grid divide-y divide-line md:grid-cols-5 md:divide-x md:divide-y-0">
         {stats.map(([label, value]) => (
           <div key={label} className="p-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">{label}</p>
-            <p className="mt-3 font-serif text-2xl font-semibold leading-tight text-charcoal md:text-3xl">{value}</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slateText">{label}</p>
+            <p className={`mt-3 font-serif text-2xl font-semibold leading-tight md:text-3xl ${label === 'Current return' || label === 'Weekly move' ? 'text-positive' : 'text-charcoal'}`}>{value}</p>
           </div>
         ))}
       </div>

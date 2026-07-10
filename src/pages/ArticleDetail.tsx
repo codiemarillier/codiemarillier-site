@@ -84,7 +84,7 @@ function renderTextBlock(text: string, key: string) {
   if (!trimmed) return null;
 
   return (
-    <p key={key} className="mt-4 whitespace-pre-line text-base leading-8 text-slateText md:text-lg md:leading-9">
+    <p key={key} className="mt-4 whitespace-pre-line text-base leading-8 text-bodyText md:text-lg md:leading-9">
       {trimmed}
     </p>
   );
@@ -96,7 +96,7 @@ function renderPipeTable(lines: string[], key: string) {
   const rows = rowLines.map(parsePipeRow).filter((row) => row.length >= 3);
 
   return (
-    <div key={key} className="mt-5 overflow-x-auto border border-line bg-ivory">
+    <div key={key} className="mt-5 overflow-x-auto border border-line bg-paper">
       <table className="min-w-[680px] w-full border-collapse text-left text-sm leading-6">
         <thead className="bg-charcoal text-paper">
           <tr>
@@ -190,21 +190,21 @@ export default function ArticleDetail({ type }: ArticleDetailProps) {
       <section className="mx-auto grid max-w-7xl gap-10 px-5 py-16 md:px-8 md:py-24 lg:grid-cols-[minmax(0,1fr)_340px] lg:items-start">
         <article className="min-w-0 border-y border-line bg-paper px-5 py-8 md:px-8 md:py-10">
           <div className="mb-9 flex flex-wrap items-center gap-3">
-            <span className="inline-flex items-center gap-2 border border-line bg-ivory px-3 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-gold">
+            <span className="inline-flex items-center gap-2 border border-line bg-paper px-3 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-slateText">
               <FileText className="h-4 w-4" aria-hidden="true" />
               {meta}
             </span>
-            <span className="inline-flex items-center gap-2 border border-line bg-ivory px-3 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-slateText">
-              <BookOpen className="h-4 w-4 text-gold" aria-hidden="true" />
+            <span className="inline-flex items-center gap-2 border border-line bg-paper px-3 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-slateText">
+              <BookOpen className="h-4 w-4 text-slateText" aria-hidden="true" />
               {context.label}
             </span>
           </div>
 
           {hasDocumentPreview ? (
-            <section id="document-preview" className="mb-10 border border-line bg-ivory p-3 shadow-editorial">
+            <section id="document-preview" className="mb-10 border border-line bg-paper p-3 shadow-editorial">
               <div className="flex flex-col gap-3 border-b border-line bg-paper p-4 md:flex-row md:items-center md:justify-between">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Original document preview</p>
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slateText">Original document preview</p>
                   <p className="mt-2 text-sm leading-6 text-slateText">
                     This review is shown as rendered pages from the original document, so it works even if the browser PDF viewer fails.
                   </p>
@@ -212,14 +212,14 @@ export default function ArticleDetail({ type }: ArticleDetailProps) {
                 <div className="flex flex-col gap-2 sm:flex-row">
                   <a
                     href={article.documentUrl}
-                    className="inline-flex min-h-11 items-center justify-center gap-2 border border-line bg-ivory px-4 text-sm font-semibold text-charcoal transition-colors hover:border-gold hover:bg-paper"
+                    className="inline-flex min-h-11 items-center justify-center gap-2 border border-line bg-paper px-4 text-sm font-semibold text-link transition-colors hover:border-link hover:bg-paper"
                   >
                     Open Document
                     <ExternalLink className="h-4 w-4" aria-hidden="true" />
                   </a>
                 </div>
               </div>
-              <div className="grid gap-6 bg-[#efe7da] p-3 md:p-6">
+              <div className="grid gap-6 bg-ivory p-3 md:p-6">
                 {article.documentPages?.map((page, index) => (
                   <figure key={page} className="m-0">
                     <img
@@ -228,7 +228,7 @@ export default function ArticleDetail({ type }: ArticleDetailProps) {
                       className="w-full border border-line bg-white shadow-editorial"
                       loading={index === 0 ? 'eager' : 'lazy'}
                     />
-                    <figcaption className="mt-2 text-xs font-semibold uppercase tracking-[0.18em] text-gold">
+                    <figcaption className="mt-2 text-xs font-semibold uppercase tracking-[0.18em] text-bodyText">
                       Page {index + 1}
                     </figcaption>
                   </figure>
@@ -238,17 +238,17 @@ export default function ArticleDetail({ type }: ArticleDetailProps) {
           ) : null}
 
           {!hasDocumentPreview && article.documentUrl ? (
-            <section className="mb-8 border border-line bg-ivory p-5">
+            <section className="mb-8 border border-line bg-paper p-5">
               <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Source document</p>
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slateText">Source document</p>
                   <p className="mt-2 text-sm leading-6 text-slateText">
                     The readable article is shown below. The original Week 18 preview is kept as a source document.
                   </p>
                 </div>
                 <a
                   href={article.documentUrl}
-                  className="inline-flex min-h-11 items-center justify-center gap-2 border border-line bg-paper px-4 text-sm font-semibold text-charcoal transition-colors hover:border-gold hover:bg-ivory"
+                  className="inline-flex min-h-11 items-center justify-center gap-2 border border-line bg-paper px-4 text-sm font-semibold text-link transition-colors hover:border-link hover:bg-ivory"
                 >
                   Open Document
                   <ExternalLink className="h-4 w-4" aria-hidden="true" />
@@ -258,7 +258,7 @@ export default function ArticleDetail({ type }: ArticleDetailProps) {
           ) : null}
 
           {!hasDocumentPreview ? (
-            <div className="space-y-7 text-lg leading-9 text-slateText">
+            <div className="space-y-7 text-lg leading-9 text-bodyText">
               {article.body.map((paragraph, index) => {
                 if (isArticleSectionHeading(paragraph)) {
                   const section = splitArticleSection(paragraph);
@@ -281,8 +281,8 @@ export default function ArticleDetail({ type }: ArticleDetailProps) {
           ) : null}
 
           <aside className="mt-10 border-l-2 border-gold bg-ivory px-5 py-5">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Important boundary</p>
-            <p className="mt-3 text-sm leading-7 text-slateText">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-bodyText">Important boundary</p>
+            <p className="mt-3 text-sm leading-7 text-bodyText">
               This is part of my personal investment research and portfolio journal. It is not investment advice, it is
               not a recommendation, and it should not be used as a reason to copy any trade.
             </p>
@@ -292,9 +292,9 @@ export default function ArticleDetail({ type }: ArticleDetailProps) {
             {previousArticle ? (
               <Link
                 to={`${backHref}/${previousArticle.slug}`}
-                className="group border border-line bg-ivory p-5 transition-colors hover:bg-paper"
+                className="group border border-line bg-paper p-5 transition-colors hover:bg-paper"
               >
-                <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-gold">
+                <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-slateText">
                   <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" aria-hidden="true" />
                   Previous
                 </span>
@@ -303,7 +303,7 @@ export default function ArticleDetail({ type }: ArticleDetailProps) {
                 </span>
               </Link>
             ) : (
-              <div className="border border-line bg-ivory p-5 text-sm leading-7 text-slateText">
+              <div className="border border-line bg-paper p-5 text-sm leading-7 text-slateText">
                 This is the latest journal entry.
               </div>
             )}
@@ -311,9 +311,9 @@ export default function ArticleDetail({ type }: ArticleDetailProps) {
             {nextArticle ? (
               <Link
                 to={`${backHref}/${nextArticle.slug}`}
-                className="group border border-line bg-ivory p-5 transition-colors hover:bg-paper md:text-right"
+                className="group border border-line bg-paper p-5 transition-colors hover:bg-paper md:text-right"
               >
-                <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-gold">
+                <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-slateText">
                   Next
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
                 </span>
@@ -322,13 +322,13 @@ export default function ArticleDetail({ type }: ArticleDetailProps) {
                 </span>
               </Link>
             ) : (
-              <div className="border border-line bg-ivory p-5 text-sm leading-7 text-slateText md:text-right">
+              <div className="border border-line bg-paper p-5 text-sm leading-7 text-slateText md:text-right">
                 This is the earliest journal entry in the current record.
               </div>
             )}
           </nav>
 
-          <Link to={backHref} className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-charcoal">
+          <Link to={backHref} className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-link">
             <ArrowLeft className="h-4 w-4" aria-hidden="true" />
             Back to journal
           </Link>
@@ -336,26 +336,26 @@ export default function ArticleDetail({ type }: ArticleDetailProps) {
 
         <aside className="grid gap-5 lg:sticky lg:top-24">
           <section className="border border-line bg-paper p-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Why this page exists</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slateText">Why this page exists</p>
             <p className="mt-4 text-sm leading-7 text-slateText">{context.purpose}</p>
           </section>
 
           <section className="border border-line bg-paper p-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Review prompts</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slateText">Review prompts</p>
             <ul className="mt-5 grid gap-3">
               {context.prompts.map((prompt) => (
-                <li key={prompt} className="border border-line bg-ivory px-4 py-3 text-sm font-semibold text-charcoal">
+                <li key={prompt} className="border border-line bg-paper px-4 py-3 text-sm font-semibold text-charcoal">
                   {prompt}
                 </li>
               ))}
             </ul>
           </section>
 
-          <section className="border border-line bg-[#efe7da] p-6">
+          <section className="border border-line bg-paper p-6">
             <div className="flex items-start gap-3">
-              <ShieldCheck className="mt-0.5 h-5 w-5 flex-none text-gold" aria-hidden="true" />
+              <ShieldCheck className="mt-0.5 h-5 w-5 flex-none text-slateText" aria-hidden="true" />
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Not advice</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slateText">Not advice</p>
                 <p className="mt-3 text-sm leading-7 text-slateText">{brand.disclaimer}</p>
               </div>
             </div>

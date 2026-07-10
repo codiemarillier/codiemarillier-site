@@ -8,25 +8,25 @@ export default function HoldingsTable() {
           <article key={holding.name} className="border border-line bg-paper p-5">
             <div className="flex items-start justify-between gap-4">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold">{holding.ticker}</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slateText">{holding.ticker}</p>
                 <h3 className="mt-2 font-serif text-3xl font-semibold leading-tight text-charcoal">{holding.name}</h3>
               </div>
-              <span className="border border-line bg-ivory px-3 py-1 text-xs font-semibold text-slateText">
+              <span className="border border-line bg-paper px-3 py-1 text-xs font-semibold text-slateText">
                 {holding.status}
               </span>
             </div>
 
             <dl className="mt-5 grid gap-4 text-sm leading-7">
               <div>
-                <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">Sleeve</dt>
+                <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-slateText">Sleeve</dt>
                 <dd className="mt-1 text-charcoal">{holding.sleeve}</dd>
               </div>
               <div>
-                <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">Role</dt>
+                <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-slateText">Role</dt>
                 <dd className="mt-1 text-slateText">{holding.role}</dd>
               </div>
               <div className="border-t border-line pt-4">
-                <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">Current view</dt>
+                <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-slateText">Current view</dt>
                 <dd className="mt-1 text-slateText">{holding.transactionNote}</dd>
               </div>
             </dl>

@@ -61,14 +61,14 @@ export default function JournalTimeline({ entries }: { entries: JournalEntry[] }
             <div className="grid gap-5 md:grid-cols-[180px_1fr_auto] md:items-start">
               <div>
                 <p className="text-sm font-semibold text-charcoal">{entry.date}</p>
-                <p className="mt-2 text-xs uppercase tracking-[0.2em] text-gold">{entry.category}</p>
+                <p className="mt-2 text-xs uppercase tracking-[0.2em] text-slateText">{entry.category}</p>
               </div>
               <div>
                 <h2 className="font-serif text-3xl font-semibold text-charcoal">{entry.title}</h2>
               </div>
               <Link
                 to={`/journal/${entry.slug}`}
-                className="inline-flex items-center gap-2 text-sm font-semibold text-charcoal"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-link"
               >
                 Read more
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
@@ -81,8 +81,8 @@ export default function JournalTimeline({ entries }: { entries: JournalEntry[] }
                 ['Main trade', facts.mainTrade],
                 ['Main lesson', facts.mainLesson],
               ].map(([label, value]) => (
-                <div key={label} className="bg-ivory p-4">
-                  <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">{label}</dt>
+                <div key={label} className="bg-paper p-4">
+                  <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-slateText">{label}</dt>
                   <dd className="mt-2 text-sm leading-6 text-slateText">{value}</dd>
                 </div>
               ))}
