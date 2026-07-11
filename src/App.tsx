@@ -229,6 +229,7 @@ export default function App() {
           <Route path="/mistakes-lessons" element={<MistakesLessons />} />
           <Route path="/mistakes-lessons/:slug" element={<PlannedEntryDetail />} />
           <Route path="/portfolio" element={<CurrentPortfolio />} />
+          <Route path="/current-portfolio" element={<Navigate to="/portfolio" replace />} />
           <Route path="/disclaimer" element={<Disclaimer />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

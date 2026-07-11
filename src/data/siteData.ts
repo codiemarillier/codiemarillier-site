@@ -461,17 +461,17 @@ export const latestPortfolioReview = {
 };
 
 export const portfolioSnapshot = {
-  accountValue: '£2,008',
+  accountValue: '£2,015',
   startingCostBasis: '£1,999',
-  currentReturn: 'About +0.45%',
-  cashBalance: '£41',
-  weeklyMove: 'About +£27 since Week 16',
-  investments: 'About £1,967',
-  status: 'Week 18 source-of-truth update, 7 July 2026',
+  currentReturn: '+0.78%',
+  cashBalance: '£0',
+  weeklyMove: '+£4.15 in the week to 10 July',
+  investments: 'About £2,015',
+  status: 'Transaction-ledger valuation through 10 July 2026',
   googlePosition: 'Small Alphabet position remains in the portfolio after earlier profit-taking',
   microsoftTrade: 'Closed profitably on 1 June 2026 with roughly £13.94 realised result',
   mainFocus: 'Stay patient, rebuild cash where sensible, and only act when both the opportunity and process are strong',
-  updateNote: 'Latest Week 18 portfolio review is the current source-of-truth update. Account value is £2,008, cash is about £41, and the account is about £9 above the original £1,999 starting capital.',
+  updateNote: 'Transaction-ledger valuation through 10 July 2026. Estimated account value is £2,014.50, cash is £0 after the 8 July Microsoft purchase, and the account is £15.50 above the original £1,999 starting capital.',
 };
 
 export const portfolioValueHistory: PortfolioValuePoint[] = [

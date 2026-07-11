@@ -1,192 +1,44 @@
-import { portfolioSnapshot, portfolioValueHistory } from '../data/siteData';
+import { useState } from 'react';
+import { portfolioPerformance } from '../data/portfolioPerformance.generated';
 
-const chart = {
-  width: 760,
-  height: 320,
-  padding: {
-    top: 34,
-    right: 34,
-    bottom: 54,
-    left: 68,
-  },
-};
+const chart={width:760,height:330,padding:{top:28,right:28,bottom:52,left:68}};
+const money=new Intl.NumberFormat('en-GB',{style:'currency',currency:'GBP',maximumFractionDigits:0});
+const pct=(n:number)=>`${n>=0?'+':''}${n.toFixed(2)}%`;
+type Props={variant?:'card'|'blend'};
 
-const startingValue = 1999;
-const currencyFormatter = new Intl.NumberFormat('en-GB', {
-  style: 'currency',
-  currency: 'GBP',
-  maximumFractionDigits: 0,
-});
-
-function formatCurrency(value: number) {
-  return currencyFormatter.format(value);
-}
-
-function getRange(values: number[]) {
-  const rawMin = Math.min(...values, startingValue);
-  const rawMax = Math.max(...values, startingValue);
-  const min = Math.floor((rawMin - 25) / 25) * 25;
-  const max = Math.ceil((rawMax + 25) / 25) * 25;
-
-  return { min, max };
-}
-
-type PortfolioValueChartProps = {
-  variant?: 'card' | 'blend';
-};
-
-export default function PortfolioValueChart({ variant = 'card' }: PortfolioValueChartProps) {
-  const isBlend = variant === 'blend';
-  const values = portfolioValueHistory.map((point) => point.value);
-  const { min, max } = getRange(values);
-  const minWeek = Math.min(...portfolioValueHistory.map((point) => point.week));
-  const maxWeek = Math.max(...portfolioValueHistory.map((point) => point.week));
-  const innerWidth = chart.width - chart.padding.left - chart.padding.right;
-  const innerHeight = chart.height - chart.padding.top - chart.padding.bottom;
-
-  const x = (week: number) => chart.padding.left + ((week - minWeek) / (maxWeek - minWeek)) * innerWidth;
-  const y = (value: number) => chart.padding.top + ((max - value) / (max - min)) * innerHeight;
-  const path = portfolioValueHistory
-    .map((point, index) => `${index === 0 ? 'M' : 'L'} ${x(point.week).toFixed(2)} ${y(point.value).toFixed(2)}`)
-    .join(' ');
-  const fillPath = `${path} L ${x(maxWeek).toFixed(2)} ${y(min).toFixed(2)} L ${x(minWeek).toFixed(2)} ${y(min).toFixed(2)} Z`;
-  const baselineY = y(startingValue);
-  const latestPoint = portfolioValueHistory[portfolioValueHistory.length - 1];
-  const highestPoint = portfolioValueHistory.reduce((best, point) => (point.value > best.value ? point : best), portfolioValueHistory[0]);
-  const lowestPoint = portfolioValueHistory.reduce((low, point) => (point.value < low.value ? point : low), portfolioValueHistory[0]);
-  const latestChange = latestPoint.value - startingValue;
-  const yTicks = [min, Math.round((min + max) / 2), max];
-  const xTicks = portfolioValueHistory.filter((point) => [1, 4, 8, 12, 16, 18].includes(point.week));
-  const headerStatsClassName = isBlend
-    ? 'grid gap-4 sm:grid-cols-3 md:text-right'
-    : 'grid gap-px border border-line bg-line text-center sm:grid-cols-3';
-  const headerStatClassName = isBlend ? 'min-w-0 border-l-2 border-gold/60 pl-4' : 'min-w-0 bg-paper px-3 py-3';
-  const footerStatsClassName = isBlend
-    ? 'grid gap-5 border-t border-line py-5 md:grid-cols-3'
-    : 'grid gap-px border-t border-line bg-line md:grid-cols-3';
-  const footerStatClassName = isBlend ? 'border-l border-line pl-4' : 'bg-paper p-5';
-
-  return (
-    <section
-      className={isBlend ? 'border-y border-line' : 'border border-line bg-paper shadow-editorial'}
-      data-chart="portfolio-value-history"
-    >
-      <div
-        className={`grid gap-6 border-b border-line md:grid-cols-[1fr_auto] md:items-end ${
-          isBlend ? 'py-6' : 'p-6 md:p-8'
-        }`}
-      >
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slateText">Portfolio value over time</p>
-          <h2 className="mt-3 font-serif text-3xl font-semibold leading-tight text-charcoal md:text-4xl">
-            Account value since the portfolio started.
-          </h2>
-          <p className="mt-4 max-w-3xl text-sm leading-7 text-slateText">
-            Manual account values from the published portfolio reviews. Approximate periods are plotted using the
-            rounded value shown in the journal.
-          </p>
-        </div>
-        <div className={headerStatsClassName}>
-          {[
-            ['Latest', latestPoint.valueLabel],
-            ['High', `${highestPoint.label} / ${highestPoint.valueLabel}`],
-            ['Low', `${lowestPoint.label} / ${lowestPoint.valueLabel}`],
-          ].map(([label, value]) => (
-            <div key={label} className={headerStatClassName}>
-              <p className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-slateText">{label}</p>
-              <p className="mt-1 text-sm font-semibold leading-5 text-charcoal">{value}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className={isBlend ? 'py-4 md:py-6' : 'p-4 md:p-6'}>
-        <svg
-          className="h-auto w-full"
-          viewBox={`0 0 ${chart.width} ${chart.height}`}
-          role="img"
-          aria-labelledby="portfolio-value-chart-title portfolio-value-chart-description"
-        >
-          <title id="portfolio-value-chart-title">Portfolio value chart from Week 1 to Week 18</title>
-          <desc id="portfolio-value-chart-description">
-            Line chart showing the account moving from the starting baseline around 1999 pounds, down to a low around
-            1860 pounds, up to a high of 2055 pounds in Week 15, and to 2008 pounds in Week 18.
-          </desc>
-          {yTicks.map((tick) => (
-            <g key={tick}>
-              <line
-                x1={chart.padding.left}
-                x2={chart.width - chart.padding.right}
-                y1={y(tick)}
-                y2={y(tick)}
-                stroke="#DDE3E8"
-                strokeDasharray="4 6"
-              />
-              <text x={chart.padding.left - 12} y={y(tick) + 4} textAnchor="end" className="fill-slateText text-[13px]">
-                {formatCurrency(tick)}
-              </text>
-            </g>
-          ))}
-
-          <line
-            x1={chart.padding.left}
-            x2={chart.width - chart.padding.right}
-            y1={baselineY}
-            y2={baselineY}
-            stroke="#B08D3A"
-            strokeWidth="2"
-          />
-          <text
-            x={chart.width - chart.padding.right}
-            y={baselineY - 8}
-            textAnchor="end"
-            className="fill-gold text-[13px] font-semibold"
-          >
-            Starting value {portfolioSnapshot.startingCostBasis}
-          </text>
-
-          <path d={fillPath} fill="#137A5A" fillOpacity="0.07" />
-          <path d={path} className="chart-draw" fill="none" stroke="#137A5A" strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" />
-
-          {portfolioValueHistory.map((point) => (
-            <g key={point.label}>
-              <circle cx={x(point.week)} cy={y(point.value)} r="5.5" fill="#FFFFFF" stroke="#137A5A" strokeWidth="3">
-                <title>{`${point.label}: ${point.valueLabel}`}</title>
-              </circle>
-            </g>
-          ))}
-
-          {xTicks.map((tick) => (
-            <text
-              key={tick.label}
-              x={x(tick.week)}
-              y={chart.height - 18}
-              textAnchor="middle"
-              className="fill-slateText text-[13px] font-semibold"
-            >
-              {tick.label}
-            </text>
-          ))}
-        </svg>
-      </div>
-
-      <div className={footerStatsClassName}>
-        <div className={footerStatClassName}>
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slateText">Change from start</p>
-          <p className={`mt-2 font-serif text-2xl font-semibold ${latestChange >= 0 ? 'text-positive' : 'text-negative'}`}>
-            {latestChange >= 0 ? '+' : ''}
-            {formatCurrency(latestChange)}
-          </p>
-        </div>
-        <div className={footerStatClassName}>
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slateText">Latest plotted value</p>
-          <p className="mt-2 font-serif text-2xl font-semibold text-charcoal">{latestPoint.valueLabel}</p>
-        </div>
-        <div className={footerStatClassName}>
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slateText">Source</p>
-          <p className="mt-2 text-sm font-semibold leading-6 text-charcoal">Published portfolio reviews</p>
-        </div>
-      </div>
-    </section>
-  );
+export default function PortfolioValueChart({variant='card'}:Props){
+ const [frequency,setFrequency]=useState<'weekly'|'daily'>('weekly');
+ const data=portfolioPerformance[frequency]; const s=portfolioPerformance.summary;
+ const all=data.flatMap(p=>[p.portfolio,p.benchmark,s.startingValue]);
+ const min=Math.floor((Math.min(...all)-30)/50)*50,max=Math.ceil((Math.max(...all)+30)/50)*50;
+ const iw=chart.width-chart.padding.left-chart.padding.right,ih=chart.height-chart.padding.top-chart.padding.bottom;
+ const x=(i:number)=>chart.padding.left+i/(data.length-1)*iw,y=(v:number)=>chart.padding.top+(max-v)/(max-min)*ih;
+ const path=(key:'portfolio'|'benchmark')=>data.map((p,i)=>`${i?'L':'M'} ${x(i).toFixed(1)} ${y(p[key]).toFixed(1)}`).join(' ');
+ const ticks=[0,Math.floor((data.length-1)/2),data.length-1]; const latest=data[data.length-1];
+ const date=(d:string)=>new Date(`${d}T12:00:00`).toLocaleDateString('en-GB',{day:'numeric',month:'short'});
+ const shell=variant==='blend'?'border-y border-line':'border border-line bg-paper shadow-editorial';
+ return <section className={shell} data-chart="portfolio-benchmark-history">
+  <div className={`grid gap-6 border-b border-line md:grid-cols-[1fr_auto] md:items-end ${variant==='blend'?'py-6':'p-6 md:p-8'}`}>
+   <div><p className="text-xs font-semibold uppercase tracking-[0.2em] text-slateText">Measured performance</p>
+    <h2 className="mt-3 font-serif text-3xl font-semibold text-charcoal md:text-4xl">Portfolio versus the S&amp;P 500.</h2>
+    <p className="mt-4 max-w-3xl text-sm leading-7 text-slateText">Account values reconstructed from every transaction and historical closing prices. The benchmark is VUAG, a GBP accumulating S&amp;P 500 tracker, normalised to the same £1,999 starting capital.</p></div>
+   <div className="inline-flex self-start border border-line bg-mist p-1" aria-label="Chart frequency">
+    {(['weekly','daily'] as const).map(f=><button key={f} onClick={()=>setFrequency(f)} className={`px-4 py-2 text-xs font-semibold uppercase tracking-wider ${frequency===f?'bg-paper text-navy shadow-sm':'text-slateText'}`}>{f}</button>)}
+   </div>
+  </div>
+  <div className={variant==='blend'?'py-5':'p-4 md:p-6'}>
+   <div className="mb-2 flex flex-wrap gap-5 text-xs font-semibold"><span className="text-positive">— Your portfolio {pct(s.portfolioReturn)}</span><span className="text-link">— S&amp;P 500 proxy {pct(s.benchmarkReturn)}</span></div>
+   <svg className="h-auto w-full" viewBox={`0 0 ${chart.width} ${chart.height}`} role="img" aria-label={`Portfolio ${money.format(latest.portfolio)}, S&P 500 benchmark ${money.format(latest.benchmark)}`}>
+    {[min,(min+max)/2,max].map(t=><g key={t}><line x1={chart.padding.left} x2={chart.width-chart.padding.right} y1={y(t)} y2={y(t)} stroke="#DDE3E8" strokeDasharray="4 6"/><text x={chart.padding.left-10} y={y(t)+4} textAnchor="end" className="fill-slateText text-[12px]">{money.format(t)}</text></g>)}
+    <line x1={chart.padding.left} x2={chart.width-chart.padding.right} y1={y(s.startingValue)} y2={y(s.startingValue)} stroke="#B08D3A" strokeDasharray="3 5"/>
+    <path d={path('benchmark')} fill="none" stroke="#2F5FA7" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d={path('portfolio')} fill="none" stroke="#137A5A" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+    {ticks.map(i=><text key={i} x={x(i)} y={chart.height-16} textAnchor={i===0?'start':i===data.length-1?'end':'middle'} className="fill-slateText text-[12px] font-semibold">{date(data[i].date)}</text>)}
+   </svg>
+  </div>
+  <div className="grid gap-px border-t border-line bg-line sm:grid-cols-4">
+   {[['Latest value',money.format(s.portfolioValue),'text-charcoal'],['Portfolio return',pct(s.portfolioReturn),s.portfolioReturn>=0?'text-positive':'text-negative'],['Relative to S&P',`${s.relativeReturn>=0?'+':''}${s.relativeReturn.toFixed(2)} pp`,s.relativeReturn>=0?'text-positive':'text-negative'],['Maximum drawdown',pct(s.maxDrawdown),'text-negative']].map(([l,v,c])=><div key={l} className="bg-paper p-5"><p className="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-slateText">{l}</p><p className={`mt-2 font-serif text-2xl font-semibold ${c}`}>{v}</p></div>)}
+  </div>
+  <p className="border-t border-line px-5 py-3 text-xs leading-5 text-slateText">Data through 10 July 2026. Values are estimates based on closing prices and FX rates; labels and signed figures accompany colour throughout.</p>
+ </section>;
 }
