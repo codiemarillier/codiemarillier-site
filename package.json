@@ -5,9 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc --noEmit && node scripts/generate-ai-review.mjs public && vite build && node scripts/generate-static-routes.mjs dist",
+    "build": "npm run test && tsc --noEmit && node scripts/generate-ai-review.mjs public && vite build && node scripts/generate-static-routes.mjs dist && node scripts/validate-build.mjs dist",
     "build:ai": "node scripts/generate-ai-review.mjs public",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "python3 -m unittest discover -s tests -p 'test_*.py' && node scripts/validate-content.mjs",
+    "validate": "npm run test && tsc --noEmit"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^5.0.0",

@@ -22,37 +22,51 @@ def ff(series, day):
     keys=[k for k in series if k<=day]
     return series[max(keys)] if keys else None
 
+def replay_transactions(rows):
+    """Replay cash and positions without requiring market-price data."""
+    positions={}; cash=0.; executions={}; events={}
+    for row in sorted(rows,key=lambda r:r["Time"]):
+        events.setdefault(row["Time"][:10],[]).append(row)
+        action=row["Action"]; total=float(row["Total"] or 0); ticker=row["Ticker"]
+        if action=="Deposit": cash+=total
+        elif "buy" in action.lower():
+            shares=float(row["No. of shares"]); cash-=total; positions[ticker]=positions.get(ticker,0)+shares; executions[ticker]=float(row["Price / share"])
+        elif "sell" in action.lower():
+            shares=float(row["No. of shares"]); cash+=total; positions[ticker]=positions.get(ticker,0)-shares
+        elif action.startswith("Dividend") or action=="Interest on cash": cash+=total
+    return positions,cash,executions,events
+
 def main():
     csv_path=Path(sys.argv[1]); out=Path(sys.argv[2] if len(sys.argv)>2 else "src/data/portfolioPerformance.generated.ts")
     with csv_path.open(encoding="utf-8-sig") as f: rows=list(csv.DictReader(f))
     rows.sort(key=lambda r:r["Time"]); start=rows[0]["Time"][:10]; end=datetime.now().date().isoformat()
     prices={t:history(y,start,end) for t,(y,_) in SYMBOLS.items()}
     prices["GBPUSD"]=history("GBPUSD=X",start,end); prices["EURGBP"]=history("EURGBP=X",start,end)
-    positions={}; cash=0.; executions={}; events={}
-    for r in rows: events.setdefault(r["Time"][:10],[]).append(r)
+    positions,cash,executions,events=replay_transactions(rows)
+    running_positions={}; running_cash=0.; running_executions={}
     days=[]; d=datetime.fromisoformat(start).date(); finish=datetime.now().date()
     while d<=finish:
         ds=d.isoformat()
         for r in events.get(ds,[]):
             action=r["Action"]; total=float(r["Total"] or 0); ticker=r["Ticker"]
-            if action=="Deposit": cash+=total
+            if action=="Deposit": running_cash+=total
             elif "buy" in action.lower():
-                shares=float(r["No. of shares"]); cash-=total; positions[ticker]=positions.get(ticker,0)+shares; executions[ticker]=float(r["Price / share"])
+                shares=float(r["No. of shares"]); running_cash-=total; running_positions[ticker]=running_positions.get(ticker,0)+shares; running_executions[ticker]=float(r["Price / share"])
             elif "sell" in action.lower():
-                shares=float(r["No. of shares"]); cash+=total; positions[ticker]=positions.get(ticker,0)-shares
-            elif action.startswith("Dividend") or action=="Interest on cash": cash+=total
+                shares=float(r["No. of shares"]); running_cash+=total; running_positions[ticker]=running_positions.get(ticker,0)-shares
+            elif action.startswith("Dividend") or action=="Interest on cash": running_cash+=total
         if d.weekday()<5:
             invested=0.
-            for ticker,shares in positions.items():
+            for ticker,shares in running_positions.items():
                 if abs(shares)<1e-9: continue
-                price=ff(prices[ticker],ds) or executions[ticker]; currency=SYMBOLS[ticker][1]
+                price=ff(prices[ticker],ds) or running_executions[ticker]; currency=SYMBOLS[ticker][1]
                 if currency=="USD": value=price/ff(prices["GBPUSD"],ds)
                 elif currency=="EUR": value=price*ff(prices["EURGBP"],ds)
                 elif currency=="GBX": value=price/100
                 else: value=price
                 invested+=shares*value
             bench=ff(prices["VUAG"],ds)
-            if bench: days.append({"date":ds,"portfolio":round(cash+invested,2),"benchmarkClose":bench})
+            if bench: days.append({"date":ds,"portfolio":round(running_cash+invested,2),"benchmarkClose":bench})
         d+=timedelta(days=1)
     initial=1999.; base=days[0]["benchmarkClose"]
     for p in days: p["benchmark"]=round(initial*p.pop("benchmarkClose")/base,2)

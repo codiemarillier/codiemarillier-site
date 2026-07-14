@@ -76,11 +76,11 @@ Portfolio value chart data: Week 1 (8 March 2026): Starting baseline: £1,999. S
 The portfolio page records Codie’s own current holdings, Week 18 account value, starting value, cash, latest return, winners, drags, portfolio role notes, and latest action plan.
 Current account value: £2,015. Starting value: £1,999. Current return: +0.78%. Cash balance: £0. Latest review: Week 18 - A longer view and a lesson in discipline.
 
-Open holdings: SGLN 5.72 shares (Portfolio hedge and macro protection); QQQA 5.57 shares (Broad technology-led US equity exposure); VUAG 2.04 shares (Broad US market exposure); RHM 0.087 shares (Defence demand and European security exposure); O 3.28 shares (Real estate income exposure); NEE 2.04 shares (Utility and renewables exposure); META 0.52 shares (Advertising, AI, and platform scale); SYM 3.268 shares (Robotics and warehouse automation); SPCX 1 share (Early exposure to space infrastructure, satellites, and Starlink); PSH 2 shares (Discount-to-NAV exposure to Pershing Square portfolio and Bill Ackman’s capital allocation); ABNB 1.223 shares (Asset-light travel platform exposure); BRK.B 0.3884 shares (Diversified operating businesses and capital discipline); GOOGL 0.28 shares (Search, cloud, AI, and platform scale).
+Open holdings: SGLN 5.72 shares (Portfolio hedge and macro protection); QQQA 5.57 shares (Broad technology-led US equity exposure); VUAG 2.04 shares (Broad US market exposure); RHM 0.087 shares (Defence demand and European security exposure); O 3.28 shares (Real estate income exposure); NEE 2.04 shares (Utility and renewables exposure); META 0.52 shares (Advertising, AI, and platform scale); SYM 3.268 shares (Robotics and warehouse automation); SPCX 1 share (Early exposure to space infrastructure, satellites, and Starlink); PSH 2 shares (Discount-to-NAV exposure to Pershing Square portfolio and Bill Ackman’s capital allocation); ABNB 1.223 shares (Asset-light travel platform exposure); BRK.B 0.3884 shares (Diversified operating businesses and capital discipline); GOOGL 0.28 shares (Search, cloud, AI, and platform scale); MSFT 0.14171835 shares (Quality software and AI infrastructure exposure).
 
 Current winners: Gold has started recovering from its recent low while still being treated as a portfolio hedge. Rheinmetall has improved from roughly -40% to around -30% in the portfolio, although it remains a significant unrealised loss. Meta was helped by encouraging reports around the possible Meta Compute initiative. Robinhood was opened and closed profitably, but the trade is recorded mainly as a process lesson.
 
-Current drags: SpaceX is back close to break-even after previously showing a much stronger gain. Cash remains limited at about £41, or roughly 2% of the account. Rheinmetall is still a major unrealised loss despite improving from its worst point. The semiconductor sell-off keeps ASML on the watchlist, but the €1,550 level is a watch level rather than an automatic buy.
+Current drags: SpaceX is back close to break-even after previously showing a much stronger gain. The 10 July transaction-ledger estimate has no unallocated cash after the 8 July Microsoft purchase. Rheinmetall is still a major unrealised loss despite improving from its worst point. The semiconductor sell-off keeps ASML on the watchlist, but the €1,550 level is a watch level rather than an automatic buy.
 
 Latest action plan: Continue the fortnightly review cycle to reduce short-term noise. Stay patient and rebuild cash where sensible. Avoid emotional live-event trades, even when the outcome is profitable. Watch ASML around €1,550 but only buy if the thesis still looks intact. Hold the unchanged long-term portfolio unless conviction changes.
 
@@ -427,11 +427,11 @@ Status: Closed on 9 June 2026
 Note: Realised result around £40.59; remains a watchlist name
 
 MSFT - Microsoft
-Position: Closed
-Sleeve: Trade reflection
+Position: 0.14171835 shares
+Sleeve: Core quality growth
 Role: Quality software and AI infrastructure exposure
-Status: Closed on 1 June 2026
-Note: Realised result around £13.94; useful process review
+Status: Current holding
+Note: Re-entered with 0.14171835 shares on 8 July 2026 after the earlier position closed on 1 June
 
 IONQ - IonQ
 Position: Closed
@@ -458,7 +458,7 @@ PORTFOLIO DRAGS
 
 SpaceX is back close to break-even after previously showing a much stronger gain.
 
-Cash remains limited at about £41, or roughly 2% of the account.
+The 10 July transaction-ledger estimate has no unallocated cash after the 8 July Microsoft purchase.
 
 Rheinmetall is still a major unrealised loss despite improving from its worst point.
 

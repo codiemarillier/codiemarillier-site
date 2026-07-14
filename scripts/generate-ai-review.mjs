@@ -28,6 +28,7 @@ const {
   portfolioRoles,
   portfolioSnapshot,
   portfolioValueHistory,
+  publicRouteManifest,
   plannedLetters,
   processRules,
   readingDevelopment,
@@ -736,7 +737,8 @@ const allText = [
 await writeFile(`${aiRoot}/all-content.txt`, allText);
 
 const sitemapRoutes = [
-  ...mainPages.map((page) => page.path),
+  ...publicRouteManifest.filter((route) => route.sitemap).map((route) => route.path),
+  '/ai/',
   '/ai/pages.html',
   '/ai/portfolio.html',
   '/ai/site-map-readable.html',
@@ -744,6 +746,7 @@ const sitemapRoutes = [
   '/ai/all-content.txt',
   ...journalEntries.map((entry) => `/journal/${entry.slug}`),
   ...publishedLetters.map((letter) => `/letters/${letter.slug}`),
+  ...readingDevelopment.map((book) => `/books/${book.slug}`),
   ...journalEntries.map((entry) => `/ai/journal/${entry.slug}.html`),
   ...researchNotes.map((note) => `/ai/research/${note.slug}.html`),
 ];

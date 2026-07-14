@@ -5,7 +5,7 @@ import PortfolioChangeLog from '../components/PortfolioChangeLog';
 import PortfolioSnapshot from '../components/PortfolioSnapshot';
 import PortfolioValueChart from '../components/PortfolioValueChart';
 import SectionHeader from '../components/SectionHeader';
-import { latestPortfolioReview, portfolioRoles, transactionSummary } from '../data/siteData';
+import { latestPortfolioReview, portfolioRoles, portfolioSnapshot, transactionSummary } from '../data/siteData';
 
 const sleeves = [
   {
@@ -22,7 +22,7 @@ const sleeves = [
   },
   {
     title: 'Cash and Watchlist',
-    text: 'Cash remains limited after the latest review, so rebuilding flexibility matters. ASML is closed after a realised gain but remains a watchlist name.',
+    text: 'The 10 July ledger estimate has no unallocated cash after the small Microsoft re-entry. ASML is closed after a realised gain but remains a watchlist name.',
   },
 ];
 
@@ -38,7 +38,8 @@ export default function CurrentPortfolio() {
       <section className="border-b border-line bg-paper">
         <div className="mx-auto max-w-7xl px-5 py-12 md:px-8 md:py-16">
           <p className="mb-5 text-sm font-semibold text-charcoal">
-            Last updated: {latestPortfolioReview.label} / {latestPortfolioReview.date}
+            Latest published review: {latestPortfolioReview.label} / {latestPortfolioReview.date}. Current ledger estimate:{' '}
+            {portfolioSnapshot.asOfDate}.
           </p>
           <PortfolioSnapshot />
           <div className="mt-6">
@@ -57,9 +58,9 @@ export default function CurrentPortfolio() {
 
       <section className="mx-auto grid max-w-7xl gap-12 px-5 py-16 md:px-8 md:py-24 lg:grid-cols-[0.8fr_1.2fr]">
         <SectionHeader
-          eyebrow={`${latestPortfolioReview.label} dashboard`}
+          eyebrow="Portfolio dashboard"
           title="Current snapshot first."
-          text={`The latest published portfolio record is ${latestPortfolioReview.label}. This dashboard keeps the account value, cash, holdings, portfolio roles, and latest action plan in one place.`}
+          text={`${latestPortfolioReview.label} is the latest published review. The current snapshot is a separate transaction-ledger estimate dated ${portfolioSnapshot.asOfDate}.`}
         />
         <div className="grid gap-x-10 gap-y-8 md:grid-cols-2">
           {portfolioRoles.map((role, index) => (

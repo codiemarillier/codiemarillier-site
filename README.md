@@ -13,6 +13,12 @@ npm run dev
 
 The Vite dev server will print a local URL, usually `http://localhost:5173`.
 
+The contained Website V2 local release candidate is available at `/v2-preview`. It is excluded from the sitemap and marked noindex; it does not replace the current investment-led homepage.
+
+The preview navigation also includes separate noindex pages at `/v2-preview/about`, `/v2-preview/work`, `/v2-preview/projects`, `/v2-preview/writing`, `/v2-preview/travel` and `/v2-preview/now`.
+
+Project destinations are available at `/v2-preview/capital-research` and `/v2-preview/projects/horsebox-conversion`.
+
 ## Build for production
 
 ```bash
@@ -25,12 +31,32 @@ Preview the production build:
 npm run preview
 ```
 
+Run the content, portfolio-replay and TypeScript validation without producing a build:
+
+```bash
+npm run validate
+```
+
+Run the automated tests and content-integrity checks:
+
+```bash
+npm test
+```
+
+The production build also validates generated routes, internal targets, sitemap/noindex policy and gzip budgets for the application entry, stylesheet and long-form data chunk.
+
 ## Edit site content
 
 Most content is data-driven in:
 
 ```text
 src/data/siteData.ts
+```
+
+Website V2 biography, work, projects, travel, Now and approved contact content is centralised in:
+
+```text
+src/data/v2Content.ts
 ```
 
 Edit this file to update:
@@ -93,7 +119,7 @@ Global styles and Google Font imports are in:
 src/styles/index.css
 ```
 
-The current typography uses Cormorant Garamond for editorial headings and Inter for readable body copy.
+The current typography uses Newsreader for editorial headings, Manrope for body copy, and IBM Plex Mono for technical labels.
 
 ## Hero image
 
@@ -122,7 +148,7 @@ This is the preferred deployment target for `codiemarillier.com`.
    - `codiemarillier.com`
    - `www.codiemarillier.com`
 
-The file `public/_redirects` keeps React Router pages working after refreshes, and `public/_headers` adds basic production security/cache headers.
+The production build generates static HTML for known React Router routes and legacy redirects, while `public/_headers` adds basic production security/cache headers. `public/_redirects` is currently empty and reserved for any future platform-level redirect rules.
 
 ## Deploy to Netlify
 

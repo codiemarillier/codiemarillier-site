@@ -48,12 +48,12 @@ export default function Philosophy() {
       <section className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24">
         <div className="grid gap-px border border-line bg-line">
           {sections.map((section, index) => (
-            <article key={section.title} className="grid gap-6 bg-paper p-7 md:grid-cols-[170px_1fr] md:p-9">
+            <article key={section.title} className="grid min-w-0 gap-6 bg-paper p-7 md:grid-cols-[170px_minmax(0,1fr)] md:p-9">
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slateText">
                 Principle {String(index + 1).padStart(2, '0')}
               </p>
-              <div>
-                <h2 className="font-serif text-4xl font-semibold text-charcoal">{section.title}</h2>
+              <div className="min-w-0">
+                <h2 className="break-words font-serif text-4xl font-semibold text-charcoal">{section.title}</h2>
                 <p className="mt-4 max-w-4xl text-base leading-8 text-slateText">{section.text}</p>
               </div>
             </article>

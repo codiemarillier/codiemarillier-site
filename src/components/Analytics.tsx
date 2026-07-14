@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 
-const defaultCloudflareAnalyticsToken = '9cec7afa81f942b08160035130003070';
-const cloudflareAnalyticsToken = import.meta.env.VITE_CLOUDFLARE_WEB_ANALYTICS_TOKEN || defaultCloudflareAnalyticsToken;
+const cloudflareAnalyticsToken = import.meta.env.VITE_CLOUDFLARE_WEB_ANALYTICS_TOKEN;
 const analyticsEnabledInDev = import.meta.env.VITE_ANALYTICS_ENABLE_DEV === 'true';
 
 export default function Analytics() {

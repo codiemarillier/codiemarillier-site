@@ -1,4 +1,26 @@
 import { myFirstLetterBody } from './myFirstLetter';
+import { siteIdentity } from './siteConfig';
+
+export { publicRouteManifest, routeDefinitionByPath, routeMetaByPath, siteIdentity } from './siteConfig';
+export {
+  v2Identity,
+  v2Interests,
+  v2HorseboxProjectDetails,
+  v2LifeChapters,
+  v2Contact,
+  v2Navigation,
+  v2Now,
+  v2PersonalityNotes,
+  v2Principles,
+  v2Projects,
+  v2SecondaryWork,
+  v2TravelImages,
+  v2TravelStory,
+  v2FeaturedWorkStories,
+  v2WorkStories,
+  v2WritingGateways,
+  v2Voice,
+} from './v2Content';
 
 export type NavLink = {
   label: string;
@@ -107,12 +129,7 @@ export type PortfolioValuePoint = {
   note?: string;
 };
 
-export const brand = {
-  name: 'Codie Capital Research',
-  subtitle: 'An investment journal by Codie Marillier',
-  disclaimer:
-    'This website is a personal investment research and portfolio journal. It is not investment advice. I am not FCA-authorised, I do not manage money for other people, and nothing on this site should be treated as a recommendation to buy, sell, or hold any investment. All trades, holdings, research notes, and opinions shown here relate to my own personal portfolio and my own decision-making process. Do not copy my trades. Always do your own research and seek professional advice where appropriate.',
-};
+export const brand = siteIdentity.investing;
 
 export const navLinks: NavLink[] = [
   { label: 'Home', href: '/' },
@@ -468,8 +485,10 @@ export const portfolioSnapshot = {
   weeklyMove: '+£4.15 in the week to 10 July',
   investments: 'About £2,015',
   status: 'Transaction-ledger valuation through 10 July 2026',
+  asOfDate: '10 July 2026',
+  valuationBasis: 'Transaction-ledger estimate using closing prices and FX rates',
   googlePosition: 'Small Alphabet position remains in the portfolio after earlier profit-taking',
-  microsoftTrade: 'Closed profitably on 1 June 2026 with roughly £13.94 realised result',
+  microsoftTrade: 'Earlier position closed profitably on 1 June; a new 0.14171835-share position was opened on 8 July 2026',
   mainFocus: 'Stay patient, rebuild cash where sensible, and only act when both the opportunity and process are strong',
   updateNote: 'Transaction-ledger valuation through 10 July 2026. Estimated account value is £2,014.50, cash is £0 after the 8 July Microsoft purchase, and the account is £15.50 above the original £1,999 starting capital.',
 };
@@ -616,7 +635,7 @@ export const portfolioCrawlerNotes = {
   ],
   drags: [
     'SpaceX is back close to break-even after previously showing a much stronger gain.',
-    'Cash remains limited at about £41, or roughly 2% of the account.',
+    'The 10 July transaction-ledger estimate has no unallocated cash after the 8 July Microsoft purchase.',
     'Rheinmetall is still a major unrealised loss despite improving from its worst point.',
     'The semiconductor sell-off keeps ASML on the watchlist, but the €1,550 level is a watch level rather than an automatic buy.',
   ],
@@ -775,10 +794,10 @@ export const readingDevelopment: ReadingBook[] = [
 ];
 
 export const transactionSummary = [
-  { label: 'Latest review', value: latestPortfolioReview.label },
-  { label: 'Review date', value: latestPortfolioReview.shortDate },
+  { label: 'Latest published review', value: latestPortfolioReview.label },
+  { label: 'Ledger valuation date', value: portfolioSnapshot.asOfDate },
   { label: 'Cash balance', value: portfolioSnapshot.cashBalance },
-  { label: 'Main new trade', value: latestPortfolioReview.mainNewTrade },
+  { label: 'Latest ledger action', value: 'Small Microsoft re-entry on 8 July 2026' },
 ];
 
 export const holdings: Holding[] = [
@@ -911,11 +930,11 @@ export const holdings: Holding[] = [
   {
     name: 'Microsoft',
     ticker: 'MSFT',
-    positionSize: 'Closed',
-    sleeve: 'Trade reflection',
+    positionSize: '0.14171835 shares',
+    sleeve: 'Core quality growth',
     role: 'Quality software and AI infrastructure exposure',
-    status: 'Closed on 1 June 2026',
-    transactionNote: 'Realised result around £13.94; useful process review',
+    status: 'Current holding',
+    transactionNote: 'Re-entered with 0.14171835 shares on 8 July 2026 after the earlier position closed on 1 June',
   },
   {
     name: 'IonQ',
@@ -929,6 +948,12 @@ export const holdings: Holding[] = [
 ];
 
 export const portfolioChangeLog: PortfolioChange[] = [
+  {
+    date: '8 July 2026',
+    type: 'Buy',
+    title: 'Re-entered Microsoft with a small position',
+    text: 'Bought 0.14171835 Microsoft shares for £41.40. This later transaction is part of the 10 July ledger valuation and occurred after the published Week 18 review.',
+  },
   {
     date: '2 July 2026',
     type: 'Lesson',

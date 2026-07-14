@@ -1,95 +1,43 @@
-import { useEffect } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import Analytics from './components/Analytics';
-import Footer from './components/Footer';
-import Navbar from './components/Navbar';
-import ReadingProgress from './components/ReadingProgress';
-import About from './pages/About';
-import ArticleDetail from './pages/ArticleDetail';
-import BookDetail from './pages/BookDetail';
-import Books from './pages/Books';
-import CurrentPortfolio from './pages/CurrentPortfolio';
-import DecisionArchive from './pages/DecisionArchive';
-import Disclaimer from './pages/Disclaimer';
-import Home from './pages/Home';
-import Letters from './pages/Letters';
-import MistakesLessons from './pages/MistakesLessons';
-import NotFound from './pages/NotFound';
-import Philosophy from './pages/Philosophy';
-import PlannedEntryDetail from './pages/PlannedEntryDetail';
-import PortfolioJournal from './pages/PortfolioJournal';
-import Process from './pages/Process';
-import { brand, journalEntries, plannedLetters, readingDevelopment } from './data/siteData';
+import { routeDefinitionByPath, routeMetaByPath, siteIdentity } from './data/siteConfig';
+
+const Footer = lazy(() => import('./components/Footer'));
+const Navbar = lazy(() => import('./components/Navbar'));
+const ReadingProgress = lazy(() => import('./components/ReadingProgress'));
+const About = lazy(() => import('./pages/About'));
+const ArticleDetail = lazy(() => import('./pages/ArticleDetail'));
+const BookDetail = lazy(() => import('./pages/BookDetail'));
+const Books = lazy(() => import('./pages/Books'));
+const CurrentPortfolio = lazy(() => import('./pages/CurrentPortfolio'));
+const DecisionArchive = lazy(() => import('./pages/DecisionArchive'));
+const Disclaimer = lazy(() => import('./pages/Disclaimer'));
+const Home = lazy(() => import('./pages/Home'));
+const Letters = lazy(() => import('./pages/Letters'));
+const MistakesLessons = lazy(() => import('./pages/MistakesLessons'));
+const NotFound = lazy(() => import('./pages/NotFound'));
+const Philosophy = lazy(() => import('./pages/Philosophy'));
+const PlannedEntryDetail = lazy(() => import('./pages/PlannedEntryDetail'));
+const PortfolioJournal = lazy(() => import('./pages/PortfolioJournal'));
+const Process = lazy(() => import('./pages/Process'));
+const V2Preview = lazy(() => import('./pages/V2Preview'));
+const V2DetailPage = lazy(() => import('./pages/V2DetailPage'));
+const V2CapitalResearch = lazy(() => import('./pages/V2CapitalResearch'));
+const V2HorseboxProject = lazy(() => import('./pages/V2HorseboxProject'));
 
 type RouteMeta = {
   title: string;
   description: string;
 };
 
-const defaultMeta: RouteMeta = {
-  title: 'Codie Capital Research | Investment Journal by Codie Marillier',
-  description:
-    "Codie Marillier's personal investment journal: a public record of portfolio decisions, regular reviews, process, and long-term learning. Not investment advice.",
+type ResolvedRouteMeta = RouteMeta & {
+  knownRoute: boolean;
 };
 
-const siteUrl = 'https://codiemarillier.com';
-
-const staticMeta: Record<string, RouteMeta> = {
-  '/': defaultMeta,
-  '/about': {
-    title: 'About | Codie Capital Research',
-    description:
-      'The story behind Codie Capital Research, a personal investment journal by Codie Marillier documenting his own portfolio, mistakes, reading, and long-term investing development.',
-  },
-  '/books': {
-    title: 'Books I Have Read | Codie Capital Research',
-    description:
-      "A bookshelf of books Codie Marillier has read, with reflections on investing, money, discipline, purpose, risk, and long-term decision-making.",
-  },
-  '/philosophy': {
-    title: 'Investment Philosophy | Codie Capital Research',
-    description:
-      "A private long-term investor's written philosophy around business quality, valuation discipline, risk control, cash patience, and learning from mistakes.",
-  },
-  '/process': {
-    title: 'Investment Process | Codie Capital Research',
-    description:
-      "Codie Marillier's personal investing process: long-term ownership, written reasoning, risk control, cash discipline, and avoiding leverage.",
-  },
-  '/journal': {
-    title: 'Portfolio Journal | Codie Capital Research',
-    description:
-      "Portfolio reviews and trade reflections written for accountability around Codie Marillier's own portfolio. Not investment advice.",
-  },
-  '/letters': {
-    title: 'Letters | Codie Capital Research',
-    description:
-      "Longer-form reflections from Codie Marillier's personal investment journal, covering lessons, discipline, portfolio development, and investing process.",
-  },
-  '/decision-archive': {
-    title: 'Decision Archive | Codie Capital Research',
-    description:
-      'A structured archive of major investment decisions, including reasoning, expectations, risks, outcomes, and lessons learned.',
-  },
-  '/mistakes-lessons': {
-    title: 'Mistakes & Lessons | Codie Capital Research',
-    description:
-      'A personal record of investing mistakes, difficult decisions, and lessons learned from managing a real portfolio over time.',
-  },
-  '/portfolio': {
-    title: 'Current Portfolio | Codie Capital Research',
-    description:
-      "A manual record of Codie Marillier's own portfolio structure, holdings, cash, and lessons. Not a model portfolio and not investment advice.",
-  },
-  '/disclaimer': {
-    title: 'Disclaimer | Codie Capital Research',
-    description: brand.disclaimer,
-  },
-  '/404': {
-    title: 'Page Not Found | Codie Capital Research',
-    description: 'The requested page could not be found on Codie Capital Research.',
-  },
-};
+const siteUrl = siteIdentity.baseUrl;
+const staticMeta: Record<string, RouteMeta> = routeMetaByPath;
+const defaultMeta: RouteMeta = staticMeta['/'];
 
 function upsertMeta(selector: string, attribute: 'name' | 'property', key: string, content: string) {
   let tag = document.head.querySelector<HTMLMetaElement>(selector);
@@ -115,67 +63,83 @@ function upsertCanonical(href: string) {
   tag.setAttribute('href', href);
 }
 
-function getRouteMeta(pathname: string): RouteMeta {
+async function getRouteMeta(pathname: string): Promise<ResolvedRouteMeta> {
   const normalizedPath = pathname !== '/' ? pathname.replace(/\/+$/, '') : pathname;
 
   if (staticMeta[normalizedPath]) {
-    return staticMeta[normalizedPath];
+    return { ...staticMeta[normalizedPath], knownRoute: true };
   }
 
   const journalSlug = normalizedPath.match(/^\/journal\/([^/]+)$/)?.[1];
   if (journalSlug) {
+    const { journalEntries } = await import('./data/siteData');
     const entry = journalEntries.find((item) => item.slug === journalSlug);
     if (entry) {
       return {
         title: `${entry.title} | Portfolio Journal | Codie Capital Research`,
         description: `${entry.excerpt} Personal portfolio journal entry by Codie Marillier. Not investment advice.`,
+        knownRoute: true,
       };
     }
   }
 
   const letterSlug = normalizedPath.match(/^\/letters\/([^/]+)$/)?.[1];
   if (letterSlug) {
+    const { plannedLetters } = await import('./data/siteData');
     const entry = plannedLetters.find((item) => item.slug === letterSlug);
     if (entry) {
       return {
         title: `${entry.title} | Letters | Codie Capital Research`,
         description: entry.summary,
+        knownRoute: true,
       };
     }
   }
 
   const bookSlug = normalizedPath.match(/^\/books\/([^/]+)$/)?.[1];
   if (bookSlug) {
+    const { readingDevelopment } = await import('./data/siteData');
     const book = readingDevelopment.find((item) => item.slug === bookSlug);
     if (book) {
       return {
         title: `${book.title} | Books | Codie Capital Research`,
         description: `${book.takeaway} Book reflection by Codie Marillier.`,
+        knownRoute: true,
       };
     }
   }
 
-  return defaultMeta;
+  return { ...(staticMeta['/404'] ?? defaultMeta), knownRoute: false };
 }
 
 function PageMeta() {
   const location = useLocation();
 
   useEffect(() => {
-    const meta = getRouteMeta(location.pathname);
+    let active = true;
     const normalizedPath = location.pathname !== '/' ? location.pathname.replace(/\/+$/, '') : location.pathname;
     const canonicalUrl = `${siteUrl}${normalizedPath === '/' ? '/' : normalizedPath}`;
+    const staticRoute = routeDefinitionByPath[normalizedPath];
 
-    document.title = meta.title;
-    upsertCanonical(canonicalUrl);
-    upsertMeta('meta[name="description"]', 'name', 'description', meta.description);
-    upsertMeta('meta[property="og:title"]', 'property', 'og:title', meta.title);
-    upsertMeta('meta[property="og:description"]', 'property', 'og:description', meta.description);
-    upsertMeta('meta[property="og:type"]', 'property', 'og:type', 'website');
-    upsertMeta('meta[property="og:url"]', 'property', 'og:url', canonicalUrl);
-    upsertMeta('meta[name="twitter:card"]', 'name', 'twitter:card', 'summary');
-    upsertMeta('meta[name="twitter:title"]', 'name', 'twitter:title', meta.title);
-    upsertMeta('meta[name="twitter:description"]', 'name', 'twitter:description', meta.description);
+    void getRouteMeta(location.pathname).then((meta) => {
+      if (!active) return;
+      const shouldNoIndex = staticRoute ? !staticRoute.indexable : !meta.knownRoute;
+      document.title = meta.title;
+      upsertCanonical(canonicalUrl);
+      upsertMeta('meta[name="description"]', 'name', 'description', meta.description);
+      upsertMeta('meta[property="og:title"]', 'property', 'og:title', meta.title);
+      upsertMeta('meta[property="og:description"]', 'property', 'og:description', meta.description);
+      upsertMeta('meta[property="og:type"]', 'property', 'og:type', 'website');
+      upsertMeta('meta[property="og:url"]', 'property', 'og:url', canonicalUrl);
+      upsertMeta('meta[name="twitter:card"]', 'name', 'twitter:card', 'summary');
+      upsertMeta('meta[name="twitter:title"]', 'name', 'twitter:title', meta.title);
+      upsertMeta('meta[name="twitter:description"]', 'name', 'twitter:description', meta.description);
+      upsertMeta('meta[name="robots"]', 'name', 'robots', shouldNoIndex ? 'noindex, follow' : 'index, follow');
+    });
+
+    return () => {
+      active = false;
+    };
   }, [location.pathname]);
 
   return null;
@@ -199,20 +163,38 @@ function ReactReady() {
   return null;
 }
 
-export default function App() {
+function RouteLoading() {
   return (
-    <div className="min-h-screen bg-ivory text-bodyText">
-      <a href="#main-content" className="fixed left-4 top-4 z-[100] -translate-y-24 rounded-full bg-link px-5 py-3 text-sm font-semibold text-white transition-transform focus:translate-y-0">
-        Skip to content
-      </a>
+    <div className="grid min-h-[50vh] place-items-center" role="status">
+      <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-current opacity-45">Loading page…</span>
+    </div>
+  );
+}
+
+export default function App() {
+  const { pathname } = useLocation();
+  const isV2Preview = pathname === '/v2-preview' || pathname.startsWith('/v2-preview/');
+
+  return (
+    <div className={isV2Preview ? 'min-h-screen bg-[#090b0c]' : 'min-h-screen bg-ivory text-bodyText'}>
+      {!isV2Preview && (
+        <a href="#main-content" className="fixed left-4 top-4 z-[100] -translate-y-24 rounded-full bg-link px-5 py-3 text-sm font-semibold text-white transition-transform focus:translate-y-0">
+          Skip to content
+        </a>
+      )}
       <Analytics />
       <ReactReady />
       <PageMeta />
       <ScrollToTop />
-      <ReadingProgress />
-      <Navbar />
+      {!isV2Preview && (
+        <Suspense fallback={null}>
+          <ReadingProgress />
+          <Navbar />
+        </Suspense>
+      )}
       <div id="main-content">
-        <Routes>
+        <Suspense fallback={<RouteLoading />}>
+          <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/start" element={<Navigate to="/" replace />} />
           <Route path="/about" element={<About />} />
@@ -231,10 +213,20 @@ export default function App() {
           <Route path="/portfolio" element={<CurrentPortfolio />} />
           <Route path="/current-portfolio" element={<Navigate to="/portfolio" replace />} />
           <Route path="/disclaimer" element={<Disclaimer />} />
+          <Route path="/v2-preview" element={<V2Preview />} />
+          <Route path="/v2-preview/about" element={<V2DetailPage page="about" />} />
+          <Route path="/v2-preview/work" element={<V2DetailPage page="work" />} />
+          <Route path="/v2-preview/projects" element={<V2DetailPage page="projects" />} />
+          <Route path="/v2-preview/capital-research" element={<V2CapitalResearch />} />
+          <Route path="/v2-preview/projects/horsebox-conversion" element={<V2HorseboxProject />} />
+          <Route path="/v2-preview/writing" element={<V2DetailPage page="writing" />} />
+          <Route path="/v2-preview/travel" element={<V2DetailPage page="travel" />} />
+          <Route path="/v2-preview/now" element={<V2DetailPage page="now" />} />
           <Route path="*" element={<NotFound />} />
-        </Routes>
+          </Routes>
+        </Suspense>
       </div>
-      <Footer />
+      {!isV2Preview && <Suspense fallback={null}><Footer /></Suspense>}
     </div>
   );
 }

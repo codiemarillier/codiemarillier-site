@@ -21,7 +21,7 @@ export default function PortfolioSnapshot() {
       </div>
       <div className="grid gap-4 border-t border-line p-6 text-sm leading-7 text-slateText md:grid-cols-3">
         <p>
-          <strong className="text-charcoal">Last updated:</strong> {latestPortfolioReview.label} / {latestPortfolioReview.date}
+          <strong className="text-charcoal">Latest published review:</strong> {latestPortfolioReview.label} / {latestPortfolioReview.date}
         </p>
         <p>
           <strong className="text-charcoal">Main new trade:</strong> {latestPortfolioReview.mainNewTrade}
@@ -31,6 +31,7 @@ export default function PortfolioSnapshot() {
         </p>
       </div>
       <p className="border-t border-line px-6 py-4 text-xs leading-6 text-slateText">
+        <strong className="text-charcoal">Ledger valuation as of {portfolioSnapshot.asOfDate}:</strong>{' '}
         {portfolioSnapshot.updateNote}
       </p>
     </section>

@@ -257,7 +257,13 @@ export default function ArticleDetail({ type }: ArticleDetailProps) {
             </section>
           ) : null}
 
-          {!hasDocumentPreview ? (
+          <section className={hasDocumentPreview ? 'border-t border-line pt-10' : ''}>
+            {hasDocumentPreview ? (
+              <div className="mb-8">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slateText">Accessible text version</p>
+                <h2 className="mt-3 font-serif text-3xl font-semibold text-charcoal">Read the full review</h2>
+              </div>
+            ) : null}
             <div className="space-y-7 text-lg leading-9 text-bodyText">
               {article.body.map((paragraph, index) => {
                 if (isArticleSectionHeading(paragraph)) {
@@ -278,7 +284,7 @@ export default function ArticleDetail({ type }: ArticleDetailProps) {
                 );
               })}
             </div>
-          ) : null}
+          </section>
 
           <aside className="mt-10 border-l-2 border-gold bg-ivory px-5 py-5">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-bodyText">Important boundary</p>
