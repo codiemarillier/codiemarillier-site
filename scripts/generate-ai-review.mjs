@@ -274,7 +274,7 @@ const mainPages = [
 const journalRecords = journalEntries.map((entry) => ({
   path: `/journal/${entry.slug}`,
   title: entry.title,
-  pageType: ['Weekly Reviews', 'Fortnightly Reviews'].includes(entry.category) ? 'portfolio-summary' : 'journal-entry',
+  pageType: entry.category === 'Monthly Reviews' ? 'portfolio-summary' : 'journal-entry',
   lastUpdated: slugDate(entry.date),
   topics: [entry.category, ...(entry.tags ?? []), ...(entry.majorEvents ?? [])],
   summary: entry.excerpt,

@@ -45,7 +45,7 @@ const primaryLinks = [
 ];
 
 const secondaryLinks = [
-  { title: 'Portfolio Journal', text: 'The week-by-week record.', href: '/journal', icon: ScrollText },
+  { title: 'Portfolio Journal', text: 'The monthly review record.', href: '/journal', icon: ScrollText },
   { title: 'Letters', text: 'Long-form thinking.', href: '/letters', icon: PenLine },
   { title: 'Investment Process', text: 'The rules behind decisions.', href: '/process', icon: FileText },
   { title: 'Books', text: 'Ideas shaping the process.', href: '/books', icon: BookOpen },

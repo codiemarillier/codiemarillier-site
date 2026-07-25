@@ -24,7 +24,7 @@ function getCardFacts(entry: JournalEntry) {
     'Not recorded';
   const weeklyMove =
     readLabel(snapshot, ['Move since Week 16', 'Move since Week 14', 'Fortnightly move', 'Weekly move', 'Weekly change']) ||
-    (['Weekly Reviews', 'Fortnightly Reviews'].includes(entry.category) ? 'Qualitative review only' : 'Not recorded');
+    (entry.category === 'Monthly Reviews' ? 'See the full review' : 'Not recorded');
   const mainTrade =
     readLabel(snapshot, ['Short-term trade', 'Main realised trade', 'Main trade', 'Main new trade', 'Main new position']) ||
     entry.majorEvents?.[0] ||

@@ -1,7 +1,7 @@
 import { ArrowLeft, ArrowRight, BookOpen, ExternalLink, FileText, ShieldCheck } from 'lucide-react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import PageHeader from '../components/PageHeader';
-import { brand, journalEntries } from '../data/siteData';
+import { brand, journalEntries, legacyJournalRedirects } from '../data/siteData';
 
 type ArticleType = 'journal';
 
@@ -172,7 +172,7 @@ export default function ArticleDetail({ type }: ArticleDetailProps) {
   const articleIndex = collection.findIndex((item) => item.slug === slug);
 
   if (!article) {
-    return <Navigate to="/journal" replace />;
+    return <Navigate to={(slug && legacyJournalRedirects[slug]) || '/journal'} replace />;
   }
 
   const context = articleContext[type];

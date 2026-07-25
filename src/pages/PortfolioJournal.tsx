@@ -6,9 +6,9 @@ import JournalTimeline from '../components/JournalTimeline';
 import PageHeader from '../components/PageHeader';
 import { journalEntries } from '../data/siteData';
 
-const filters = ['All Entries', 'Weekly Reviews', 'Fortnightly Reviews', 'Trade Reflections', 'Market Notes', 'Lessons'];
+const filters = ['All Entries', 'Monthly Reviews', 'Trade Reflections', 'Market Notes', 'Lessons'];
 const latestEntry = journalEntries[0];
-const reviewCount = journalEntries.filter((entry) => ['Weekly Reviews', 'Fortnightly Reviews'].includes(entry.category)).length;
+const reviewCount = journalEntries.filter((entry) => entry.category === 'Monthly Reviews').length;
 const allTags = Array.from(new Set(journalEntries.flatMap((entry) => entry.tags ?? []))).slice(0, 12);
 
 export default function PortfolioJournal() {
@@ -42,7 +42,7 @@ export default function PortfolioJournal() {
       <PageHeader
         eyebrow="Journal"
         title="Portfolio Journal"
-        intro="Weekly and fortnightly portfolio reviews documenting account value, positioning, lessons, mistakes, and market context."
+        intro="Monthly portfolio reviews documenting account value, positioning, lessons, mistakes, and market context."
       />
       <DisclaimerBanner compact />
 

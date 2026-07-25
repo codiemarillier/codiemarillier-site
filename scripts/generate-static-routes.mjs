@@ -21,6 +21,7 @@ const {
   disclaimerPoints,
   holdings,
   journalEntries,
+  legacyJournalRedirects,
   latestPortfolioReview,
   portfolioCrawlerNotes,
   portfolioRoles,
@@ -202,7 +203,7 @@ async function writeRedirectRoute({ path, target, title }) {
 const currentHoldings = holdings.filter((holding) => !/^closed/i.test(holding.positionSize) && !/^closed/i.test(holding.status));
 const publishedLetters = plannedLetters.filter((letter) => letter.body?.length);
 const firstPublishedLetter = publishedLetters[0];
-const portfolioReviews = journalEntries.filter((entry) => ['Weekly Reviews', 'Fortnightly Reviews'].includes(entry.category));
+const portfolioReviews = journalEntries.filter((entry) => entry.category === 'Monthly Reviews');
 const latestReviewLabel = latestPortfolioReview.label;
 
 const homeRoute = {
@@ -537,6 +538,14 @@ await writeRedirectRoute({
   target: '/',
   title: 'Redirecting to Codie Capital Research',
 });
+
+for (const [slug, target] of Object.entries(legacyJournalRedirects)) {
+  await writeRedirectRoute({
+    path: `/journal/${slug}`,
+    target,
+    title: 'Redirecting to the new monthly portfolio review',
+  });
+}
 
 for (const entry of journalEntries) {
   await writeRoute({
