@@ -599,6 +599,24 @@ export const readingDevelopment: ReadingBook[] = [
     takeaway:
       'Small decisions do not feel important at the time, but when you repeat them every day, they eventually have a massive effect on the person you become and the direction your life goes in.',
   },
+  {
+    slug: 'the-world-for-sale',
+    title: 'The World for Sale',
+    author: 'Javier Blas & Jack Farchy',
+    category: 'Commodities / Geopolitics / Supply Chains / Investing',
+    image: '/book-covers/the-world-for-sale.jpg',
+    imageAlt: 'The World for Sale book cover.',
+    paragraphs: [
+      'The World for Sale gave me a completely different perspective on the commodity traders who operate behind much of the global economy. Before reading it, I understood the importance of oil, metals and other raw materials, but I had never really appreciated how much influence the people buying, selling and transporting these commodities can have.',
+      'What interested me most were the stories of the traders themselves. These were people operating across countries, political systems and sometimes extremely unstable environments, often making enormous decisions with very little attention from the wider public. The book showed how companies and individual traders could become deeply involved in major political and economic events simply because governments and entire economies depended on the commodities they controlled.',
+      'The biggest thing I took away from the book, though, was the risk created by global dependence. Modern economies are incredibly interconnected. A country can depend on another country for energy, metals, food or other essential resources, and when politics, war or economic disruption gets involved, that dependence can quickly become a weakness.',
+      'From an investing perspective, this was probably the most valuable lesson for me. Markets are not just driven by company earnings or whether a business is well managed. Supply chains, natural resources, governments, geopolitics and access to essential commodities can all have a huge impact on what eventually happens to companies and economies.',
+      'It has made me think more carefully about what sits behind an investment. Instead of only looking at the company itself, I want to understand what that company depends on, where its resources come from and what could happen if those relationships were disrupted.',
+      'Overall, I really enjoyed the book. It opened up an area of the financial world that I knew relatively little about and made the connection between commodities, politics and investing much clearer to me.',
+    ],
+    takeaway:
+      'Look beyond the company itself: supply chains, natural resources, governments, geopolitics and access to essential commodities can shape what happens to businesses and economies.',
+  },
 ];
 
 export const transactionSummary = [
