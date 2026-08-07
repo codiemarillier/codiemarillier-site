@@ -244,6 +244,8 @@ Material World by Ed Conway. Commodities / Supply Chains / Civilisation / Invest
 
 Atomic Habits by James Clear. Habits / Discipline / Personal Development. Takeaway: Small decisions do not feel important at the time, but when you repeat them every day, they eventually have a massive effect on the person you become and the direction your life goes in.. Full reflection: /books/atomic-habits
 
+The World for Sale by Javier Blas & Jack Farchy. Commodities / Geopolitics / Supply Chains / Investing. Takeaway: Look beyond the company itself: supply chains, natural resources, governments, geopolitics and access to essential commodities can shape what happens to businesses and economies.. Full reflection: /books/the-world-for-sale
+
 /process - Investment Process
 The process page sets out the investing rulebook: protect capital, size positions properly, write reasoning, keep cash discipline, avoid leverage and impulsive trades, and review regularly.
 Protect capital first: Avoiding permanent loss matters more than chasing quick performance. The first job is to stay in the game, protect the account, and make sure every decision can be explained calmly after the fact.
@@ -721,6 +723,22 @@ The book also applies to investing. Being a good investor is not just about find
 Overall, Atomic Habits taught me that I do not need to completely change my life overnight. I just need to make slightly better decisions, repeat them consistently, and make sure that whenever I make a mistake, I do not allow it to happen twice in a row.
 
 Takeaway: Small decisions do not feel important at the time, but when you repeat them every day, they eventually have a massive effect on the person you become and the direction your life goes in.
+
+The World for Sale - Javier Blas & Jack Farchy
+Commodities / Geopolitics / Supply Chains / Investing
+The World for Sale gave me a completely different perspective on the commodity traders who operate behind much of the global economy. Before reading it, I understood the importance of oil, metals and other raw materials, but I had never really appreciated how much influence the people buying, selling and transporting these commodities can have.
+
+What interested me most were the stories of the traders themselves. These were people operating across countries, political systems and sometimes extremely unstable environments, often making enormous decisions with very little attention from the wider public. The book showed how companies and individual traders could become deeply involved in major political and economic events simply because governments and entire economies depended on the commodities they controlled.
+
+The biggest thing I took away from the book, though, was the risk created by global dependence. Modern economies are incredibly interconnected. A country can depend on another country for energy, metals, food or other essential resources, and when politics, war or economic disruption gets involved, that dependence can quickly become a weakness.
+
+From an investing perspective, this was probably the most valuable lesson for me. Markets are not just driven by company earnings or whether a business is well managed. Supply chains, natural resources, governments, geopolitics and access to essential commodities can all have a huge impact on what eventually happens to companies and economies.
+
+It has made me think more carefully about what sits behind an investment. Instead of only looking at the company itself, I want to understand what that company depends on, where its resources come from and what could happen if those relationships were disrupted.
+
+Overall, I really enjoyed the book. It opened up an area of the financial world that I knew relatively little about and made the connection between commodities, politics and investing much clearer to me.
+
+Takeaway: Look beyond the company itself: supply chains, natural resources, governments, geopolitics and access to essential commodities can shape what happens to businesses and economies.
 
 
 

@@ -744,6 +744,7 @@ const sitemapRoutes = [
   '/ai/all-content.txt',
   ...journalEntries.map((entry) => `/journal/${entry.slug}`),
   ...publishedLetters.map((letter) => `/letters/${letter.slug}`),
+  ...readingDevelopment.map((book) => `/books/${book.slug}`),
   ...journalEntries.map((entry) => `/ai/journal/${entry.slug}.html`),
   ...researchNotes.map((note) => `/ai/research/${note.slug}.html`),
 ];
