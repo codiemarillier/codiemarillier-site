@@ -199,6 +199,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://codiemarillier.com/books/the-coming-wave</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://codiemarillier.com/books/good-to-great</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://codiemarillier.com/ai/journal/capital-research-review-05.html</loc>
     <lastmod>2026-08-07</lastmod>
     <changefreq>weekly</changefreq>

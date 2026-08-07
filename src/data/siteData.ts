@@ -800,6 +800,41 @@ export const readingDevelopment: ReadingBook[] = [
     takeaway:
       'Look beyond the company itself: supply chains, natural resources, governments, geopolitics and access to essential commodities can shape what happens to businesses and economies.',
   },
+  {
+    slug: 'the-coming-wave',
+    title: 'The Coming Wave',
+    author: 'Mustafa Suleyman',
+    category: 'Artificial Intelligence / Technology / Government / Risk',
+    image: '/book-covers/the-coming-wave.jpg',
+    imageAlt: 'The Coming Wave book cover.',
+    paragraphs: [
+      "The Coming Wave made me think much more seriously about the risks that come with increasingly powerful technology, particularly artificial intelligence. What interested me most wasn't simply how capable AI could become, but whether governments and society are actually prepared for the speed at which these technologies are developing.",
+      'My biggest takeaway from the book was how difficult it is going to be to control technology once it becomes widely available. Throughout history, powerful new technologies have eventually spread, and AI seems likely to be no different. The difference this time is the scale and speed at which it could happen.',
+      'What I found particularly interesting was the position governments are in. Technology is developing incredibly quickly, while governments, regulations and institutions generally move much more slowly. It left me questioning whether the systems we currently rely on are capable of dealing with something as significant as advanced AI.',
+      "The part that stayed with me most was what all of this could ultimately mean for humanity. AI has the potential to create huge improvements in productivity, science, medicine and everyday life, but the same technology can also create risks that are difficult to predict or contain. That doesn't necessarily mean the technology should be stopped, but it does mean we need to take the risks seriously rather than assuming we will always be able to control what we create.",
+      "Overall, The Coming Wave made me both more excited and more cautious about AI. I still think the opportunities are enormous, but the book made me realise that technological progress alone isn't enough. One of the biggest challenges of the coming decades may be whether our governments and institutions can adapt quickly enough to manage it.",
+    ],
+    takeaway:
+      'One of the biggest challenges of the coming decades may be whether our governments and institutions can adapt quickly enough to manage increasingly powerful technology.',
+  },
+  {
+    slug: 'good-to-great',
+    title: 'Good to Great',
+    author: 'Jim Collins',
+    category: 'Leadership / Management / Business / Investing',
+    image: '/book-covers/good-to-great.jpg',
+    imageAlt: 'Good to Great book cover.',
+    paragraphs: [
+      'Good to Great made me think differently about what actually creates long-term success in a business. There are obviously lots of factors involved, but the biggest takeaway for me was that ultimately it comes back to people.',
+      "The idea that stayed with me most was Level 5 Leadership. I found it interesting that some of the most successful leaders weren't necessarily the loudest, most charismatic or most publicly recognised. Instead, Collins describes leaders who combine huge ambition for the organisation with a surprising amount of humility. They care more about building something that lasts than about receiving personal credit for it.",
+      'That challenged the stereotypical image I had of what a great CEO or leader should look like. You often hear about the larger-than-life founders and executives who dominate the companies they run, but Good to Great showed me that strong leadership can actually be much quieter. What matters is the standard they set, the people they surround themselves with and the decisions they make over a long period of time.',
+      'The wider lesson for me was that people drive success. Strategy, technology and opportunities are important, but having the right people in the right positions seems to come before almost everything else. A great idea with the wrong people behind it can easily fail, while the right group of people can adapt when circumstances change.',
+      'From an investing perspective, it also made me think more about management when looking at companies. Financial results tell you what a business has already achieved, but understanding the people allocating capital and making long-term decisions can tell you much more about where that business might eventually go.',
+      "Overall, Good to Great reinforced the idea that genuinely great businesses aren't built overnight. They are built through disciplined decisions, strong people and leadership that thinks beyond the next quarter. The biggest lesson I took from it is that if you want something to succeed over the long term, getting the people right is one of the most important places to start.",
+    ],
+    takeaway:
+      'If you want something to succeed over the long term, getting the people right is one of the most important places to start.',
+  },
 ];
 
 export const transactionSummary = [
