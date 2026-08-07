@@ -20,10 +20,10 @@ function getSnapshotBlock(entry: JournalEntry) {
 function getCardFacts(entry: JournalEntry) {
   const snapshot = getSnapshotBlock(entry);
   const accountValue =
-    readLabel(snapshot, ['Account value at review', 'Current account value', 'Account value', 'Estimated account value']) ||
+    readLabel(snapshot, ['Updated account value', 'Account value at review', 'Current account value', 'Account value', 'Estimated account value']) ||
     'Not recorded';
   const weeklyMove =
-    readLabel(snapshot, ['Move since Week 16', 'Move since Week 14', 'Fortnightly move', 'Weekly move', 'Weekly change']) ||
+    readLabel(snapshot, ['Since inception', 'Move since Week 16', 'Move since Week 14', 'Fortnightly move', 'Weekly move', 'Weekly change']) ||
     (entry.category === 'Monthly Reviews' ? 'See the full review' : 'Not recorded');
   const mainTrade =
     readLabel(snapshot, ['Short-term trade', 'Main realised trade', 'Main trade', 'Main new trade', 'Main new position']) ||
@@ -65,6 +65,7 @@ export default function JournalTimeline({ entries }: { entries: JournalEntry[] }
               </div>
               <div>
                 <h2 className="font-serif text-3xl font-semibold text-charcoal">{entry.title}</h2>
+                {entry.subtitle ? <p className="mt-2 text-sm leading-6 text-slateText">{entry.subtitle}</p> : null}
               </div>
               <Link
                 to={`/journal/${entry.slug}`}

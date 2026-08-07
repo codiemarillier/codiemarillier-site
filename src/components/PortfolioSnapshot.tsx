@@ -5,7 +5,7 @@ const stats = [
   ['Starting value', portfolioSnapshot.startingCostBasis],
   ['Current return', portfolioSnapshot.currentReturn],
   ['Cash', portfolioSnapshot.cashBalance],
-  ['Weekly move', portfolioSnapshot.weeklyMove],
+  ['Valuation date', portfolioSnapshot.weeklyMove],
 ];
 
 export default function PortfolioSnapshot() {
@@ -15,7 +15,7 @@ export default function PortfolioSnapshot() {
         {stats.map(([label, value]) => (
           <div key={label} className="p-6">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slateText">{label}</p>
-            <p className={`mt-3 font-serif text-2xl font-semibold leading-tight md:text-3xl ${label === 'Current return' || label === 'Weekly move' ? 'text-positive' : 'text-charcoal'}`}>{value}</p>
+            <p className={`mt-3 font-serif text-2xl font-semibold leading-tight md:text-3xl ${label === 'Current return' ? 'text-positive' : 'text-charcoal'}`}>{value}</p>
           </div>
         ))}
       </div>

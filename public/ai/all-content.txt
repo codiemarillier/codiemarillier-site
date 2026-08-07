@@ -6,15 +6,15 @@ This website is a personal investment research and portfolio journal. It is not 
 
 LATEST PORTFOLIO SNAPSHOT
 
-Latest review: Capital Research Review 04
+Latest review: Trading 212 Portfolio Review
 
-Current account value: £2,015
+Current account value: £2,009.30
 
 Starting value: £1,999
 
-Current return: +0.78%
+Current return: +0.52%
 
-Cash balance: £0
+Cash balance: £0.56
 
 
 
@@ -52,6 +52,8 @@ Week 16 (23 June 2026): Around £1,981. Source: Approximate.
 
 Week 18 (7 July 2026): £2,008. Source: Recorded. Note: Week 17 was skipped because the review cycle moved to every two weeks.
 
+August review (6 August 2026): £2,009.30. Source: Recorded. Note: Monthly review covering 3 July to 3 August 2026, with the valuation updated on 6 August.
+
 
 
 MAIN PAGES
@@ -68,27 +70,29 @@ The recommended first reads are My First Letter, the latest portfolio update, an
 
 Letters includes My First Letter as a published long-form reflection.
 
-Latest source-of-truth review: Capital Research Review 04. Current account value £2,015, starting value £1,999, return +0.78%, cash £0.
+Latest source-of-truth review: Trading 212 Portfolio Review. Current account value £2,009.30, starting value £1,999, return +0.52%, cash £0.56.
 
-Portfolio value chart data: Week 1 (8 March 2026): Starting baseline: £1,999. Source: Baseline. Note: Week 1 was described as close to flat to slightly negative, so the chart uses the starting baseline. Week 3 (March 2026): £1,860.18. Source: Recorded. Week 4 (30 March 2026): Around £1,860. Source: Approximate. Week 5 (05 April 2026): Around £1,931. Source: Approximate. Week 6 (12 April 2026): Around £1,960. Source: Approximate. Week 7 (April 2026): £2,025.84. Source: Recorded. Week 8 (28 April 2026): £2,008.07. Source: Recorded. Week 9 (04 May 2026): Around £2,000. Source: Approximate. Week 10 (11 May 2026): £1,986.69. Source: Recorded. Week 11 (15 May 2026): c. £1,974.37. Source: Recorded. Week 12 (22 May 2026): £1,983.39. Source: Recorded. Week 13 (2 June 2026): Around £2,007. Source: Approximate. Week 14 (9 June 2026): Around £1,979.98. Source: Approximate. Week 15 (16 June 2026): £2,055.86. Source: Recorded. Week 16 (23 June 2026): Around £1,981. Source: Approximate. Week 18 (7 July 2026): £2,008. Source: Recorded. Note: Week 17 was skipped because the review cycle moved to every two weeks.
+Portfolio value chart data: Week 1 (8 March 2026): Starting baseline: £1,999. Source: Baseline. Note: Week 1 was described as close to flat to slightly negative, so the chart uses the starting baseline. Week 3 (March 2026): £1,860.18. Source: Recorded. Week 4 (30 March 2026): Around £1,860. Source: Approximate. Week 5 (05 April 2026): Around £1,931. Source: Approximate. Week 6 (12 April 2026): Around £1,960. Source: Approximate. Week 7 (April 2026): £2,025.84. Source: Recorded. Week 8 (28 April 2026): £2,008.07. Source: Recorded. Week 9 (04 May 2026): Around £2,000. Source: Approximate. Week 10 (11 May 2026): £1,986.69. Source: Recorded. Week 11 (15 May 2026): c. £1,974.37. Source: Recorded. Week 12 (22 May 2026): £1,983.39. Source: Recorded. Week 13 (2 June 2026): Around £2,007. Source: Approximate. Week 14 (9 June 2026): Around £1,979.98. Source: Approximate. Week 15 (16 June 2026): £2,055.86. Source: Recorded. Week 16 (23 June 2026): Around £1,981. Source: Approximate. Week 18 (7 July 2026): £2,008. Source: Recorded. Note: Week 17 was skipped because the review cycle moved to every two weeks. August review (6 August 2026): £2,009.30. Source: Recorded. Note: Monthly review covering 3 July to 3 August 2026, with the valuation updated on 6 August.
 
 /portfolio - Current Portfolio
-The portfolio page records Codie’s own current holdings, Review 04 / Weeks 13–16 account value, starting value, cash, latest return, winners, drags, portfolio role notes, and latest action plan.
-Current account value: £2,015. Starting value: £1,999. Current return: +0.78%. Cash balance: £0. Latest review: Capital Research Review 04.
+The portfolio page records Codie’s own current holdings, August 2026 review account value, starting value, cash, latest return, winners, drags, portfolio role notes, and latest action plan.
+Current account value: £2,009.30. Starting value: £1,999. Current return: +0.52%. Cash balance: £0.56. Latest review: Trading 212 Portfolio Review.
 
-Open holdings: SGLN 5.72 shares (Portfolio hedge and macro protection); QQQA 5.57 shares (Broad technology-led US equity exposure); VUAG 2.04 shares (Broad US market exposure); RHM 0.087 shares (Defence demand and European security exposure); O 3.28 shares (Real estate income exposure); NEE 2.04 shares (Utility and renewables exposure); META 0.52 shares (Advertising, AI, and platform scale); SYM 3.268 shares (Robotics and warehouse automation); SPCX 1 share (Early exposure to space infrastructure, satellites, and Starlink); PSH 2 shares (Discount-to-NAV exposure to Pershing Square portfolio and Bill Ackman’s capital allocation); ABNB 1.223 shares (Asset-light travel platform exposure); BRK.B 0.3884 shares (Diversified operating businesses and capital discipline); GOOGL 0.28 shares (Search, cloud, AI, and platform scale).
+Open holdings: SGLN 5.72 shares (Portfolio hedge and macro protection); QQQA 5.57 shares (Broad technology-led US equity exposure); VUAG 2.04 shares (Broad US market exposure); RHM 0.087 shares (Defence demand and European security exposure); O 3.28 shares (Real estate income exposure); NEE 2.04 shares (Utility and renewables exposure); META 0.52 shares (Advertising, AI, and platform scale); SYM 3.268 shares (Robotics and warehouse automation); SPCX 1 share (Early exposure to space infrastructure, satellites, and Starlink); PSH 2 shares (Discount-to-NAV exposure to Pershing Square portfolio and Bill Ackman’s capital allocation); ABNB 1.223 shares (Asset-light travel platform exposure); BRK.B 0.3884 shares (Diversified operating businesses and capital discipline); GOOGL 0.28 shares (Search, cloud, AI, and platform scale); MSFT 0.14171835 shares (Quality software and AI infrastructure exposure).
 
-Current winners: Gold has started recovering from its recent low while still being treated as a portfolio hedge. Rheinmetall has improved from roughly -40% to around -30% in the portfolio, although it remains a significant unrealised loss. Meta was helped by encouraging reports around the possible Meta Compute initiative. Robinhood was opened and closed profitably, but the trade is recorded mainly as a process lesson.
+Current winners: Microsoft was worth £51.10 in the 6 August snapshot after a £41.40 purchase on 8 July. The portfolio moved £10.30 above its original £1,999 capital in the updated snapshot. Rheinmetall recovered from roughly 40% down to 25.10% down, while remaining under review. The index funds continued to support the account without requiring new trades.
 
-Current drags: SpaceX is back close to break-even after previously showing a much stronger gain. Cash remains limited at about £41, or roughly 2% of the account. Rheinmetall is still a major unrealised loss despite improving from its worst point. The semiconductor sell-off keeps ASML on the watchlist, but the €1,550 level is a watch level rather than an automatic buy.
+Current drags: Gold remained the largest position and the biggest drag at 17.46% of the account and 14.20% down. SpaceX was worth £81.65 and was 31.35% down in the latest authored snapshot. Cash remained very limited at £0.56. The portfolio continued to trail the reported returns of its VUAG and QQQA holdings.
 
-Latest action plan: Continue the fortnightly review cycle to reduce short-term noise. Stay patient and rebuild cash where sensible. Avoid emotional live-event trades, even when the outcome is profitable. Watch ASML around €1,550 but only buy if the thesis still looks intact. Hold the unchanged long-term portfolio unless conviction changes.
+Latest action plan: Do not make impulsive trades during the next monthly review period. Hold Microsoft unless a genuinely better use for the capital appears. Watch Symbotic execution, Airbnb results, Rheinmetall delivery and cash conversion, and the NextEra-Dominion proposal. Rebalance gold towards 15–20% if it reaches around 30% of the account. Judge every holding on its forward-looking thesis rather than its old purchase price.
 
-Portfolio value history: Week 1 (8 March 2026): Starting baseline: £1,999. Source: Baseline. Note: Week 1 was described as close to flat to slightly negative, so the chart uses the starting baseline. Week 3 (March 2026): £1,860.18. Source: Recorded. Week 4 (30 March 2026): Around £1,860. Source: Approximate. Week 5 (05 April 2026): Around £1,931. Source: Approximate. Week 6 (12 April 2026): Around £1,960. Source: Approximate. Week 7 (April 2026): £2,025.84. Source: Recorded. Week 8 (28 April 2026): £2,008.07. Source: Recorded. Week 9 (04 May 2026): Around £2,000. Source: Approximate. Week 10 (11 May 2026): £1,986.69. Source: Recorded. Week 11 (15 May 2026): c. £1,974.37. Source: Recorded. Week 12 (22 May 2026): £1,983.39. Source: Recorded. Week 13 (2 June 2026): Around £2,007. Source: Approximate. Week 14 (9 June 2026): Around £1,979.98. Source: Approximate. Week 15 (16 June 2026): £2,055.86. Source: Recorded. Week 16 (23 June 2026): Around £1,981. Source: Approximate. Week 18 (7 July 2026): £2,008. Source: Recorded. Note: Week 17 was skipped because the review cycle moved to every two weeks.
+Portfolio value history: Week 1 (8 March 2026): Starting baseline: £1,999. Source: Baseline. Note: Week 1 was described as close to flat to slightly negative, so the chart uses the starting baseline. Week 3 (March 2026): £1,860.18. Source: Recorded. Week 4 (30 March 2026): Around £1,860. Source: Approximate. Week 5 (05 April 2026): Around £1,931. Source: Approximate. Week 6 (12 April 2026): Around £1,960. Source: Approximate. Week 7 (April 2026): £2,025.84. Source: Recorded. Week 8 (28 April 2026): £2,008.07. Source: Recorded. Week 9 (04 May 2026): Around £2,000. Source: Approximate. Week 10 (11 May 2026): £1,986.69. Source: Recorded. Week 11 (15 May 2026): c. £1,974.37. Source: Recorded. Week 12 (22 May 2026): £1,983.39. Source: Recorded. Week 13 (2 June 2026): Around £2,007. Source: Approximate. Week 14 (9 June 2026): Around £1,979.98. Source: Approximate. Week 15 (16 June 2026): £2,055.86. Source: Recorded. Week 16 (23 June 2026): Around £1,981. Source: Approximate. Week 18 (7 July 2026): £2,008. Source: Recorded. Note: Week 17 was skipped because the review cycle moved to every two weeks. August review (6 August 2026): £2,009.30. Source: Recorded. Note: Monthly review covering 3 July to 3 August 2026, with the valuation updated on 6 August.
 
 /journal - Portfolio Journal
 The journal page lists portfolio review cards and journal entries with dates, account values where available, main trades, and lessons.
 The journal contains weekly and fortnightly portfolio reviews, trade reflections, market notes, and lessons from Codie’s own portfolio record.
+
+Trading 212 Portfolio Review (6 August 2026): The account ended the review period almost flat and moved just above starting capital in the 6 August snapshot. The fund comparison still shows that a simpler strategy has performed much better so far.
 
 Capital Research Review 04 (23 June 2026): The past four weeks have been the most active period of the portfolio so far. I traded Microsoft, re-entered Alphabet, sold ASML for a strong profit, added to gold, bought SpaceX, increased Symbotic and introduced Pershing Square Holdings.
 
@@ -401,11 +405,11 @@ Status: Closed on 9 June 2026
 Note: Realised result around £40.59; remains a watchlist name
 
 MSFT - Microsoft
-Position: Closed
-Sleeve: Trade reflection
+Position: 0.14171835 shares
+Sleeve: Core quality growth
 Role: Quality software and AI infrastructure exposure
-Status: Closed on 1 June 2026
-Note: Realised result around £13.94; useful process review
+Status: Current holding
+Note: Re-entered for £41.40 on 8 July 2026; worth £51.10 in the 6 August snapshot
 
 IONQ - IonQ
 Position: Closed
@@ -418,39 +422,39 @@ Note: Realised loss around £18.35; useful reminder on volatility and sizing
 
 PORTFOLIO WINNERS
 
-Gold has started recovering from its recent low while still being treated as a portfolio hedge.
+Microsoft was worth £51.10 in the 6 August snapshot after a £41.40 purchase on 8 July.
 
-Rheinmetall has improved from roughly -40% to around -30% in the portfolio, although it remains a significant unrealised loss.
+The portfolio moved £10.30 above its original £1,999 capital in the updated snapshot.
 
-Meta was helped by encouraging reports around the possible Meta Compute initiative.
+Rheinmetall recovered from roughly 40% down to 25.10% down, while remaining under review.
 
-Robinhood was opened and closed profitably, but the trade is recorded mainly as a process lesson.
+The index funds continued to support the account without requiring new trades.
 
 
 
 PORTFOLIO DRAGS
 
-SpaceX is back close to break-even after previously showing a much stronger gain.
+Gold remained the largest position and the biggest drag at 17.46% of the account and 14.20% down.
 
-Cash remains limited at about £41, or roughly 2% of the account.
+SpaceX was worth £81.65 and was 31.35% down in the latest authored snapshot.
 
-Rheinmetall is still a major unrealised loss despite improving from its worst point.
+Cash remained very limited at £0.56.
 
-The semiconductor sell-off keeps ASML on the watchlist, but the €1,550 level is a watch level rather than an automatic buy.
+The portfolio continued to trail the reported returns of its VUAG and QQQA holdings.
 
 
 
 LATEST ACTION PLAN
 
-Continue the fortnightly review cycle to reduce short-term noise.
+Do not make impulsive trades during the next monthly review period.
 
-Stay patient and rebuild cash where sensible.
+Hold Microsoft unless a genuinely better use for the capital appears.
 
-Avoid emotional live-event trades, even when the outcome is profitable.
+Watch Symbotic execution, Airbnb results, Rheinmetall delivery and cash conversion, and the NextEra-Dominion proposal.
 
-Watch ASML around €1,550 but only buy if the thesis still looks intact.
+Rebalance gold towards 15–20% if it reaches around 30% of the account.
 
-Hold the unchanged long-term portfolio unless conviction changes.
+Judge every holding on its forward-looking thesis rather than its old purchase price.
 
 
 
@@ -721,6 +725,98 @@ Takeaway: Small decisions do not feel important at the time, but when you repeat
 
 
 JOURNAL ENTRIES
+
+Trading 212 Portfolio Review
+6 August 2026 / Monthly Reviews
+The account ended the review period almost flat and moved just above starting capital in the 6 August snapshot. The fund comparison still shows that a simpler strategy has performed much better so far.
+Snapshot
+UPDATED ACCOUNT VALUE
+£2,009.30
+CASH
+£0.56
+ORIGINAL CAPITAL
+£1,999.00
+SINCE INCEPTION
++£10.30  |  +0.52%
+LARGEST POSITION
+Gold  |  17.46%
+
+MONTH IN ONE LINE  I made one deliberate purchase, avoided impulsive trading and finished with a clearer set of rules for the portfolio.
+
+A quiet month, then back above starting capital
+When I first completed this review, the account was worth approximately £1,984 and was still just below my original £1,999 starting capital. The updated 6 August snapshot now puts it at £2,009.30: £10.30, or 0.52%, above where I began. I am pleased to be back above starting capital, but I am not treating a half-percent gain as a victory. The more important story is what happened underneath it: Microsoft rose sharply after I bought it, the index funds continued to support the account, Rheinmetall recovered from a much deeper loss, and gold remained the largest drag.
+
+The account was unusually quiet from a trading point of view. My only purchase was £41.40 of Microsoft on 8 July. I received £0.56 from Realty Income and £0.03 of cash interest, with no sales, deposits or withdrawals. The month was shaped by one deliberate purchase and by leaving the rest of the portfolio alone. Five months in, I still believe a 10-15% first-year return is possible, but my minimum definition of success is clearer: protect the original capital and finish ahead of inflation.
+
+Microsoft: good research, rewarded quickly
+The best decision of the month was Microsoft. Among the largest technology companies, I believed it was undervalued and still had room to grow. More importantly, I had spent time looking at Azure and Microsoft's wider cloud business. I expected the latest results to be solid and saw Microsoft as a sensible place for the last of my available cash while retaining meaningful upside.
+
+The results supported the business case. Microsoft reported quarterly revenue of USD 90.0 billion, Microsoft Cloud revenue of USD 59.3 billion, up 27%, and Azure and other cloud-services growth of 43%. The position, bought for roughly £41.40, is now worth £51.10, with Trading 212 showing a gain of £9.76 or 23.61%. That is an excellent result for one month, although it added only around half of one percent to the full portfolio. The earnings supported my view of the business, but one month of share-price performance is not enough to prove my valuation was correct. It would also be outcome bias to assume I should have sold Pershing Square to make the position larger simply because Microsoft rose.
+
+I have considered selling approximately £10 worth of Microsoft, but the position began at only £41.40. A small sale would create too little cash to improve the portfolio meaningfully, while selling the whole position would remove exposure to a business in which my conviction remains strong. I may trim it if a better opportunity appears, but I currently have no business-based reason to sell. The useful lesson is that conviction should influence position sizing before a trade, not become regret after a good result.
+
+Gold: the drag I am still willing to own
+Gold remains the largest position at £350.65, or 17.46% of the account. It is down £58.05, or 14.20%, and remains the biggest drag on the overall result. Its size means progress elsewhere can be hidden by a modest move in gold. That is frustrating, but it has not changed my conviction. If I held the position's current value in cash, I would invest it back into gold as long-term protection against geopolitical instability, inflation, currency debasement and declining confidence in conventional reserves.
+
+There is evidence behind part of that thesis. The People's Bank of China added 33 tonnes in the second quarter of 2026, taking reported holdings to 2,346 tonnes. Central banks collectively bought 289 tonnes, a record for a second quarter, although first-half demand was the lowest since 2022. In the United States, official gold belongs to the Treasury; the Federal Reserve itself owns none. None of this means the price must rise every month. Gold can still provide long-term protection even when it disappoints over a shorter period.
+
+My conviction still needs a limit. If gold reached around 30% of the account, I would rebalance it towards 15-20% and spread the proceeds across other holdings. That would mean selling roughly one-third to one-half of the position. I will judge it as one combined holding rather than separating newer units from older ones. I can remain convinced without allowing gold to dominate the portfolio.
+
+Rheinmetall: patience without pretending
+Rheinmetall was the most useful test of my thinking this month. At one stage the position was roughly 40% down; in the latest snapshot it is worth £89.37 and is down £29.95, or 25.10%. My thesis rests on rising European defence spending, the company's importance to Europe's military supply chain and its ability to turn a huge order backlog into production, revenue and cash. Preliminary second-quarter figures were encouraging: revenue rose nearly 70% to about EUR 3.3 billion, operating profit reached EUR 562 million and the backlog exceeded EUR 80 billion. Cash flow remained the weak point because of deferred advance payments and investment in new production.
+
+The honest complication is that, if I had the holding's current value in cash, Rheinmetall probably would not be my first choice today. I might prefer Alphabet, Apple, the S&P 500 or another high-quality business. The relevant question is not which option gets me back to my old purchase price; it is which offers the better prospective return for the risk. I am holding because the defence-spending and backlog thesis remains intact and I have not found a clearly better opportunity - not because I need the share price to return to break-even.
+
+I would sell if the business repeatedly failed to convert backlog into revenue and free cash flow, if European defence orders declined materially, if production problems prevented delivery, or if margins deteriorated without a credible recovery path. I would also consider a stronger defence asset. Automation and robotics may eventually improve output and margins, but expanding production can weaken cash flow before it strengthens it. The evidence I need is better delivery, cash conversion and operating performance - not simply a recovering share price.
+
+The companies I still want to own
+SpaceX remains a position I am happy to hold as one share. The latest value is £81.65, down £37.29 or 31.35%, but that price movement has not changed the reason I own it. I use Starlink, so the usefulness of the technology is not abstract to me. Orbital data centres and the wider value of launch, satellites and communications add to my confidence, although none should be treated as guaranteed earnings. If the holding became cash, I would have a real choice between buying SpaceX again and adding to gold.
+
+Symbotic remains one of my favourite long-term assets. At £110.24, it is down £6.20 or 5.32%, and I would buy again if I had spare cash. The test is whether it can turn backlog into revenue, profit and cash. Walmart's scale gives it a serious proving ground. The second-quarter update showed 70 systems in deployment and guided for third-quarter revenue of USD 700-720 million. The next results will test consistency.
+
+Airbnb is another business where personal experience has strengthened my view. The position is worth £139.59 and is up £20.03, or 16.75%. I recently had a problem with a stay, but Airbnb's support was extremely helpful and I received a refund. That does not tell me what the shares are worth, but it does show why customers trust the platform. Airbnb is one of the first places many people I know check when arranging a trip. The FIFA World Cup may have helped bookings across more than one quarter. Second-quarter results, scheduled for 6 August, are the next test, but I should judge the business on repeat demand, nights booked, margins and free cash flow rather than one event.
+
+Quality, infrastructure and the core of the account
+My conviction in Meta and Alphabet also remains intact. I use Meta's products every day, and I see AI as a way to improve the relevance and effectiveness of advertising rather than simply as an expense. Meta's second-quarter revenue grew 28%. Costs and expenses rose 55%, although that figure included major legal and severance charges, and the company is still committing large amounts of capital to AI infrastructure. Its new El Paso data-centre venture shows how it is financing part of that build-out: BlackRock-managed funds will own 80%, Meta will retain 20%, and Meta will initially occupy the whole campus under lease agreements. The structure gives Meta more financing flexibility, while leaving it with meaningful long-term commitments and residual-value guarantees.
+
+Alphabet remains one of the safest individual businesses I believe I can own. I do not think AI automatically destroys Google Search; AI products still need reliable information, distribution and computing infrastructure, and Alphabet is positioned across all three. Its second-quarter revenue rose 24% to USD 119.8 billion. Berkshire Hathaway also agreed in June to invest USD 10 billion in Alphabet through a private placement, paying USD 351.81 for the Class A shares and USD 348.20 for the Class C shares. I see that as useful supporting evidence for my own conviction, but it is not a substitute for doing my own valuation work.
+
+The S&P 500 and Nasdaq funds continue to do exactly what I want them to do: give the portfolio exposure to broad US growth without requiring every individual decision to be right. I would keep roughly the same index allocations if I rebuilt the account today. I also do not regret selling ASML for a strong realised profit, even though it continued rising afterwards, because that sale protected a gain and helped fund later decisions. Realty Income remains a slower monthly-income holding, with this period's £0.56 dividend providing nearly all the closing cash. NextEra is also worth closer attention: its proposed all-share combination with Dominion Energy would create a much larger utility group, and its second-quarter FPL net income rose to USD 1.412 billion. I had not researched the merger properly during the month, so it belongs on the next review list rather than being treated as automatic good news.
+
+Portfolio construction and what success means
+If I had to identify three long-term anchors, I would choose gold, Pershing Square Holdings and Berkshire Hathaway. The S&P 500 and Nasdaq funds are also fundamental to the structure, while SpaceX, Symbotic and Rheinmetall carry more company-specific or execution risk. Fourteen holdings is manageable only if I stay honest about which positions require deep research. I do not need to know every price every day, but I do need to know what would invalidate each thesis.
+
+Pershing is a core holding because I trust Bill Ackman's concentrated approach and I am comfortable owning it at a substantial discount to net asset value. At 31 July, PSH reported NAV of £57.21 per share against a London price of £38.08, a discount of roughly 33%. That gap is not guaranteed to close, so it supports the thesis rather than replacing it. Berkshire gives me operating businesses, insurance, cash and disciplined capital allocation in one holding. Its Alphabet investment supports my confidence in Google, but Berkshire must still deserve its place on its own merits.
+
+The account holds £0.56 in cash. If the market fell around 20%, I would invest new wages rather than sell a holding. I would then test whether gold had provided the protection I expect. The low-cash policy is deliberate, although it could still leave me unable to act immediately.
+
+The comparison with my core funds is uncomfortable but useful. The portfolio is now 0.52% above its original capital, while the VUAG holding is up 14.30% and QQQA is up 20.50% in the account. UK CPI increased by approximately 1.7% from February to June, the latest comparable period available when this review was completed. These fund figures are not a perfect like-for-like benchmark because they reflect my own purchase dates, but the gap still shows the opportunity cost of my individual decisions and gives me a clear standard to monitor.
+
+Benchmark comparison
+PORTFOLIO SINCE INCEPTION
++0.52%
+VANGUARD S&P 500 (VUAG)
++14.30%
+UBS NASDAQ-100 (QQQA)
++20.50%
+UK CPI, FEBRUARY-JUNE
+approx. +1.7%
+
+Fund returns are the account's reported returns on the remaining holdings at the 6 August snapshot, so they are directional comparisons rather than a time-matched benchmark. CPI compounds the official monthly changes from March to June; July data had not yet been published.
+
+My hierarchy of goals is therefore clear. Protecting the original £1,999 is the first rule, beating inflation is the minimum return objective, and the original 10-15% target remains an ambition. I will also compare the result with the index funds, because protecting capital does not remove the need to understand what a simpler strategy would have earned.
+
+Behaviour, lessons and the next four weeks
+My behaviour improved during this period. I checked prices less frequently, stayed involved in the research and made no impulsive trades. Rheinmetall reminded me that avoiding a realised loss is not a reason to hold; the business must still justify the capital from today. Microsoft showed the opposite danger: one quick success should not teach me that every strong feeling deserves a larger bet.
+
+I am not planning any major purchases or sales in the next four weeks. I am more likely to hold Microsoft unless a genuinely better use for the cash appears. I will watch Symbotic's execution, Airbnb's results, Rheinmetall's delivery and cash conversion, and the NextEra-Dominion combination. The most important lesson is that I can trust my judgment when it is supported by research, while remembering that a good outcome does not prove every part of the decision was right. My instruction for the next month is simple: do not make any impulsive trades.
+
+RULES I AM CARRYING FORWARD  Hold on the strength of the thesis, not the old purchase price; rebalance gold if it reaches 30%; and do not make impulsive trades.
+
+Overall conclusion
+The account ended the review period almost flat and moved just above starting capital in the 6 August snapshot. The fund comparison still shows that a simpler strategy has performed much better so far. Even so, this was a useful month. Microsoft rewarded careful research, Rheinmetall tested my sell discipline, and I allowed the rest of the portfolio to move without inventing trades. My process is calmer and more deliberate than it was when I began.
+
+The next challenge is to turn conviction into clearer rules. Gold needs an allocation limit, Rheinmetall needs a forward-looking business case, and Microsoft must be judged on the business rather than a fast gain. The right question is not whether every holding is green; it is whether each pound still has a defensible reason for being where it is.
 
 Capital Research Review 04
 23 June 2026 / Monthly Reviews

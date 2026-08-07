@@ -186,7 +186,7 @@ export default function ArticleDetail({ type }: ArticleDetailProps) {
 
   return (
     <main className="page-fade">
-      <PageHeader eyebrow={eyebrow} title={article.title} intro={article.excerpt} />
+      <PageHeader eyebrow={eyebrow} title={article.title} intro={article.subtitle ?? article.excerpt} />
       <section className="mx-auto grid max-w-7xl gap-10 px-5 py-16 md:px-8 md:py-24 lg:grid-cols-[minmax(0,1fr)_340px] lg:items-start">
         <article className="min-w-0 border-y border-line bg-paper px-5 py-8 md:px-8 md:py-10">
           <div className="mb-9 flex flex-wrap items-center gap-3">

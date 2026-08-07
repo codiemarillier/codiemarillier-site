@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Extract the approved four-week DOCX reviews into typed website content."""
+"""Extract the approved monthly DOCX reviews into typed website content."""
 
 from __future__ import annotations
 
@@ -49,6 +49,27 @@ REVIEWS = [
         "majorEvents": ["Re-entered Alphabet near the planned level", "Added SpaceX and Pershing Square", "Cash fell to about £40"],
         "pageCount": 5,
     },
+    {
+        "file": "Trading_212_Portfolio_Review_3_July-3_August_2026.docx",
+        "slug": "capital-research-review-05",
+        "date": "6 August 2026",
+        "excerpt": "The account ended the review period almost flat and moved just above starting capital in the 6 August snapshot. The fund comparison still shows that a simpler strategy has performed much better so far.",
+        "tags": ["Microsoft", "Gold", "Rheinmetall", "Cash", "Portfolio construction", "Behaviour"],
+        "majorEvents": [
+            "Re-entered Microsoft with £41.40 on 8 July",
+            "Moved £10.30 above the original capital",
+            "Finished with £0.56 cash and no impulsive trades",
+        ],
+        "pageCount": 4,
+        "skipParagraphs": [
+            "MONTHLY INVESTMENT JOURNAL",
+            "MONTH IN ONE LINE I made one deliberate purchase, avoided impulsive trading and finished with a clearer set of rules for the portfolio.",
+        ],
+        "tables": [
+            {"label": "Snapshot", "allRows": True},
+            {"label": "Benchmark comparison", "allRows": True},
+        ],
+    },
 ]
 
 
@@ -61,12 +82,14 @@ def paragraph_style(paragraph: ET.Element) -> str:
     return style.get(f"{W}val", "Normal") if style is not None else "Normal"
 
 
-def table_snapshot(table: ET.Element) -> str:
+def table_text(table: ET.Element, label: str = "Snapshot", all_rows: bool = False) -> str:
     cells: list[str] = []
-    for cell in table.findall(".//w:tr[1]/w:tc", NS):
-        values = [text_of(paragraph) for paragraph in cell.findall("w:p", NS)]
-        cells.extend(value for value in values if value)
-    return "Snapshot\n" + "\n".join(cells)
+    rows = table.findall("w:tr", NS)
+    for row in rows if all_rows else rows[:1]:
+        for cell in row.findall("w:tc", NS):
+            values = [text_of(paragraph) for paragraph in cell.findall("w:p", NS)]
+            cells.extend(value for value in values if value)
+    return label + "\n" + "\n".join(cells)
 
 
 def extract_review(config: dict[str, object]) -> dict[str, object]:
@@ -80,6 +103,9 @@ def extract_review(config: dict[str, object]) -> dict[str, object]:
     body: list[str] = []
     current_heading: str | None = None
     current_paragraphs: list[str] = []
+    table_index = 0
+    skip_paragraphs = set(config.get("skipParagraphs", []))
+    table_configs = config.get("tables", [])
 
     def flush_section() -> None:
         nonlocal current_heading, current_paragraphs
@@ -94,13 +120,28 @@ def extract_review(config: dict[str, object]) -> dict[str, object]:
 
     for block in body_element:
         if block.tag == f"{W}tbl":
-            body.append(table_snapshot(block))
+            if table_index < len(table_configs):
+                table_config = table_configs[table_index]
+                rendered_table = table_text(
+                    block,
+                    label=str(table_config["label"]),
+                    all_rows=bool(table_config.get("allRows")),
+                )
+            else:
+                rendered_table = table_text(block)
+            table_index += 1
+            if current_heading:
+                current_paragraphs.append(rendered_table)
+            else:
+                body.append(rendered_table)
             continue
         if block.tag != f"{W}p":
             continue
 
         value = text_of(block)
         if not value:
+            continue
+        if value in skip_paragraphs:
             continue
         style = paragraph_style(block).lower().replace(" ", "")
 
@@ -131,7 +172,7 @@ def extract_review(config: dict[str, object]) -> dict[str, object]:
         "subtitle": subtitle,
         "date": config["date"],
         "category": "Monthly Reviews",
-        "excerpt": intro[0],
+        "excerpt": config.get("excerpt") or intro[0],
         "tags": config["tags"],
         "majorEvents": config["majorEvents"],
         "documentUrl": f"/documents/portfolio-reviews/view/{slug}/",

@@ -100,7 +100,7 @@ export type MistakeLesson = {
 };
 
 export type PortfolioValuePoint = {
-  week: number;
+  week?: number;
   label: string;
   date: string;
   value: number;
@@ -454,26 +454,26 @@ export const portfolioRoles = [
 ];
 
 export const latestPortfolioReview = {
-  label: 'Review 04 / Weeks 13–16',
-  title: 'Capital Research Review 04',
-  slug: 'capital-research-review-04',
-  date: '23 June 2026',
-  shortDate: '23 Jun 2026',
-  mainNewTrade: 'Re-entered Alphabet, sold ASML, added SpaceX and Pershing Square, and finished the period with about £40 cash',
+  label: 'August 2026 review',
+  title: 'Trading 212 Portfolio Review',
+  slug: 'capital-research-review-05',
+  date: '6 August 2026',
+  shortDate: '6 Aug 2026',
+  mainNewTrade: 'Re-entered Microsoft with £41.40 on 8 July and otherwise left the portfolio unchanged',
 };
 
 export const portfolioSnapshot = {
-  accountValue: '£2,015',
+  accountValue: '£2,009.30',
   startingCostBasis: '£1,999',
-  currentReturn: '+0.78%',
-  cashBalance: '£0',
-  weeklyMove: '+£4.15 in the week to 10 July',
-  investments: 'About £2,015',
-  status: 'Transaction-ledger valuation through 10 July 2026',
+  currentReturn: '+0.52%',
+  cashBalance: '£0.56',
+  weeklyMove: '6 Aug 2026',
+  investments: '£2,008.74',
+  status: 'Authored portfolio-review snapshot updated 6 August 2026',
   googlePosition: 'Small Alphabet position remains in the portfolio after earlier profit-taking',
-  microsoftTrade: 'Closed profitably on 1 June 2026 with roughly £13.94 realised result',
-  mainFocus: 'Stay patient, rebuild cash where sensible, and only act when both the opportunity and process are strong',
-  updateNote: 'Transaction-ledger valuation through 10 July 2026. Estimated account value is £2,014.50, cash is £0 after the 8 July Microsoft purchase, and the account is £15.50 above the original £1,999 starting capital.',
+  microsoftTrade: 'Re-entered with £41.40 on 8 July; worth £51.10 in the 6 August snapshot',
+  mainFocus: 'Avoid impulsive trades, keep judging holdings on their forward-looking theses, and rebalance gold if it reaches 30% of the account',
+  updateNote: 'Authored review snapshot updated 6 August 2026. Account value is £2,009.30, cash is £0.56, and the account is £10.30 above the original £1,999 starting capital. The separate performance dataset has not been regenerated.',
 };
 
 export const portfolioValueHistory: PortfolioValuePoint[] = [
@@ -607,27 +607,35 @@ export const portfolioValueHistory: PortfolioValuePoint[] = [
     source: 'Recorded',
     note: 'Week 17 was skipped because the review cycle moved to every two weeks.',
   },
+  {
+    label: 'August review',
+    date: '6 August 2026',
+    value: 2009.3,
+    valueLabel: '£2,009.30',
+    source: 'Recorded',
+    note: 'Monthly review covering 3 July to 3 August 2026, with the valuation updated on 6 August.',
+  },
 ];
 
 export const portfolioCrawlerNotes = {
   winners: [
-    'Gold has started recovering from its recent low while still being treated as a portfolio hedge.',
-    'Rheinmetall has improved from roughly -40% to around -30% in the portfolio, although it remains a significant unrealised loss.',
-    'Meta was helped by encouraging reports around the possible Meta Compute initiative.',
-    'Robinhood was opened and closed profitably, but the trade is recorded mainly as a process lesson.',
+    'Microsoft was worth £51.10 in the 6 August snapshot after a £41.40 purchase on 8 July.',
+    'The portfolio moved £10.30 above its original £1,999 capital in the updated snapshot.',
+    'Rheinmetall recovered from roughly 40% down to 25.10% down, while remaining under review.',
+    'The index funds continued to support the account without requiring new trades.',
   ],
   drags: [
-    'SpaceX is back close to break-even after previously showing a much stronger gain.',
-    'Cash remains limited at about £41, or roughly 2% of the account.',
-    'Rheinmetall is still a major unrealised loss despite improving from its worst point.',
-    'The semiconductor sell-off keeps ASML on the watchlist, but the €1,550 level is a watch level rather than an automatic buy.',
+    'Gold remained the largest position and the biggest drag at 17.46% of the account and 14.20% down.',
+    'SpaceX was worth £81.65 and was 31.35% down in the latest authored snapshot.',
+    'Cash remained very limited at £0.56.',
+    'The portfolio continued to trail the reported returns of its VUAG and QQQA holdings.',
   ],
   latestActionPlan: [
-    'Continue the fortnightly review cycle to reduce short-term noise.',
-    'Stay patient and rebuild cash where sensible.',
-    'Avoid emotional live-event trades, even when the outcome is profitable.',
-    'Watch ASML around €1,550 but only buy if the thesis still looks intact.',
-    'Hold the unchanged long-term portfolio unless conviction changes.',
+    'Do not make impulsive trades during the next monthly review period.',
+    'Hold Microsoft unless a genuinely better use for the capital appears.',
+    'Watch Symbotic execution, Airbnb results, Rheinmetall delivery and cash conversion, and the NextEra-Dominion proposal.',
+    'Rebalance gold towards 15–20% if it reaches around 30% of the account.',
+    'Judge every holding on its forward-looking thesis rather than its old purchase price.',
   ],
 };
 
@@ -913,11 +921,11 @@ export const holdings: Holding[] = [
   {
     name: 'Microsoft',
     ticker: 'MSFT',
-    positionSize: 'Closed',
-    sleeve: 'Trade reflection',
+    positionSize: '0.14171835 shares',
+    sleeve: 'Core quality growth',
     role: 'Quality software and AI infrastructure exposure',
-    status: 'Closed on 1 June 2026',
-    transactionNote: 'Realised result around £13.94; useful process review',
+    status: 'Current holding',
+    transactionNote: 'Re-entered for £41.40 on 8 July 2026; worth £51.10 in the 6 August snapshot',
   },
   {
     name: 'IonQ',
@@ -931,6 +939,13 @@ export const holdings: Holding[] = [
 ];
 
 export const portfolioChangeLog: PortfolioChange[] = [
+  {
+    date: '8 July 2026',
+    type: 'Buy',
+    title: 'Re-entered Microsoft with a small position',
+    text: 'Bought 0.14171835 Microsoft shares for £41.40. The position was worth £51.10 in the 6 August authored review snapshot.',
+    relatedSlug: 'capital-research-review-05',
+  },
   {
     date: '2 July 2026',
     type: 'Lesson',
