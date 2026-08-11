@@ -594,6 +594,7 @@ for (const book of readingDevelopment) {
       <h1>${esc(book.title)}</h1>
       ${section('Main Takeaway', paragraph(book.takeaway))}
       ${section('Book Reflection', textBlock(book.paragraphs))}
+      ${book.closingQuestion ? section('The Question', paragraph(book.closingQuestion)) : ''}
       ${section('Back Link', '<p><a href="/books">Back to Books</a></p>')}
     `,
   });
