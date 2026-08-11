@@ -207,7 +207,7 @@ const mainPages = [
     path: '/books',
     title: 'Books I Have Read',
     pageType: 'books',
-    lastUpdated: '2026-07-08',
+    lastUpdated: '2026-08-11',
     topics: ['reading development', 'investing books', 'discipline', 'purpose', 'risk', 'money'],
     summary:
       'The books page is a bookshelf index of books Codie has read, with each book linking to its own full reflection page.',
@@ -300,10 +300,14 @@ const bookRecords = readingDevelopment.map((book) => ({
   path: `/books/${book.slug}`,
   title: book.title,
   pageType: 'book-reflection',
-  lastUpdated: '2026-07-08',
+  lastUpdated: book.lastUpdated ?? '2026-07-08',
   topics: ['book reflection', book.author, ...book.category.split('/').map((tag) => tag.trim())],
   summary: book.takeaway,
-  contentText: plain([`${book.title} by ${book.author}. ${book.category}. Takeaway: ${book.takeaway}`, ...book.paragraphs]),
+  contentText: plain([
+    `${book.title} by ${book.author}. ${book.category}. Takeaway: ${book.takeaway}`,
+    ...book.paragraphs,
+    book.closingQuestion,
+  ]),
   internalLinks: ['/books', '/process', '/portfolio'],
 }));
 
