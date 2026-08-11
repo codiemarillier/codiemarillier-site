@@ -52,6 +52,12 @@ export default function BookDetail() {
             ))}
           </div>
 
+          {book.closingQuestion ? (
+            <blockquote className="mt-10 border-y border-line bg-ivory px-5 py-8 text-center font-serif text-3xl font-semibold leading-tight text-charcoal md:px-8 md:py-10 md:text-4xl">
+              {book.closingQuestion}
+            </blockquote>
+          ) : null}
+
           <nav className="mt-10 grid gap-3 border-t border-line pt-8 md:grid-cols-2" aria-label="Related books">
             {previousBook ? (
               <Link
