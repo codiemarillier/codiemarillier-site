@@ -93,6 +93,8 @@ export type ReadingBook = {
   imageAlt: string;
   paragraphs: string[];
   takeaway: string;
+  closingQuestion?: string;
+  lastUpdated?: string;
 };
 
 export type PlannedLetter = {
@@ -651,6 +653,29 @@ export const readingDevelopment: ReadingBook[] = [
     ],
     takeaway:
       'If you want something to succeed over the long term, getting the people right is one of the most important places to start.',
+  },
+  {
+    slug: 'the-outsiders',
+    title: 'The Outsiders',
+    author: 'William N. Thorndike Jr.',
+    category: 'Capital Allocation / Leadership / Business / Investing',
+    image: '/book-covers/the-outsiders.jpeg',
+    imageAlt: 'The Outsiders by William N. Thorndike Jr. book cover.',
+    paragraphs: [
+      'The Outsiders made me think more carefully about what actually separates a great CEO from an average one. Before reading it, I mainly thought about CEOs in terms of how well they could grow a business, manage people and improve operations. The book showed me that one of the most important responsibilities of a CEO is actually capital allocation — deciding what to do with the cash a business produces.',
+      'What stood out to me most was how differently the CEOs in the book approached decisions such as acquisitions, share buybacks and reinvestment. They were not particularly interested in following what other companies were doing or making decisions that looked impressive from the outside. They treated each decision as an investment. If buying another company offered an attractive return, they would make an acquisition. If their own shares were undervalued, they were willing to buy back large amounts of stock. If neither option made sense, they were comfortable holding cash and waiting.',
+      'The section on share buybacks gave me a much better appreciation of how powerful they can be when used properly. I already understood the basic idea of a company buying back its own shares, but the book made me think more carefully about how important the price paid actually is. If a company buys back shares when they are undervalued, the remaining shareholders end up owning a larger percentage of the business without having to invest any more money themselves. That can be an excellent use of capital.',
+      'However, a buyback is not automatically a good decision. If management buys back shares simply because it has excess cash, especially when the shares are expensive, it can be a poor use of that money. What I took from this is that buybacks should be judged in the same way as any other investment — by the price paid and the return that capital is likely to produce.',
+      'The same applies to acquisitions. One of the ideas I appreciated more after reading the book was that making a company bigger does not necessarily make it more valuable. A CEO can grow revenue, expand into new markets and complete large acquisitions while still destroying shareholder value if they consistently overpay.',
+      'What stood out about the CEOs in The Outsiders was their discipline. They treated acquisitions like investments rather than trophies. They were willing to act decisively when the economics were attractive, but they were also comfortable walking away and doing nothing when the numbers did not make sense. I liked this because it reinforced the idea that good capital allocation is not about constantly making deals or chasing growth. Sometimes the best decision is simply to wait.',
+      'My biggest practical takeaway from the book is that running a business well is only part of the job. Once a company starts generating cash, deciding what happens to that cash becomes incredibly important. It can be reinvested into the existing business, used to acquire another company, returned to shareholders through dividends, used to repurchase shares or kept until a better opportunity appears.',
+      'This is probably the lesson I want to apply most to businesses I am involved with in the future. I want to think about company money in the same way I think about investing: every pound has an opportunity cost. Rather than spending money simply because it is available or chasing growth for the sake of getting bigger, I want to ask where that capital can generate the best return while still keeping the risks sensible.',
+      'For me, The Outsiders showed that some of the best CEOs are also exceptional investors. They think independently, stay disciplined and understand that creating long-term value often comes down to one simple question:',
+    ],
+    takeaway:
+      'Treat every capital-allocation decision as an investment and put each pound where it can earn the best sensible return.',
+    closingQuestion: 'What is the best use of the next pound of capital?',
+    lastUpdated: '2026-08-11',
   },
 ];
 
