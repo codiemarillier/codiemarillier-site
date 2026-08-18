@@ -250,6 +250,10 @@ The Coming Wave by Mustafa Suleyman. Artificial Intelligence / Technology / Gove
 
 Good to Great by Jim Collins. Leadership / Management / Business / Investing. Takeaway: If you want something to succeed over the long term, getting the people right is one of the most important places to start.. Full reflection: /books/good-to-great
 
+The Outsiders by William N. Thorndike Jr.. Capital Allocation / Leadership / Business / Investing. Takeaway: Treat every capital-allocation decision as an investment and put each pound where it can earn the best sensible return.. Full reflection: /books/the-outsiders
+
+Poor Charlie’s Almanack by Charlie Munger. Investing / Mental Models / Psychology / Decision-Making. Takeaway: My biggest takeaway from Poor Charlie’s Almanack was the importance of learning what not to do, as well as what to do.. Full reflection: /books/poor-charlies-almanack
+
 /process - Investment Process
 The process page sets out the investing rulebook: protect capital, size positions properly, write reasoning, keep cash discipline, avoid leverage and impulsive trades, and review regularly.
 Protect capital first: Avoiding permanent loss matters more than chasing quick performance. The first job is to stay in the game, protect the account, and make sure every decision can be explained calmly after the fact.
@@ -773,6 +777,86 @@ From an investing perspective, it also made me think more about management when 
 Overall, Good to Great reinforced the idea that genuinely great businesses aren't built overnight. They are built through disciplined decisions, strong people and leadership that thinks beyond the next quarter. The biggest lesson I took from it is that if you want something to succeed over the long term, getting the people right is one of the most important places to start.
 
 Takeaway: If you want something to succeed over the long term, getting the people right is one of the most important places to start.
+
+The Outsiders - William N. Thorndike Jr.
+Capital Allocation / Leadership / Business / Investing
+The Outsiders made me think more carefully about what actually separates a great CEO from an average one. Before reading it, I mainly thought about CEOs in terms of how well they could grow a business, manage people and improve operations. The book showed me that one of the most important responsibilities of a CEO is actually capital allocation — deciding what to do with the cash a business produces.
+
+What stood out to me most was how differently the CEOs in the book approached decisions such as acquisitions, share buybacks and reinvestment. They were not particularly interested in following what other companies were doing or making decisions that looked impressive from the outside. They treated each decision as an investment. If buying another company offered an attractive return, they would make an acquisition. If their own shares were undervalued, they were willing to buy back large amounts of stock. If neither option made sense, they were comfortable holding cash and waiting.
+
+The section on share buybacks gave me a much better appreciation of how powerful they can be when used properly. I already understood the basic idea of a company buying back its own shares, but the book made me think more carefully about how important the price paid actually is. If a company buys back shares when they are undervalued, the remaining shareholders end up owning a larger percentage of the business without having to invest any more money themselves. That can be an excellent use of capital.
+
+However, a buyback is not automatically a good decision. If management buys back shares simply because it has excess cash, especially when the shares are expensive, it can be a poor use of that money. What I took from this is that buybacks should be judged in the same way as any other investment — by the price paid and the return that capital is likely to produce.
+
+The same applies to acquisitions. One of the ideas I appreciated more after reading the book was that making a company bigger does not necessarily make it more valuable. A CEO can grow revenue, expand into new markets and complete large acquisitions while still destroying shareholder value if they consistently overpay.
+
+What stood out about the CEOs in The Outsiders was their discipline. They treated acquisitions like investments rather than trophies. They were willing to act decisively when the economics were attractive, but they were also comfortable walking away and doing nothing when the numbers did not make sense. I liked this because it reinforced the idea that good capital allocation is not about constantly making deals or chasing growth. Sometimes the best decision is simply to wait.
+
+My biggest practical takeaway from the book is that running a business well is only part of the job. Once a company starts generating cash, deciding what happens to that cash becomes incredibly important. It can be reinvested into the existing business, used to acquire another company, returned to shareholders through dividends, used to repurchase shares or kept until a better opportunity appears.
+
+This is probably the lesson I want to apply most to businesses I am involved with in the future. I want to think about company money in the same way I think about investing: every pound has an opportunity cost. Rather than spending money simply because it is available or chasing growth for the sake of getting bigger, I want to ask where that capital can generate the best return while still keeping the risks sensible.
+
+For me, The Outsiders showed that some of the best CEOs are also exceptional investors. They think independently, stay disciplined and understand that creating long-term value often comes down to one simple question:
+
+Takeaway: Treat every capital-allocation decision as an investment and put each pound where it can earn the best sensible return.
+
+Poor Charlie’s Almanack - Charlie Munger
+Investing / Mental Models / Psychology / Decision-Making
+Munger repeatedly makes the point that you do not need to make brilliant decisions all the time to achieve good results. A huge amount can be achieved simply by avoiding stupidity, recognising common mistakes and staying away from situations where the odds are against you.
+
+This resonated with me particularly because of my own experience with trading. One of the biggest things I have been learning is how damaging impulsive decisions can be. Sometimes the best decision is simply to do nothing. Patience is key, especially when it comes to long-term investing, and feeling as though you always need to be making a trade can lead you into decisions you would never make if you stopped and thought properly.
+
+It also made me appreciate the idea of inversion. If you are trying to become a better investor, for example, studying what causes investors to consistently lose money can be just as useful as studying the people who have succeeded. If impatience, excessive leverage, emotional decision-making, overconfidence and following the crowd repeatedly lead to poor outcomes, then deliberately avoiding those behaviours already puts you in a much stronger position.
+
+Sometimes succeeding is less about constantly asking, “What brilliant thing should I do?” and more about asking, “What obvious mistakes do I need to make sure I don't make?”
+
+I had wanted to read Poor Charlie’s Almanack for a long time. I had heard so many good things about Charlie Munger and the way he thought, and the book definitely lived up to my expectations.
+
+Munger was obviously an incredible investor, but what I found most interesting was how much of his wisdom extended beyond investing. Some of my favourite parts of the book were actually his thoughts on psychology, human behaviour, learning and decision-making.
+
+One of the ideas I appreciated most was his concept of developing a latticework of mental models. Rather than becoming knowledgeable in only one area, Munger believed in learning the important ideas from a wide range of disciplines and then connecting them together.
+
+Over his life he drew ideas from subjects such as mathematics, psychology, economics, science and history and used them to improve the way he approached completely different problems.
+
+I really related to this. I have always been interested in a wide range of subjects, and the book reinforced my belief that this can be a huge advantage. Learning something in one area often gives you a completely different way of looking at a problem somewhere else. The more useful ideas you have available to you, the more ways you have of understanding what is actually going on.
+
+Another major part of the book that stood out to me was Munger's understanding of psychology and human misjudgement.
+
+One example that stuck with me was his discussion of Judith Rich Harris and the influence that peer groups can have on children. The basic idea is that the people children surround themselves with can have an enormous influence on their behaviour and development.
+
+I found this fascinating because the lesson extends far beyond children. The people we surround ourselves with affect the way we think, behave and make decisions. In investing, the same psychological forces can cause people to follow the crowd simply because everyone around them appears to believe the same thing.
+
+It was another reminder of how important independent thinking is.
+
+Munger's discussion of incentives also made a lot of sense to me. People respond strongly to the incentives placed in front of them, sometimes without even realising it.
+
+I can relate to this personally through work. There is obviously a financial incentive to work harder when you are being paid well, but it is not purely about money. How well you are treated also makes a significant difference to how motivated you are and how much effort you are willing to put in.
+
+It seems obvious when you say it, but it is easy to forget when looking at other people's behaviour. Rather than immediately asking why someone is behaving in a certain way, it can be useful to first ask: what are they being incentivised to do?
+
+That is something I think can be useful when looking at employees, managers, businesses and investments.
+
+One of the simplest lessons in the book was also one of the ones that stayed with me most.
+
+Munger discusses Carl Braun's approach to giving people instructions. The important part was not simply telling someone what needed to be done, but also explaining why they were being asked to do it.
+
+I thought this was incredibly useful.
+
+If somebody understands the reasoning behind a task, they are much more capable of thinking for themselves while completing it. They are no longer blindly following an instruction; they understand the outcome that is actually trying to be achieved.
+
+It is a very small idea, but I can see it being extremely valuable in business. If I am ever managing people or asking someone to do something important, I want to remember to explain the reasoning behind it rather than simply telling them what to do.
+
+Overall, what I liked most about Munger was the way he approached life as a continuous process of learning.
+
+He was rational, incredibly curious and willing to learn from almost anywhere. He understood that human beings are naturally prone to making irrational decisions, and instead of assuming he was immune to those mistakes, he tried to build systems of thinking that helped him avoid them.
+
+That is probably what I will remember most from Poor Charlie’s Almanack.
+
+You don't have to know everything. You don't have to constantly be doing something. And you don't have to make genius decisions every day.
+
+Learn broadly, understand incentives, think independently, be patient and become very good at avoiding the mistakes that repeatedly destroy other people's results.
+
+Takeaway: My biggest takeaway from Poor Charlie’s Almanack was the importance of learning what not to do, as well as what to do.
 
 
 
