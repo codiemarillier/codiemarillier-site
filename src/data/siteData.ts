@@ -717,6 +717,26 @@ export const readingDevelopment: ReadingBook[] = [
       'My biggest takeaway from Poor Charlie’s Almanack was the importance of learning what not to do, as well as what to do.',
     lastUpdated: '2026-08-18',
   },
+  {
+    slug: 'when-breath-becomes-air',
+    title: 'When Breath Becomes Air',
+    author: 'Paul Kalanithi',
+    category: 'Memoir / Mortality / Purpose / Family',
+    image: '/book-covers/when-breath-becomes-air.jpg',
+    imageAlt: 'When Breath Becomes Air book cover.',
+    paragraphs: [
+      'When Breath Becomes Air is one of the most moving books I have read. Paul Kalanithi was a neurosurgeon who had spent years working towards the career and life he wanted, only to be diagnosed with terminal lung cancer just as he was reaching the point where all that work was beginning to pay off. What makes the book so powerful is that it is not simply about dying. It is about what happens to your priorities when you suddenly realise that the future you assumed you had may no longer exist.',
+      "What stayed with me most was Paul's relationship with his wife, Lucy, and his family. As his illness progressed, it became increasingly clear that the people around him mattered more than almost anything else. Family has always been extremely important to me, so this part of the book did not necessarily change the way I think, but it reinforced just how valuable those relationships are. Careers, money and achievements can all disappear incredibly quickly, whereas the people you share your life with are ultimately a huge part of what gives it meaning.",
+      "One of the parts I found most difficult was Paul and Lucy's decision to have their daughter, Cady, despite knowing that Paul was unlikely to be alive for much of her childhood. Initially, I struggled with the decision. Part of me felt that it was slightly selfish for Paul to knowingly leave Lucy as a single mother and for Cady to grow up without her father. The more I thought about it, though, the more I understood why they made that decision. For Paul, it was another way of choosing life while he still had it. It also meant that Lucy would not be completely alone after his death. I still think it is a complicated decision, and the book does not try to make questions like this easy, which is one of the reasons it stayed with me.",
+      'The biggest lesson I took from the book was the importance of the present. Time continues moving whether we use it well or not. We spend so much of our lives thinking about what we are going to do in a year, five years or ten years, but none of us actually knows how much time we have. Paul had spent years preparing for the future, and then almost instantly that future changed.',
+      'Rather than making me less ambitious, the book probably had the opposite effect. It made me want to achieve even more with the time that I have. I do not want to reach the end of my life and realise that I had opportunities to pursue the things I genuinely wanted but never had the courage or discipline to do them. I know there will always be more that could have been achieved, but I would at least like to know that I properly went after the ambitions I had.',
+      'The ending was incredibly sad. It was one of the few books that genuinely brought me close to tears. But alongside that sadness, I finished it feeling grateful and motivated. Grateful for the people and opportunities I have now, and motivated to make better use of them.',
+      'I would absolutely recommend When Breath Becomes Air. It gives you a perspective on just how quickly life can change and forces you to think about what actually matters when time becomes limited.',
+    ],
+    takeaway:
+      'The present is the only part of life we really have control over, so make proper use of it.',
+    lastUpdated: '2026-08-20',
+  },
 ];
 
 export const transactionSummary = [
