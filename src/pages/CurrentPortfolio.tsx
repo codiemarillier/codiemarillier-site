@@ -5,26 +5,7 @@ import PortfolioChangeLog from '../components/PortfolioChangeLog';
 import PortfolioSnapshot from '../components/PortfolioSnapshot';
 import PortfolioValueChart from '../components/PortfolioValueChart';
 import SectionHeader from '../components/SectionHeader';
-import { latestPortfolioReview, portfolioRoles, portfolioSnapshot, transactionSummary } from '../data/siteData';
-
-const sleeves = [
-  {
-    title: 'Core Holdings',
-    text: 'Google, Meta, Berkshire Hathaway, Airbnb, Pershing Square, and selected quality names are studied as potential compounders. The role is long-term growth with valuation discipline.',
-  },
-  {
-    title: 'Hedge / Defensive Sleeve',
-    text: 'Realty Income, NextEra Energy, Rheinmetall, and iShares Physical Gold are monitored as defensive, income-style, thematic, or macro hedge positions.',
-  },
-  {
-    title: 'Higher Volatility Positions',
-    text: 'Symbotic, SpaceX, and any speculative exposure require smaller sizing and clearer reviews because volatility can expose weak reasoning quickly. IonQ is kept in the record as a closed loss and lesson.',
-  },
-  {
-    title: 'Cash and Watchlist',
-    text: 'The 10 July ledger estimate has no unallocated cash after the small Microsoft re-entry. ASML is closed after a realised gain but remains a watchlist name.',
-  },
-];
+import { currentPortfolio, latestPortfolioReview, portfolioRoles, portfolioSnapshot, transactionSummary } from '../data/siteData';
 
 export default function CurrentPortfolio() {
   return (
@@ -32,14 +13,14 @@ export default function CurrentPortfolio() {
       <PageHeader
         eyebrow="Portfolio"
         title="Current Portfolio"
-        intro="This page documents my own portfolio structure for accountability. It is not investment advice, not a model portfolio, and should not be copied."
+        intro="This page documents my own portfolio allocation, decisions, and research for accountability. Performance is public; account size and share quantities are private. It is not investment advice or a model portfolio."
       />
 
       <section className="border-b border-line bg-paper">
         <div className="mx-auto max-w-7xl px-5 py-12 md:px-8 md:py-16">
           <p className="mb-5 text-sm font-semibold text-charcoal">
-            Latest published review: {latestPortfolioReview.label} / {latestPortfolioReview.date}. Current ledger estimate:{' '}
-            {portfolioSnapshot.asOfDate}.
+            Latest published review and allocation record: {latestPortfolioReview.label} / {latestPortfolioReview.date}. Measured benchmark series:{' '}
+            {currentPortfolio.measuredPerformance.asOf}.
           </p>
           <PortfolioSnapshot />
           <div className="mt-6">
@@ -60,7 +41,7 @@ export default function CurrentPortfolio() {
         <SectionHeader
           eyebrow="Portfolio dashboard"
           title="Current snapshot first."
-          text={`${latestPortfolioReview.label} is the latest published review. The current snapshot is a separate transaction-ledger estimate dated ${portfolioSnapshot.asOfDate}.`}
+          text={`${latestPortfolioReview.label} is the single current allocation record, reviewed ${portfolioSnapshot.asOfDate}. The benchmark-comparable series has its own clearly labelled measurement date.`}
         />
         <div className="grid gap-x-10 gap-y-8 md:grid-cols-2">
           {portfolioRoles.map((role, index) => (
@@ -80,8 +61,8 @@ export default function CurrentPortfolio() {
         <div className="mb-10">
           <SectionHeader
             eyebrow="Current holdings"
-            title="What I own right now, grouped by role."
-            text="A quick scan of the current holdings in my own portfolio. The grouping is for readability only and is not a recommendation."
+            title="What I own right now, with a role for each holding."
+            text="Rounded allocation weights, roles, current decisions, review dates, and only the thesis or exit language already recorded in the journal."
           />
         </div>
         <CurrentHoldingsOverview />
@@ -103,27 +84,17 @@ export default function CurrentPortfolio() {
           <SectionHeader
             eyebrow="Full record"
             title="Clean manual portfolio record."
-            text="No live market prices are shown. This table combines current holdings with closed positions that are still useful for accountability and review."
+            text="No balances, share quantities, or monetary gains and losses are shown. This table combines current holdings with closed positions that remain useful for accountability."
           />
           <div className="mt-10">
             <HoldingsTable />
           </div>
           <p className="mt-5 text-sm leading-7 text-slateText">
-            Portfolio information is manually updated and may be out of date.
+            Portfolio information is manually updated, rounded for privacy, and may be out of date.
           </p>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24">
-        <div className="grid gap-x-10 gap-y-8 md:grid-cols-2">
-          {sleeves.map((sleeve) => (
-            <article key={sleeve.title} className="border-t border-line pt-6">
-              <h2 className="font-serif text-3xl font-semibold text-charcoal">{sleeve.title}</h2>
-              <p className="mt-4 text-sm leading-7 text-bodyText">{sleeve.text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
     </main>
   );
 }

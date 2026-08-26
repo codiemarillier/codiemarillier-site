@@ -19,12 +19,12 @@ function getSnapshotBlock(entry: JournalEntry) {
 
 function getCardFacts(entry: JournalEntry) {
   const snapshot = getSnapshotBlock(entry);
-  const accountValue =
-    readLabel(snapshot, ['Account value at review', 'Current account value', 'Account value', 'Estimated account value']) ||
+  const performance =
+    readLabel(snapshot, ['Since inception', 'Period return', 'Position versus start', 'Drawdown']) ||
     'Not recorded';
-  const weeklyMove =
-    readLabel(snapshot, ['Move since Week 16', 'Move since Week 14', 'Fortnightly move', 'Weekly move', 'Weekly change']) ||
-    (['Weekly Reviews', 'Fortnightly Reviews'].includes(entry.category) ? 'Qualitative review only' : 'Not recorded');
+  const reviewMove =
+    readLabel(snapshot, ['From the low', 'Drawdown', 'Vs cost basis', 'Move since Week 16', 'Move since Week 14', 'Fortnightly move', 'Weekly move', 'Weekly change']) ||
+    (entry.category === 'Monthly Reviews' ? 'See the full review' : 'Not recorded');
   const mainTrade =
     readLabel(snapshot, ['Short-term trade', 'Main realised trade', 'Main trade', 'Main new trade', 'Main new position']) ||
     entry.majorEvents?.[0] ||
@@ -40,8 +40,8 @@ function getCardFacts(entry: JournalEntry) {
       .find((line) => line.length > 35) ?? entry.excerpt;
 
   return {
-    accountValue,
-    weeklyMove,
+    performance,
+    reviewMove,
     mainTrade,
     mainLesson: mainLesson.replace(/\s+/g, ' ').replace(/^The main lesson (this week )?is that /i, '').slice(0, 170),
   };
@@ -76,8 +76,8 @@ export default function JournalTimeline({ entries }: { entries: JournalEntry[] }
             </div>
             <dl className="mt-6 grid gap-px border border-line bg-line md:grid-cols-4">
               {[
-                ['Account value', facts.accountValue],
-                ['Review move', facts.weeklyMove],
+                ['Performance', facts.performance],
+                ['Period marker', facts.reviewMove],
                 ['Main trade', facts.mainTrade],
                 ['Main lesson', facts.mainLesson],
               ].map(([label, value]) => (

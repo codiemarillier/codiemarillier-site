@@ -80,6 +80,13 @@ try {
     }
   }
 
+  for (const [slug, destination] of Object.entries(data.legacyJournalRedirects)) {
+    const route = `/journal/${slug}`;
+    invariant(routeTargetExists(route), `Legacy journal route has no generated redirect target: ${route}`);
+    const redirectHtml = readFileSync(join(outputRoot, 'journal', slug, 'index.html'), 'utf8');
+    invariant(redirectHtml.includes(destination), `Legacy journal redirect does not point to its migration destination: ${route}`);
+  }
+
   const missingReferences = [];
   for (const file of walk(outputRoot).filter((file) => file.endsWith('.html'))) {
     const html = readFileSync(file, 'utf8');

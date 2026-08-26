@@ -24,9 +24,9 @@ export const publicRouteManifest: RouteDefinition[] = [
   {
     id: 'home',
     path: '/',
-    title: 'Codie Capital Research | Investment Journal by Codie Marillier',
+    title: 'Codie Marillier | Investment Journal & Research',
     description:
-      "Codie Marillier's personal investment journal: a public record of portfolio decisions, regular reviews, process, and long-term learning. Not investment advice.",
+      "Codie Marillier's public record of investment thinking, decisions, percentage performance, research, and long-term learning. Personal finances remain private.",
     sitemap: true,
     staticPage: true,
     indexable: true,
@@ -117,7 +117,7 @@ export const publicRouteManifest: RouteDefinition[] = [
     path: '/portfolio',
     title: 'Current Portfolio | Codie Capital Research',
     description:
-      "A manual record of Codie Marillier's own portfolio structure, holdings, cash, and lessons. Not a model portfolio and not investment advice.",
+      "A manual record of Codie Marillier's own holdings, rounded allocation weights, percentage performance, decisions, and lessons. Not a model portfolio or investment advice.",
     sitemap: true,
     staticPage: true,
     indexable: true,

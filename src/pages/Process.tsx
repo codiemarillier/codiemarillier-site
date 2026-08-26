@@ -70,7 +70,7 @@ export default function Process() {
             The record matters because memory is vague.
           </h2>
           <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-slateText md:text-lg md:leading-9">
-            Each regular review should record account value, cash, what helped, what hurt, trades made, mistakes,
+            Each regular review should record percentage performance, cash allocation, what helped, what hurt, trades made, mistakes,
             emotional pressure, and the plan for the following period. The goal is to make the process visible enough
             that bad habits are harder to hide from.
           </p>

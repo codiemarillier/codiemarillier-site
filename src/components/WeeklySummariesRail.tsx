@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { journalEntries } from '../data/siteData';
 import SectionHeader from './SectionHeader';
 
-const reviewEntries = journalEntries.filter((entry) => ['Weekly Reviews', 'Fortnightly Reviews'].includes(entry.category));
+const reviewEntries = journalEntries.filter((entry) => entry.category === 'Monthly Reviews');
 
 export default function WeeklySummariesRail() {
   return (
@@ -12,7 +12,7 @@ export default function WeeklySummariesRail() {
         <SectionHeader
           eyebrow="Portfolio summaries"
           title="Scroll through the portfolio record."
-          text="Each portfolio summary shows what changed, what helped, what hurt, and what I wanted to watch next. This is the main accountability record."
+          text="Each monthly portfolio review brings four weeks of changes, decisions and lessons into one accountability record."
         />
         <Link to="/journal" className="inline-flex items-center gap-2 text-sm font-semibold text-link">
           View all entries

@@ -1,6 +1,6 @@
 import { ArrowRight, BookOpen, FileText, LineChart, ScrollText, UserRound } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { latestPortfolioReview, portfolioSnapshot } from '../data/siteData';
+import { currentPortfolio, latestPortfolioReview, portfolioSnapshot } from '../data/siteData';
 
 const latestReviewLabel = latestPortfolioReview.label;
 
@@ -66,10 +66,10 @@ export default function StartHere() {
             </div>
             <dl className="grid gap-px border border-line bg-line sm:grid-cols-2">
               {[
-                ['Current account value', portfolioSnapshot.accountValue],
-                ['Starting value', portfolioSnapshot.startingCostBasis],
-                ['Current return', portfolioSnapshot.currentReturn],
-                ['Cash balance', portfolioSnapshot.cashBalance],
+                ['Since inception', portfolioSnapshot.currentReturn],
+                ['Cash allocation', portfolioSnapshot.cashWeight],
+                ['Started', currentPortfolio.started],
+                ['Allocation reviewed', portfolioSnapshot.asOfDate],
               ].map(([label, value]) => (
                 <div key={label} className="bg-paper p-5">
                   <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-slateText">{label}</dt>

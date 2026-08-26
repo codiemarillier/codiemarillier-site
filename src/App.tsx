@@ -176,7 +176,7 @@ export default function App() {
   const isV2Preview = pathname === '/v2-preview' || pathname.startsWith('/v2-preview/');
 
   return (
-    <div className={isV2Preview ? 'min-h-screen bg-[#090b0c]' : 'min-h-screen bg-ivory text-bodyText'}>
+    <div className={isV2Preview ? 'min-h-screen bg-[#0B1F33]' : 'min-h-screen bg-ivory text-bodyText'}>
       {!isV2Preview && (
         <a href="#main-content" className="fixed left-4 top-4 z-[100] -translate-y-24 rounded-full bg-link px-5 py-3 text-sm font-semibold text-white transition-transform focus:translate-y-0">
           Skip to content

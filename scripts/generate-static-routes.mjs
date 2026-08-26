@@ -18,14 +18,15 @@ await build({
 
 const {
   brand,
+  currentPortfolio,
+  siteIdentity,
   disclaimerPoints,
   holdings,
   journalEntries,
+  legacyJournalRedirects,
   latestPortfolioReview,
-  portfolioCrawlerNotes,
   portfolioRoles,
   portfolioSnapshot,
-  portfolioValueHistory,
   publicRouteManifest,
   plannedLetters,
   processRules,
@@ -94,15 +95,15 @@ function getSnapshotBlock(entry) {
   return entry.body.find((block) => block.split('\n')[0]?.trim().toLowerCase() === 'snapshot') ?? entry.body[0] ?? '';
 }
 
-function weeklyCard(entry) {
+function reviewCard(entry) {
   const snapshot = getSnapshotBlock(entry);
-  const week = entry.title.match(/Week\s+\d+/i)?.[0] ?? entry.title;
-  const accountValue =
-    readLabel(snapshot, ['Account value at review', 'Current account value', 'Account value', 'Estimated account value', 'Total portfolio value', 'Portfolio value']) ||
+  const reviewLabel = entry.subtitle ?? entry.title;
+  const performance =
+    readLabel(snapshot, ['Since inception', 'Period return', 'Position versus start', 'Drawdown']) ||
     'Not recorded';
-  const weeklyMove =
-    readLabel(snapshot, ['Move since Week 16', 'Move since Week 14', 'Fortnightly move', 'Weekly move', 'Weekly change']) ||
-    'Qualitative review only';
+  const periodMarker =
+    readLabel(snapshot, ['From the low', 'Drawdown', 'Vs cost basis', 'Move since Week 16', 'Move since Week 14', 'Fortnightly move', 'Weekly move', 'Weekly change']) ||
+    'See the full review';
   const mainTrade =
     readLabel(snapshot, ['Short-term trade', 'Main realised trade', 'Main trade', 'Main new trade', 'Main new position']) ||
     entry.majorEvents?.[0] ||
@@ -116,10 +117,11 @@ function weeklyCard(entry) {
       .find((line) => line.trim().length > 55) ?? entry.excerpt;
 
   return `<article class="static-card">
-    <h3>${esc(week)} - ${esc(entry.date)}</h3>
+    <h3>${esc(entry.title)} - ${esc(entry.date)}</h3>
+    <p>${esc(reviewLabel)}</p>
     <dl>
-      <div><dt>Account value</dt><dd>${esc(accountValue)}</dd></div>
-      <div><dt>Weekly move</dt><dd>${esc(weeklyMove)}</dd></div>
+      <div><dt>Performance</dt><dd>${esc(performance)}</dd></div>
+      <div><dt>Period marker</dt><dd>${esc(periodMarker)}</dd></div>
       <div><dt>Main trade</dt><dd>${esc(mainTrade)}</dd></div>
       <div><dt>Main lesson</dt><dd>${esc(mainLesson.replace(/\s+/g, ' ').slice(0, 170))}</dd></div>
     </dl>
@@ -139,25 +141,6 @@ function letterCard(letter) {
   </article>`;
 }
 
-function valueHistoryTable() {
-  return `<table>
-    <thead><tr><th>Week</th><th>Date</th><th>Portfolio value</th><th>Source</th></tr></thead>
-    <tbody>
-      ${portfolioValueHistory
-        .map(
-          (point) => `<tr>
-            <td>${esc(point.label)}</td>
-            <td>${esc(point.date)}</td>
-            <td>${esc(point.valueLabel)}</td>
-            <td>${esc(point.source)}</td>
-          </tr>`,
-        )
-        .join('')}
-    </tbody>
-  </table>
-  <p>Week 2 did not record a precise account value, so it is not plotted in the line chart.</p>`;
-}
-
 function routeHtml({ path, title, description, fallback, pageType = 'WebPage', noindex = false }) {
   const canonical = `${siteUrl}${path === '/' ? '/' : path}`;
   const staticMain = `<main class="static-fallback" aria-label="Static page content">${fallback}</main>`;
@@ -167,7 +150,7 @@ function routeHtml({ path, title, description, fallback, pageType = 'WebPage', n
     name: title,
     description,
     url: canonical,
-    isPartOf: { '@type': 'WebSite', name: brand.name, url: siteUrl },
+    isPartOf: { '@type': 'WebSite', name: siteIdentity.personName, url: siteUrl },
   });
 
   return template
@@ -215,23 +198,23 @@ async function writeRedirectRoute({ path, target, title }) {
   await writeFile(file, html);
 }
 
-const currentHoldings = holdings.filter((holding) => !/^closed/i.test(holding.positionSize) && !/^closed/i.test(holding.status));
+const currentHoldings = holdings.filter((holding) => holding.status === 'Current holding');
 const publishedLetters = plannedLetters.filter((letter) => letter.body?.length);
 const firstPublishedLetter = publishedLetters[0];
-const portfolioReviews = journalEntries.filter((entry) => ['Weekly Reviews', 'Fortnightly Reviews'].includes(entry.category));
-const standaloneJournalEntries = journalEntries.filter((entry) => !['Weekly Reviews', 'Fortnightly Reviews'].includes(entry.category));
+const portfolioReviews = journalEntries.filter((entry) => entry.category === 'Monthly Reviews');
+const standaloneJournalEntries = journalEntries.filter((entry) => entry.category !== 'Monthly Reviews');
 const latestReviewLabel = latestPortfolioReview.label;
 
 const homeRoute = {
   path: '/',
-  title: 'Codie Capital Research | Investment Journal by Codie Marillier',
+  title: 'Codie Marillier | Investment Journal & Research',
   description:
     "Codie Marillier's personal investment journal and public record of portfolio decisions, regular reviews, process, and long-term learning. Not investment advice.",
   fallback: `
-    <p>Personal investment journal</p>
-    <h1>Codie Capital Research</h1>
+    <p>Codie Marillier / Codie Capital Research</p>
+    <h1>Investing, in public.</h1>
     ${paragraph(
-      'Codie Capital Research is my personal investment journal. I use it to record what I own, why I own it, what I am learning, and how my thinking changes over time. The aim is to build a long-term public record of my decisions, mistakes, lessons, and development as an investor.',
+      'A public record of what I own, why I own it, what I am learning, and how my thinking changes. Performance is public. Personal finances are not.',
     )}
     ${paragraph('This is a personal investment journal only. It is not financial advice, not a fund, and not a money-management service.')}
     ${section(
@@ -245,27 +228,25 @@ const homeRoute = {
         {
           label: 'Latest Portfolio Update',
           href: `/journal/${latestPortfolioReview.slug}`,
-          text: `${latestPortfolioReview.label} is the current source-of-truth review.`,
+          text: `${latestPortfolioReview.label} is the latest published grouped review.`,
         },
         {
           label: 'Current Portfolio',
           href: '/portfolio',
-          text: 'What I own, the cash position, and how each holding is grouped.',
+          text: 'What I own, rounded allocation weights, portfolio roles, and current decisions.',
         },
       ]),
     )}
     ${section(
-      'Latest Portfolio Snapshot',
+      'Latest Public Snapshot',
       `<dl class="static-grid">
         <div><dt>Latest review</dt><dd>${esc(latestReviewLabel)}</dd></div>
-        <div><dt>Current account value</dt><dd>${esc(portfolioSnapshot.accountValue)}</dd></div>
-        <div><dt>Starting value</dt><dd>${esc(portfolioSnapshot.startingCostBasis)}</dd></div>
-        <div><dt>Current return</dt><dd>${esc(portfolioSnapshot.currentReturn)}</dd></div>
-        <div><dt>Cash balance</dt><dd>${esc(portfolioSnapshot.cashBalance)}</dd></div>
+        <div><dt>Since inception</dt><dd>${esc(portfolioSnapshot.currentReturn)}</dd></div>
+        <div><dt>Cash allocation</dt><dd>${esc(portfolioSnapshot.cashWeight)}</dd></div>
+        <div><dt>Started</dt><dd>${esc(currentPortfolio.started)}</dd></div>
       </dl>
-      <p>The snapshot is updated through the latest published portfolio review.</p>`,
+      <p>Allocation reviewed ${esc(portfolioSnapshot.asOfDate)}. Weights are rounded to limit reconstruction of personal finances.</p>`,
     )}
-    ${section('Portfolio Value History', valueHistoryTable())}
     ${section(
       'More Sections',
       linkList([
@@ -313,43 +294,39 @@ const routes = [
     path: '/portfolio',
     title: 'Current Portfolio | Codie Capital Research',
     description:
-      `Codie Marillier's current personal portfolio record: ${latestPortfolioReview.label} account value, cash, return, open holdings, portfolio roles, winners, drags, and latest action plan.`,
+      `Codie Marillier's current portfolio record: ${latestPortfolioReview.label}, percentage performance, rounded allocation weights, research roles and current decisions.`,
     fallback: `
       <p>Personal portfolio record. Not investment advice.</p>
       <h1>Current Portfolio</h1>
       ${paragraph('This page documents my own portfolio structure for accountability. It is not a model portfolio, not investment advice, and should not be copied.')}
       ${section(
-        `${latestReviewLabel} Snapshot`,
+        `${latestReviewLabel} Public Snapshot`,
         `<dl class="static-grid">
-          <div><dt>Current account value</dt><dd>${esc(portfolioSnapshot.accountValue)}</dd></div>
-          <div><dt>Starting value</dt><dd>${esc(portfolioSnapshot.startingCostBasis)}</dd></div>
-          <div><dt>Latest return</dt><dd>${esc(portfolioSnapshot.currentReturn)}</dd></div>
-          <div><dt>Cash</dt><dd>${esc(portfolioSnapshot.cashBalance)}</dd></div>
-          <div><dt>Investments</dt><dd>${esc(portfolioSnapshot.investments)}</dd></div>
-          <div><dt>Weekly move</dt><dd>${esc(portfolioSnapshot.weeklyMove)}</dd></div>
+          <div><dt>Since inception</dt><dd>${esc(portfolioSnapshot.currentReturn)}</dd></div>
+          <div><dt>Cash allocation</dt><dd>${esc(portfolioSnapshot.cashWeight)}</dd></div>
+          <div><dt>Allocation reviewed</dt><dd>${esc(portfolioSnapshot.asOfDate)}</dd></div>
+          <div><dt>Started</dt><dd>${esc(currentPortfolio.started)}</dd></div>
         </dl>`,
       )}
-      ${section('Portfolio Value History', valueHistoryTable())}
       ${section(
         'Open Holdings',
         `<div class="static-grid">${currentHoldings
           .map(
             (holding) => `<article>
               <h3>${esc(holding.ticker)} - ${esc(holding.name)}</h3>
-              <p><strong>Shares:</strong> ${esc(holding.positionSize)}</p>
+              <p><strong>Rounded weight:</strong> ${esc(holding.portfolioWeight)}%</p>
               <p><strong>Role:</strong> ${esc(holding.role)}</p>
               <p><strong>Sleeve:</strong> ${esc(holding.sleeve)}</p>
+              <p><strong>Decision:</strong> ${esc(holding.decision)}</p>
+              <p><strong>Why owned:</strong> ${esc(holding.whyOwned)}</p>
             </article>`,
           )
           .join('')}</div>`,
       )}
-      ${section('Current Winners', list(portfolioCrawlerNotes.winners))}
-      ${section('Current Drags', list(portfolioCrawlerNotes.drags))}
       ${section(
         'Portfolio Role Notes',
         portfolioRoles.map((role) => `<article><h3>${esc(role.title)}</h3><p>${esc(role.examples)}</p><p>${esc(role.text)}</p></article>`).join(''),
       )}
-      ${section('Latest Action Plan', list(portfolioCrawlerNotes.latestActionPlan))}
       ${section(
         'Transaction Summary',
         `<dl class="static-grid">${transactionSummary.map((item) => `<div><dt>${esc(item.label)}</dt><dd>${esc(item.value)}</dd></div>`).join('')}</dl>`,
@@ -360,11 +337,11 @@ const routes = [
     path: '/journal',
     title: 'Portfolio Journal | Codie Capital Research',
     description:
-      "Portfolio review cards with week number, date, account value, review move, main trade, and main lesson from Codie Marillier's personal investment journal.",
+      "Portfolio review cards with dates, percentage performance, main decisions, and lessons from Codie Marillier's personal investment journal.",
     fallback: `
       <p>Portfolio review archive. Not investment advice.</p>
       <h1>Portfolio Journal</h1>
-      ${paragraph('Weekly and fortnightly portfolio reviews documenting account value, positioning, lessons, mistakes, and market context from my own portfolio.')}
+      ${paragraph('Monthly portfolio reviews documenting percentage performance, positioning, lessons, mistakes, and market context from my own portfolio.')}
       ${section(
         'Useful Links',
         linkList([
@@ -380,7 +357,7 @@ const routes = [
           },
         ]),
       )}
-      ${section('Portfolio Review Cards', portfolioReviews.map(weeklyCard).join(''))}
+      ${section('Monthly Portfolio Reviews', portfolioReviews.map(reviewCard).join(''))}
     `,
   },
   {
@@ -396,7 +373,7 @@ const routes = [
       ${section(
         'Related Sections',
         linkList([
-          { href: '/journal', label: 'Portfolio Journal', text: 'Portfolio review archive from Week 1 to Week 18.' },
+          { href: '/journal', label: 'Portfolio Journal', text: 'Five monthly-style reviews from portfolio launch through 3 August 2026, plus focused notes and reflections.' },
           { href: '/process', label: 'Investment Process', text: 'The rules and process these letters refer back to.' },
         ]),
       )}
@@ -504,7 +481,7 @@ const routes = [
       ${paragraph('I started this site to build a public record of my investing process, not just a list of trades or returns.')}
       ${paragraph('My interest in investing began seriously around the age of fourteen, when I first understood that the stock market allowed ordinary people to buy small pieces of real businesses.')}
       ${paragraph('During the first COVID lockdown in 2020, my father encouraged me and my siblings to each choose an online course while we were at home. I chose a stock trading course by Mohsin Hassan on Udemy and began studying fundamental analysis, technical analysis, market behaviour, risk, and trading psychology.')}
-      ${paragraph('My first investment was Bitcoin in 2021, when it was trading at roughly $21,000. I invested around $500, and within a few months that position had grown to approximately $1,500. That early success gave me confidence, but it also taught me that making money early does not always mean you fully understand risk.')}
+      ${paragraph('My first investment was Bitcoin in 2021, when it was trading at roughly $21,000. The position roughly tripled before I sold it. That early success gave me confidence, but it also taught me that making money early does not always mean you fully understand risk.')}
       ${paragraph("My family's background in real estate shaped the way I think about assets, ownership, capital appreciation, rental income, and long-term wealth creation. Public markets have given me a way to begin building capital earlier through listed companies, ETFs, selected assets, and a repeatable process.")}
       ${section(
         'Learning From Mistakes',
@@ -602,7 +579,7 @@ const routes = [
     title: 'Codie Capital Research | Website V2 Preview | Codie Marillier',
     description: 'A private preview gateway to Codie Marillier’s investment letter, journal entries, portfolio and research process.',
     noindex: true,
-    fallback: `<p>Website V2 preview / Project</p><h1>Codie Capital Research</h1>${paragraph('A public record of my real portfolio, the decisions behind it and the lessons that are easier to see when they are written down. Personal research, never personalised investment advice.')}${section('Start with the letter', publishedLetters.map((letter) => `<article><h3>${esc(letter.title)}</h3><p>${esc(letter.date)} / ${esc(letter.readingTime ?? '')}</p><p>${esc(letter.summary)}</p><p><a href="/letters/${esc(letter.slug)}">Read ${esc(letter.title)}</a></p></article>`).join(''))}${section('Portfolio reviews, week by week', linkList(portfolioReviews.map((entry) => ({ label: entry.title, href: `/journal/${entry.slug}`, text: `${entry.date} / ${entry.category}` }))))}${section('Notes and reflections', linkList(standaloneJournalEntries.map((entry) => ({ label: entry.title, href: `/journal/${entry.slug}`, text: `${entry.date} / ${entry.category}` }))))}${section('Explore the record', linkList([{ label: 'Current portfolio', href: '/portfolio', text: 'View the current personal portfolio.' }, { label: 'Investment process', href: '/process', text: 'Read the written process.' }, { label: 'Decision archive', href: '/decision-archive', text: 'Review major decisions.' }, { label: 'Mistakes and lessons', href: '/mistakes-lessons', text: 'Keep difficult lessons visible.' }]))}`,
+    fallback: `<p>Website V2 preview / Project</p><h1>Codie Capital Research</h1>${paragraph('A public record of my real portfolio, the decisions behind it and the lessons that are easier to see when they are written down. Personal research, never personalised investment advice.')}${section('Start with the letter', publishedLetters.map((letter) => `<article><h3>${esc(letter.title)}</h3><p>${esc(letter.date)} / ${esc(letter.readingTime ?? '')}</p><p>${esc(letter.summary)}</p><p><a href="/letters/${esc(letter.slug)}">Read ${esc(letter.title)}</a></p></article>`).join(''))}${section('Monthly portfolio reviews', linkList(portfolioReviews.map((entry) => ({ label: entry.title, href: `/journal/${entry.slug}`, text: `${entry.subtitle ?? entry.date} / ${entry.category}` }))))}${section('Notes and reflections', linkList(standaloneJournalEntries.map((entry) => ({ label: entry.title, href: `/journal/${entry.slug}`, text: `${entry.date} / ${entry.category}` }))))}${section('Explore the record', linkList([{ label: 'Current portfolio', href: '/portfolio', text: 'View the current personal portfolio.' }, { label: 'Investment process', href: '/process', text: 'Read the written process.' }, { label: 'Decision archive', href: '/decision-archive', text: 'Review major decisions.' }, { label: 'Mistakes and lessons', href: '/mistakes-lessons', text: 'Keep difficult lessons visible.' }]))}`,
   },
   {
     path: '/v2-preview/projects/horsebox-conversion',
@@ -650,6 +627,14 @@ for (const route of publicRouteManifest) {
       title: `Redirecting to ${route.title}`,
     });
   }
+}
+
+for (const [slug, target] of Object.entries(legacyJournalRedirects)) {
+  await writeRedirectRoute({
+    path: `/journal/${slug}`,
+    target,
+    title: 'Redirecting to the new monthly portfolio review',
+  });
 }
 
 for (const entry of journalEntries) {

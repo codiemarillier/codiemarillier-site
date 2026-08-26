@@ -1,7 +1,10 @@
 import { myFirstLetterBody } from './myFirstLetter';
+import { monthlyPortfolioReviews } from './monthlyPortfolioReviews.generated';
+import { currentPortfolio } from './currentPortfolio';
 import { siteIdentity } from './siteConfig';
 
 export { publicRouteManifest, routeDefinitionByPath, routeMetaByPath, siteIdentity } from './siteConfig';
+export { currentHoldings, currentPortfolio } from './currentPortfolio';
 export {
   v2Identity,
   v2Interests,
@@ -30,8 +33,9 @@ export type NavLink = {
 export type JournalEntry = {
   slug: string;
   title: string;
+  subtitle?: string;
   date: string;
-  category: 'Weekly Reviews' | 'Fortnightly Reviews' | 'Trade Reflections' | 'Market Notes' | 'Lessons';
+  category: 'Monthly Reviews' | 'Weekly Reviews' | 'Fortnightly Reviews' | 'Trade Reflections' | 'Market Notes' | 'Lessons';
   excerpt: string;
   body: string[];
   tags?: string[];
@@ -67,11 +71,17 @@ export type ResearchNote = {
 export type Holding = {
   name: string;
   ticker: string;
-  positionSize: string;
+  portfolioWeight: number;
   sleeve: string;
   role: string;
-  status: string;
-  transactionNote: string;
+  status: 'Current holding' | 'Closed / watchlist' | 'Closed / lesson';
+  decision: 'BUY' | 'HOLD' | 'TRIM' | 'EXIT' | 'WATCH';
+  lastReviewed: string;
+  performance?: string;
+  whyOwned: string;
+  reviewFocus?: string;
+  sellCriteria?: string;
+  latestNote: string;
 };
 
 export type ReadingBook = {
@@ -119,16 +129,6 @@ export type MistakeLesson = {
   themes: string[];
 };
 
-export type PortfolioValuePoint = {
-  week: number;
-  label: string;
-  date: string;
-  value: number;
-  valueLabel: string;
-  source: 'Baseline' | 'Recorded' | 'Approximate';
-  note?: string;
-};
-
 export const brand = siteIdentity.investing;
 
 export const navLinks: NavLink[] = [
@@ -156,11 +156,11 @@ export const footerLinks: NavLink[] = [
 export const whatThisIs = [
   {
     title: 'Portfolio Journal',
-    text: 'Weekly and fortnightly reflections on performance, mistakes, risk, and positioning.',
+    text: 'Monthly reflections on performance, mistakes, risk, and positioning.',
   },
   {
     title: 'Portfolio Record',
-    text: 'A record of current holdings, regular reviews, mistakes, decisions, and lessons from managing my own portfolio.',
+    text: 'A percentage-based record of current holdings, regular reviews, mistakes, decisions, and lessons from managing my own portfolio.',
   },
   {
     title: 'Investment Philosophy',
@@ -191,7 +191,7 @@ export const startHere = [
   {
     eyebrow: 'Current record',
     title: 'Review the portfolio',
-    text: 'See the manual snapshot of my own portfolio, including current holdings, cash, closed lessons, and role-based structure.',
+    text: 'See the percentage-only snapshot of my own portfolio, including allocation, cash weight, closed lessons, and role-based structure.',
     href: '/portfolio',
     action: 'View portfolio record',
   },
@@ -270,7 +270,7 @@ export const processRules = [
   },
   {
     title: 'Regular review process',
-    text: 'Keep a short weekly or fortnightly summary covering account value, cash, what helped, what hurt, trades made, mistakes, and the plan for the next period.',
+    text: 'Keep a monthly summary covering percentage performance, cash allocation, what helped, what hurt, trades made, mistakes, and the plan for the next period.',
   },
 ];
 
@@ -283,7 +283,7 @@ export const plannedLetters: PlannedLetter[] = [
     readingTime: '14 min read',
     status: 'Published',
     summary:
-      'A first proper letter on why the weekly reviews are only part of the record, and why discipline, patience, risk, and process matter more than short-term account value.',
+      'A first proper letter on why portfolio reviews are only part of the record, and why discipline, patience, risk, and process matter more than short-term account value.',
     themes: ['first letter', 'process', 'discipline', 'patience', 'risk', 'public record'],
     body: myFirstLetterBody,
   },
@@ -299,7 +299,7 @@ export const decisionArchiveEntries: DecisionArchiveEntry[] = [
     positionType: 'Speculative',
     status: 'Open',
     summary: 'A future decision memo on why SpaceX was added as a small speculative long-term position.',
-    relatedWeeklyReview: 'week-15-portfolio-summary',
+    relatedWeeklyReview: 'capital-research-review-04',
     tags: ['Buy', 'Speculative', 'SpaceX'],
   },
   {
@@ -311,7 +311,7 @@ export const decisionArchiveEntries: DecisionArchiveEntry[] = [
     positionType: 'Watchlist',
     status: 'Reviewed',
     summary: 'A future decision memo on taking profit in ASML and the difference between trimming and fully exiting.',
-    relatedWeeklyReview: 'week-15-portfolio-summary',
+    relatedWeeklyReview: 'capital-research-review-04',
     tags: ['Sell', 'Lesson', 'ASML'],
   },
   {
@@ -323,7 +323,7 @@ export const decisionArchiveEntries: DecisionArchiveEntry[] = [
     positionType: 'Core holding',
     status: 'Open',
     summary: 'A future decision memo on price discipline, re-entry patience, and rebuilding a small Alphabet position.',
-    relatedWeeklyReview: 'week-14-portfolio-summary',
+    relatedWeeklyReview: 'capital-research-review-04',
     tags: ['Buy', 'Core holding', 'Google'],
   },
   {
@@ -335,7 +335,7 @@ export const decisionArchiveEntries: DecisionArchiveEntry[] = [
     positionType: 'Hedge',
     status: 'Open',
     summary: 'A future decision memo on gold as a hedge and why hedges can feel uncomfortable when they are not working every week.',
-    relatedWeeklyReview: 'week-15-portfolio-summary',
+    relatedWeeklyReview: 'capital-research-review-04',
     tags: ['Add', 'Hedge', 'Gold'],
   },
   {
@@ -347,7 +347,7 @@ export const decisionArchiveEntries: DecisionArchiveEntry[] = [
     positionType: 'Speculative',
     status: 'Open',
     summary: 'A future decision memo on when averaging down is deliberate and when it risks becoming emotional.',
-    relatedWeeklyReview: 'week-15-portfolio-summary',
+    relatedWeeklyReview: 'capital-research-review-04',
     tags: ['Add', 'Speculative', 'Symbotic'],
   },
   {
@@ -359,7 +359,7 @@ export const decisionArchiveEntries: DecisionArchiveEntry[] = [
     positionType: 'Lesson',
     status: 'Closed',
     summary: 'A future decision memo on a profitable Microsoft trade and whether the decision was repeatable.',
-    relatedWeeklyReview: 'week-13-portfolio-summary',
+    relatedWeeklyReview: 'capital-research-review-04',
     tags: ['Sell', 'Lesson', 'Microsoft'],
   },
   {
@@ -371,7 +371,7 @@ export const decisionArchiveEntries: DecisionArchiveEntry[] = [
     positionType: 'Watchlist',
     status: 'Open',
     summary: 'A future decision memo on separating thesis review from panic selling during weakness.',
-    relatedWeeklyReview: 'week-15-portfolio-summary',
+    relatedWeeklyReview: 'capital-research-review-04',
     tags: ['Hold', 'Lesson', 'Rheinmetall'],
   },
 ];
@@ -390,7 +390,7 @@ export const mistakeLessons: MistakeLesson[] = [
     title: 'Communication discipline: recording trades properly',
     period: 'Planned lesson',
     summary: 'A future lesson on keeping the record complete and writing decisions down before memory becomes vague.',
-    relatedLink: '/journal/week-13-portfolio-summary',
+    relatedLink: '/journal/capital-research-review-04',
     themes: ['communication', 'record keeping', 'accountability'],
   },
   {
@@ -435,217 +435,25 @@ export const mistakeLessons: MistakeLesson[] = [
   },
 ];
 
-export const portfolioRoles = [
-  {
-    title: 'Compounders',
-    examples: 'Google, Meta, Berkshire Hathaway, Airbnb',
-    text: 'Dominant or high-quality businesses with strong earnings power, durable advantages, and the ability to grow over long periods.',
-  },
-  {
-    title: 'Broad Market Exposure',
-    examples: 'Nasdaq 100 exposure, S&P 500 exposure',
-    text: 'ETF exposure gives the portfolio a base layer of diversified participation in public markets.',
-  },
-  {
-    title: 'Defensive / Income Holdings',
-    examples: 'Realty Income, NextEra Energy, Rheinmetall',
-    text: 'Holdings with different drivers from the core technology sleeve, used to balance the portfolio and broaden exposure.',
-  },
-  {
-    title: 'Macro Hedge',
-    examples: 'iShares Physical Gold',
-    text: 'Gold has a role as a hedge against inflation, instability, currency pressure, and market stress.',
-  },
-  {
-    title: 'Controlled Higher-Risk Growth',
-    examples: 'Symbotic, SpaceX',
-    text: 'A smaller part of the portfolio can be used for higher-risk long-term themes such as robotics, automation, and space infrastructure, but sizing has to stay disciplined.',
-  },
-  {
-    title: 'Investor-Led Holding',
-    examples: 'Pershing Square Holdings',
-    text: 'A manager-led holding added for exposure to Bill Ackman’s portfolio at a discount to net asset value, with the position treated as a long-term compounding idea rather than a quick trade.',
-  },
-];
+export const portfolioRoles = currentPortfolio.roles;
 
 export const latestPortfolioReview = {
-  label: 'Week 18',
-  title: 'Week 18 - A longer view and a lesson in discipline',
-  slug: 'week-18-portfolio-summary',
-  date: '7 July 2026',
-  shortDate: '7 Jul 2026',
-  mainNewTrade: 'No permanent portfolio changes; Robinhood opened and closed as a short-term trade',
+  label: currentPortfolio.latestReview.label,
+  title: currentPortfolio.latestReview.title,
+  slug: currentPortfolio.latestReview.slug,
+  date: currentPortfolio.latestReview.published,
+  shortDate: '6 Aug 2026',
+  mainNewTrade: currentPortfolio.latestReview.latestDecision,
 };
 
 export const portfolioSnapshot = {
-  accountValue: '£2,015',
-  startingCostBasis: '£1,999',
-  currentReturn: '+0.78%',
-  cashBalance: '£0',
-  weeklyMove: '+£4.15 in the week to 10 July',
-  investments: 'About £2,015',
-  status: 'Transaction-ledger valuation through 10 July 2026',
-  asOfDate: '10 July 2026',
-  valuationBasis: 'Transaction-ledger estimate using closing prices and FX rates',
-  googlePosition: 'Small Alphabet position remains in the portfolio after earlier profit-taking',
-  microsoftTrade: 'Earlier position closed profitably on 1 June; a new 0.14171835-share position was opened on 8 July 2026',
-  mainFocus: 'Stay patient, rebuild cash where sensible, and only act when both the opportunity and process are strong',
-  updateNote: 'Transaction-ledger valuation through 10 July 2026. Estimated account value is £2,014.50, cash is £0 after the 8 July Microsoft purchase, and the account is £15.50 above the original £1,999 starting capital.',
-};
-
-export const portfolioValueHistory: PortfolioValuePoint[] = [
-  {
-    week: 1,
-    label: 'Week 1',
-    date: '8 March 2026',
-    value: 1999,
-    valueLabel: 'Starting baseline: £1,999',
-    source: 'Baseline',
-    note: 'Week 1 was described as close to flat to slightly negative, so the chart uses the starting baseline.',
-  },
-  {
-    week: 3,
-    label: 'Week 3',
-    date: 'March 2026',
-    value: 1860.18,
-    valueLabel: '£1,860.18',
-    source: 'Recorded',
-  },
-  {
-    week: 4,
-    label: 'Week 4',
-    date: '30 March 2026',
-    value: 1860,
-    valueLabel: 'Around £1,860',
-    source: 'Approximate',
-  },
-  {
-    week: 5,
-    label: 'Week 5',
-    date: '05 April 2026',
-    value: 1931,
-    valueLabel: 'Around £1,931',
-    source: 'Approximate',
-  },
-  {
-    week: 6,
-    label: 'Week 6',
-    date: '12 April 2026',
-    value: 1960,
-    valueLabel: 'Around £1,960',
-    source: 'Approximate',
-  },
-  {
-    week: 7,
-    label: 'Week 7',
-    date: 'April 2026',
-    value: 2025.84,
-    valueLabel: '£2,025.84',
-    source: 'Recorded',
-  },
-  {
-    week: 8,
-    label: 'Week 8',
-    date: '28 April 2026',
-    value: 2008.07,
-    valueLabel: '£2,008.07',
-    source: 'Recorded',
-  },
-  {
-    week: 9,
-    label: 'Week 9',
-    date: '04 May 2026',
-    value: 2000,
-    valueLabel: 'Around £2,000',
-    source: 'Approximate',
-  },
-  {
-    week: 10,
-    label: 'Week 10',
-    date: '11 May 2026',
-    value: 1986.69,
-    valueLabel: '£1,986.69',
-    source: 'Recorded',
-  },
-  {
-    week: 11,
-    label: 'Week 11',
-    date: '15 May 2026',
-    value: 1974.37,
-    valueLabel: 'c. £1,974.37',
-    source: 'Recorded',
-  },
-  {
-    week: 12,
-    label: 'Week 12',
-    date: '22 May 2026',
-    value: 1983.39,
-    valueLabel: '£1,983.39',
-    source: 'Recorded',
-  },
-  {
-    week: 13,
-    label: 'Week 13',
-    date: '2 June 2026',
-    value: 2007,
-    valueLabel: 'Around £2,007',
-    source: 'Approximate',
-  },
-  {
-    week: 14,
-    label: 'Week 14',
-    date: '9 June 2026',
-    value: 1979.98,
-    valueLabel: 'Around £1,979.98',
-    source: 'Approximate',
-  },
-  {
-    week: 15,
-    label: 'Week 15',
-    date: '16 June 2026',
-    value: 2055.86,
-    valueLabel: '£2,055.86',
-    source: 'Recorded',
-  },
-  {
-    week: 16,
-    label: 'Week 16',
-    date: '23 June 2026',
-    value: 1981,
-    valueLabel: 'Around £1,981',
-    source: 'Approximate',
-  },
-  {
-    week: 18,
-    label: 'Week 18',
-    date: '7 July 2026',
-    value: 2008,
-    valueLabel: '£2,008',
-    source: 'Recorded',
-    note: 'Week 17 was skipped because the review cycle moved to every two weeks.',
-  },
-];
-
-export const portfolioCrawlerNotes = {
-  winners: [
-    'Gold has started recovering from its recent low while still being treated as a portfolio hedge.',
-    'Rheinmetall has improved from roughly -40% to around -30% in the portfolio, although it remains a significant unrealised loss.',
-    'Meta was helped by encouraging reports around the possible Meta Compute initiative.',
-    'Robinhood was opened and closed profitably, but the trade is recorded mainly as a process lesson.',
-  ],
-  drags: [
-    'SpaceX is back close to break-even after previously showing a much stronger gain.',
-    'The 10 July transaction-ledger estimate has no unallocated cash after the 8 July Microsoft purchase.',
-    'Rheinmetall is still a major unrealised loss despite improving from its worst point.',
-    'The semiconductor sell-off keeps ASML on the watchlist, but the €1,550 level is a watch level rather than an automatic buy.',
-  ],
-  latestActionPlan: [
-    'Continue the fortnightly review cycle to reduce short-term noise.',
-    'Stay patient and rebuild cash where sensible.',
-    'Avoid emotional live-event trades, even when the outcome is profitable.',
-    'Watch ASML around €1,550 but only buy if the thesis still looks intact.',
-    'Hold the unchanged long-term portfolio unless conviction changes.',
-  ],
+  currentReturn: `${currentPortfolio.latestReview.sinceInceptionReturn >= 0 ? '+' : ''}${currentPortfolio.latestReview.sinceInceptionReturn.toFixed(2)}%`,
+  cashWeight: `${currentPortfolio.latestReview.cashWeight.toFixed(0)}%`,
+  status: `Latest authored review through ${currentPortfolio.latestReview.allocationAsOf}`,
+  asOfDate: currentPortfolio.latestReview.allocationAsOf,
+  allocationBasis: currentPortfolio.allocationBasis,
+  mainFocus: 'Stay patient, keep every allocation tied to a written role, and only act when both the opportunity and process are strong.',
+  updateNote: currentPortfolio.measuredPerformance.basis,
 };
 
 export const readingDevelopment: ReadingBook[] = [
@@ -795,830 +603,156 @@ export const readingDevelopment: ReadingBook[] = [
 
 export const transactionSummary = [
   { label: 'Latest published review', value: latestPortfolioReview.label },
-  { label: 'Ledger valuation date', value: portfolioSnapshot.asOfDate },
-  { label: 'Cash balance', value: portfolioSnapshot.cashBalance },
-  { label: 'Latest ledger action', value: 'Small Microsoft re-entry on 8 July 2026' },
+  { label: 'Allocation reviewed', value: portfolioSnapshot.asOfDate },
+  { label: 'Cash allocation', value: portfolioSnapshot.cashWeight },
+  { label: 'Latest decision', value: currentPortfolio.latestReview.latestDecision },
 ];
 
-export const holdings: Holding[] = [
-  {
-    name: 'SGLN / iShares Physical Gold',
-    ticker: 'SGLN',
-    positionSize: '5.72 shares',
-    sleeve: 'Hedge',
-    role: 'Portfolio hedge and macro protection',
-    status: 'Current holding',
-    transactionNote: 'Added again on 9 June 2026 after ASML sale',
-  },
-  {
-    name: 'QQQA / Nasdaq-100 ETF',
-    ticker: 'QQQA',
-    positionSize: '5.57 shares',
-    sleeve: 'Core ETF',
-    role: 'Broad technology-led US equity exposure',
-    status: 'Current holding',
-    transactionNote: 'Trimmed 1 share on 15 May 2026',
-  },
-  {
-    name: 'VUAG / Vanguard S&P 500 ETF',
-    ticker: 'VUAG',
-    positionSize: '2.04 shares',
-    sleeve: 'Core ETF',
-    role: 'Broad US market exposure',
-    status: 'Current holding',
-    transactionNote: 'Initial portfolio buildout on 3 March 2026',
-  },
-  {
-    name: 'Rheinmetall',
-    ticker: 'RHM',
-    positionSize: '0.087 shares',
-    sleeve: 'Thematic / defence',
-    role: 'Defence demand and European security exposure',
-    status: 'Current holding',
-    transactionNote: 'Dividend received in May 2026',
-  },
-  {
-    name: 'Realty Income',
-    ticker: 'O',
-    positionSize: '3.28 shares',
-    sleeve: 'Defensive / income-style',
-    role: 'Real estate income exposure',
-    status: 'Current holding',
-    transactionNote: 'Added again on 15 May 2026; dividends received',
-  },
-  {
-    name: 'NextEra Energy',
-    ticker: 'NEE',
-    positionSize: '2.04 shares',
-    sleeve: 'Defensive / energy transition',
-    role: 'Utility and renewables exposure',
-    status: 'Current holding',
-    transactionNote: 'Initial portfolio buildout on 3 March 2026',
-  },
-  {
-    name: 'Meta Platforms',
-    ticker: 'META',
-    positionSize: '0.52 shares',
-    sleeve: 'Core quality growth',
-    role: 'Advertising, AI, and platform scale',
-    status: 'Current holding',
-    transactionNote: 'Added across March and April; dividend received',
-  },
-  {
-    name: 'Symbotic',
-    ticker: 'SYM',
-    positionSize: '3.268 shares',
-    sleeve: 'Higher volatility',
-    role: 'Robotics and warehouse automation',
-    status: 'Current holding',
-    transactionNote: 'Added 1.5 shares on 11 June 2026 after an earlier partial sale',
-  },
-  {
-    name: 'SpaceX',
-    ticker: 'SPCX',
-    positionSize: '1 share',
-    sleeve: 'Speculative / long-term opportunity',
-    role: 'Early exposure to space infrastructure, satellites, and Starlink',
-    status: 'Current holding',
-    transactionNote: 'Bought 1 share on 12 June 2026 as a small speculative long-term position',
-  },
-  {
-    name: 'Pershing Square Holdings',
-    ticker: 'PSH',
-    positionSize: '2 shares',
-    sleeve: 'Investor-led holding',
-    role: 'Discount-to-NAV exposure to Pershing Square portfolio and Bill Ackman’s capital allocation',
-    status: 'Current holding',
-    transactionNote: 'Bought 2 shares on 23 June 2026 at 3,922p per share',
-  },
-  {
-    name: 'Airbnb',
-    ticker: 'ABNB',
-    positionSize: '1.223 shares',
-    sleeve: 'Quality growth / travel',
-    role: 'Asset-light travel platform exposure',
-    status: 'Current holding',
-    transactionNote: 'Initial portfolio buildout on 3 March 2026',
-  },
-  {
-    name: 'Berkshire Hathaway',
-    ticker: 'BRK.B',
-    positionSize: '0.3884 shares',
-    sleeve: 'Core quality / ballast',
-    role: 'Diversified operating businesses and capital discipline',
-    status: 'Current holding',
-    transactionNote: 'Initial portfolio buildout on 3 March 2026',
-  },
-  {
-    name: 'Alphabet (Class A)',
-    ticker: 'GOOGL',
-    positionSize: '0.28 shares',
-    sleeve: 'Core quality growth / add-on watchlist',
-    role: 'Search, cloud, AI, and platform scale',
-    status: 'Small rebuilt position',
-    transactionNote: 'Earlier position sold profitably; small re-entry on 3 June 2026',
-  },
-  {
-    name: 'ASML',
-    ticker: 'ASML',
-    positionSize: 'Closed',
-    sleeve: 'Watchlist / AI infrastructure',
-    role: 'Semiconductor equipment exposure',
-    status: 'Closed on 9 June 2026',
-    transactionNote: 'Realised result around £40.59; remains a watchlist name',
-  },
-  {
-    name: 'Microsoft',
-    ticker: 'MSFT',
-    positionSize: '0.14171835 shares',
-    sleeve: 'Core quality growth',
-    role: 'Quality software and AI infrastructure exposure',
-    status: 'Current holding',
-    transactionNote: 'Re-entered with 0.14171835 shares on 8 July 2026 after the earlier position closed on 1 June',
-  },
-  {
-    name: 'IonQ',
-    ticker: 'IONQ',
-    positionSize: 'Closed',
-    sleeve: 'Speculative lesson',
-    role: 'Quantum computing exposure',
-    status: 'Closed',
-    transactionNote: 'Realised loss around £18.35; useful reminder on volatility and sizing',
-  },
-];
+export const holdings: Holding[] = [...currentPortfolio.holdings];
 
 export const portfolioChangeLog: PortfolioChange[] = [
   {
     date: '8 July 2026',
     type: 'Buy',
     title: 'Re-entered Microsoft with a small position',
-    text: 'Bought 0.14171835 Microsoft shares for £41.40. This later transaction is part of the 10 July ledger valuation and occurred after the published Week 18 review.',
+    text: 'Re-entered Microsoft with a deliberately small allocation. The decision is included in Review 05 and the current percentage-based allocation record.',
   },
   {
     date: '2 July 2026',
     type: 'Lesson',
     title: 'Closed Robinhood profitably as a process lesson',
     text: 'Opened Robinhood during a live event and closed it quickly for a small profit, but recorded it as an emotional-process warning rather than a repeatable trade.',
-    relatedSlug: 'week-18-portfolio-summary',
   },
   {
     date: '23 June 2026',
     type: 'Buy',
-    title: 'Bought 2 shares of Pershing Square Holdings',
-    text: 'Added Pershing Square Holdings at 3,922p per share for discount-to-NAV exposure and a long-term investor-led holding.',
-    relatedSlug: 'week-16-portfolio-summary',
+    title: 'Opened Pershing Square Holdings',
+    text: 'Added a small Pershing Square Holdings allocation for discount-to-NAV exposure and a long-term investor-led holding.',
+    relatedSlug: 'capital-research-review-04',
   },
   {
     date: '16 June 2026',
     type: 'Update',
     title: 'Latest transaction export reviewed',
-    text: 'Portfolio holdings and cash were updated from the latest transaction export through 16 June 2026. Market value remains a manual/live-pricing item.',
-    relatedSlug: 'week-15-portfolio-summary',
+    text: 'The rounded allocation record was reviewed against the latest private transaction export through 16 June 2026. Public pricing remains a manually reviewed item.',
+    relatedSlug: 'capital-research-review-04',
   },
   {
     date: '12 June 2026',
     type: 'Buy',
-    title: 'Bought 1 share of SpaceX',
+    title: 'Opened a small SpaceX position',
     text: 'Added a small speculative long-term position for exposure to space infrastructure, satellites, Starlink, and future optionality.',
-    relatedSlug: 'week-15-portfolio-summary',
+    relatedSlug: 'capital-research-review-04',
   },
   {
     date: '11 June 2026',
     type: 'Buy',
     title: 'Added to Symbotic',
     text: 'A deliberate average down in the robotics and warehouse automation sleeve, with the position still treated as higher volatility.',
-    relatedSlug: 'week-15-portfolio-summary',
+    relatedSlug: 'capital-research-review-04',
   },
   {
     date: '9 June 2026',
     type: 'Sell',
     title: 'Sold ASML for a realised gain',
     text: 'Closed ASML to lock in profit and raise cash. The lesson is to protect capital while still learning how much room to give high-quality winners.',
-    relatedSlug: 'week-15-portfolio-summary',
+    relatedSlug: 'capital-research-review-04',
   },
   {
     date: '9 June 2026',
     type: 'Buy',
     title: 'Added to gold hedge',
-    text: 'Bought another iShares Physical Gold share to reduce the average cost and strengthen the macro hedge in the portfolio.',
-    relatedSlug: 'week-15-portfolio-summary',
+    text: 'Increased the iShares Physical Gold allocation to reduce the average cost and strengthen the macro hedge in the portfolio.',
+    relatedSlug: 'capital-research-review-04',
   },
   {
     date: '3 June 2026',
     type: 'Buy',
     title: 'Rebuilt a small Alphabet position',
     text: 'Bought Google/Alphabet back near the planned level after earlier profit-taking, keeping the entry small and disciplined.',
-    relatedSlug: 'week-14-portfolio-summary',
+    relatedSlug: 'capital-research-review-04',
   },
   {
     date: '1 June 2026',
     type: 'Sell',
     title: 'Closed Microsoft profitably',
     text: 'Locked in a profitable Microsoft trade and kept the decision in the record as a process review rather than a recommendation.',
-    relatedSlug: 'week-13-portfolio-summary',
+    relatedSlug: 'capital-research-review-04',
   },
   {
     date: '15 May 2026',
     type: 'Trim',
     title: 'Trimmed Nasdaq exposure',
-    text: 'Sold 1 QQQA share to raise cash after strength, creating more flexibility while keeping broad technology-led exposure.',
-    relatedSlug: 'week-11-portfolio-summary',
+    text: 'Trimmed the QQQA allocation after strength, creating more flexibility while keeping broad technology-led exposure.',
+    relatedSlug: 'capital-research-review-03',
   },
   {
     date: '7 April 2026',
     type: 'Lesson',
     title: 'Closed IonQ as a sizing lesson',
     text: 'Closed the speculative quantum position at a loss. The main lesson was that exciting themes still need controlled sizing and clear reasoning.',
-    relatedSlug: 'week-5-portfolio-summary',
+    relatedSlug: 'capital-research-review-02',
   },
 ];
 
-export const journalEntries: JournalEntry[] = [
+export const standaloneJournalEntries: JournalEntry[] = [
   {
-    "slug": "week-18-portfolio-summary",
-    "title": "Week 18 - A longer view and a lesson in discipline",
-    "date": "7 July 2026",
-    "category": "Fortnightly Reviews",
-    "excerpt": "The portfolio recovered to £2,008 over the fortnight, while a brief Robinhood trade provided a useful reminder that a profitable result does not automatically make the decision-making process correct.",
-    "tags": [
-      "Robinhood",
-      "Gold",
-      "Rheinmetall",
-      "Meta",
-      "SpaceX",
-      "Cash",
-      "ASML"
+    slug: 'why-the-rulebook-exists',
+    title: 'Why the Rulebook Exists',
+    date: '9 June 2026',
+    category: 'Lessons',
+    excerpt: 'The rulebook is not abstract. It comes from early crypto profits, leverage mistakes, borrowed money, and the decision to treat investing as a serious long-term craft.',
+    body: [
+      'I first became interested in markets during the first week of the COVID-19 lockdown. I was fourteen, and my father asked me and my siblings to each choose an online course. I picked a stock trading course on Udemy, taught by Mohsin Hassan, and then completed a more advanced course afterwards.',
+      'That early interest moved into crypto. I made money quickly, mostly through luck, then borrowed money from my parents and made more. The lesson looked positive at first, but the process was not mature.',
+      'The mistake came from leverage. I started trading crypto with leverage and eventually lost most of the money. I also tried different crypto projects with a friend, but the overall result was the same: most of the early money was gone.',
+      'That is why the rulebook matters. I do not use leverage to trade, I do not borrow aggressively to invest, and I want this portfolio to be built through disciplined ownership of real businesses rather than gambling behaviour.',
     ],
-    "majorEvents": [
-      "Moved to fortnightly portfolio reviews",
-      "Opened and closed Robinhood for a small profit",
-      "Portfolio recovered to £2,008 with no permanent holding changes"
-    ],
-    "documentUrl": "/documents/weekly-summaries/view/week-18-portfolio-summary/",
-    "documentPdfUrl": "/documents/weekly-summaries/week-18-portfolio-summary.pdf",
-    "documentPages": [
-      "/documents/weekly-summaries/pages/week-18-portfolio-summary/page-01.png",
-      "/documents/weekly-summaries/pages/week-18-portfolio-summary/page-02.png",
-      "/documents/weekly-summaries/pages/week-18-portfolio-summary/page-03.png",
-      "/documents/weekly-summaries/pages/week-18-portfolio-summary/page-04.png",
-      "/documents/weekly-summaries/pages/week-18-portfolio-summary/page-05.png",
-      "/documents/weekly-summaries/pages/week-18-portfolio-summary/page-06.png",
-      "/documents/weekly-summaries/pages/week-18-portfolio-summary/page-07.png"
-    ],
-    "body": [
-      "I missed Week 17, so this is the first review covering a full two-week period. I have decided that writing these summaries every two weeks is probably better for me. I am still following the portfolio and the wider market day to day, but the longer review cycle gives me more distance from short-term price movements and helps me stop chasing the account as closely.",
-      "Snapshot\nCurrent account value\n£2,008\nWeek 16 account value\nAbout £1,981\nFortnightly move\nAbout +£27 / Approximately +1.36%\nStarting capital\n£1,999\nPosition versus start\nAbout +£9 / Approximately +0.45%\nInvestments\nAbout £1,967\nCash balance\n£41 / Approximately 2.04% of the account\nDeposits or withdrawals\nNone\nMain permanent portfolio change\nNone. The long-term holdings remained unchanged.\nShort-term trade\nRobinhood opened on 1 July and closed on 2 July.\nRobinhood result\nApproximately £1.09 profit after the two currency-conversion fees, or about 2.7% on the £40.28 deployed.\nIncome received\n18p net Meta dividend and 6p cash interest.\nMain positive developments\nGold recovering from its recent low, Rheinmetall improving from roughly -40% to around -30% in the portfolio, and encouraging reports around Meta Compute.\nMain disappointment\nSpaceX remaining close to break-even after previously showing a much stronger gain.\nMain lesson\nA positive outcome does not excuse an emotional process. Longer review periods should help improve discipline.",
-      "How the two weeks felt\nThe two weeks felt good overall. The account moved up and down, as it always does, but I have been pleased with the performance and I am very happy with where the portfolio currently sits. The value is now slightly above the original starting capital again, and there were signs of recovery in some of the positions that had been causing the most frustration.\nMoving from weekly to fortnightly reviews should also improve the quality of these summaries. A two-week period gives me more to write about, but more importantly, it gives me a wider view of what is actually happening. I can still keep track of daily market developments without feeling that every short-term move needs to become part of the portfolio story.",
-      "The Robinhood trade\nOn 1 July, I joined Robinhood's live event, The World is Flat. During the stream, I heard announcements that I thought were extremely positive for the company, including its international expansion, Robinhood Chain and new products connecting traditional finance with decentralised markets. Because the information was being announced live, I believed the share price was likely to react positively and immediately placed an order for 0.493849 shares.\nThe position cost £40.28. Robinhood subsequently rose by as much as roughly 10% from the level I was watching, although I did not hold it for the full move. I sold the following day for £41.37. Trading 212 recorded a £1.21 result before the two 6p currency-conversion fees, leaving an approximate net profit of £1.09, or around 2.7%.\nFinancially, the trade worked. From a discipline point of view, however, it was not a particularly good trade. I acted immediately because I felt confident and excited by what I was hearing in the live stream. I did not complete the kind of structured research I would normally expect before opening a position. The fact that the share price went up does not mean the process was correct.\nThe useful lesson is to separate outcome from process. I am happy that the trade ended positively and that I exited quickly, but I do not want a small win to encourage more emotionally driven trades in the future.",
-      "Portfolio structure\nNo permanent holdings were added or removed during the fortnight. The Robinhood position was opened and closed within the period, leaving the long-term portfolio structure unchanged.\n\nHolding | Ticker | Week 18 view\niShares Physical Gold | SGLN | Still the largest position and still held as a hedge. Recent recovery has been encouraging.\nVanguard S&P 500 (Acc) | VUAG | Core broad-market exposure; no change in thesis.\nMeta Platforms | META | Meta Compute reports are potentially positive, but the plans are still developing and execution remains important.\nRealty Income | O | Long-term income holding; no change in conviction.\nUBS Nasdaq-100 (Acc) | QQQA | Continues to provide diversified large-cap technology exposure.\nBerkshire Hathaway | BRK.B | Long-term quality and capital-allocation holding.\nNextEra Energy | NEE | No change in the long-term energy and infrastructure thesis.\nAirbnb | ABNB | No change in conviction.\nSpaceX | SPCX | Still around break-even and slightly disappointing, but the position remains long term.\nSymbotic | SYM | Volatile robotics exposure; no change in conviction.\nRheinmetall | RHM | The drawdown has improved from roughly -40% to around -30%. The F126 cancellation was meaningful, but the broader defence thesis remains intact for now.\nPershing Square Holdings | PSH | Still down roughly 1% to 2%. I remain interested in adding, but I am not making that decision yet.\nAlphabet Class A | GOOGL | Long-term technology and advertising exposure; no change in conviction.",
-      "SpaceX\nSpaceX has again been a little disappointing because the position is still sitting around break-even. It previously moved up sharply, so watching that gain disappear has not been ideal, but I am not worried. I bought the company because I believe in it over the long term, not because I expected a straight line upwards immediately after buying.\nThe most important point is that the share-price movement has not changed my conviction. I am not looking to sell simply because the position has become less exciting in the short term.",
-      "Gold\nGold appears to be recovering slightly after a very difficult period. That is encouraging because it remains the largest position and has been one of the biggest sources of unrealised loss in the account. The recent movement does not remove the drawdown, but it supports the decision not to react emotionally at the worst point.\nThe longer-term argument also remains relevant. Central-bank demand continues to support the structural case for gold, even though higher interest-rate expectations and a stronger dollar have created significant short-term pressure. I still see the position primarily as a hedge rather than something that must outperform every month.",
-      "Rheinmetall\nRheinmetall fell heavily during the period and at one stage was around 40% down in the portfolio. It has since recovered to approximately 30% down, which is still a significant loss but is an improvement.\nThe fall was connected to Germany cancelling the delayed F126 frigate programme. It is important to describe this accurately: Rheinmetall did not lose the project because it failed to deliver an existing Rheinmetall contract. The company had expected to take over the troubled programme, and the cancellation removed a major prospective order. Rheinmetall said the decision would create a €20 billion shortfall in expected quarterly order nominations, even while confirming that its wider second-quarter trading update remained on track.\nThis was a meaningful setback and should not be dismissed, particularly because it exposed some risk around Rheinmetall's expansion into naval shipbuilding. However, I do not currently believe it breaks the broader thesis around increased European defence spending and long-term demand for the company's core products. For now, I am holding and watching how management addresses the financial impact.",
-      "Meta and Meta Compute\nMeta was helped by reports that the company is developing a cloud business that could sell access to excess AI computing capacity and hosted AI models. The internal initiative has been referred to as Meta Compute.\nI see this as potentially positive because it could give Meta another way to earn a return on the enormous amount of money it is spending on AI infrastructure. It could also create a revenue stream outside the company's advertising business. However, Meta has not formally confirmed the reported plan, and entering cloud infrastructure would mean competing with much more established providers. It is positive for the thesis, but it is not yet a guaranteed success.",
-      "Pershing Square Holdings\nPershing Square is currently only around 1% to 2% down in the portfolio. I remain interested in buying more because the discount to net asset value is still large. At the end of June, the reported GBP NAV was £55.96 per share while the London share price was £37.30, implying a discount of roughly one third.\nThe company has also continued repurchasing shares. Buying back its own stock below NAV can increase NAV per remaining share, although it does not guarantee that the market discount will close. I am happy to continue holding and watching rather than rushing to increase the position immediately.",
-      "ASML and the semiconductor watchlist\nThe portfolio no longer has direct semiconductor-company exposure, which has helped during the recent sector sell-off. Semiconductor shares have been hit by concerns that valuations and expectations around AI spending had moved too far, too quickly. ASML was pulled down with the wider sector rather than because of one clear new failure in its own business.\nI would be interested in returning to ASML if the price approaches approximately €1,550, but that is a watch level rather than an automatic purchase instruction. Before buying, I would still need to check whether the decline is simply market sentiment or whether something has changed in ASML's orders, outlook or long-term competitive position.",
-      "Cash and the next period\nThe account currently holds £41 in cash, equal to roughly 2% of the portfolio. That is almost unchanged from Week 16 and still leaves limited flexibility. I may consider making some sales in the future to build a larger cash reserve and wait for better opportunities, particularly if the semiconductor sell-off creates a genuinely attractive ASML entry point.\nI am not forcing that decision now. I am happy with the portfolio and no convictions have changed. I am also becoming more excited about what the next few weeks could offer across the market, but I need to make sure excitement does not turn into another impulsive trade.",
-      "The lesson this fortnight\nThe biggest improvement is the decision to step back and review the portfolio every two weeks. It gives me a better chance of separating normal volatility from genuine changes in a company's investment thesis.\nThe Robinhood trade showed the other side of that lesson. I reacted to live information, made money and exited quickly, but the decision came from emotion rather than a repeatable process. I should be pleased with the result without pretending that the process was ideal.\nGoing into Week 19 and Week 20, the aim is to remain patient, rebuild cash where sensible and only act when both the opportunity and the decision-making process are strong.",
-      "Sources checked for market context\nRobinhood: The World is Flat product announcements, 1 July 2026\nReuters: Meta's reported cloud business and excess AI capacity, 1 July 2026\nRheinmetall: assessment of the F126 programme cancellation\nReuters: European technology and semiconductor sell-off, 7 July 2026\nPershing Square Holdings: NAV and market-price data\nPershing Square Holdings: share repurchase, 30 June 2026\nWorld Gold Council: Central Bank Gold Reserves Survey 2026"
-    ]
   },
   {
-    "slug": "week-16-portfolio-summary",
-    "title": "Week 16 - A pullback and the Pershing Square buy",
-    "date": "23 June 2026",
-    "category": "Weekly Reviews",
-    "excerpt": "Week 16 did not feel especially good, but it also did not feel terrible. It felt more like a normal pullback after a very strong Week 15.",
-    "tags": [
-      "Pershing Square",
-      "SpaceX",
-      "Gold",
-      "Cash"
+    slug: 'google-re-entry-plan',
+    title: 'Google Re-entry Plan',
+    date: '5 May 2026',
+    category: 'Market Notes',
+    excerpt: 'Why a great business can still require patience, and why sitting in cash can be the correct action while waiting for a better setup.',
+    body: [
+      'Alphabet remains a business worth studying, but quality alone does not remove the need for entry discipline.',
+      'The plan is to define what would make the price attractive, what would break the thesis, and how large the position should be before any trade is made.',
     ],
-    "majorEvents": [
-      "Bought 2 shares of Pershing Square Holdings",
-      "SpaceX pulling back from last week’s strong gain",
-      "Rebuild cash slowly and keep protecting capital first"
-    ],
-    "documentUrl": "/documents/weekly-summaries/view/week-16-portfolio-summary/",
-    "documentPdfUrl": "/documents/weekly-summaries/week-16-portfolio-summary.pdf",
-    "documentPages": [
-      "/documents/weekly-summaries/pages/week-16-portfolio-summary/page-01.png",
-      "/documents/weekly-summaries/pages/week-16-portfolio-summary/page-02.png",
-      "/documents/weekly-summaries/pages/week-16-portfolio-summary/page-03.png",
-      "/documents/weekly-summaries/pages/week-16-portfolio-summary/page-04.png"
-    ],
-    "body": [
-      "Snapshot\nCurrent account value\nAround £1,981\nWeek 15 account value\n£2,055.86\nWeekly move\nAbout -£74.86\nStarting capital\n£1,999\nPosition versus starting value\nAbout -£18\nInvestments\nAround £1,940.90\nCash balance\n£40.07\nCurrent cost basis\n£2,039.64\nUnrealised result\n-£98.74 / -4.84%\nMain new trade\nBought 2 shares of Pershing Square Holdings\nMain weekly drag\nSpaceX pulling back from last week’s strong gain\nMain lesson\nRebuild cash slowly and keep protecting capital first",
-      "How the week felt\nWeek 16 did not feel especially good, but it also did not feel terrible. It felt more like a normal pullback after a very strong Week 15. Last week the account looked much stronger because SpaceX was up around 30% and the account was sitting at £2,055.86. This week it was back around £1,981, which is frustrating because it puts the portfolio slightly below the original starting capital again.\nThe main reason the week felt worse on paper was SpaceX. Last week it was the biggest winner in the portfolio. This week it pulled back and was slightly down. That is a big swing in a short period of time, but I do not feel emotional about it. It would have been nice to take some profit when it was up strongly, but I bought SpaceX as a long-term holding, not just as a quick trade.",
-      "Pershing Square Holdings\nThe main new trade was buying 2 shares of Pershing Square Holdings at 3,922p per share, for a total cost of £78.44. I bought it mainly because of the discount to NAV. The way I see it, I am getting exposure to the companies Pershing owns at a cheaper price than if I bought the underlying companies directly.\nI also like Bill Ackman as an investor. I have looked up to him for years and I think he has made some of the greatest trades on Wall Street. I see Pershing Square as the type of holding that could compound at around 10% to 15% per year over the next 10 to 20 years if the strategy continues to work.\nThis was not meant to be a quick trade. It was more about adding another high-quality, investor-led holding to the account and giving the portfolio exposure to a different style of investing.",
-      "Current holdings\nHolding | Ticker | Value | Weight | Result\niShares Physical Gold | SGLN | £350.71 | 18.07% | -£57.99 / -14.19%\nVanguard S&P 500 (Acc) | VUAG | £221.75 | 11.43% | +£23.75 / +11.99%\nMeta Platforms | META | £220.14 | 11.34% | -£25.76 / -10.48%\nRealty Income | O | £150.14 | 7.74% | -£11.51 / -7.12%\nUBS Nasdaq-100 (Acc) | QQQA | £148.01 | 7.63% | +£29.45 / +24.84%\nBerkshire Hathaway | BRK.B | £143.09 | 7.37% | +£3.42 / +2.45%\nNextEra Energy | NEE | £132.28 | 6.82% | -£7.27 / -5.21%\nAirbnb | ABNB | £129.16 | 6.66% | +£9.60 / +8.03%\nSpaceX | SPCX | £111.62 | 5.74% | -£7.32 / -6.15%\nSymbotic | SYM | £96.52 | 4.97% | -£19.92 / -17.11%\nRheinmetall | RHM | £89.10 | 4.59% | -£30.22 / -25.33%\nPershing Square Holdings | PSH | £76.20 | 3.93% | -£2.24 / -2.86%\nAlphabet Class A | GOOGL | £72.30 | 3.73% | -£2.62 / -3.50%",
-      "SpaceX and gold\nThe SpaceX pullback was the biggest change. I still believe in the company long term, and I may look to buy more in the future if I have cash and the price gives me a good opportunity. For now, I am happy holding it and not reacting emotionally to the first proper pullback.\nGold is still the largest position and the biggest cash loss. It is frustrating because it has not performed how I would have liked, but I still see it as a hedge. I have been watching and reading more about how governments and central banks think about gold, and that has made me more comfortable with the long-term reason for holding it.",
-      "The lesson this week\nThe biggest lesson is cash. After buying Pershing Square, the cash balance is only around £40.07. I like the buy, but it means I have used most of my flexibility. Going forward, I need to rebuild cash slowly and keep protecting capital first.\nI still believe in the positions I own, but Week 16 was a reminder that the portfolio can move quickly in both directions. I do not want to sell good holdings just because of one weak week, but I also do not want to become careless with cash."
-    ]
   },
   {
-    "slug": "week-15-portfolio-summary",
-    "title": "Week 15 - SpaceX and a stronger account",
-    "date": "16 June 2026",
-    "category": "Weekly Reviews",
-    "excerpt": "Week 15 was another positive week. The account was sitting at £2,055.86 compared with around £2,023 in Week 14.",
-    "tags": [
-      "SpaceX",
-      "Alphabet",
-      "Gold",
-      "Symbotic",
-      "Rheinmetall",
-      "Meta"
+    slug: 'microsoft-trade-reflection',
+    title: 'Microsoft Trade Reflection',
+    date: '29 April 2026',
+    category: 'Trade Reflections',
+    excerpt: 'A profitable trade can still teach process lessons. The question is whether the decision was repeatable, not just whether it worked.',
+    body: [
+      'The Microsoft trade closed for roughly 10% profit. That is a good outcome, but the review has to focus on process quality.',
+      'The useful question is whether the entry, size, patience, and exit were all supported by written reasoning that could be repeated.',
     ],
-    "majorEvents": [
-      "Bought 1 share of SpaceX",
-      "Gold, Rheinmetall, Meta and Symbotic"
-    ],
-    "documentUrl": "/documents/weekly-summaries/view/week-15-portfolio-summary/",
-    "documentPdfUrl": "/documents/weekly-summaries/week-15-portfolio-summary.pdf",
-    "documentPages": [
-      "/documents/weekly-summaries/pages/week-15-portfolio-summary/page-01.png",
-      "/documents/weekly-summaries/pages/week-15-portfolio-summary/page-02.png",
-      "/documents/weekly-summaries/pages/week-15-portfolio-summary/page-03.png"
-    ],
-    "body": [
-      "Snapshot\nCurrent account value\n£2,055.86\nWeek 14 account value\nAround £2,023\nMove since Week 14\n+£32.86\nStarting cost basis\n£1,999\nPosition versus starting value\n+£56.86\nReturn versus starting value\n+2.84%\nInvestments\n£1,937.39\nCash balance\n£118.47\nCash as % of portfolio\nAbout 5.8%\nMain new position\nBought 1 share of SpaceX\nMain winner\nSpaceX\nMain unrealised drags\nGold, Rheinmetall, Meta and Symbotic",
-      "A better week for the account\nWeek 15 was another positive week. The account was sitting at £2,055.86 compared with around £2,023 in Week 14. That means the portfolio improved by about £32.86 and was around £56.86 above the original starting capital of roughly £1,999.\nThat gave me more breathing room. It did not mean I should become careless, but it did show that the decisions over the last few weeks had helped protect and grow the account.",
-      "The SpaceX buy\nThe biggest development was buying SpaceX. I bought one share because I genuinely believe in the company long term and wanted to get exposure as early as possible. It was still speculative because I knew it could easily fall straight after becoming available, and I was prepared to take a small short-term loss if that happened.\nLuckily, the opposite happened. The position was showing around £160 on Trading 212, with the live price around $220 at the latest check, which put it up around 30%+ in the portfolio. That was a very strong start, but I did not want to treat the early profit as guaranteed.",
-      "What helped\nSpaceX was the biggest help by far. QQQA also continued to work well and was up around £28.59, or roughly 24%. VUAG was up around £23.30, or roughly 11.77%, which is exactly what I want from a broad S&P 500 holding.\nAirbnb and Berkshire were also positive, and Alphabet was slightly positive after I re-entered around $360. I was pleased with that because it showed I had waited for the price I wanted instead of chasing.",
-      "What still hurt\nGold was still the biggest unrealised cash drag, down around £49.18 or 12.03%. I was less worried about that than I would be with a normal equity holding because gold is there as a hedge, but it was still frustrating.\nRheinmetall was still the biggest percentage loser apart from gold in cash terms, down around £33.05 or 27.70%. I had previously thought about cutting 50% of the position if it reached a 30% loss, but I no longer wanted to force that rule. I still understood the long-term defence thesis and did not want to sell at a weak point just to make the red number disappear.\nMeta was down around £15.56 or 6.33%, but I was not worried about Meta as a business. Symbotic was down around £14.65 or 12.58%. I bought more Symbotic deliberately to average down and add to the robotics thesis, but I knew I needed to let the position prove itself rather than keep averaging down blindly.",
-      "My main takeaway\nThe week felt positive, but it also reminded me not to confuse a good short-term move with guaranteed progress. SpaceX had worked very well straight away, but it was still a speculative, volatile position. The account was above the starting point, but some positions were still dragging.\nThe goal from here was to keep the discipline: protect capital, avoid getting overexcited, and make sure new buys were still backed by a proper reason."
-    ]
   },
-  {
-    "slug": "week-14-portfolio-summary",
-    "title": "Week 14 - Google back in, ASML profit locked",
-    "date": "9 June 2026",
-    "category": "Weekly Reviews",
-    "excerpt": "Week 14 felt good for most of the week. The account started strong and reached around £2,023, which was the highest point of the week.",
-    "tags": [
-      "ASML",
-      "Google",
-      "Gold",
-      "Cash"
-    ],
-    "majorEvents": [
-      "Sold ASML for £40.59 realised profit"
-    ],
-    "documentUrl": "/documents/weekly-summaries/view/week-14-portfolio-summary/",
-    "documentPdfUrl": "/documents/weekly-summaries/week-14-portfolio-summary.pdf",
-    "documentPages": [
-      "/documents/weekly-summaries/pages/week-14-portfolio-summary/page-01.png",
-      "/documents/weekly-summaries/pages/week-14-portfolio-summary/page-02.png",
-      "/documents/weekly-summaries/pages/week-14-portfolio-summary/page-03.png"
-    ],
-    "body": [
-      "Snapshot\nWeek 13 account value\nAround £2,007\nHighest point in Week 14\nAround £2,023\nAccount value at review\nAround £1,979.98\nStarting value\n£1,999\nCash after trades\nAround £283.65\nMain realised trade\nSold ASML for £40.59 realised profit\nMain new buy\nBought Google at $359.90 and added one SGLN share\nPending order\nOne SpaceX share at $140, not filled yet",
-      "A good week that did not end perfectly\nWeek 14 felt good for most of the week. The account started strong and reached around £2,023, which was the highest point of the week. It then came back down to around £1,979.98 on the working valuation, which was annoying because it put the account slightly below the £1,999 starting value again.\nEven so, I do not see the week as bad. I followed through on plans I had already spoken about. I got back into Google around the level I wanted, sold ASML to lock in a strong profit, and added another gold share to increase the hedge. From a discipline point of view, I think the week was positive.",
-      "What The Intelligent Investor was changing for me\nI was reading The Intelligent Investor and it was definitely affecting the way I thought about the portfolio. The main thing it was teaching me was discipline: protect capital, be patient, and do not get dragged into whatever the market is doing that day.\nThat was part of why I was happy to take profit in ASML and build up cash. I cannot perfectly call the market, but I did think markets might come down a bit over the next week. I would rather have cash available and a stronger hedge than be fully exposed after a strong run.",
-      "The main decisions\nThe best decision was getting back into Google at around $359.90. I had already said I wanted to buy if it came back towards the $360 to $365 area, and that is what happened. I did not chase it higher. I waited and used the cash when the price came to me.\nI also sold ASML to lock in the profit. The position was up around 30%, and the realised profit was £40.59. ASML is still a great company, but I do not think selling a position for a strong gain is something to apologise for. It protected capital and improved the cash position.\nI bought one more share of SGLN because gold was down around 14% and I wanted to strengthen the hedge. I did not want to keep buying gold blindly, but one extra share made sense while markets felt stretched.",
-      "Where the portfolio stood after the trades\nArea\nMy view after Week 14\nGoogle\nBack in at $359.90. This followed the plan.\nASML\nSold fully and locked in £40.59 realised profit.\nGold / SGLN\nAdded one share for hedge protection and to average down.\nCash\nAround £283.65, giving more flexibility.\nMeta\nStill high quality; no real business concern.\nVUAG and QQQA\nStill important broad market and Nasdaq exposure.\nRheinmetall\nStill needs watching because it has been weak.\nSymbotic\nStill volatile; automation idea remains interesting.\nRealty Income and NextEra\nStill rate-sensitive but useful for balance."
-    ]
-  },
-  {
-    "slug": "week-13-portfolio-summary",
-    "title": "Week 13 - Back above the start and a Microsoft trade",
-    "date": "2 June 2026",
-    "category": "Weekly Reviews",
-    "excerpt": "Week 13 was positive for the portfolio. The account moved from £1,983.39 to around £2,007, which put it slightly above the original starting point again.",
-    "tags": [
-      "ASML",
-      "Google",
-      "Gold",
-      "Rheinmetall",
-      "Meta",
-      "Cash"
-    ],
-    "majorEvents": [
-      "Back above where I started",
-      "What was helping and hurting"
-    ],
-    "documentUrl": "/documents/weekly-summaries/view/week-13-portfolio-summary/",
-    "documentPdfUrl": "/documents/weekly-summaries/week-13-portfolio-summary.pdf",
-    "documentPages": [
-      "/documents/weekly-summaries/pages/week-13-portfolio-summary/page-01.png",
-      "/documents/weekly-summaries/pages/week-13-portfolio-summary/page-02.png"
-    ],
-    "body": [
-      "Snapshot\nCurrent account value\nAround £2,007\nWeek 12 account value\n£1,983.39\nMove since Week 12\n+£23.61\nStarting cost basis\n£1,999\nPosition versus starting value\nAbout +£8\nCash balance\n£261.19\nMain trade\nBought Microsoft with around £140 and sold for roughly 10% profit\nGoogle position\nStill closed; waiting for a better re-entry",
-      "Back above where I started\nWeek 13 was positive for the portfolio. The account moved from £1,983.39 to around £2,007, which put it slightly above the original starting point again. The gain was not massive, but getting back above the starting value mattered because the account had recovered from the weaker period.\nI was still waiting to re-enter Google. My plan was only to start considering it if the price moved closer to $365, and even then I did not want to deploy all the cash at once. I wanted the price to come to me rather than chase it.",
-      "The Microsoft trade\nI made a Microsoft trade during the week that I had not mentioned at the time. I bought around £140 of Microsoft because it was one of the only mega-cap technology stocks that had been down over the past year, so I felt it was relatively safer compared with some of the more stretched tech names.\nThe trade worked. I sold the full position for roughly a 10% profit, which is why the cash position increased by about £14. But the lesson was not just that the trade made money. The bigger lesson was that I need to communicate trades properly before or when they happen. The account is meant to be run with discipline and written reasoning, so I need to stick to that process.",
-      "The market and my own mindset\nMarkets had been very strong, and for the most part my trades had played out well. The reason the portfolio did not look stronger was mainly because gold was still down around 11.5%, with a cash loss of about £40.\nI was starting to feel more cautious. U.S. markets were around record highs, driven mainly by enthusiasm around AI and technology. That helped positions like ASML, QQQA, VUAG, Meta and the Microsoft trade. But reading The Intelligent Investor made me think more carefully about bull markets and how dangerous it can be when people start believing prices can keep rising forever.\nI realised that I had started to feel a bit like that myself with AI. That was probably the exact moment when I needed to become more disciplined, not more aggressive.",
-      "What was helping and hurting\nQQQ had continued to rally and was up around 24%, even after I had taken some profits earlier. VUAG was up around 12%, which was exactly what I wanted from a core S&P 500 holding. ASML was also strong, up around 25%, showing that the AI infrastructure theme was still working.\nThe biggest drag was still gold. Rheinmetall was the biggest percentage loser, down around 25% or about £30. Realty Income and NextEra were also weak because of rates. Meta was slightly down, but I was not worried about the business because I use its products constantly and understand the strength of the company personally."
-    ]
-  },
-  {
-    "slug": "week-12-portfolio-summary",
-    "title": "Week 12 - A small recovery without Google",
-    "date": "22 May 2026",
-    "category": "Weekly Reviews",
-    "excerpt": "Week 12 was better than Week 11, although it was not a big breakout. The account moved from £1,974.37 to £1,983.39, so the portfolio recovered by £9.02.",
-    "tags": [
-      "ASML",
-      "Google",
-      "Gold",
-      "Symbotic",
-      "Rheinmetall",
-      "Meta"
-    ],
-    "majorEvents": [
-      "The account moved the right way",
-      "My takeaway"
-    ],
-    "documentUrl": "/documents/weekly-summaries/view/week-12-portfolio-summary/",
-    "documentPdfUrl": "/documents/weekly-summaries/week-12-portfolio-summary.pdf",
-    "documentPages": [
-      "/documents/weekly-summaries/pages/week-12-portfolio-summary/page-01.png",
-      "/documents/weekly-summaries/pages/week-12-portfolio-summary/page-02.png",
-      "/documents/weekly-summaries/pages/week-12-portfolio-summary/page-03.png"
-    ],
-    "body": [
-      "Snapshot\nAccount value\n£1,983.39\nWeek 11 value\n£1,974.37\nWeekly move\n+£9.02 / +0.46%\nStarting cost basis\n£1,999\nOverall result\n-£15.61 / -0.78%\nCash\n£246.34\nMain trade\nNo new trade assumed; Google still not re-entered",
-      "The account moved the right way\nWeek 12 was better than Week 11, although it was not a big breakout. The account moved from £1,974.37 to £1,983.39, so the portfolio recovered by £9.02. That is not a huge move, but it brought the account closer to the original cost basis again.\nThe useful part was that the portfolio did not need Google in the account to stabilise. The cash stayed available, and the improvement came from the remaining holdings, mainly ASML, Symbotic and Rheinmetall. At the same time, NextEra, gold and Meta held the account back, so it was not a clean rally.",
-      "What happened underneath\nThe wider market was mixed. Early in the week, investors were still worried about inflation, oil and bond yields, which was not helpful for rate-sensitive names like NextEra. Later in the week, sentiment improved as investors became more positive about progress in the Middle East conflict and corporate earnings remained supportive.\nEurope was stronger, especially technology and defence. That helped ASML and Rheinmetall after both had been frustrating recently. Gold was weaker again because higher yields and a firmer dollar made it harder for the hedge to help.",
-      "The position impact\nHolding | Weekly move | £ impact | My note\nASML | +7.1% | +£9.16 | Good rebound after last week’s weakness.\nSymbotic | +13.3% | +£8.22 | Sharp bounce, but still volatile.\nRheinmetall | +8.6% | +£7.45 | Useful recovery after the defence-stock reset.\nRealty Income | +0.7% | +£0.98 | Slightly positive, still rate-sensitive.\nQQQA | +0.5% | +£0.69 | Nasdaq exposure held up after the Week 11 trim.\nBerkshire Hathaway | Flat | £0.00 | Did its job as a steady holding.\nVUAG | Flat | £0.00 | Broad market exposure stayed steady.\nAirbnb | -1.2% | -£1.42 | Slightly weaker, not a major issue by itself.\nMeta | -1.4% | -£3.39 | Softer week after helping in Week 11.\nSGLN / Gold | -1.4% | -£4.38 | Hedge dragged again.\nNextEra | -5.9% | -£8.17 | Biggest weekly drag.",
-      "My takeaway\nASML was the best sign because it reminded me why the semiconductor infrastructure theme still mattered. Symbotic’s bounce helped, but I did not want to treat one strong week as proof the risk had gone. Rheinmetall finally had a better week, but I still would not average down aggressively unless it stabilised properly.\nThe account was still slightly below the starting value, but it had moved in the right direction. That was enough for Week 12."
-    ]
-  },
-  {
-    "slug": "week-11-portfolio-summary",
-    "title": "Week 11 - A small pullback after the Google sale",
-    "date": "15 May 2026",
-    "category": "Weekly Reviews",
-    "excerpt": "Week 11 was slightly negative, but I would not call it a bad week. The account fell by roughly £12, which is annoying, but it was nothing like the pressure from earlier when the portfolio was around £1,860.",
-    "tags": [
-      "ASML",
-      "Google",
-      "Gold",
-      "Symbotic",
-      "Rheinmetall",
-      "Meta"
-    ],
-    "majorEvents": [
-      "How it felt without Google",
-      "Notes on the main names"
-    ],
-    "documentUrl": "/documents/weekly-summaries/view/week-11-portfolio-summary/",
-    "documentPdfUrl": "/documents/weekly-summaries/week-11-portfolio-summary.pdf",
-    "documentPages": [
-      "/documents/weekly-summaries/pages/week-11-portfolio-summary/page-01.png",
-      "/documents/weekly-summaries/pages/week-11-portfolio-summary/page-02.png"
-    ],
-    "body": [
-      "Snapshot\nEstimated account value\nc. £1,974.37\nWeek 10 value\nc. £1,986.69\nWeekly move\nc. -£12.32 / -0.62%\nStarting cost basis\nc. £1,999\nEstimated cash\nc. £246.34\nMain trade\nSold 1 QQQA share for £25.41\nNot a good week, but not a bad one either\nWeek 11 was slightly negative, but I would not call it a bad week. The account fell by roughly £12, which is annoying, but it was nothing like the pressure from earlier when the portfolio was around £1,860. The account was still close to the original cost basis and I had more cash after trimming one QQQA share.\nThe portfolio still felt under control. It was not one of those weeks where one holding completely damaged the account or where the structure stopped making sense. It was just mixed: some core names helped, some volatile names pulled back, and gold did not offer much protection.",
-      "How it felt without Google\nWeek 10 had been about the Google sale and building cash. Week 11 was more about seeing whether the remaining portfolio could hold up without Google in it. Overall, it did hold up fairly well, even though the account was slightly down.\nThe better part of the week was Meta, VUAG and the Nasdaq exposure. That told me the quality growth and broad market side of the portfolio was still working. The weaker part was ASML and Symbotic pulling back. That was a useful reminder that even good themes can be volatile from week to week.",
-      "The QQQA trim\nI sold one QQQA share for £25.41. I think that was a sensible small trim because it raised cash without removing the Nasdaq and large-cap technology exposure completely. I still had exposure to the theme, but I also had more flexibility.\nGold was weak again, which was frustrating because SGLN is meant to help balance the portfolio. I still thought it had a role, but I had to be realistic: a hedge can drag as well as protect.",
-      "Notes on the main names\nMeta was one of the better parts of the week and still looked like a strong long-term holding. VUAG did what I wanted it to do by giving broad market exposure. ASML was weaker, but I did not think the long-term semiconductor infrastructure case had changed.\nSymbotic was the one to watch most carefully because it fell sharply. Rheinmetall stayed weak, Realty Income and NextEra remained rate-sensitive, and Airbnb was weaker but not in a way that changed the whole view."
-    ]
-  },
-  {
-    "slug": "week-10-portfolio-summary",
-    "title": "Week 10 - Close to breakeven with cash on the side",
-    "date": "11 May 2026",
-    "category": "Weekly Reviews",
-    "excerpt": "Week 10 felt like a transition week. The account was sitting just below the £2,000 area after the Google sale and the latest movements in the remaining holdings.",
-    "tags": [
-      "ASML",
-      "Google",
-      "Gold",
-      "Rheinmetall",
-      "Meta",
-      "Cash"
-    ],
-    "majorEvents": [
-      "Where the portfolio stood",
-      "What I wanted to do next"
-    ],
-    "documentUrl": "/documents/weekly-summaries/view/week-10-portfolio-summary/",
-    "documentPdfUrl": "/documents/weekly-summaries/week-10-portfolio-summary.pdf",
-    "documentPages": [
-      "/documents/weekly-summaries/pages/week-10-portfolio-summary/page-01.png",
-      "/documents/weekly-summaries/pages/week-10-portfolio-summary/page-02.png",
-      "/documents/weekly-summaries/pages/week-10-portfolio-summary/page-03.png"
-    ],
-    "body": [
-      "Snapshot\nEstimated account value\n£1,986.69\nInvested amount\nAbout £1,765.87\nCash\n£220.82\nCash weight\n11.12%\nMain winners\nQQQA, VUAG, ASML and Airbnb\nMain drags\nGold, Rheinmetall, Realty Income and Meta",
-      "Where the portfolio stood\nWeek 10 felt like a transition week. The account was sitting just below the £2,000 area after the Google sale and the latest movements in the remaining holdings. It was not in a bad place, but it was not in the same clean recovery position as Week 7 and Week 8 either.\nThe important change was that cash had become a meaningful part of the portfolio. I had around £220.82 in cash, or about 11.12% of the account, which gave me dry powder for a possible Google re-entry. That flexibility was useful, but it also meant I had less exposure to one of the strongest large-cap AI names while the market was still rewarding AI-linked businesses.",
-      "The strongest and weakest areas\nThe strongest part of the account was still the broad-market and AI infrastructure sleeve. QQQA, VUAG and ASML were doing most of the work in keeping the portfolio close to breakeven. Airbnb also looked healthier than it had earlier in the period.\nThe weak spots were gold, Rheinmetall, Realty Income and Meta. Gold was the largest holding and one of the biggest drags, down 9.28%. Rheinmetall was down 25.96%, which made it the clearest percentage loser. Realty Income was still being affected by rates, and Meta was down even though I still liked the business long term.",
-      "Position notes\nHolding | Value | Weight | Current P/L / note\nCash | £220.82 | 11.12% | Dry powder for Google re-entry\nSGLN / Gold | £314.07 | 17.79% | -£32.13 / -9.28%\nMeta Platforms | £231.97 | 13.14% | -£13.93 / -5.66%\nVUAG / S&P 500 | £213.20 | 12.07% | +£15.20 / +7.68%\nQQQA / Nasdaq 100 | £163.78 | 9.27% | +£23.92 / +17.10%\nRealty Income | £149.13 | 8.45% | -£12.51 / -7.74%\nNextEra Energy | £139.36 | 7.89% | -£0.19 / -0.14%\nBerkshire Hathaway | £135.98 | 7.70% | -£3.69 / -2.64%\nASML | £135.65 | 7.68% | +£16.15 / +13.51%\nAirbnb | £126.69 | 7.17% | +£7.13 / +5.96%\nRheinmetall | £88.34 | 5.00% | -£30.98 / -25.96%\nSymbotic | £67.70 | 3.83% | -£0.97 / -1.41%",
-      "What I wanted to do next\nThe main task was not to force trades. I wanted to redeploy cash patiently and keep reviewing each holding against its original role. If Google came back to the right level, I could use the cash. If not, there was no need to rush just because the money was available.\nThe account had already moved from a difficult low around £1,860, recovered above £2,000, and then settled slightly below it with cash on the side. That still felt disciplined rather than broken."
-    ]
-  },
-  {
-    "slug": "week-9-portfolio-summary",
-    "title": "Week 9 - Taking the Alphabet profit and raising cash",
-    "date": "04 May 2026",
-    "category": "Weekly Reviews",
-    "excerpt": "Week 9 was not exciting, but it was important. The portfolio was basically sitting around the £2,000 mark, made up of roughly £1,780 in stocks and £220 in cash.",
-    "tags": [
-      "Alphabet",
-      "Symbotic",
-      "Cash"
-    ],
-    "majorEvents": [
-      "A reset week",
-      "The lesson"
-    ],
-    "documentUrl": "/documents/weekly-summaries/view/week-9-portfolio-summary/",
-    "documentPdfUrl": "/documents/weekly-summaries/week-9-portfolio-summary.pdf",
-    "documentPages": [
-      "/documents/weekly-summaries/pages/week-9-portfolio-summary/page-01.png",
-      "/documents/weekly-summaries/pages/week-9-portfolio-summary/page-02.png"
-    ],
-    "body": [
-      "Snapshot\nStock value\nAround £1,780\nCash\nAround £220\nTotal portfolio value\nAround £2,000\nWeek 8 value\n£2,008.07\nWeekly change\nAbout -£8 / -0.4%\nStarting cost basis\nAbout £1,999\nCash position\nAbout 11% of the portfolio",
-      "A reset week\nWeek 9 was not exciting, but it was important. The portfolio was basically sitting around the £2,000 mark, made up of roughly £1,780 in stocks and £220 in cash. Compared with Week 8, the account was only down about £8, so the total value was not really the issue.\nThe bigger change was the structure of the account. I was no longer fully invested because I sold Alphabet and created a proper cash position. That made the portfolio feel more protected and gave me more room to think before putting money back into anything.",
-      "The Alphabet sale\nThe best thing this week was locking in the Alphabet gain. Alphabet had become one of the stronger positions in the portfolio, so selling it and taking about £40.63 profit was a decent result. It meant part of the recent recovery had actually been banked rather than just sitting as a paper gain.\nAt the same time, selling Alphabet also removed one of the cleaner quality names from the portfolio. I was happy with the profit, but I did not want to just throw the cash into something weaker for the sake of being invested. The point of raising cash was to become more patient, not more random.",
-      "How the account felt afterwards\nThe account felt more careful than exciting. It was no longer chasing losses like it had been earlier, but it also had not built a big enough cushion to become comfortable. One bad week could still take the portfolio back below the starting value.\nSymbotic remained one of the main names to watch. It had recovered well, but I did not want to treat that as proof the risk had disappeared. If earnings were strong, it could help a lot. If guidance disappointed, it could give back some of the recovery quickly.",
-      "The lesson\nThe main lesson was that cash can be an active position. Before this, everything had to keep working because the portfolio was basically fully deployed. Now I had some dry powder, and that gave me the ability to wait for a better entry rather than forcing a trade."
-    ]
-  },
-  {
-    "slug": "week-8-portfolio-summary",
-    "title": "Week 8 - Holding the recovery",
-    "date": "28 April 2026",
-    "category": "Weekly Reviews",
-    "excerpt": "Week 8 was more mixed. The account ended at £2,008.07, down from £2,025.84 the week before.",
-    "tags": [
-      "ASML",
-      "Alphabet",
-      "Gold",
-      "Symbotic",
-      "Rheinmetall",
-      "Meta"
-    ],
-    "majorEvents": [
-      "A cooler week after the recovery",
-      "My positioning thoughts"
-    ],
-    "documentUrl": "/documents/weekly-summaries/view/week-8-portfolio-summary/",
-    "documentPdfUrl": "/documents/weekly-summaries/week-8-portfolio-summary.pdf",
-    "documentPages": [
-      "/documents/weekly-summaries/pages/week-8-portfolio-summary/page-01.png",
-      "/documents/weekly-summaries/pages/week-8-portfolio-summary/page-02.png"
-    ],
-    "body": [
-      "Snapshot\nCurrent portfolio value\n£2,008.07\nWeek 7 portfolio value\n£2,025.84\nWeekly change\n-£17.77 / -0.88%\nStarting cost basis\n£1,999\nOverall result\n+£9.07 / +0.45%\nLast month move\nAbout +£170 / +9.7%",
-      "A cooler week after the recovery\nWeek 8 was more mixed. The account ended at £2,008.07, down from £2,025.84 the week before. So it was not another push higher, but it also did not undo the recovery. The portfolio was still just above the starting value, which mattered because a few weeks earlier it had been under much more pressure.\nThe bigger picture was still much better than it had been a month earlier. The account was up roughly £170 over the last month, which was about a 9.7% recovery. So the week was not exciting, but it was useful because the portfolio held most of the recent improvement.",
-      "What was still working\nThe main support was still coming from the growth and technology side. Alphabet, Meta, the Nasdaq ETF, the S&P 500 ETF, ASML, Airbnb and Symbotic were helping keep the account around breakeven or slightly above the original cost base.\nAlphabet was becoming one of the stronger positions, which was encouraging because it was meant to be a higher-quality core holding. Meta also still looked strong. Symbotic had recovered well from where it had been earlier, but I still did not want to treat one recovery as proof that the risk had disappeared.",
-      "What was annoying me\nThe main weak spots were Rheinmetall, SGLN, Realty Income and Berkshire. Rheinmetall was the biggest drag from a percentage point of view, and gold was still down despite being one of the largest positions in the portfolio.\nGold was frustrating because it had not helped as much as expected, but I still viewed it as a hedge. Realty Income also remained under pressure, although that still felt more connected to rates and sentiment than to a broken company thesis.",
-      "My positioning thoughts\nI did not think Week 8 called for a major change by itself. The account was slightly down from Week 7, but still much better than it had been a month earlier. The main thing was to avoid forcing action just because the portfolio had cooled off.\nThe watchlist for the next week was clear: whether the winners could keep holding the account together, whether the weaker names would stabilise, and whether macro risks around oil, inflation and rates would come back into focus."
-    ]
-  },
-  {
-    "slug": "week-7-portfolio-summary",
-    "title": "Week 7 - Back above the starting line",
-    "date": "April 2026",
-    "category": "Weekly Reviews",
-    "excerpt": "Week 7 felt like the first properly positive week since the difficult period started. The account recovered to £2,025.84, which put it back above the starting cost basis of around £1,999.",
-    "tags": [
-      "ASML",
-      "Alphabet",
-      "Gold",
-      "Symbotic",
-      "Rheinmetall",
-      "Meta"
-    ],
-    "majorEvents": [
-      "A genuinely positive week",
-      "What I wanted to do next"
-    ],
-    "documentUrl": "/documents/weekly-summaries/view/week-7-portfolio-summary/",
-    "documentPdfUrl": "/documents/weekly-summaries/week-7-portfolio-summary.pdf",
-    "documentPages": [
-      "/documents/weekly-summaries/pages/week-7-portfolio-summary/page-01.png",
-      "/documents/weekly-summaries/pages/week-7-portfolio-summary/page-02.png"
-    ],
-    "body": [
-      "Snapshot\nPortfolio value\n£2,025.84\nStarting cost basis\n£1,999\nOverall result\n+£26.84\nOverall percentage\n+1.34%\nMain recovery names\nSymbotic, Meta, Alphabet, ASML, QQQA and VUAG",
-      "A genuinely positive week\nWeek 7 felt like the first properly positive week since the difficult period started. The account recovered to £2,025.84, which put it back above the starting cost basis of around £1,999. That was only a gain of £26.84, or 1.34%, but psychologically it mattered because the portfolio was no longer below the starting line.\nThis did not feel like a random one-day bounce. It felt like the portfolio was improving properly. Symbotic, Meta, Alphabet, ASML, QQQA and VUAG all recovered, and that was encouraging because those names are important parts of the growth and technology side of the account.",
-      "Why the week mattered\nThe week showed that patience can pay off, but only when it is backed by discipline. It would have been easy to panic during the weaker weeks. Instead, I held the stronger parts of the portfolio and had already trimmed some speculative exposure earlier, which made the account feel more balanced when the recovery came.\nSymbotic was the most interesting position. It had been one of the more volatile names, so seeing it recover strongly was good. At the same time, because it can move so fast, it was also the name where I started thinking about whether it could make sense to lock in some gains if the market became choppy again.",
-      "Still not getting carried away\nEven though the account was back above the starting value, I did not want to get too comfortable. The Middle East situation was still a major risk, especially around Iran and oil. If oil moved higher again, that could bring inflation and rate worries back into the market quickly.\nGold was still down, but I continued to see SGLN as a hedge rather than something that had to perform every week. Rheinmetall was also still under pressure, although I did not think the long-term defence case had completely broken.",
-      "What I wanted to do next\nThe main decision was whether to protect some of the recent gains or just let the portfolio run. I did not want to sell for the sake of selling, especially because I was not completely sure where I would put the cash. But after a strong recovery, I also did not want to assume the market would keep moving in a straight line.\nThe main lesson was simple: patience helped, but discipline is what made the patience sensible."
-    ]
-  },
-  {
-    "slug": "week-6-portfolio-summary",
-    "title": "Week 6 - The first signs of recovery",
-    "date": "12 April 2026",
-    "category": "Weekly Reviews",
-    "excerpt": "Week 6 was a better week. The portfolio closed around £1,960, so it was still below the cost base, but it moved in the right direction and felt stronger than the previous few weeks.",
-    "tags": [
-      "Gold",
-      "Symbotic",
-      "Rheinmetall",
-      "Meta",
-      "IonQ"
-    ],
-    "majorEvents": [
-      "Patience looked more sensible than overreacting"
-    ],
-    "documentUrl": "/documents/weekly-summaries/view/week-6-portfolio-summary/",
-    "documentPdfUrl": "/documents/weekly-summaries/week-6-portfolio-summary.pdf",
-    "documentPages": [
-      "/documents/weekly-summaries/pages/week-6-portfolio-summary/page-01.png",
-      "/documents/weekly-summaries/pages/week-6-portfolio-summary/page-02.png"
-    ],
-    "body": [
-      "Snapshot\nPortfolio value\nAround £1,960\nCost base\nRoughly £1,999\nMain improvement\nMost of the portfolio recovered apart from gold and Rheinmetall\nMain lesson\nPatience looked more sensible than overreacting",
-      "The account finally moved better\nWeek 6 was a better week. The portfolio closed around £1,960, so it was still below the cost base, but it moved in the right direction and felt stronger than the previous few weeks. After seeing the account around the £1,860 area, even a partial recovery made the situation feel a lot more manageable.\nThe week was still choppy, but most of the portfolio recovered apart from gold and Rheinmetall. That was useful because it showed the stronger parts of the account could still do their job when the market backdrop improved.",
-      "Gold and Rheinmetall\nGold was still down around 6% in the portfolio. I thought it could recover towards where we started if disruption around the Strait continued, but it was still frustrating because it had not protected the account in a clean way.\nRheinmetall was weaker as the market seemed to be pricing in the idea that the Iran war could gradually cool off. Even so, I still thought the company had a strong balance sheet and a large order backlog, so I did not see the defence thesis as broken at that point.",
-      "The main point\nThe main lesson was that patience still looked more sensible than overreacting. After a few difficult weeks, it would have been easy to become too negative about the whole portfolio. But this week showed that when conditions improve, the stronger parts of the book can recover.\nI still needed to be hardest on IonQ and Symbotic because they were the least dependable positions. But the account itself looked more constructive than it had done before."
-    ]
-  },
-  {
-    "slug": "week-5-portfolio-summary",
-    "title": "Week 5 - A steadier week, but still not fixed",
-    "date": "05 April 2026",
-    "category": "Weekly Reviews",
-    "excerpt": "Week 5 felt better than the account number probably looked. The portfolio was still down overall, sitting around £1,931 against a cost base of roughly £1,999, but it did not feel like the account was falling apart.",
-    "tags": [
-      "Alphabet",
-      "Gold",
-      "Symbotic",
-      "Meta",
-      "IonQ",
-      "Airbnb"
-    ],
-    "majorEvents": [
-      "How it felt",
-      "The lesson I took"
-    ],
-    "documentUrl": "/documents/weekly-summaries/view/week-5-portfolio-summary/",
-    "documentPdfUrl": "/documents/weekly-summaries/week-5-portfolio-summary.pdf",
-    "documentPages": [
-      "/documents/weekly-summaries/pages/week-5-portfolio-summary/page-01.png",
-      "/documents/weekly-summaries/pages/week-5-portfolio-summary/page-02.png"
-    ],
-    "body": [
-      "Snapshot\nPortfolio value\nAround £1,931\nCost base\nRoughly £1,999\nMain feeling\nSteadier and more controlled than the raw number suggested\nMain weak spots\nIonQ, Symbotic and Airbnb",
-      "How it felt\nWeek 5 felt better than the account number probably looked. The portfolio was still down overall, sitting around £1,931 against a cost base of roughly £1,999, but it did not feel like the account was falling apart. It felt more controlled than the weeks before.\nThe pattern was still the same. The stronger, steadier names were helping hold things together, while the higher-risk part of the account was still where most of the pain sat. That mattered because the weakness was not coming from everything at once. It was concentrated.",
-      "What helped and what dragged\nRealty Income, NextEra and Meta gave the portfolio a bit more balance. That is exactly why those types of holdings are there. They are not always exciting, but they help stop the account from being completely driven by high-beta names.\nIonQ and Symbotic were again the main drags, with Airbnb also not helping much. That made me think more carefully about the speculative sleeve. I still did not think there was an obvious thesis break, but those positions needed to prove themselves from here rather than just be given unlimited patience.",
-      "The lesson I took\nThe biggest lesson was not to confuse a bad mark-to-market with a bad process. The account was still down, but it was healthier than it had been before the rebalance because I had already cut some speculative exposure and added more to the steadier side.\nFor now, the better move still looked like patience and discipline, not forcing new trades. I wanted to watch whether IonQ and Symbotic could stabilise, whether Meta, Alphabet and the ETFs could keep carrying the book, and whether gold plus the income names could continue to cushion volatility."
-    ]
-  },
-  {
-    "slug": "week-4-portfolio-summary",
-    "title": "Week 4 - Rebalancing instead of panicking",
-    "date": "30 March 2026",
-    "category": "Weekly Reviews",
-    "excerpt": "The account was still sitting around £1,860, compared with roughly £1,999 at the start. So on paper the portfolio was still under pressure.",
-    "tags": [
-      "ASML",
-      "Alphabet",
-      "Symbotic",
-      "Meta",
-      "IonQ"
-    ],
-    "majorEvents": [
-      "Where the account stood",
-      "Where the portfolio ended up"
-    ],
-    "documentUrl": "/documents/weekly-summaries/view/week-4-portfolio-summary/",
-    "documentPdfUrl": "/documents/weekly-summaries/week-4-portfolio-summary.pdf",
-    "documentPages": [
-      "/documents/weekly-summaries/pages/week-4-portfolio-summary/page-01.png",
-      "/documents/weekly-summaries/pages/week-4-portfolio-summary/page-02.png",
-      "/documents/weekly-summaries/pages/week-4-portfolio-summary/page-03.png"
-    ],
-    "body": [
-      "Snapshot\nPortfolio value\nAround £1,860\nStarting value\nAround £1,999\nRealised loss on trims\nAbout $10\nMain action\nTrimmed IonQ and Symbotic; added SGLN, Meta and Realty Income",
-      "Where the account stood\nThe account was still sitting around £1,860, compared with roughly £1,999 at the start. So on paper the portfolio was still under pressure. I did not like seeing that, but I still viewed it as a difficult market backdrop rather than proof that the whole structure was wrong.\nThe broad picture was similar to Week 3. The core still made sense, but the volatile sleeve had become the part causing most of the discomfort. That made the next decision fairly clear: I needed to reduce the part of the portfolio that was creating the most unnecessary pressure.",
-      "The rebalance\nThe main thing I did was trim some of the speculative exposure. I cut 1.5 shares of IonQ and 0.8 shares of Symbotic, then reallocated into steadier positions: SGLN, Meta and Realty Income. I did not see that as trading for the sake of trading. It was more about improving the balance of the account after seeing how the portfolio behaved under pressure.\nThe trims realised a loss of about $10. That is not something I would want to make a habit of, but in this case I think it was acceptable because the loss was small and the decision made the account healthier. I would rather take a small controlled loss than sit passively in positions that had become too large a source of volatility.",
-      "Market backdrop and my view\nThe wider market was still focused on the Middle East and oil. Trump had said attacks would pause for ten days while talks continued, which helped reduce some immediate fear, but it did not remove the uncertainty. Oil was still elevated because investors were worried about escalation and supply disruption.\nMy view at the time was that Iran would probably respect the pause for the time being, or at least avoid doing something that forced immediate escalation before the deadline. That was only my interpretation, not a fact, but it matched the way markets were behaving: calmer than before, but not relaxed.\nFor the portfolio, I expected continued volatility rather than a clean recovery. If diplomacy held, Meta, Alphabet and ASML could recover gradually. If the pause broke, oil and inflation fears could keep putting pressure on growth, REITs and rate-sensitive holdings.",
-      "Where the portfolio ended up\nAfter the rebalance, the account looked more controlled. It still had exposure to growth and AI through Meta, Alphabet and ASML. It still had broad exposure through the ETFs. But it was less dependent on the speculative sleeve behaving well every week.\nTicker | Holding | Shares after rebalance\nABNB | Airbnb | 1.2230\nASML | ASML Holding | 0.1190\nBRK.B | Berkshire Hathaway | 0.3884\nGOOGL | Alphabet | 0.8032\nIONQ | IonQ | 2.1190\nMETA | Meta Platforms | 0.4200\nNEE | NextEra Energy | 2.0400\nO | Realty Income | 3.2780\nQQQA | UBS Nasdaq-100 (Acc) | 6.5662\nRHM | Rheinmetall | 0.0868\nSGLN | iShares Physical Gold | 4.7193\nSYM | Symbotic | 1.7680\nVUAG | Vanguard S&P 500 (Acc) | 2.0366"
-    ]
-  },
-  {
-    "slug": "week-3-portfolio-summary",
-    "title": "Week 3 - The first proper pressure",
-    "date": "March 2026",
-    "category": "Weekly Reviews",
-    "excerpt": "Week 3 was the first week where the account really came under pressure. The portfolio was down to £1,860.18 against a starting value of £1,996.96, so the move was not small.",
-    "tags": [
-      "Gold",
-      "Symbotic",
-      "IonQ"
-    ],
-    "majorEvents": [
-      "Risk-off market pressure and the volatile sleeve"
-    ],
-    "documentUrl": "/documents/weekly-summaries/view/week-3-portfolio-summary/",
-    "documentPdfUrl": "/documents/weekly-summaries/week-3-portfolio-summary.pdf",
-    "documentPages": [
-      "/documents/weekly-summaries/pages/week-3-portfolio-summary/page-01.png",
-      "/documents/weekly-summaries/pages/week-3-portfolio-summary/page-02.png"
-    ],
-    "body": [
-      "Snapshot\nPortfolio total\n£1,860.18\nStarting value\n£1,996.96\nChange\n-£136.78 / -6.85%\nMain drag\nRisk-off market pressure and the volatile sleeve\nNames most under review\nIonQ and Symbotic",
-      "How the drawdown felt\nWeek 3 was the first week where the account really came under pressure. The portfolio was down to £1,860.18 against a starting value of £1,996.96, so the move was not small. A fall of around 6.85% is enough to make you pay attention, especially when the account is still new.\nEven with that, I did not think the whole thing was broken. Most of the weakness looked like it was coming from a broad risk-off move rather than one single holding collapsing. That distinction mattered to me. If one stock had completely damaged the account, that would be one thing. But this felt more like the market turning against the types of assets I owned.",
-      "Why it fell\nThe backdrop was difficult. Markets were dealing with geopolitical tension, firmer oil, higher bond yields and weaker confidence that rates would fall quickly. That combination usually hurts growth stocks, speculative names, REITs and utilities at the same time. That explains why the pressure was spread across technology exposure, the Nasdaq ETF, Realty Income, NextEra and even gold.\nThe higher-volatility sleeve was still the part I needed to watch most closely. IonQ and Symbotic were the obvious names to review because they can move sharply and they do not have the same defensive qualities as the bigger, more established companies.",
-      "What I decided from here\nThe best move did not look like panic selling. I needed to stay disciplined, avoid averaging down too aggressively, and put the most scrutiny on the weaker-conviction speculative positions first. If markets stabilised, doing very little would probably be the right answer. If pressure worsened, I would trim weaker speculative exposure before touching the core.\nThis week was a reminder that a portfolio can feel fine when it is being built and very different once everything is red. The important thing was to judge the holdings against the original reasons for owning them, not just against one bad week of prices."
-    ]
-  },
-  {
-    "slug": "week-2-portfolio-summary",
-    "title": "Week 2 - Checking whether the structure still made sense",
-    "date": "March 2026",
-    "category": "Weekly Reviews",
-    "excerpt": "Week 2 gave me a bit more confidence that the original build was not random. The account still felt balanced between quality growth, broad market exposure, defensive holdings and a smaller speculative sleeve.",
-    "tags": [
-      "ASML",
-      "Alphabet",
-      "Gold",
-      "Symbotic",
-      "Rheinmetall",
-      "Meta"
-    ],
-    "majorEvents": [
-      "My read on the account",
-      "What I needed to keep watching"
-    ],
-    "documentUrl": "/documents/weekly-summaries/view/week-2-portfolio-summary/",
-    "documentPdfUrl": "/documents/weekly-summaries/week-2-portfolio-summary.pdf",
-    "documentPages": [
-      "/documents/weekly-summaries/pages/week-2-portfolio-summary/page-01.png",
-      "/documents/weekly-summaries/pages/week-2-portfolio-summary/page-02.png"
-    ],
-    "body": [
-      "Snapshot\nMain read\nPortfolio still broadly behaved how I wanted it to\nCore holdings\nAlphabet, Meta, ASML, ETFs, Berkshire and gold still gave structure\nVolatile area\nSymbotic and IonQ remained the main source of movement\nKey lesson\nThe portfolio should not rely on one theme or one high-beta trade",
-      "My read on the account\nWeek 2 gave me a bit more confidence that the original build was not random. The account still felt balanced between quality growth, broad market exposure, defensive holdings and a smaller speculative sleeve. The speculative names were already moving around more than the rest of the account, but they were not big enough to dominate everything.\nThat was important because I did not want the portfolio to become just an IonQ or Symbotic bet. Those names can be exciting, but the account needs a proper base. Alphabet, Meta and ASML were still the cleaner quality-growth side. Berkshire, the ETFs and gold were still helping the account feel more structured.",
-      "The different parts of the portfolio\nThe steadier side was doing what I wanted it to do. Gold was there as a hedge, Berkshire was there as a quality ballast, and the ETF sleeve gave me broad exposure without needing every individual stock pick to be right. Realty Income and NextEra were not the most exciting holdings, but their role was never meant to be excitement. They were there to improve balance and resilience.\nThe mixed part was still the speculative sleeve. Symbotic and IonQ were the names most likely to move sharply over short periods. I still felt there was enough operational progress to keep monitoring them, but IonQ especially needed to stay under tight review because it was clearly the most speculative holding.",
-      "What I needed to keep watching\nRheinmetall was also a useful reminder that a good company or theme can still fall if expectations have already run too far. The defence case still made sense to me, but the market reaction showed that good news is not always enough when a share price has already moved hard.\n• Keep watching AI capex sentiment around Alphabet, Meta and ASML.\n• Separate Rheinmetall’s long-term defence case from short-term expectations risk.\n• Monitor IonQ and Symbotic through execution, not just price movement.\n• Watch rates for Realty Income and NextEra.\n• Keep treating gold as a hedge rather than a weekly trading position."
-    ]
-  },
-  {
-    "slug": "week-1-portfolio-summary",
-    "title": "Week 1 - Getting the portfolio started",
-    "date": "8 March 2026",
-    "category": "Weekly Reviews",
-    "excerpt": "This was the first proper week of the portfolio actually being put to work, so I was not trying to judge everything by one short-term result. The main aim was to get the account built in a sensible way from day one.",
-    "tags": [
-      "ASML",
-      "Alphabet",
-      "Gold",
-      "Symbotic",
-      "Rheinmetall",
-      "Meta"
-    ],
-    "majorEvents": [
-      "How I saw the first week",
-      "What I took from it"
-    ],
-    "documentUrl": "/documents/weekly-summaries/view/week-1-portfolio-summary/",
-    "documentPdfUrl": "/documents/weekly-summaries/week-1-portfolio-summary.pdf",
-    "documentPages": [
-      "/documents/weekly-summaries/pages/week-1-portfolio-summary/page-01.png",
-      "/documents/weekly-summaries/pages/week-1-portfolio-summary/page-02.png"
-    ],
-    "body": [
-      "Snapshot\nStarting point\nFirst week of the portfolio being built and tested\nResult\nClose to flat to slightly negative on entry levels\nMain idea\nBuild a balanced account instead of chasing quick gains\nEarly winners\nBerkshire Hathaway, Airbnb, Rheinmetall, Nasdaq ETF and gold\nEarly weak spots\nSymbotic and IonQ",
-      "How I saw the first week\nThis was the first proper week of the portfolio actually being put to work, so I was not trying to judge everything by one short-term result. The main aim was to get the account built in a sensible way from day one. I wanted a mix of quality technology, broad market exposure, a few defensive or income-style positions, and a small amount of more speculative upside.\nLooking back, I think the first week was okay. The account finished close to flat or slightly negative, which I can live with because markets were not especially calm and the portfolio was brand new. What mattered more to me was whether the structure made sense once the prices started moving. On that point, I think the answer was mostly yes.\nSome of the steadier names helped offset the more aggressive positions. Berkshire, Airbnb, Rheinmetall, the Nasdaq ETF and gold were the more helpful parts early on. Symbotic and IonQ were weaker, which is not surprising because those are the higher-volatility names. That already showed me why position sizing matters.",
-      "What I wanted the portfolio to be\nThe idea was not to build a portfolio where everything depended on one stock or one theme. Meta, Alphabet and ASML gave me exposure to large, high-quality technology and AI infrastructure. VUAG and QQQA gave broader market exposure. Gold was there to offer some protection if markets became more nervous. Realty Income and NextEra added a different type of exposure, even if they were not the most exciting names.\nThe speculative part of the account was mainly IonQ and Symbotic. I liked the long-term themes, but I also knew those positions could move around a lot. That is why I did not want them to be large enough to control the whole portfolio. They were there to add upside, not to decide the entire outcome.",
-      "What I took from it\nThe best part of Week 1 was that I felt I had started with a structure rather than a random list of shares. The portfolio had a growth side, a broad market side, a hedge, and a smaller speculative side. That gave me something to judge future decisions against.\nThe main thing to watch from here was whether I could stay disciplined once the account actually started moving against me. It is easy to say you are long term when nothing has happened yet. The real test would come in the next few weeks if some of the positions started falling properly."
-    ]
-  },
-  {
-    "slug": "why-the-rulebook-exists",
-    "title": "Why the Rulebook Exists",
-    "date": "9 June 2026",
-    "category": "Lessons",
-    "excerpt": "The rulebook is not abstract. It comes from early crypto profits, leverage mistakes, borrowed money, and the decision to treat investing as a serious long-term craft.",
-    "body": [
-      "I first became interested in markets during the first week of the COVID-19 lockdown. I was fourteen, and my father asked me and my siblings to each choose an online course. I picked a stock trading course on Udemy, taught by Mohsin Hassan, and then completed a more advanced course afterwards.",
-      "That early interest moved into crypto. I made money quickly, mostly through luck, then borrowed money from my parents and made more. The lesson looked positive at first, but the process was not mature.",
-      "The mistake came from leverage. I started trading crypto with leverage and eventually lost most of the money. I also tried different crypto projects with a friend, but the overall result was the same: most of the early money was gone.",
-      "That is why the rulebook matters. I do not use leverage to trade, I do not borrow aggressively to invest, and I want this portfolio to be built through disciplined ownership of real businesses rather than gambling behaviour."
-    ]
-  },
-  {
-    "slug": "google-re-entry-plan",
-    "title": "Google Re-entry Plan",
-    "date": "5 May 2026",
-    "category": "Market Notes",
-    "excerpt": "Why a great business can still require patience, and why sitting in cash can be the correct action while waiting for a better setup.",
-    "body": [
-      "Alphabet remains a business worth studying, but quality alone does not remove the need for entry discipline.",
-      "The plan is to define what would make the price attractive, what would break the thesis, and how large the position should be before any trade is made."
-    ]
-  },
-  {
-    "slug": "microsoft-trade-reflection",
-    "title": "Microsoft Trade Reflection",
-    "date": "29 April 2026",
-    "category": "Trade Reflections",
-    "excerpt": "A profitable trade can still teach process lessons. The question is whether the decision was repeatable, not just whether it worked.",
-    "body": [
-      "The Microsoft trade closed for roughly 10% profit. That is a good outcome, but the review has to focus on process quality.",
-      "The useful question is whether the entry, size, patience, and exit were all supported by written reasoning that could be repeated."
-    ]
-  }
 ];
+
+export const journalEntries: JournalEntry[] = [...monthlyPortfolioReviews].reverse().concat(standaloneJournalEntries);
+
+const legacyReviewWeeks = [18, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+
+export const legacyJournalRedirects: Record<string, string> = Object.fromEntries(
+  legacyReviewWeeks.map((week) => {
+    const destination =
+      week >= 1 && week <= 4
+        ? '/journal/capital-research-review-01'
+        : week >= 5 && week <= 8
+          ? '/journal/capital-research-review-02'
+          : week >= 9 && week <= 12
+            ? '/journal/capital-research-review-03'
+            : week >= 13 && week <= 16
+              ? '/journal/capital-research-review-04'
+              : '/journal';
+
+    return [`week-${week}-portfolio-summary`, destination];
+  }),
+);
 
 export const researchNotes: ResearchNote[] = [
   {
@@ -1731,10 +865,10 @@ export const rulebook = [
 ];
 
 export const weeklyChecklist = [
-  'Portfolio value updated',
-  'Profit/loss calculated',
+  'Percentage performance updated',
+  'Return and drawdown calculated',
   'Holdings reviewed',
-  'Cash position reviewed',
+  'Cash allocation reviewed',
   'Trades logged',
   'Entry reasons recorded',
   'Exit reasons recorded',

@@ -98,19 +98,31 @@ try {
   }
 
   const journalSlugs = new Set(data.journalEntries.map((entry) => entry.slug));
+  const monthlyReviews = data.journalEntries.filter((entry) => entry.category === 'Monthly Reviews');
+  invariant(monthlyReviews.length === 5, 'The public journal must contain exactly five monthly portfolio reviews');
+  invariant(
+    monthlyReviews.map((entry) => entry.slug).join(',') ===
+      'capital-research-review-05,capital-research-review-04,capital-research-review-03,capital-research-review-02,capital-research-review-01',
+    'The public journal must keep monthly portfolio reviews in newest-first order',
+  );
+  invariant(
+    !data.journalEntries.some((entry) => ['Weekly Reviews', 'Fortnightly Reviews'].includes(entry.category)),
+    'Legacy weekly and fortnightly reviews must not appear in the public journal collection',
+  );
+  invariant(Object.keys(data.legacyJournalRedirects).length === 17, 'All 17 retired weekly/fortnightly routes must retain redirects');
+  for (const destination of Object.values(data.legacyJournalRedirects)) {
+    invariant(destination === '/journal' || journalSlugs.has(destination.split('/').pop()), `Legacy journal redirect has an invalid destination: ${destination}`);
+  }
   for (const change of data.portfolioChangeLog) {
     if (change.relatedSlug) {
       invariant(journalSlugs.has(change.relatedSlug), `Change log references missing journal slug: ${change.relatedSlug}`);
     }
   }
 
-  for (const entry of data.journalEntries) {
-    for (const page of entry.documentPages ?? []) {
-      invariant(publicAssetExists(page), `Journal entry ${entry.slug} references missing page image: ${page}`);
-    }
-    if (entry.documentUrl) invariant(publicAssetExists(`${entry.documentUrl}index.html`), `Missing document viewer: ${entry.documentUrl}`);
-    if (entry.documentPdfUrl) invariant(publicAssetExists(entry.documentPdfUrl), `Missing document PDF: ${entry.documentPdfUrl}`);
-  }
+  invariant(
+    data.journalEntries.every((entry) => !entry.documentUrl && !entry.documentPdfUrl && !entry.documentPages?.length),
+    'Public journal entries must not link to retired balance-bearing document downloads',
+  );
 
   for (const book of data.readingDevelopment) {
     invariant(publicAssetExists(book.image), `Book ${book.slug} references missing image: ${book.image}`);
@@ -119,21 +131,18 @@ try {
   const currentMicrosoft = data.holdings.find((holding) => holding.ticker === 'MSFT');
   invariant(currentMicrosoft && !/^closed/i.test(currentMicrosoft.status), 'Microsoft must reflect the evidenced 8 July current holding');
 
-  const summary = portfolioPerformance.summary;
-  const displayedValue = Number(data.portfolioSnapshot.accountValue.replace(/[^\d.-]/g, ''));
-  const displayedCash = Number(data.portfolioSnapshot.cashBalance.replace(/[^\d.-]/g, ''));
-  const displayedReturn = Number(data.portfolioSnapshot.currentReturn.replace(/[^\d.-]/g, ''));
-  const summaryDate = new Date(`${summary.asOf}T12:00:00Z`).toLocaleDateString('en-GB', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-    timeZone: 'UTC',
-  });
+  const currentHoldings = data.holdings.filter((holding) => holding.status === 'Current holding');
+  invariant(currentHoldings.every((holding) => Number.isInteger(holding.portfolioWeight)), 'Public allocation weights must be whole percentages');
+  invariant(currentHoldings.reduce((sum, holding) => sum + holding.portfolioWeight, 0) === 100, 'Rounded current allocation weights must sum to 100%');
+  invariant(currentHoldings.every((holding) => holding.whyOwned && holding.role && holding.decision && holding.lastReviewed), 'Every current holding needs a public research record');
 
-  invariant(displayedValue === Math.round(summary.portfolioValue), 'Displayed account value does not match rounded generated performance');
-  invariant(Math.abs(displayedCash - summary.cash) < 0.005, 'Displayed cash does not match generated performance');
-  invariant(Math.abs(displayedReturn - summary.portfolioReturn) < 0.005, 'Displayed return does not match generated performance');
-  invariant(data.portfolioSnapshot.asOfDate === summaryDate, 'Portfolio snapshot date does not match generated performance date');
+  const summary = portfolioPerformance.summary;
+  invariant(!('portfolioValue' in summary) && !('cash' in summary) && !('startingValue' in summary), 'Generated performance summary must not expose absolute values');
+  invariant(Math.abs(summary.portfolioReturn - data.currentPortfolio.measuredPerformance.portfolioReturn) < 0.005, 'Measured portfolio return does not match the central portfolio record');
+  invariant(Math.abs(summary.benchmarkReturn - data.currentPortfolio.measuredPerformance.benchmarkReturn) < 0.005, 'Measured benchmark return does not match the central portfolio record');
+  invariant(Math.abs(summary.relativeReturn - data.currentPortfolio.measuredPerformance.relativeReturn) < 0.005, 'Measured relative return does not match the central portfolio record');
+  invariant(Math.abs(summary.maxDrawdown - data.currentPortfolio.measuredPerformance.maxDrawdown) < 0.005, 'Measured drawdown does not match the central portfolio record');
+  invariant(data.portfolioSnapshot.asOfDate === data.currentPortfolio.latestReview.allocationAsOf, 'Latest public allocation date must come from the central portfolio record');
 
   console.log(
     `Content validation passed: ${data.publicRouteManifest.length} routes, ${data.journalEntries.length} journal entries, ${data.readingDevelopment.length} books, ${data.holdings.length} holding records.`,

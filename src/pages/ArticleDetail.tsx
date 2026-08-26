@@ -1,7 +1,7 @@
 import { ArrowLeft, ArrowRight, BookOpen, ExternalLink, FileText, ShieldCheck } from 'lucide-react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import PageHeader from '../components/PageHeader';
-import { brand, journalEntries } from '../data/siteData';
+import { brand, journalEntries, legacyJournalRedirects } from '../data/siteData';
 
 type ArticleType = 'journal';
 
@@ -20,10 +20,12 @@ const articleContext = {
 function isArticleSectionHeading(text: string) {
   const firstLine = text.split('\n')[0].trim();
   const remaining = text.split('\n').slice(1).join('\n').trim();
+  const looksLikeNamedHeading = firstLine.length <= 80 && /^[A-Z][^.!?]{2,79}$/.test(firstLine);
 
   return (
     remaining.length > 0 &&
-    (/^\d+\.\s+[A-Z]/.test(firstLine) ||
+    (looksLikeNamedHeading ||
+      /^\d+\.\s+[A-Z]/.test(firstLine) ||
       [
         'Snapshot',
         'Current view',
@@ -172,7 +174,7 @@ export default function ArticleDetail({ type }: ArticleDetailProps) {
   const articleIndex = collection.findIndex((item) => item.slug === slug);
 
   if (!article) {
-    return <Navigate to="/journal" replace />;
+    return <Navigate to={(slug && legacyJournalRedirects[slug]) || '/journal'} replace />;
   }
 
   const context = articleContext[type];
@@ -186,7 +188,7 @@ export default function ArticleDetail({ type }: ArticleDetailProps) {
 
   return (
     <main className="page-fade">
-      <PageHeader eyebrow={eyebrow} title={article.title} intro={article.excerpt} />
+      <PageHeader eyebrow={eyebrow} title={article.title} intro={article.subtitle ?? article.excerpt} />
       <section className="mx-auto grid max-w-7xl gap-10 px-5 py-16 md:px-8 md:py-24 lg:grid-cols-[minmax(0,1fr)_340px] lg:items-start">
         <article className="min-w-0 border-y border-line bg-paper px-5 py-8 md:px-8 md:py-10">
           <div className="mb-9 flex flex-wrap items-center gap-3">
@@ -206,7 +208,7 @@ export default function ArticleDetail({ type }: ArticleDetailProps) {
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slateText">Original document preview</p>
                   <p className="mt-2 text-sm leading-6 text-slateText">
-                    This review is shown as rendered pages from the original document, so it works even if the browser PDF viewer fails.
+                    This review is shown as rendered pages from the authored document, so it works even if the browser PDF viewer fails.
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 sm:flex-row">
@@ -243,7 +245,7 @@ export default function ArticleDetail({ type }: ArticleDetailProps) {
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slateText">Source document</p>
                   <p className="mt-2 text-sm leading-6 text-slateText">
-                    The readable article is shown below. The original Week 18 preview is kept as a source document.
+                    The readable article is shown below. The authored source document is kept alongside it.
                   </p>
                 </div>
                 <a

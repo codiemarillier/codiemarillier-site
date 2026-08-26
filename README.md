@@ -1,6 +1,6 @@
-# Codie Capital Research
+# Codie Marillier
 
-A premium, responsive personal investment research and portfolio journal website for Codie Marillier.
+A modern personal website for Codie Marillier. Codie Capital Research remains the investing sub-brand and public research journal.
 
 The site is intentionally positioned as an educational and journalistic personal investing record. It does not solicit capital, manage money for other people, offer personalised financial advice, or present Codie as an authorised investment manager.
 
@@ -47,7 +47,15 @@ The production build also validates generated routes, internal targets, sitemap/
 
 ## Edit site content
 
-Most content is data-driven in:
+The public portfolio source of truth is:
+
+```text
+src/data/currentPortfolio.ts
+```
+
+It contains only percentage performance, rounded allocation weights, holdings, research roles and decisions. Personal balances, starting capital, exact cash, quantities, monetary profit and loss, contributions and income are not public data.
+
+Most other content is data-driven in:
 
 ```text
 src/data/siteData.ts
@@ -59,12 +67,26 @@ Website V2 biography, work, projects, travel, Now and approved contact content i
 src/data/v2Content.ts
 ```
 
+The privacy-safe monthly review narratives are generated into:
+
+```text
+src/data/monthlyPortfolioReviews.generated.ts
+```
+
+The authored Word files are intentionally stored outside the deployable repository. To regenerate the readable records, provide their private directory explicitly:
+
+```bash
+npm run content:portfolio-reviews -- /absolute/path/to/monthly-reviews
+```
+
+The importer removes personal ledger facts and does not generate document downloads. Superseded weekly/fortnightly originals are preserved in a private archive outside the repository; all 17 old routes continue to redirect to the five monthly reviews.
+
 Edit this file to update:
 
 - Navigation links
-- Portfolio snapshot values
-- Holdings table rows
-- Journal entries
+- Public portfolio performance and allocation
+- Holdings research records
+- Standalone journal entries
 - Research notes
 - Letters
 - Principles

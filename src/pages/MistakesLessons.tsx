@@ -16,11 +16,11 @@ export default function MistakesLessons() {
           <h2 className="mt-4 font-serif text-3xl font-semibold text-charcoal">No full lesson notes are published yet.</h2>
           <p className="mt-4 text-base leading-8 text-slateText">
             I will use this page for real reviews of mistakes and difficult decisions. Until those are written properly,
-            the weekly journal and process page are the best places to read.
+            the portfolio journal and process page are the best places to read.
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
             <Link to="/journal" className="text-sm font-semibold text-link">
-              Read the weekly journal
+              Read the portfolio journal
             </Link>
             <Link to="/process" className="text-sm font-semibold text-link">
               See the process
