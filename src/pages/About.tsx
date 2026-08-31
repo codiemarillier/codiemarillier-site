@@ -22,7 +22,7 @@ const sections = [
   {
     title: 'What I learned from early mistakes',
     body: [
-      'My first investment was Bitcoin in 2021, when it was trading at roughly $21,000. I invested around $500, and within a few months that position had grown to approximately $1,500. That early success gave me confidence, but it also taught me that making money early does not mean risk is fully understood.',
+      'My first investment was Bitcoin. An early gain gave me confidence, but later mistakes with leverage taught me that a good outcome and a good decision are not the same thing.',
       'Losing money through leveraged crypto trading taught me more than making money early on. It encouraged emotional behaviour, adding to losing trades, hoping for reversals, and taking pressure that did not fit the way I want to invest now.',
       'That is why the current process is built around written reasoning, controlled position sizing, cash discipline, and avoiding leverage.',
     ],
@@ -39,7 +39,7 @@ const sections = [
 const startLinks = [
   {
     title: 'Current Portfolio',
-    text: `The latest ${latestPortfolioReview.label} snapshot, current holdings, cash, and portfolio role notes.`,
+    text: `The latest ${latestPortfolioReview.label} snapshot, allocation weights, cash percentage, and portfolio role notes.`,
     href: '/portfolio',
   },
   {

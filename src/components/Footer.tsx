@@ -1,6 +1,6 @@
 import { ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { brand, footerLinks } from '../data/siteData';
+import { footerLinks } from '../data/siteData';
 
 export default function Footer() {
   return (
@@ -29,12 +29,12 @@ export default function Footer() {
           <Link to="/" className="inline-flex items-center gap-3">
             <span className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 font-mono text-[11px] text-white">CM</span>
             <span>
-              <span className="block font-serif text-2xl font-medium">{brand.name}</span>
-              <span className="mt-1 block font-mono text-[9px] uppercase tracking-[0.18em] text-white/75">Independent investment journal</span>
+              <span className="block font-serif text-2xl font-medium">Codie Marillier</span>
+              <span className="mt-1 block font-mono text-[9px] uppercase tracking-[0.18em] text-white/75">Codie Capital Research / Investment Journal</span>
             </span>
           </Link>
           <p className="mt-7 max-w-xl text-sm leading-7 text-white/55">
-            A transparent record of one investor learning in public—documenting the thinking, the mistakes, and the process behind every decision.
+            A public record of investment decisions, research, mistakes, and percentage performance. Personal finances remain private.
           </p>
           <div className="mt-7 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 font-mono text-[9px] uppercase tracking-[0.15em] text-white/55">
             <span className="h-1.5 w-1.5 rounded-full bg-white/55" />
@@ -61,7 +61,7 @@ export default function Footer() {
 
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-5 font-mono text-[9px] uppercase tracking-[0.12em] text-white/75 sm:flex-row sm:items-center sm:justify-between md:px-8">
-          <p>© {new Date().getFullYear()} Codie Capital Research</p>
+          <p>© {new Date().getFullYear()} Codie Marillier</p>
           <p>Not financial advice · Do your own research</p>
         </div>
       </div>

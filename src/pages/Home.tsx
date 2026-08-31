@@ -12,7 +12,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import PortfolioValueChart from '../components/PortfolioValueChart';
-import { latestPortfolioReview, plannedLetters, portfolioSnapshot, portfolioValueHistory } from '../data/siteData';
+import { currentPortfolio, latestPortfolioReview, plannedLetters } from '../data/siteData';
 
 const publishedLetters = plannedLetters.filter((letter) => letter.body?.length);
 const firstLetter = publishedLetters[0];
@@ -37,7 +37,7 @@ const primaryLinks = [
   {
     number: '03',
     title: 'Current portfolio',
-    text: 'A transparent view of the account structure, cash, holdings, and portfolio roles.',
+    text: 'A percentage-based view of allocation, current decisions, holdings, and portfolio roles.',
     href: '/portfolio',
     meta: 'Manual record',
     icon: LineChart,
@@ -45,7 +45,7 @@ const primaryLinks = [
 ];
 
 const secondaryLinks = [
-  { title: 'Portfolio Journal', text: 'The monthly review record.', href: '/journal', icon: ScrollText },
+  { title: 'Portfolio Journal', text: 'The month-by-month record.', href: '/journal', icon: ScrollText },
   { title: 'Letters', text: 'Long-form thinking.', href: '/letters', icon: PenLine },
   { title: 'Investment Process', text: 'The rules behind decisions.', href: '/process', icon: FileText },
   { title: 'Books', text: 'Ideas shaping the process.', href: '/books', icon: BookOpen },
@@ -54,25 +54,12 @@ const secondaryLinks = [
 
 const snapshotItems = [
   ['Latest review', latestPortfolioReview.label],
-  ['Account value', portfolioSnapshot.accountValue],
-  ['Return', portfolioSnapshot.currentReturn],
-  ['Cash', portfolioSnapshot.cashBalance],
+  ['Since inception', `+${currentPortfolio.latestReview.sinceInceptionReturn.toFixed(2)}%`],
+  ['Cash allocation', `${currentPortfolio.latestReview.cashWeight.toFixed(0)}%`],
+  ['Started', currentPortfolio.started],
 ];
 
 const tickerItems = ['Protect capital', 'Write the reasoning', 'Size the risk', 'Stay patient', 'Review honestly'];
-
-const chartWidth = 560;
-const chartHeight = 230;
-const chartMin = Math.min(...portfolioValueHistory.map((point) => point.value)) - 24;
-const chartMax = Math.max(...portfolioValueHistory.map((point) => point.value)) + 24;
-const chartPath = portfolioValueHistory
-  .map((point, index) => {
-    const x = 12 + (index / (portfolioValueHistory.length - 1)) * (chartWidth - 24);
-    const y = 12 + ((chartMax - point.value) / (chartMax - chartMin)) * (chartHeight - 32);
-    return `${index === 0 ? 'M' : 'L'} ${x.toFixed(1)} ${y.toFixed(1)}`;
-  })
-  .join(' ');
-const chartAreaPath = `${chartPath} L ${chartWidth - 12} ${chartHeight} L 12 ${chartHeight} Z`;
 
 export default function Home() {
   return (
@@ -82,14 +69,14 @@ export default function Home() {
           <div className="relative z-10">
             <div className="inline-flex items-center gap-3 rounded-full border border-line bg-paper px-3.5 py-2 font-mono text-[9px] uppercase tracking-[0.16em] text-slateText">
               <span className="h-1.5 w-1.5 rounded-full bg-gold" />
-              Personal capital · public record
+              Investment journal · public record
             </div>
             <h1 className="mt-8 max-w-3xl font-serif text-[4.35rem] font-medium leading-[0.84] tracking-[-0.06em] text-charcoal sm:text-[5.7rem] lg:text-[6.7rem] xl:text-[8rem]">
               Investing,<br />
               <span className="italic text-link">in public.</span>
             </h1>
             <p className="mt-8 max-w-xl text-base leading-8 text-bodyText md:text-lg md:leading-9">
-              A transparent record of what I own, why I own it, what I get wrong, and how my thinking changes over time.
+              A public record of my investment decisions — what I owned, why I owned it, what I got wrong, and how my thinking changed. Performance is public. Personal finances are not.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Link
@@ -120,47 +107,28 @@ export default function Home() {
               <div className="flex items-center justify-between border-b border-line px-5 py-4 sm:px-6">
                 <div className="flex items-center gap-2">
                   <span className="h-2 w-2 rounded-full bg-gold" />
-                  <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-charcoal">Portfolio monitor</p>
+                  <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-charcoal">Publication boundary</p>
                 </div>
-                <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-slateText">Manual · W18</p>
+                <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-slateText">Privacy by design</p>
               </div>
-              <div className="grid grid-cols-3 border-b border-line">
-                {[
-                  ['Value', portfolioSnapshot.accountValue],
-                  ['Return', portfolioSnapshot.currentReturn.replace('About ', '')],
-                  ['Cash', portfolioSnapshot.cashBalance],
-                ].map(([label, value], index) => (
-                  <div key={label} className={`px-4 py-5 sm:px-6 ${index > 0 ? 'border-l border-line' : ''}`}>
-                    <p className="font-mono text-[8px] uppercase tracking-[0.16em] text-slateText">{label}</p>
-                    <p className={`mt-2 font-serif text-xl font-medium sm:text-2xl ${label === 'Return' ? 'text-positive' : 'text-charcoal'}`}>{value}</p>
+              <div className="px-5 py-7 sm:px-7 sm:py-9">
+                <p className="font-serif text-3xl font-medium leading-tight text-charcoal sm:text-4xl">
+                  Public thinking.<br />Public decisions.<br />Public performance.<br /><span className="italic text-link">Private wealth.</span>
+                </p>
+                <div className="mt-8 grid gap-px overflow-hidden border border-line bg-line sm:grid-cols-2">
+                  <div className="bg-paper p-5">
+                    <p className="font-mono text-[8px] uppercase tracking-[0.16em] text-positive">Published</p>
+                    <p className="mt-3 text-sm leading-7 text-slateText">Holdings, rounded weights, decisions, research, percentage returns, drawdowns, and mistakes.</p>
                   </div>
-                ))}
-              </div>
-              <div className="relative px-4 pb-4 pt-8 sm:px-6 sm:pb-6">
-                <div className="mb-4 flex items-end justify-between gap-4">
-                  <div>
-                    <p className="font-mono text-[8px] uppercase tracking-[0.16em] text-slateText">Account value</p>
-                    <p className="mt-1 text-xs text-slateText">Week 01 — Week 18</p>
+                  <div className="bg-paper p-5">
+                    <p className="font-mono text-[8px] uppercase tracking-[0.16em] text-slateText">Private</p>
+                    <p className="mt-3 text-sm leading-7 text-slateText">Portfolio balance, share quantities, cash amount, contributions, and monetary profit or loss.</p>
                   </div>
-                  <p className="font-mono text-[9px] font-medium text-positive">{portfolioSnapshot.weeklyMove}</p>
-                </div>
-                <svg className="h-auto w-full overflow-visible" viewBox={`0 0 ${chartWidth} ${chartHeight}`} role="img" aria-label="Portfolio account value over eighteen weeks">
-                  {[0.25, 0.5, 0.75].map((position) => (
-                    <line key={position} x1="0" x2={chartWidth} y1={chartHeight * position} y2={chartHeight * position} stroke="#DDE3E8" strokeDasharray="3 7" />
-                  ))}
-                  <path d={chartAreaPath} fill="#137A5A" fillOpacity="0.08" />
-                  <path d={chartPath} className="chart-draw" fill="none" stroke="#137A5A" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" />
-                  <circle cx={chartWidth - 12} cy={chartPath.match(/([\d.]+) ([\d.]+)$/)?.[2] ?? 0} r="5" fill="#137A5A" />
-                  <circle cx={chartWidth - 12} cy={chartPath.match(/([\d.]+) ([\d.]+)$/)?.[2] ?? 0} r="10" fill="none" stroke="#137A5A" strokeOpacity="0.35" />
-                </svg>
-                <div className="mt-2 flex items-center justify-between border-t border-line pt-4 font-mono text-[8px] uppercase tracking-[0.13em] text-slateText">
-                  <span>Source: published reviews</span>
-                  <span>Not live pricing</span>
                 </div>
               </div>
             </div>
             <div className="absolute -bottom-5 -left-1 rounded-full border border-line bg-paper px-4 py-2.5 font-mono text-[9px] uppercase tracking-[0.13em] text-slateText shadow-editorial lg:left-0">
-              <span className="mr-2 text-link">↳</span> Every number has a story
+              <span className="mr-2 text-link">↳</span> Transparency without disclosure
             </div>
           </div>
         </div>
@@ -268,7 +236,7 @@ export default function Home() {
               <h2 className="mt-6 font-serif text-5xl font-medium leading-[0.95] tracking-[-0.045em] text-charcoal md:text-7xl">Performance,<br /><span className="italic">with context.</span></h2>
             </div>
             <p className="max-w-2xl text-base leading-8 text-slateText lg:justify-self-end md:text-lg">
-              Numbers matter, but only beside the thinking that produced them. The chart and the journal are designed to be read together.
+              Percentage returns matter, but only beside the thinking that produced them. The chart and the journal are designed to be read together.
             </p>
           </div>
           <div className="mt-14 rounded-[1.5rem] border border-line bg-paper p-5 shadow-editorial md:p-8">

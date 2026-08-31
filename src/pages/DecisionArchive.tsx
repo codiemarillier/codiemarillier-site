@@ -20,7 +20,7 @@ export default function DecisionArchive() {
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
             <Link to="/journal" className="text-sm font-semibold text-link">
-              Read the weekly journal
+              Read the portfolio journal
             </Link>
             <Link to="/process" className="text-sm font-semibold text-link">
               See the process

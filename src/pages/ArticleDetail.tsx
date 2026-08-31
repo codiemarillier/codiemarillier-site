@@ -20,10 +20,12 @@ const articleContext = {
 function isArticleSectionHeading(text: string) {
   const firstLine = text.split('\n')[0].trim();
   const remaining = text.split('\n').slice(1).join('\n').trim();
+  const looksLikeNamedHeading = firstLine.length <= 80 && /^[A-Z][^.!?]{2,79}$/.test(firstLine);
 
   return (
     remaining.length > 0 &&
-    (/^\d+\.\s+[A-Z]/.test(firstLine) ||
+    (looksLikeNamedHeading ||
+      /^\d+\.\s+[A-Z]/.test(firstLine) ||
       [
         'Snapshot',
         'Current view',
@@ -206,7 +208,7 @@ export default function ArticleDetail({ type }: ArticleDetailProps) {
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slateText">Original document preview</p>
                   <p className="mt-2 text-sm leading-6 text-slateText">
-                    This review is shown as rendered pages from the original document, so it works even if the browser PDF viewer fails.
+                    This review is shown as rendered pages from the authored document, so it works even if the browser PDF viewer fails.
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 sm:flex-row">
@@ -243,7 +245,7 @@ export default function ArticleDetail({ type }: ArticleDetailProps) {
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slateText">Source document</p>
                   <p className="mt-2 text-sm leading-6 text-slateText">
-                    The readable article is shown below. The original Week 18 preview is kept as a source document.
+                    The readable article is shown below. The authored source document is kept alongside it.
                   </p>
                 </div>
                 <a
@@ -257,7 +259,13 @@ export default function ArticleDetail({ type }: ArticleDetailProps) {
             </section>
           ) : null}
 
-          {!hasDocumentPreview ? (
+          <section className={hasDocumentPreview ? 'border-t border-line pt-10' : ''}>
+            {hasDocumentPreview ? (
+              <div className="mb-8">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slateText">Accessible text version</p>
+                <h2 className="mt-3 font-serif text-3xl font-semibold text-charcoal">Read the full review</h2>
+              </div>
+            ) : null}
             <div className="space-y-7 text-lg leading-9 text-bodyText">
               {article.body.map((paragraph, index) => {
                 if (isArticleSectionHeading(paragraph)) {
@@ -278,7 +286,7 @@ export default function ArticleDetail({ type }: ArticleDetailProps) {
                 );
               })}
             </div>
-          ) : null}
+          </section>
 
           <aside className="mt-10 border-l-2 border-gold bg-ivory px-5 py-5">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-bodyText">Important boundary</p>

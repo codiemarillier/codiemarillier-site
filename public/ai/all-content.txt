@@ -1,263 +1,53 @@
-Codie Capital Research - An investment journal by Codie Marillier
+CODIE MARILLIER — PUBLIC RESEARCH RECORD
+
+Public thinking. Public decisions. Public performance. Private wealth.
 
 This website is a personal investment research and portfolio journal. It is not investment advice. I am not FCA-authorised, I do not manage money for other people, and nothing on this site should be treated as a recommendation to buy, sell, or hold any investment. All trades, holdings, research notes, and opinions shown here relate to my own personal portfolio and my own decision-making process. Do not copy my trades. Always do your own research and seek professional advice where appropriate.
 
+PERFORMANCE
 
+Latest authored review: Capital Research Review 05, published 6 August 2026.
 
-LATEST PORTFOLIO SNAPSHOT
+Since-inception return at that review: +0.52%.
 
-Latest review: Trading 212 Portfolio Review
+Cash allocation: 0%.
 
-Current account value: £2,009.30
+Benchmark-comparable series through 10 July 2026: portfolio +0.78%, S&P 500 / VUAG proxy +11.02%, relative -10.24 percentage points, maximum drawdown -9.83%.
 
-Starting value: £1,999
+Transaction-ledger estimate using historical closing prices and FX rates. Kept separate from the later authored review because the two records use different valuation dates and methods.
 
-Current return: +0.52%
+CURRENT HOLDINGS
 
-Cash balance: £0.56
+SGLN — SGLN / iShares Physical Gold. Rounded weight 18%. Role: Macro hedge. Decision: HOLD. Why owned: Long-term protection against geopolitical instability, inflation, currency pressure, and declining confidence in conventional reserves. Sell or trim criteria: Rebalance towards a 15-20% weight if gold reaches roughly 30% of the portfolio. Last reviewed: 6 August 2026.
 
+META — Meta Platforms. Rounded weight 11%. Role: Core compounder. Decision: HOLD. Why owned: Advertising scale, daily product usage, and the potential for AI to improve advertising relevance and effectiveness. Review focus: AI infrastructure spending, financing commitments, margins, and whether revenue growth continues to justify the investment. Last reviewed: 6 August 2026.
 
+VUAG — VUAG / Vanguard S&P 500 ETF. Rounded weight 11%. Role: Broad market exposure. Decision: HOLD. Why owned: Broad US equity exposure without requiring every individual company decision to be right. Last reviewed: 6 August 2026.
 
-PORTFOLIO VALUE HISTORY
+O — Realty Income. Rounded weight 8%. Role: Defensive income holding. Decision: HOLD. Why owned: Real estate income exposure and a different return driver from the technology holdings. Last reviewed: 6 August 2026.
 
-Week 1 (8 March 2026): Starting baseline: £1,999. Source: Baseline. Note: Week 1 was described as close to flat to slightly negative, so the chart uses the starting baseline.
+BRK.B — Berkshire Hathaway. Rounded weight 8%. Role: Core compounder. Decision: HOLD. Why owned: Diversified operating businesses, insurance, liquidity, and disciplined capital allocation in one holding. Last reviewed: 6 August 2026.
 
-Week 3 (March 2026): £1,860.18. Source: Recorded.
+QQQA — QQQA / Nasdaq-100 ETF. Rounded weight 7%. Role: Technology-led market exposure. Decision: HOLD. Why owned: Broad exposure to large US growth companies while reducing reliance on single-stock selection. Last reviewed: 6 August 2026.
 
-Week 4 (30 March 2026): Around £1,860. Source: Approximate.
+ABNB — Airbnb. Rounded weight 7%. Role: Growth holding. Decision: HOLD. Why owned: An asset-light travel platform with repeat demand, trusted distribution, and strong personal evidence of customer service. Review focus: Repeat demand, nights booked, margins, and free cash flow rather than one event or quarter. Last reviewed: 6 August 2026.
 
-Week 5 (05 April 2026): Around £1,931. Source: Approximate.
+NEE — NextEra Energy. Rounded weight 6%. Role: Defensive infrastructure. Decision: HOLD. Why owned: Utility and energy-infrastructure exposure with different drivers from the technology sleeve. Review focus: The proposed Dominion combination and whether operating performance supports the expanded story. Last reviewed: 6 August 2026.
 
-Week 6 (12 April 2026): Around £1,960. Source: Approximate.
+SYM — Symbotic. Rounded weight 5%. Role: Controlled growth. Decision: HOLD. Why owned: Long-term exposure to robotics and warehouse automation, with Walmart providing a serious proving ground. Review focus: Whether backlog turns into revenue, profit, cash, and consistent system deployment. Last reviewed: 6 August 2026.
 
-Week 7 (April 2026): £2,025.84. Source: Recorded.
+RHM — Rheinmetall. Rounded weight 4%. Role: Special situation / defence. Decision: HOLD. Why owned: Rising European defence spending, a strategically important supply position, and the potential to convert a large backlog into production and cash. Sell or trim criteria: Repeated failure to convert backlog into revenue and free cash flow, materially weaker defence orders, delivery problems, or sustained margin deterioration without a credible recovery path. Last reviewed: 6 August 2026.
 
-Week 8 (28 April 2026): £2,008.07. Source: Recorded.
+SPCX — SpaceX. Rounded weight 4%. Role: Controlled growth. Decision: HOLD. Why owned: Long-term exposure to launch, satellites, communications, and Starlink, whose usefulness is personally understood. Last reviewed: 6 August 2026.
 
-Week 9 (04 May 2026): Around £2,000. Source: Approximate.
+PSH — Pershing Square Holdings. Rounded weight 4%. Role: Investor-led compounder. Decision: HOLD. Why owned: Exposure to a concentrated investment approach at a substantial discount to net asset value. Review focus: Whether the underlying portfolio and capital allocation continue to justify the holding; the discount supports the thesis but does not replace it. Last reviewed: 6 August 2026.
 
-Week 10 (11 May 2026): £1,986.69. Source: Recorded.
+GOOGL — Alphabet (Class A). Rounded weight 4%. Role: Core compounder. Decision: HOLD. Why owned: Search, distribution, cloud, and computing infrastructure position Alphabet across several parts of the AI value chain. Review focus: Whether AI strengthens or weakens Search economics and whether continued investment translates into durable earnings. Last reviewed: 6 August 2026.
 
-Week 11 (15 May 2026): c. £1,974.37. Source: Recorded.
+MSFT — Microsoft. Rounded weight 3%. Role: Core compounder. Decision: HOLD. Why owned: Quality software, Azure, cloud scale, and AI infrastructure exposure at what the latest review considered an attractive valuation. Sell or trim criteria: A clearly better use of the allocation or a business-based reason that weakens the original case. Last reviewed: 6 August 2026.
 
-Week 12 (22 May 2026): £1,983.39. Source: Recorded.
+PROCESS RULES
 
-Week 13 (2 June 2026): Around £2,007. Source: Approximate.
-
-Week 14 (9 June 2026): Around £1,979.98. Source: Approximate.
-
-Week 15 (16 June 2026): £2,055.86. Source: Recorded.
-
-Week 16 (23 June 2026): Around £1,981. Source: Approximate.
-
-Week 18 (7 July 2026): £2,008. Source: Recorded. Note: Week 17 was skipped because the review cycle moved to every two weeks.
-
-August review (6 August 2026): £2,009.30. Source: Recorded. Note: Monthly review covering 3 July to 3 August 2026, with the valuation updated on 6 August.
-
-
-
-MAIN PAGES
-
-/ - Home
-The homepage is the mobile-first entry point for Codie Capital Research, explaining the site quickly and pointing first-time visitors to My First Letter, the latest portfolio update, current portfolio, and the main sections.
-Codie Capital Research is a public record of my personal investing process. I document what I own, why I own it, what I am learning, and how my thinking changes as I build a long-term portfolio.
-
-The site is a personal investment journal only. It is not financial advice, not a fund, and not a money-management service.
-
-The homepage itself is now the start page for first-time readers, especially mobile visitors arriving from Instagram.
-
-The recommended first reads are My First Letter, the latest portfolio update, and the Current Portfolio page.
-
-Letters includes My First Letter as a published long-form reflection.
-
-Latest source-of-truth review: Trading 212 Portfolio Review. Current account value £2,009.30, starting value £1,999, return +0.52%, cash £0.56.
-
-Portfolio value chart data: Week 1 (8 March 2026): Starting baseline: £1,999. Source: Baseline. Note: Week 1 was described as close to flat to slightly negative, so the chart uses the starting baseline. Week 3 (March 2026): £1,860.18. Source: Recorded. Week 4 (30 March 2026): Around £1,860. Source: Approximate. Week 5 (05 April 2026): Around £1,931. Source: Approximate. Week 6 (12 April 2026): Around £1,960. Source: Approximate. Week 7 (April 2026): £2,025.84. Source: Recorded. Week 8 (28 April 2026): £2,008.07. Source: Recorded. Week 9 (04 May 2026): Around £2,000. Source: Approximate. Week 10 (11 May 2026): £1,986.69. Source: Recorded. Week 11 (15 May 2026): c. £1,974.37. Source: Recorded. Week 12 (22 May 2026): £1,983.39. Source: Recorded. Week 13 (2 June 2026): Around £2,007. Source: Approximate. Week 14 (9 June 2026): Around £1,979.98. Source: Approximate. Week 15 (16 June 2026): £2,055.86. Source: Recorded. Week 16 (23 June 2026): Around £1,981. Source: Approximate. Week 18 (7 July 2026): £2,008. Source: Recorded. Note: Week 17 was skipped because the review cycle moved to every two weeks. August review (6 August 2026): £2,009.30. Source: Recorded. Note: Monthly review covering 3 July to 3 August 2026, with the valuation updated on 6 August.
-
-/portfolio - Current Portfolio
-The portfolio page records Codie’s own current holdings, August 2026 review account value, starting value, cash, latest return, winners, drags, portfolio role notes, and latest action plan.
-Current account value: £2,009.30. Starting value: £1,999. Current return: +0.52%. Cash balance: £0.56. Latest review: Trading 212 Portfolio Review.
-
-Open holdings: SGLN 5.72 shares (Portfolio hedge and macro protection); QQQA 5.57 shares (Broad technology-led US equity exposure); VUAG 2.04 shares (Broad US market exposure); RHM 0.087 shares (Defence demand and European security exposure); O 3.28 shares (Real estate income exposure); NEE 2.04 shares (Utility and renewables exposure); META 0.52 shares (Advertising, AI, and platform scale); SYM 3.268 shares (Robotics and warehouse automation); SPCX 1 share (Early exposure to space infrastructure, satellites, and Starlink); PSH 2 shares (Discount-to-NAV exposure to Pershing Square portfolio and Bill Ackman’s capital allocation); ABNB 1.223 shares (Asset-light travel platform exposure); BRK.B 0.3884 shares (Diversified operating businesses and capital discipline); GOOGL 0.28 shares (Search, cloud, AI, and platform scale); MSFT 0.14171835 shares (Quality software and AI infrastructure exposure).
-
-Current winners: Microsoft was worth £51.10 in the 6 August snapshot after a £41.40 purchase on 8 July. The portfolio moved £10.30 above its original £1,999 capital in the updated snapshot. Rheinmetall recovered from roughly 40% down to 25.10% down, while remaining under review. The index funds continued to support the account without requiring new trades.
-
-Current drags: Gold remained the largest position and the biggest drag at 17.46% of the account and 14.20% down. SpaceX was worth £81.65 and was 31.35% down in the latest authored snapshot. Cash remained very limited at £0.56. The portfolio continued to trail the reported returns of its VUAG and QQQA holdings.
-
-Latest action plan: Do not make impulsive trades during the next monthly review period. Hold Microsoft unless a genuinely better use for the capital appears. Watch Symbotic execution, Airbnb results, Rheinmetall delivery and cash conversion, and the NextEra-Dominion proposal. Rebalance gold towards 15–20% if it reaches around 30% of the account. Judge every holding on its forward-looking thesis rather than its old purchase price.
-
-Portfolio value history: Week 1 (8 March 2026): Starting baseline: £1,999. Source: Baseline. Note: Week 1 was described as close to flat to slightly negative, so the chart uses the starting baseline. Week 3 (March 2026): £1,860.18. Source: Recorded. Week 4 (30 March 2026): Around £1,860. Source: Approximate. Week 5 (05 April 2026): Around £1,931. Source: Approximate. Week 6 (12 April 2026): Around £1,960. Source: Approximate. Week 7 (April 2026): £2,025.84. Source: Recorded. Week 8 (28 April 2026): £2,008.07. Source: Recorded. Week 9 (04 May 2026): Around £2,000. Source: Approximate. Week 10 (11 May 2026): £1,986.69. Source: Recorded. Week 11 (15 May 2026): c. £1,974.37. Source: Recorded. Week 12 (22 May 2026): £1,983.39. Source: Recorded. Week 13 (2 June 2026): Around £2,007. Source: Approximate. Week 14 (9 June 2026): Around £1,979.98. Source: Approximate. Week 15 (16 June 2026): £2,055.86. Source: Recorded. Week 16 (23 June 2026): Around £1,981. Source: Approximate. Week 18 (7 July 2026): £2,008. Source: Recorded. Note: Week 17 was skipped because the review cycle moved to every two weeks. August review (6 August 2026): £2,009.30. Source: Recorded. Note: Monthly review covering 3 July to 3 August 2026, with the valuation updated on 6 August.
-
-/journal - Portfolio Journal
-The journal page lists portfolio review cards and journal entries with dates, account values where available, main trades, and lessons.
-The journal contains weekly and fortnightly portfolio reviews, trade reflections, market notes, and lessons from Codie’s own portfolio record.
-
-Trading 212 Portfolio Review (6 August 2026): The account ended the review period almost flat and moved just above starting capital in the 6 August snapshot. The fund comparison still shows that a simpler strategy has performed much better so far.
-
-Capital Research Review 04 (23 June 2026): The past four weeks have been the most active period of the portfolio so far. I traded Microsoft, re-entered Alphabet, sold ASML for a strong profit, added to gold, bought SpaceX, increased Symbotic and introduced Pershing Square Holdings.
-
-Capital Research Review 03 (22 May 2026): The past four weeks have not produced a dramatic return. The portfolio has remained close to its original starting value, finishing at £1,983.39 compared with a cost basis of approximately £1,999. On the surface, that means the account is down £15.61, or around 0.78%.
-
-Capital Research Review 02 (28 April 2026): The previous four weeks ended with the portfolio sitting around £1,860 and my decision to reduce some of the speculative exposure. These four weeks have been about finding out whether that decision actually improved the account.
-
-Capital Research Review 01 (30 March 2026): The past four weeks have been the beginning of this portfolio and, more importantly, the beginning of me properly documenting how I invest. When I started the account, I put in approximately £1,997. My aim was not to make a quick return or build a portfolio around whichever companies were receiving the most attention at the time. I wanted to create something balanced enough to grow over the long term while still giving me exposure to some of the industries and companies I believe could perform particularly well.
-
-Why the Rulebook Exists (9 June 2026): The rulebook is not abstract. It comes from early crypto profits, leverage mistakes, borrowed money, and the decision to treat investing as a serious long-term craft.
-
-Google Re-entry Plan (5 May 2026): Why a great business can still require patience, and why sitting in cash can be the correct action while waiting for a better setup.
-
-Microsoft Trade Reflection (29 April 2026): A profitable trade can still teach process lessons. The question is whether the decision was repeatable, not just whether it worked.
-
-/letters - Letters
-The Letters page publishes My First Letter, a long-form reflection on discipline, patience, risk, and building a public investing record.
-Portfolio reviews are what happened. Letters are what I learned and how my thinking is changing.
-
-My First Letter. Reflection. 24 June 2026. 14 min read. A first proper letter on why the weekly reviews are only part of the record, and why discipline, patience, risk, and process matter more than short-term account value. Main themes: first letter, process, discipline, patience, risk, public record. Status: Published. To the readers,
-
-This is my first proper letter on the website, and in some ways it feels like the real beginning of what I am trying to build. The weekly summaries have been useful because they force me to record what happened, what I bought, what I sold, what moved, and what I learned. But a weekly review can sometimes become too focused on the account value. It can become too easy to say, “the portfolio went up,” or “the portfolio went down,” and then accidentally miss the more important point.
-
-The more important point is what is happening underneath the numbers.
-
-What am I learning?
-Am I becoming more disciplined?
-Am I making decisions for the right reasons?
-Am I thinking like an owner, or am I just reacting to the colour of the screen?
-Am I building a process that can last for years, or am I just trying to look clever for a week?
-
-That is why I wanted to start writing letters as well as weekly reviews. The weekly reviews are the record. The letters are the reflection. I want friends, family, and anyone else who reads this to get something useful from it. I want these letters to be honest, factual, interesting, and, where possible, a little bit humorous. At the same time, I want this to be serious. I am not writing this because I think I have everything figured out. I am writing it because I want a public record of the process. I do not want to be someone who says face to face, “I know what I am doing,” and then has nothing to show for it. I would rather build a record over time that people can actually look at. Not just words. Evidence.
-
-That is really why this website exists.
-
-I want to be able to look back in a few years and see what I thought at different points in the market. I want to see what I believed, what I got right, what I got wrong, and how my thinking changed. More importantly, I want to be held accountable by my own words. It is much harder to pretend you had a plan if you wrote the plan down and then did something completely different.  Before these last few months, I probably thought about investing too much like gambling. I did not fully understand the difference between trading the market and investing in the market. I thought that if you bought something and the price moved against you quickly, that was almost the same as being wrong. I now realise that is not necessarily true.
-
-If I have a view that the economy, a company, an industry, or a theme is going to do well over time, then I need to give that idea a proper time frame. I need to put money behind the idea, size it sensibly, and then allow time to do its job. That is very different from trying to trade every short-term move. Over the long run, I think thoughtful investing has a much better chance of working than pretending I can guess every week’s price action.
-
-The uncomfortable lesson is that even long-term investing is not calm every day. I thought the stock market would feel steadier than it does. It does not. Even with a small portfolio, prices move quickly. One week the account looks strong, the next week a winner gives back its gains, and suddenly the same portfolio feels completely different. The companies may not have changed. The price has.
-
-That is one of the first proper lessons I have learned: price action can change much faster than your thesis.
-
-Early on, when the portfolio first dropped below the starting value, I felt it physically. I did not like it at all. There was that feeling in my stomach that no investing book can properly prepare you for. The funny thing is, reading about volatility makes you feel very wise. Actually seeing your own account go down makes you feel like you should maybe take up pottery instead.But I did not panic. I turned off the screen, stopped checking it for a bit, and reminded myself that I was here for the long term. The account carried on moving around, but eventually it came back towards breakeven and then above it. That mattered emotionally, but it also taught me something. If I had panicked at the first drawdown, I would not have learned anything useful. I would have just reacted.
-
-Weeks three and four were probably the toughest emotionally because the account was under pressure and the wider market felt nervous. Strangely, though, I find it easier to say “I am here for the long term” when the portfolio is going down than when it is going up. When it is down, I can almost convince myself I am being noble and disciplined, like some calm value investor sitting through a storm. When it is up, that is when the harder test starts, because suddenly I have to decide whether to let a winner run, take profit, or stop myself from becoming overconfident after one good move. In that sense, the difficult part is not only surviving red days. It is staying sensible on green ones too.
-
-What helped me was remembering that the aim is not to win every day. The aim is to protect capital, make sensible decisions, and keep learning.
-
-That phrase — protect capital — means much more to me now than it did at the start. At first, I thought it mainly meant “do not lose money.” Now I think it means something deeper. It means do not make careless decisions. Do not let excitement control position sizing. Do not force trades just because cash is available. Do not turn a long-term thesis into a short-term panic. Do not confuse a good story with a good investment. My focus is still to make money. I am not going to pretend otherwise. I am passionate about making money and building wealth. But I want to do it properly. I do not want to make money by accident and then mistake that for skill. I would rather make slower progress with a process I can repeat than get lucky once and start believing I am Warren Buffett with a Trading 212 login.
-
-One of the biggest changes in my thinking has been the difference between a good result and a good decision.
-
-A good result feels nice. A good decision matters more.
-
-A profitable trade can still be bad process if the reasoning was weak. A losing trade can still be good process if the decision was sensible, the risk was understood, and the position was sized correctly. I still do not like losing money - I do not think anyone wakes up excited to be down — but I am starting to understand that the goal is not to avoid every red position. The goal is to avoid avoidable mistakes.
-
-There is a difference.
-
-ASML gave me one of my biggest confidence boosts. It was a strong company, connected to one of the most important long-term themes in the market: semiconductor infrastructure and AI. I sold it for a strong realised profit, and I still think that was a disciplined decision. I protected capital, locked in a gain, and created flexibility. At the same time, ASML also taught me that handling winners is not simple. Sometimes selling is sensible. Sometimes trimming may be better. Sometimes the right company deserves more time. I am happy taking profit when a position is up strongly, because I would rather protect a gain than watch it collapse back towards breakeven. But I also need to keep learning when a winner should be allowed to keep working.
-
-Google was probably the decision I am most proud of so far. I sold it well, then waited for the price to come back towards the level I had already planned. I did not chase. I did not buy just because I felt left behind. I waited. When it came back towards my level, I acted.That may sound simple, but it is not. Patience is easy in theory and annoying in practice. Holding cash while other stocks move is uncomfortable. It feels like standing on the side of a football pitch watching everyone else play. But cash is not useless if it has a purpose. Cash gives optionality. It gives you the ability to act when prices come to you instead of chasing them when you are emotional.
-
-For me, a sensible cash position is not a failure. It is one of the best hedges a portfolio can have. I currently think a cash level somewhere around 2.5% to 7.5% can make sense, depending on the market and the opportunities available. Too much cash can become opportunity cost, but too little cash can leave you unable to act. Week 16 reminded me of that clearly. After adding Pershing Square Holdings, the cash balance became lower than I would like, and rebuilding flexibility is now something I need to focus on again.
-
-SpaceX has been another important lesson. I bought it because I believe in the company long term, not just because I thought it would immediately go up. At first, it worked extremely well and became the biggest winner in the portfolio. Then it pulled back sharply. That is exactly the kind of thing that reminds you not to confuse one good week with genius. It would have been nice to take some profit when it was up strongly. I am not going to pretend otherwise. Everyone loves saying “I am long term” after a stock doubles, but nobody complains when they accidentally sell the top. Still, I do not see the SpaceX pullback as a major mistake. I bought it because I wanted early exposure to what I think could be one of the most important companies in the world over the next decade and beyond. If that is the thesis, then I should not judge the whole decision from one week of price action.
-
-That said, SpaceX also taught me that excitement needs rules. A company can be incredible and still be volatile. A company can change the world and still be overpriced in the short term. Being excited about a business does not give me permission to ignore position sizing.
-
-Gold has taught me something different. Originally, I was not as keen on holding gold. I preferred the idea of keeping more cash, because cash gives immediate optionality. But I eventually accepted that gold could play a role as a hedge. Since then, gold has gone down, and I underestimated how quickly that could happen. The strange thing is that I am not really frustrated by gold being down. In fact, part of me is happy when it falls, because I still have long-term conviction in the role it can play and it gives me a chance to lower my average cost over time. Gold is not there to be exciting. Gold is not there to make me feel clever every Tuesday afternoon. Gold is there to help protect the portfolio if the world becomes more unstable, if currencies weaken, if inflation remains a problem, or if investors move away from risk assets.
-
-I have learned not to expect a hedge to work perfectly every week. That was a big lesson. A hedge is not a magic umbrella that opens every time it rains. Sometimes it just sits there looking useless while you get wet. But if the long-term role still makes sense, then the short-term frustration does not automatically mean the thesis is broken.
-
-Rheinmetall has probably tested my patience the most. It is down meaningfully, and at one point I considered whether I should cut part of the position if the loss got too large. I have now moved away from forcing that kind of rule. I do not want to sell a position just because the red number looks uncomfortable. If the business thesis breaks, that is different. If the company’s business model changes, if revenue deteriorates for a sustained period while competitors are doing well, or if the reason I bought it no longer makes sense, then I should reassess properly.
-
-But I do not want to sell just to make myself feel better. That is not investing. That is emotional housekeeping.
-
-Symbotic is another position that has made me think hard. I still believe in the robotics and automation thesis, and in some ways, I believe in Symbotic more than almost anything else in the portfolio. The company is trying to solve a real problem in warehouse automation, and the fact that it has major customer relationships gives me confidence that the technology is not just theoretical. But Symbotic is volatile. Averaging down only makes sense if it is deliberate. For me, averaging down feels rational when I am taking profits from winners and reallocating into a position where I still believe the thesis is intact. It would feel more emotional if I was simply depositing more money because I did not like seeing a loss. The line between conviction and stubbornness can be thin, and I need to keep watching that carefully.
-
-That is probably one of my weaknesses as an investor: I like risk. I am drawn to big ideas, strong companies, and the possibility of large outcomes. I am naturally optimistic about the future. I can imagine what companies might become if everything goes right. That helps me see opportunity, but it can also become dangerous if it is not balanced by realism.
-
-Thankfully, I do think I am also a realist. I can get excited, but I can also bring myself back down to earth. That balance is something I need to keep improving.
-
-Another weakness I have noticed is that I can be too easily persuaded by people who sound like they know what they are talking about. If someone speaks confidently, it can make me question my own view too quickly. That is not a good habit. I should listen to smart people, but I should not outsource my thinking to them. My ideas are my ideas. Other people can challenge them, but they cannot be responsible for them.
-
-That might be the biggest personal lesson so far: no one can prove the future for me.
-
-No one in the world knows exactly what is going to happen. Not analysts, not commentators, not friends, not people on YouTube with dramatic thumbnails, and definitely not me. The best I can do is build a thesis, understand the risks, size the position properly, and then review the evidence as time passes.
-
-I do not need to run around looking for people to confirm that my ideas are true. That is just insecurity dressed up as research. Real research should challenge me, not comfort me.
-
-Reading has played a big part in this. The Intelligent Investor helped me understand discipline, value, and the danger of being pulled around by market emotion. The Most Important Thing made me think more seriously about risk, cycles, and contrarian thinking. The Dhandho Investor made me think about simple opportunities where the downside is controlled and the upside can still be meaningful. The Art of Spending Money and The Tipping Point affected me in a different way — they made me think more about behaviour, habits, compounding, and how small decisions can quietly become very large outcomes.
-
-The Tipping Point probably changed my behaviour the most. It made me think about how small things compound until suddenly they matter. That applies to markets, but it also applies to discipline. One weekly review does not make me a good investor. One written trade reason does not make me disciplined. One patient decision does not prove anything. But repeated over time, these small habits can become a real process.
-
-That is what I am trying to build.
-
-I want this portfolio to become a detailed track record for myself. I want this website to become more than a journal of trades. Over time, I want it to represent how I think as an individual — not just about investing, but about business, risk, capital, ownership, and the different ventures I pursue. I want it to become a broader reputational asset, but only if it is built honestly.
-
-If future business partners, investors, family, or friends read this website, I want them to see that I did what I said I was going to do. I want them to see that I have been actively building a process since I said I would. I want them to see ambition, but also discipline. I want them to see that I am passionate about making money, but not careless with it. I want them to see someone who is willing to think deeply, write honestly, and improve. I want to become a world-class investor. One of the best ever. That is a very big thing to say, and I know it sounds ambitious. Good. It should. I would rather say what I want clearly than pretend to be less ambitious because it feels safer.
-
-But wanting to become world-class does not mean acting like I already am. It means building the habits that could, over a long enough period, move me in that direction. It means studying companies properly. It means understanding capital markets. It means learning accounting, valuation, business models, incentives, cycles, and human behaviour. It means admitting when I do not know something. It means not confusing confidence with competence.
-
-Most importantly, it means being patient.
-
-Patience is probably the biggest lesson so far. Not passive patience. Not sitting there doing nothing because I am scared. I mean active patience: having a plan, knowing the level I want, waiting for it, and not being persuaded away from my own thinking every time the market moves.
-
-Discipline means having a plan and sticking to it even when I do not feel like it.
-Patience means giving an idea enough time to play out.
-Risk means understanding what happens if the idea in my head does not happen in real life.
-
-Those three things - discipline, patience, and risk - are what I want to keep building around.
-
-I am only a few months into this journey. There is a very long way to go. The portfolio has already been above the starting point, below it, back above it, and back below it again. That alone is a useful reminder. Short-term price action is not the whole story. I am not worried about every move up or down. I am much more concerned with whether I am becoming a better decision-maker.
-
-If the portfolio beats inflation over a year while I improve my process, learn more about markets, and avoid major mistakes, I would consider that a successful investing year. Of course I want higher returns. But returns without process can disappear quickly. Process, if it is good, can compound.
-
-This first letter is the start of a longer public record. I hope future letters can show that I did the things I said I would do. I hope they show better thinking, better discipline, better analysis, and better judgement. I also hope they are honest enough to admit when I am wrong.
-
-Because I will be wrong. Everyone is. The goal is not to be right every time. The goal is to be thoughtful enough, disciplined enough, and honest enough that being wrong does not destroy the process.
-
-For the next stage, my promise to myself is simple: keep protecting capital, keep writing down my reasoning, keep learning, keep holding myself accountable, and do not let short-term emotion interrupt a long-term plan.
-
-This is not financial advice. It is a record of my own thinking, my own portfolio, and my own attempt to become a better investor.
-
-The money matters. But the process matters more.
-
-And if I can get both right over time, that is where things could become very interesting.
-
-/books - Books I Have Read
-The books page is a bookshelf index of books Codie has read, with each book linking to its own full reflection page.
-The books page lists books that have shaped how Codie thinks about investing, money, discipline, purpose, risk, and long-term decision-making.
-
-The Dhandho Investor by Mohnish Pabrai. Value Investing / Business / Low-Risk Opportunity. Takeaway: Look for simple, understandable opportunities where the downside is limited and the upside is meaningful.. Full reflection: /books/the-dhandho-investor
-
-The Most Important Thing by Howard Marks. Risk / Contrarian Thinking / Market Psychology. Takeaway: Do not just follow the crowd. Think independently, understand risk, and be patient when markets become emotional.. Full reflection: /books/the-most-important-thing
-
-The Intelligent Investor by Benjamin Graham. Value Investing / Discipline / Intrinsic Value. Takeaway: Investing should be based on discipline, intrinsic value, patience, and protecting capital.. Full reflection: /books/the-intelligent-investor
-
-The Alchemist by Paulo Coelho. Purpose / Ambition / Personal Journey. Takeaway: The journey, the lessons, and the person you become are just as important as the final result.. Full reflection: /books/the-alchemist
-
-The Art of Spending Money by Morgan Housel. Money / Lifestyle / Financial Discipline. Takeaway: Do not increase your lifestyle just because your income rises. Spend intentionally and use money to build long-term freedom.. Full reflection: /books/the-art-of-spending-money
-
-Man’s Search for Meaning by Viktor Frankl. Purpose / Resilience / Perspective. Takeaway: Human beings are incredibly resilient, and having meaning can help you endure almost anything.. Full reflection: /books/mans-search-for-meaning
-
-The Tipping Point by Malcolm Gladwell. Trends / Compounding / Behaviour. Takeaway: Small actions, habits, ideas, and trends can compound quietly before reaching a point where they suddenly accelerate.. Full reflection: /books/the-tipping-point
-
-Material World by Ed Conway. Commodities / Supply Chains / Civilisation / Investing. Takeaway: The modern world is built on physical materials, and understanding them helps me understand the real foundations of businesses, technology, and future investment opportunities.. Full reflection: /books/material-world
-
-Atomic Habits by James Clear. Habits / Discipline / Personal Development. Takeaway: Small decisions do not feel important at the time, but when you repeat them every day, they eventually have a massive effect on the person you become and the direction your life goes in.. Full reflection: /books/atomic-habits
-
-The World for Sale by Javier Blas & Jack Farchy. Commodities / Geopolitics / Supply Chains / Investing. Takeaway: Look beyond the company itself: supply chains, natural resources, governments, geopolitics and access to essential commodities can shape what happens to businesses and economies.. Full reflection: /books/the-world-for-sale
-
-The Coming Wave by Mustafa Suleyman. Artificial Intelligence / Technology / Government / Risk. Takeaway: One of the biggest challenges of the coming decades may be whether our governments and institutions can adapt quickly enough to manage increasingly powerful technology.. Full reflection: /books/the-coming-wave
-
-Good to Great by Jim Collins. Leadership / Management / Business / Investing. Takeaway: If you want something to succeed over the long term, getting the people right is one of the most important places to start.. Full reflection: /books/good-to-great
-
-The Outsiders by William N. Thorndike Jr.. Capital Allocation / Leadership / Business / Investing. Takeaway: Treat every capital-allocation decision as an investment and put each pound where it can earn the best sensible return.. Full reflection: /books/the-outsiders
-
-Poor Charlie’s Almanack by Charlie Munger. Investing / Mental Models / Psychology / Decision-Making. Takeaway: My biggest takeaway from Poor Charlie’s Almanack was the importance of learning what not to do, as well as what to do.. Full reflection: /books/poor-charlies-almanack
-
-When Breath Becomes Air by Paul Kalanithi. Memoir / Mortality / Purpose / Family. Takeaway: The present is the only part of life we really have control over, so make proper use of it.. Full reflection: /books/when-breath-becomes-air
-
-/process - Investment Process
-The process page sets out the investing rulebook: protect capital, size positions properly, write reasoning, keep cash discipline, avoid leverage and impulsive trades, and review regularly.
 Protect capital first: Avoiding permanent loss matters more than chasing quick performance. The first job is to stay in the game, protect the account, and make sure every decision can be explained calmly after the fact.
 
 Position sizing has to match risk: No individual position should move above 10% of the portfolio without a written reason. Higher-risk ideas can exist in the portfolio, but they need smaller sizing and stricter review.
@@ -270,241 +60,17 @@ Avoid leverage: No leverage. Leveraged crypto trading taught me how quickly pres
 
 No impulsive trades: Avoid hype, panic, and quick emotional decisions. If a trade is only exciting because the price is moving, that is not enough.
 
-Regular review process: Keep a short weekly or fortnightly summary covering account value, cash, what helped, what hurt, trades made, mistakes, and the plan for the next period.
-
-/about - About Codie Marillier
-The about page explains Codie’s investing background, early interest in markets, first Bitcoin investment, family real estate influence, lessons from mistakes, and reading development.
-Codie Marillier is a private, long-term investor managing his own portfolio and documenting the process publicly.
-
-His interest in investing began seriously around age fourteen, when he understood that ordinary people could buy small pieces of real businesses through the stock market.
-
-During the first COVID lockdown in 2020, he studied a stock trading course by Mohsin Hassan on Udemy and began learning fundamental analysis, technical analysis, market behaviour, risk, and trading psychology.
-
-His first investment was Bitcoin in 2021 at roughly $21,000. A roughly $500 investment grew to around $1,500, which built confidence but also taught that early success does not mean risk is fully understood.
-
-His family’s real estate background shaped how he thinks about ownership, assets, capital appreciation, rental income, and long-term wealth creation.
-
-Losing money through leveraged crypto trading taught him the danger of emotional behaviour, adding to losing trades, hoping for reversals, and letting risk turn into gambling.
-
-/disclaimer - Disclaimer
-The disclaimer page explains that the site is a personal investment research and portfolio journal, not investment advice, not FCA-authorised, and not a recommendation.
-This website is a personal investment research and portfolio journal. It is not investment advice. I am not FCA-authorised. I do not manage money for other people. Nothing on this site should be treated as a recommendation to buy, sell, or hold any investment. All trades, holdings, research notes, and opinions shown here relate to my own personal portfolio and my own decision-making process. Do not copy my trades. Investments can go down as well as up. Past performance does not guarantee future results. The site may include mistakes, outdated information, or personal opinions. Always do your own research and seek professional advice where appropriate.
-
-/ai/ - AI-Readable Review Index
-The AI page is a complete plain HTML archive for ChatGPT, AI review tools, Google crawlers, and simple browser-fetch tools.
-The AI-readable review index contains site purpose, disclaimer, latest portfolio snapshot, links to all public pages, portfolio summaries, books, portfolio, process, sitemap-readable page, and JSON content archive.
-
-
-
-HOMEPAGE START HERE
-
-Current Portfolio - What I currently own, how the portfolio is positioned, and what role each holding plays.
-
-Portfolio Journal - My regular record of portfolio changes, market thoughts, decisions, and lessons.
-
-Investment Process - The rules and habits I am trying to build around capital protection, patience, position sizing, and written reasoning.
-
-About - Who I am, why I became interested in investing, and why this public record exists.
-
-
-
-HOMEPAGE ALSO USEFUL
-
-Books - The books that have shaped how I think about money, markets, discipline, risk, and behaviour.
-
-My First Letter is published as the first long-form reflection.
-
-
-
-HOLDINGS
-
-SGLN - SGLN / iShares Physical Gold
-Position: 5.72 shares
-Sleeve: Hedge
-Role: Portfolio hedge and macro protection
-Status: Current holding
-Note: Added again on 9 June 2026 after ASML sale
-
-QQQA - QQQA / Nasdaq-100 ETF
-Position: 5.57 shares
-Sleeve: Core ETF
-Role: Broad technology-led US equity exposure
-Status: Current holding
-Note: Trimmed 1 share on 15 May 2026
-
-VUAG - VUAG / Vanguard S&P 500 ETF
-Position: 2.04 shares
-Sleeve: Core ETF
-Role: Broad US market exposure
-Status: Current holding
-Note: Initial portfolio buildout on 3 March 2026
-
-RHM - Rheinmetall
-Position: 0.087 shares
-Sleeve: Thematic / defence
-Role: Defence demand and European security exposure
-Status: Current holding
-Note: Dividend received in May 2026
-
-O - Realty Income
-Position: 3.28 shares
-Sleeve: Defensive / income-style
-Role: Real estate income exposure
-Status: Current holding
-Note: Added again on 15 May 2026; dividends received
-
-NEE - NextEra Energy
-Position: 2.04 shares
-Sleeve: Defensive / energy transition
-Role: Utility and renewables exposure
-Status: Current holding
-Note: Initial portfolio buildout on 3 March 2026
-
-META - Meta Platforms
-Position: 0.52 shares
-Sleeve: Core quality growth
-Role: Advertising, AI, and platform scale
-Status: Current holding
-Note: Added across March and April; dividend received
-
-SYM - Symbotic
-Position: 3.268 shares
-Sleeve: Higher volatility
-Role: Robotics and warehouse automation
-Status: Current holding
-Note: Added 1.5 shares on 11 June 2026 after an earlier partial sale
-
-SPCX - SpaceX
-Position: 1 share
-Sleeve: Speculative / long-term opportunity
-Role: Early exposure to space infrastructure, satellites, and Starlink
-Status: Current holding
-Note: Bought 1 share on 12 June 2026 as a small speculative long-term position
-
-PSH - Pershing Square Holdings
-Position: 2 shares
-Sleeve: Investor-led holding
-Role: Discount-to-NAV exposure to Pershing Square portfolio and Bill Ackman’s capital allocation
-Status: Current holding
-Note: Bought 2 shares on 23 June 2026 at 3,922p per share
-
-ABNB - Airbnb
-Position: 1.223 shares
-Sleeve: Quality growth / travel
-Role: Asset-light travel platform exposure
-Status: Current holding
-Note: Initial portfolio buildout on 3 March 2026
-
-BRK.B - Berkshire Hathaway
-Position: 0.3884 shares
-Sleeve: Core quality / ballast
-Role: Diversified operating businesses and capital discipline
-Status: Current holding
-Note: Initial portfolio buildout on 3 March 2026
-
-GOOGL - Alphabet (Class A)
-Position: 0.28 shares
-Sleeve: Core quality growth / add-on watchlist
-Role: Search, cloud, AI, and platform scale
-Status: Small rebuilt position
-Note: Earlier position sold profitably; small re-entry on 3 June 2026
-
-ASML - ASML
-Position: Closed
-Sleeve: Watchlist / AI infrastructure
-Role: Semiconductor equipment exposure
-Status: Closed on 9 June 2026
-Note: Realised result around £40.59; remains a watchlist name
-
-MSFT - Microsoft
-Position: 0.14171835 shares
-Sleeve: Core quality growth
-Role: Quality software and AI infrastructure exposure
-Status: Current holding
-Note: Re-entered for £41.40 on 8 July 2026; worth £51.10 in the 6 August snapshot
-
-IONQ - IonQ
-Position: Closed
-Sleeve: Speculative lesson
-Role: Quantum computing exposure
-Status: Closed
-Note: Realised loss around £18.35; useful reminder on volatility and sizing
-
-
-
-PORTFOLIO WINNERS
-
-Microsoft was worth £51.10 in the 6 August snapshot after a £41.40 purchase on 8 July.
-
-The portfolio moved £10.30 above its original £1,999 capital in the updated snapshot.
-
-Rheinmetall recovered from roughly 40% down to 25.10% down, while remaining under review.
-
-The index funds continued to support the account without requiring new trades.
-
-
-
-PORTFOLIO DRAGS
-
-Gold remained the largest position and the biggest drag at 17.46% of the account and 14.20% down.
-
-SpaceX was worth £81.65 and was 31.35% down in the latest authored snapshot.
-
-Cash remained very limited at £0.56.
-
-The portfolio continued to trail the reported returns of its VUAG and QQQA holdings.
-
-
-
-LATEST ACTION PLAN
-
-Do not make impulsive trades during the next monthly review period.
-
-Hold Microsoft unless a genuinely better use for the capital appears.
-
-Watch Symbotic execution, Airbnb results, Rheinmetall delivery and cash conversion, and the NextEra-Dominion proposal.
-
-Rebalance gold towards 15–20% if it reaches around 30% of the account.
-
-Judge every holding on its forward-looking thesis rather than its old purchase price.
-
-
-
-PROCESS RULES
-
-Protect capital first
-Avoiding permanent loss matters more than chasing quick performance. The first job is to stay in the game, protect the account, and make sure every decision can be explained calmly after the fact.
-
-Position sizing has to match risk
-No individual position should move above 10% of the portfolio without a written reason. Higher-risk ideas can exist in the portfolio, but they need smaller sizing and stricter review.
-
-Written reasoning before action
-Every trade needs a reason before entry and a review after exit. If I cannot write down why I am buying, selling, trimming, or holding, I should not be doing it.
-
-Cash discipline
-Cash is not a failure to act. It gives flexibility when opportunities are not attractive and stops me from forcing trades just because money is available.
-
-Avoid leverage
-No leverage. Leveraged crypto trading taught me how quickly pressure can turn into gambling. I do not want leverage, revenge trading, or emotional overexposure driving the portfolio.
-
-No impulsive trades
-Avoid hype, panic, and quick emotional decisions. If a trade is only exciting because the price is moving, that is not enough.
-
-Regular review process
-Keep a short weekly or fortnightly summary covering account value, cash, what helped, what hurt, trades made, mistakes, and the plan for the next period.
-
-
+Regular review process: Keep a monthly summary covering percentage performance, cash allocation, what helped, what hurt, trades made, mistakes, and the plan for the next period.
 
 LETTERS
 
 My First Letter
-Reflection / 24 June 2026
-A first proper letter on why the weekly reviews are only part of the record, and why discipline, patience, risk, and process matter more than short-term account value.
-Themes: first letter, process, discipline, patience, risk, public record
+
+A first proper letter on why portfolio reviews are only part of the record, and why discipline, patience, risk, and process matter more than short-term account value.
 
 To the readers,
 
-This is my first proper letter on the website, and in some ways it feels like the real beginning of what I am trying to build. The weekly summaries have been useful because they force me to record what happened, what I bought, what I sold, what moved, and what I learned. But a weekly review can sometimes become too focused on the account value. It can become too easy to say, “the portfolio went up,” or “the portfolio went down,” and then accidentally miss the more important point.
+This is my first proper letter on the website, and in some ways it feels like the real beginning of what I am trying to build. The reviews have been useful because they force me to record what happened, what I bought, what I sold, what moved, and what I learned. But a review can sometimes become too focused on the headline return. It can become too easy to say, “the portfolio went up,” or “the portfolio went down,” and then accidentally miss the more important point.
 
 The more important point is what is happening underneath the numbers.
 
@@ -532,7 +98,7 @@ Weeks three and four were probably the toughest emotionally because the account 
 
 What helped me was remembering that the aim is not to win every day. The aim is to protect capital, make sensible decisions, and keep learning.
 
-That phrase — protect capital — means much more to me now than it did at the start. At first, I thought it mainly meant “do not lose money.” Now I think it means something deeper. It means do not make careless decisions. Do not let excitement control position sizing. Do not force trades just because cash is available. Do not turn a long-term thesis into a short-term panic. Do not confuse a good story with a good investment. My focus is still to make money. I am not going to pretend otherwise. I am passionate about making money and building wealth. But I want to do it properly. I do not want to make money by accident and then mistake that for skill. I would rather make slower progress with a process I can repeat than get lucky once and start believing I am Warren Buffett with a Trading 212 login.
+That phrase — protect capital — means much more to me now than it did at the start. At first, I thought it mainly meant “do not lose money.” Now I think it means something deeper. It means do not make careless decisions. Do not let excitement control position sizing. Do not force trades just because cash is available. Do not turn a long-term thesis into a short-term panic. Do not confuse a good story with a good investment. My focus is still to make money. I am not going to pretend otherwise. I am passionate about making money and building wealth. But I want to do it properly. I do not want to make money by accident and then mistake that for skill. I would rather make slower progress with a process I can repeat than get lucky once and start believing I am Warren Buffett after one good trade.
 
 One of the biggest changes in my thinking has been the difference between a good result and a good decision.
 
@@ -546,7 +112,7 @@ ASML gave me one of my biggest confidence boosts. It was a strong company, conne
 
 Google was probably the decision I am most proud of so far. I sold it well, then waited for the price to come back towards the level I had already planned. I did not chase. I did not buy just because I felt left behind. I waited. When it came back towards my level, I acted.That may sound simple, but it is not. Patience is easy in theory and annoying in practice. Holding cash while other stocks move is uncomfortable. It feels like standing on the side of a football pitch watching everyone else play. But cash is not useless if it has a purpose. Cash gives optionality. It gives you the ability to act when prices come to you instead of chasing them when you are emotional.
 
-For me, a sensible cash position is not a failure. It is one of the best hedges a portfolio can have. I currently think a cash level somewhere around 2.5% to 7.5% can make sense, depending on the market and the opportunities available. Too much cash can become opportunity cost, but too little cash can leave you unable to act. Week 16 reminded me of that clearly. After adding Pershing Square Holdings, the cash balance became lower than I would like, and rebuilding flexibility is now something I need to focus on again.
+For me, a sensible cash position is not a failure. It is one of the best hedges a portfolio can have. I currently think a cash level somewhere around 2.5% to 7.5% can make sense, depending on the market and the opportunities available. Too much cash can become opportunity cost, but too little cash can leave you unable to act. Week 16 reminded me of that clearly. After adding Pershing Square Holdings, the cash allocation became lower than I would like, and rebuilding flexibility is now something I need to focus on again.
 
 SpaceX has been another important lesson. I bought it because I believe in the company long term, not just because I thought it would immediately go up. At first, it worked extremely well and became the biggest winner in the portfolio. Then it pulled back sharply. That is exactly the kind of thing that reminds you not to confuse one good week with genius. It would have been nice to take some profit when it was up strongly. I am not going to pretend otherwise. Everyone loves saying “I am long term” after a stock doubles, but nobody complains when they accidentally sell the top. Still, I do not see the SpaceX pullback as a major mistake. I bought it because I wanted early exposure to what I think could be one of the most important companies in the world over the next decade and beyond. If that is the thesis, then I should not judge the whole decision from one week of price action.
 
@@ -612,12 +178,10 @@ The money matters. But the process matters more.
 
 And if I can get both right over time, that is where things could become very interesting.
 
+BOOKS
 
+The Dhandho Investor — Mohnish Pabrai
 
-BOOKS THAT SHAPED MY THINKING
-
-The Dhandho Investor - Mohnish Pabrai
-Value Investing / Business / Low-Risk Opportunity
 I chose The Dhandho Investor because it was recommended to me by one of my friend's dads, and it quickly became one of the most useful investing books I have read. The main idea I took from it was the concept of building or buying businesses in a way where the downside is limited but the upside is still meaningful.
 
 One of the examples that stood out to me was the Patel family and the motel business. By using their own family as receptionists, cleaners, managers, and operators, they were able to keep costs extremely low. That meant they could offer better prices than neighbouring motels while still making the business work. That idea really interested me because it showed how using your own network, family, contacts, and available resources can create an advantage at the start of a business.
@@ -626,8 +190,8 @@ The book did not completely change the way I think, but it taught me valuable le
 
 Takeaway: Look for simple, understandable opportunities where the downside is limited and the upside is meaningful.
 
-The Most Important Thing - Howard Marks
-Risk / Contrarian Thinking / Market Psychology
+The Most Important Thing — Howard Marks
+
 The Most Important Thing was one of the most important books I have read for understanding markets. Howard Marks helped me think much more seriously about risk, cycles, and the danger of simply following what everyone else believes.
 
 The biggest lesson I took from this book was contrarian thinking. It taught me that some of the best investment decisions can come from questioning the popular view and being willing to think differently from the crowd. If everyone agrees that something is obvious, it may already be priced in. That does not mean always doing the opposite for the sake of it, but it does mean slowing down, thinking independently, and asking whether the market has become too optimistic or too pessimistic.
@@ -636,8 +200,8 @@ This book has made me want to become a more conservative and thoughtful investor
 
 Takeaway: Do not just follow the crowd. Think independently, understand risk, and be patient when markets become emotional.
 
-The Intelligent Investor - Benjamin Graham
-Value Investing / Discipline / Intrinsic Value
+The Intelligent Investor — Benjamin Graham
+
 The Intelligent Investor had a massive impact on the way I view markets and investing. It helped me understand that investing is not about chasing whatever stock is going up the fastest. It is about discipline, patience, valuation, and protecting capital.
 
 The biggest thing this book taught me was how to think about fair value and intrinsic value. Before reading it, it is easy to look at a company and only think about the share price. This book helped me understand that the real question is whether the business is worth more or less than what the market is currently pricing it at.
@@ -648,8 +212,8 @@ This book has played a massive part in how I want to pursue investing for the re
 
 Takeaway: Investing should be based on discipline, intrinsic value, patience, and protecting capital.
 
-The Alchemist - Paulo Coelho
-Purpose / Ambition / Personal Journey
+The Alchemist — Paulo Coelho
+
 The Alchemist is not directly about investing, but it is still one of the most important books I have read. For me, it was about following what you feel called to do, trusting the journey, and not giving up when the path becomes difficult.
 
 The book taught me that the lessons you learn along the way can sometimes be more valuable than the final reward. That really connects with my investing journey because I am not only trying to make money. I am trying to build a way of thinking, a process, and a long-term skill that can stay with me for life.
@@ -658,8 +222,8 @@ The Alchemist also made me think about ambition and self-belief. It reminded me 
 
 Takeaway: The journey, the lessons, and the person you become are just as important as the final result.
 
-The Art of Spending Money - Morgan Housel
-Money / Lifestyle / Financial Discipline
+The Art of Spending Money — Morgan Housel
+
 The Art of Spending Money taught me a lot about the way people use money and how easy it is to spend more simply because you earn more. One of the biggest lessons I took from it was that I do not need to spend money just to keep up with other people.
 
 I know what I need to survive each week, and as my income grows, I do not want my spending to rise at the same speed. I want to keep living within my means and use extra money to invest, build assets, and create more income streams. That does not mean never enjoying money, but it does mean being intentional with it.
@@ -668,8 +232,8 @@ The book also told interesting stories about how people made and lost money, whi
 
 Takeaway: Do not increase your lifestyle just because your income rises. Spend intentionally and use money to build long-term freedom.
 
-Man’s Search for Meaning - Viktor Frankl
-Purpose / Resilience / Perspective
+Man’s Search for Meaning — Viktor Frankl
+
 Man's Search for Meaning was a deeply personal book for me. It taught me about what happened in the concentration camps and showed me a level of human suffering and resilience that I had never properly understood before.
 
 While reading it, my mind was genuinely blown by what people were able to endure. I did not realise human beings were capable of going through such extreme suffering and still finding meaning, purpose, and strength. It made me think very seriously about how lucky we are today, how careful we need to be with our decisions, and how important it is to treat other people properly.
@@ -678,8 +242,8 @@ The book also taught me that meaning can help people survive incredibly difficul
 
 Takeaway: Human beings are incredibly resilient, and having meaning can help you endure almost anything.
 
-The Tipping Point - Malcolm Gladwell
-Trends / Compounding / Behaviour
+The Tipping Point — Malcolm Gladwell
+
 The Tipping Point helped me understand how small things can build quietly over time before suddenly reaching a point where everything changes. That idea really stood out to me because it connects to business, investing, habits, and personal growth.
 
 The book showed me that small changes can have huge effects once they compound for long enough. A product, idea, behaviour, or trend might look small at first, but if the right conditions come together, it can suddenly spread very quickly. That is useful for thinking about companies, especially businesses that rely on networks, platforms, consumer behaviour, or cultural change.
@@ -688,8 +252,8 @@ It also made me think about my own habits. Small good decisions repeated over ti
 
 Takeaway: Small actions, habits, ideas, and trends can compound quietly before reaching a point where they suddenly accelerate.
 
-Material World - Ed Conway
-Commodities / Supply Chains / Civilisation / Investing
+Material World — Ed Conway
+
 Material World completely changed the way I look at the modern world. The book explains how six basic materials, sand, salt, iron, copper, oil, and lithium, are the foundation of civilisation as we know it today. Before reading it, I understood that materials and commodities were important, but I did not properly appreciate how deeply they sit underneath almost everything we use.
 
 Sand stood out to me the most. It was the first material covered in the book, and it immediately hooked me because I had never really thought about sand as one of the most important substances in the world. From concrete and glass to the technology behind semiconductors, it made me realise that the modern world is not as “weightless” or digital as it sometimes seems. Even the most advanced companies still depend on physical materials, huge supply chains, and years of human knowledge.
@@ -702,8 +266,8 @@ For my own investing journey, this book reminded me to look beneath the surface.
 
 Takeaway: The modern world is built on physical materials, and understanding them helps me understand the real foundations of businesses, technology, and future investment opportunities.
 
-Atomic Habits - James Clear
-Habits / Discipline / Personal Development
+Atomic Habits — James Clear
+
 I started reading Atomic Habits at the beginning of the year because I had started developing a few bad habits at university. They were things that I knew were not healthy for me, especially in the long term. I knew that if I wanted to get to where I wanted to be in life, I needed to stop doing them. The problem was that I did not really know how to stop. I wanted to become more disciplined and consistent, but I did not have any sort of framework to work with.
 
 I had heard a lot of people say that Atomic Habits was an incredible book, so I decided to read it. To be honest, it definitely lived up to its reputation. It was really easy to understand, genuinely useful, and probably one of the best personal-development books I have read.
@@ -734,273 +298,117 @@ Overall, Atomic Habits taught me that I do not need to completely change my life
 
 Takeaway: Small decisions do not feel important at the time, but when you repeat them every day, they eventually have a massive effect on the person you become and the direction your life goes in.
 
-The World for Sale - Javier Blas & Jack Farchy
-Commodities / Geopolitics / Supply Chains / Investing
-The World for Sale gave me a completely different perspective on the commodity traders who operate behind much of the global economy. Before reading it, I understood the importance of oil, metals and other raw materials, but I had never really appreciated how much influence the people buying, selling and transporting these commodities can have.
+JOURNAL
 
-What interested me most were the stories of the traders themselves. These were people operating across countries, political systems and sometimes extremely unstable environments, often making enormous decisions with very little attention from the wider public. The book showed how companies and individual traders could become deeply involved in major political and economic events simply because governments and entire economies depended on the commodities they controlled.
+Capital Research Review 05
 
-The biggest thing I took away from the book, though, was the risk created by global dependence. Modern economies are incredibly interconnected. A country can depend on another country for energy, metals, food or other essential resources, and when politics, war or economic disruption gets involved, that dependence can quickly become a weakness.
-
-From an investing perspective, this was probably the most valuable lesson for me. Markets are not just driven by company earnings or whether a business is well managed. Supply chains, natural resources, governments, geopolitics and access to essential commodities can all have a huge impact on what eventually happens to companies and economies.
-
-It has made me think more carefully about what sits behind an investment. Instead of only looking at the company itself, I want to understand what that company depends on, where its resources come from and what could happen if those relationships were disrupted.
-
-Overall, I really enjoyed the book. It opened up an area of the financial world that I knew relatively little about and made the connection between commodities, politics and investing much clearer to me.
-
-Takeaway: Look beyond the company itself: supply chains, natural resources, governments, geopolitics and access to essential commodities can shape what happens to businesses and economies.
-
-The Coming Wave - Mustafa Suleyman
-Artificial Intelligence / Technology / Government / Risk
-The Coming Wave made me think much more seriously about the risks that come with increasingly powerful technology, particularly artificial intelligence. What interested me most wasn't simply how capable AI could become, but whether governments and society are actually prepared for the speed at which these technologies are developing.
-
-My biggest takeaway from the book was how difficult it is going to be to control technology once it becomes widely available. Throughout history, powerful new technologies have eventually spread, and AI seems likely to be no different. The difference this time is the scale and speed at which it could happen.
-
-What I found particularly interesting was the position governments are in. Technology is developing incredibly quickly, while governments, regulations and institutions generally move much more slowly. It left me questioning whether the systems we currently rely on are capable of dealing with something as significant as advanced AI.
-
-The part that stayed with me most was what all of this could ultimately mean for humanity. AI has the potential to create huge improvements in productivity, science, medicine and everyday life, but the same technology can also create risks that are difficult to predict or contain. That doesn't necessarily mean the technology should be stopped, but it does mean we need to take the risks seriously rather than assuming we will always be able to control what we create.
-
-Overall, The Coming Wave made me both more excited and more cautious about AI. I still think the opportunities are enormous, but the book made me realise that technological progress alone isn't enough. One of the biggest challenges of the coming decades may be whether our governments and institutions can adapt quickly enough to manage it.
-
-Takeaway: One of the biggest challenges of the coming decades may be whether our governments and institutions can adapt quickly enough to manage increasingly powerful technology.
-
-Good to Great - Jim Collins
-Leadership / Management / Business / Investing
-Good to Great made me think differently about what actually creates long-term success in a business. There are obviously lots of factors involved, but the biggest takeaway for me was that ultimately it comes back to people.
-
-The idea that stayed with me most was Level 5 Leadership. I found it interesting that some of the most successful leaders weren't necessarily the loudest, most charismatic or most publicly recognised. Instead, Collins describes leaders who combine huge ambition for the organisation with a surprising amount of humility. They care more about building something that lasts than about receiving personal credit for it.
-
-That challenged the stereotypical image I had of what a great CEO or leader should look like. You often hear about the larger-than-life founders and executives who dominate the companies they run, but Good to Great showed me that strong leadership can actually be much quieter. What matters is the standard they set, the people they surround themselves with and the decisions they make over a long period of time.
-
-The wider lesson for me was that people drive success. Strategy, technology and opportunities are important, but having the right people in the right positions seems to come before almost everything else. A great idea with the wrong people behind it can easily fail, while the right group of people can adapt when circumstances change.
-
-From an investing perspective, it also made me think more about management when looking at companies. Financial results tell you what a business has already achieved, but understanding the people allocating capital and making long-term decisions can tell you much more about where that business might eventually go.
-
-Overall, Good to Great reinforced the idea that genuinely great businesses aren't built overnight. They are built through disciplined decisions, strong people and leadership that thinks beyond the next quarter. The biggest lesson I took from it is that if you want something to succeed over the long term, getting the people right is one of the most important places to start.
-
-Takeaway: If you want something to succeed over the long term, getting the people right is one of the most important places to start.
-
-The Outsiders - William N. Thorndike Jr.
-Capital Allocation / Leadership / Business / Investing
-The Outsiders made me think more carefully about what actually separates a great CEO from an average one. Before reading it, I mainly thought about CEOs in terms of how well they could grow a business, manage people and improve operations. The book showed me that one of the most important responsibilities of a CEO is actually capital allocation — deciding what to do with the cash a business produces.
-
-What stood out to me most was how differently the CEOs in the book approached decisions such as acquisitions, share buybacks and reinvestment. They were not particularly interested in following what other companies were doing or making decisions that looked impressive from the outside. They treated each decision as an investment. If buying another company offered an attractive return, they would make an acquisition. If their own shares were undervalued, they were willing to buy back large amounts of stock. If neither option made sense, they were comfortable holding cash and waiting.
-
-The section on share buybacks gave me a much better appreciation of how powerful they can be when used properly. I already understood the basic idea of a company buying back its own shares, but the book made me think more carefully about how important the price paid actually is. If a company buys back shares when they are undervalued, the remaining shareholders end up owning a larger percentage of the business without having to invest any more money themselves. That can be an excellent use of capital.
-
-However, a buyback is not automatically a good decision. If management buys back shares simply because it has excess cash, especially when the shares are expensive, it can be a poor use of that money. What I took from this is that buybacks should be judged in the same way as any other investment — by the price paid and the return that capital is likely to produce.
-
-The same applies to acquisitions. One of the ideas I appreciated more after reading the book was that making a company bigger does not necessarily make it more valuable. A CEO can grow revenue, expand into new markets and complete large acquisitions while still destroying shareholder value if they consistently overpay.
-
-What stood out about the CEOs in The Outsiders was their discipline. They treated acquisitions like investments rather than trophies. They were willing to act decisively when the economics were attractive, but they were also comfortable walking away and doing nothing when the numbers did not make sense. I liked this because it reinforced the idea that good capital allocation is not about constantly making deals or chasing growth. Sometimes the best decision is simply to wait.
-
-My biggest practical takeaway from the book is that running a business well is only part of the job. Once a company starts generating cash, deciding what happens to that cash becomes incredibly important. It can be reinvested into the existing business, used to acquire another company, returned to shareholders through dividends, used to repurchase shares or kept until a better opportunity appears.
-
-This is probably the lesson I want to apply most to businesses I am involved with in the future. I want to think about company money in the same way I think about investing: every pound has an opportunity cost. Rather than spending money simply because it is available or chasing growth for the sake of getting bigger, I want to ask where that capital can generate the best return while still keeping the risks sensible.
-
-For me, The Outsiders showed that some of the best CEOs are also exceptional investors. They think independently, stay disciplined and understand that creating long-term value often comes down to one simple question:
-
-Takeaway: Treat every capital-allocation decision as an investment and put each pound where it can earn the best sensible return.
-
-Poor Charlie’s Almanack - Charlie Munger
-Investing / Mental Models / Psychology / Decision-Making
-Munger repeatedly makes the point that you do not need to make brilliant decisions all the time to achieve good results. A huge amount can be achieved simply by avoiding stupidity, recognising common mistakes and staying away from situations where the odds are against you.
-
-This resonated with me particularly because of my own experience with trading. One of the biggest things I have been learning is how damaging impulsive decisions can be. Sometimes the best decision is simply to do nothing. Patience is key, especially when it comes to long-term investing, and feeling as though you always need to be making a trade can lead you into decisions you would never make if you stopped and thought properly.
-
-It also made me appreciate the idea of inversion. If you are trying to become a better investor, for example, studying what causes investors to consistently lose money can be just as useful as studying the people who have succeeded. If impatience, excessive leverage, emotional decision-making, overconfidence and following the crowd repeatedly lead to poor outcomes, then deliberately avoiding those behaviours already puts you in a much stronger position.
-
-Sometimes succeeding is less about constantly asking, “What brilliant thing should I do?” and more about asking, “What obvious mistakes do I need to make sure I don't make?”
-
-I had wanted to read Poor Charlie’s Almanack for a long time. I had heard so many good things about Charlie Munger and the way he thought, and the book definitely lived up to my expectations.
-
-Munger was obviously an incredible investor, but what I found most interesting was how much of his wisdom extended beyond investing. Some of my favourite parts of the book were actually his thoughts on psychology, human behaviour, learning and decision-making.
-
-One of the ideas I appreciated most was his concept of developing a latticework of mental models. Rather than becoming knowledgeable in only one area, Munger believed in learning the important ideas from a wide range of disciplines and then connecting them together.
-
-Over his life he drew ideas from subjects such as mathematics, psychology, economics, science and history and used them to improve the way he approached completely different problems.
-
-I really related to this. I have always been interested in a wide range of subjects, and the book reinforced my belief that this can be a huge advantage. Learning something in one area often gives you a completely different way of looking at a problem somewhere else. The more useful ideas you have available to you, the more ways you have of understanding what is actually going on.
-
-Another major part of the book that stood out to me was Munger's understanding of psychology and human misjudgement.
-
-One example that stuck with me was his discussion of Judith Rich Harris and the influence that peer groups can have on children. The basic idea is that the people children surround themselves with can have an enormous influence on their behaviour and development.
-
-I found this fascinating because the lesson extends far beyond children. The people we surround ourselves with affect the way we think, behave and make decisions. In investing, the same psychological forces can cause people to follow the crowd simply because everyone around them appears to believe the same thing.
-
-It was another reminder of how important independent thinking is.
-
-Munger's discussion of incentives also made a lot of sense to me. People respond strongly to the incentives placed in front of them, sometimes without even realising it.
-
-I can relate to this personally through work. There is obviously a financial incentive to work harder when you are being paid well, but it is not purely about money. How well you are treated also makes a significant difference to how motivated you are and how much effort you are willing to put in.
-
-It seems obvious when you say it, but it is easy to forget when looking at other people's behaviour. Rather than immediately asking why someone is behaving in a certain way, it can be useful to first ask: what are they being incentivised to do?
-
-That is something I think can be useful when looking at employees, managers, businesses and investments.
-
-One of the simplest lessons in the book was also one of the ones that stayed with me most.
-
-Munger discusses Carl Braun's approach to giving people instructions. The important part was not simply telling someone what needed to be done, but also explaining why they were being asked to do it.
-
-I thought this was incredibly useful.
-
-If somebody understands the reasoning behind a task, they are much more capable of thinking for themselves while completing it. They are no longer blindly following an instruction; they understand the outcome that is actually trying to be achieved.
-
-It is a very small idea, but I can see it being extremely valuable in business. If I am ever managing people or asking someone to do something important, I want to remember to explain the reasoning behind it rather than simply telling them what to do.
-
-Overall, what I liked most about Munger was the way he approached life as a continuous process of learning.
-
-He was rational, incredibly curious and willing to learn from almost anywhere. He understood that human beings are naturally prone to making irrational decisions, and instead of assuming he was immune to those mistakes, he tried to build systems of thinking that helped him avoid them.
-
-That is probably what I will remember most from Poor Charlie’s Almanack.
-
-You don't have to know everything. You don't have to constantly be doing something. And you don't have to make genius decisions every day.
-
-Learn broadly, understand incentives, think independently, be patient and become very good at avoiding the mistakes that repeatedly destroy other people's results.
-
-Takeaway: My biggest takeaway from Poor Charlie’s Almanack was the importance of learning what not to do, as well as what to do.
-
-When Breath Becomes Air - Paul Kalanithi
-Memoir / Mortality / Purpose / Family
-When Breath Becomes Air is one of the most moving books I have read. Paul Kalanithi was a neurosurgeon who had spent years working towards the career and life he wanted, only to be diagnosed with terminal lung cancer just as he was reaching the point where all that work was beginning to pay off. What makes the book so powerful is that it is not simply about dying. It is about what happens to your priorities when you suddenly realise that the future you assumed you had may no longer exist.
-
-What stayed with me most was Paul's relationship with his wife, Lucy, and his family. As his illness progressed, it became increasingly clear that the people around him mattered more than almost anything else. Family has always been extremely important to me, so this part of the book did not necessarily change the way I think, but it reinforced just how valuable those relationships are. Careers, money and achievements can all disappear incredibly quickly, whereas the people you share your life with are ultimately a huge part of what gives it meaning.
-
-One of the parts I found most difficult was Paul and Lucy's decision to have their daughter, Cady, despite knowing that Paul was unlikely to be alive for much of her childhood. Initially, I struggled with the decision. Part of me felt that it was slightly selfish for Paul to knowingly leave Lucy as a single mother and for Cady to grow up without her father. The more I thought about it, though, the more I understood why they made that decision. For Paul, it was another way of choosing life while he still had it. It also meant that Lucy would not be completely alone after his death. I still think it is a complicated decision, and the book does not try to make questions like this easy, which is one of the reasons it stayed with me.
-
-The biggest lesson I took from the book was the importance of the present. Time continues moving whether we use it well or not. We spend so much of our lives thinking about what we are going to do in a year, five years or ten years, but none of us actually knows how much time we have. Paul had spent years preparing for the future, and then almost instantly that future changed.
-
-Rather than making me less ambitious, the book probably had the opposite effect. It made me want to achieve even more with the time that I have. I do not want to reach the end of my life and realise that I had opportunities to pursue the things I genuinely wanted but never had the courage or discipline to do them. I know there will always be more that could have been achieved, but I would at least like to know that I properly went after the ambitions I had.
-
-The ending was incredibly sad. It was one of the few books that genuinely brought me close to tears. But alongside that sadness, I finished it feeling grateful and motivated. Grateful for the people and opportunities I have now, and motivated to make better use of them.
-
-I would absolutely recommend When Breath Becomes Air. It gives you a perspective on just how quickly life can change and forces you to think about what actually matters when time becomes limited.
-
-Takeaway: The present is the only part of life we really have control over, so make proper use of it.
-
-
-
-JOURNAL ENTRIES
-
-Trading 212 Portfolio Review
 6 August 2026 / Monthly Reviews
-The account ended the review period almost flat and moved just above starting capital in the 6 August snapshot. The fund comparison still shows that a simpler strategy has performed much better so far.
-Snapshot
-UPDATED ACCOUNT VALUE
-£2,009.30
-CASH
-£0.56
-ORIGINAL CAPITAL
-£1,999.00
-SINCE INCEPTION
-+£10.30  |  +0.52%
-LARGEST POSITION
-Gold  |  17.46%
 
-MONTH IN ONE LINE  I made one deliberate purchase, avoided impulsive trading and finished with a clearer set of rules for the portfolio.
+The 6 August snapshot finished 0.52% above the starting point after a quiet month shaped by one deliberate Microsoft purchase and no impulsive trades.
+
+Snapshot
+SINCE INCEPTION
++0.52%
+CASH ALLOCATION
+0.03%
+LARGEST POSITION
+Gold | 17.46%
+VALUATION UPDATED
+6 August 2026
+
+I made one deliberate purchase, avoided impulsive trading and finished with a clearer set of rules for the portfolio.
 
 A quiet month, then back above starting capital
-When I first completed this review, the account was worth approximately £1,984 and was still just below my original £1,999 starting capital. The updated 6 August snapshot now puts it at £2,009.30: £10.30, or 0.52%, above where I began. I am pleased to be back above starting capital, but I am not treating a half-percent gain as a victory. The more important story is what happened underneath it: Microsoft rose sharply after I bought it, the index funds continued to support the account, Rheinmetall recovered from a much deeper loss, and gold remained the largest drag.
+I am pleased to be back above starting capital, but I am not treating a half-percent gain as a victory. The more important story is what happened underneath it: Microsoft rose sharply after I bought it, the index funds continued to support the account, Rheinmetall recovered from a much deeper loss, and gold remained the largest drag.
 
-The account was unusually quiet from a trading point of view. My only purchase was £41.40 of Microsoft on 8 July. I received £0.56 from Realty Income and £0.03 of cash interest, with no sales, deposits or withdrawals. The month was shaped by one deliberate purchase and by leaving the rest of the portfolio alone. Five months in, I still believe a 10-15% first-year return is possible, but my minimum definition of success is clearer: protect the original capital and finish ahead of inflation.
+The account was unusually quiet from a trading point of view. The month was shaped by one deliberate purchase and by leaving the rest of the portfolio alone. Five months in, I still believe a 10-15% first-year return is possible, but my minimum definition of success is clearer: protect the original capital and finish ahead of inflation.
 
 Microsoft: good research, rewarded quickly
 The best decision of the month was Microsoft. Among the largest technology companies, I believed it was undervalued and still had room to grow. More importantly, I had spent time looking at Azure and Microsoft's wider cloud business. I expected the latest results to be solid and saw Microsoft as a sensible place for the last of my available cash while retaining meaningful upside.
 
-The results supported the business case. Microsoft reported quarterly revenue of USD 90.0 billion, Microsoft Cloud revenue of USD 59.3 billion, up 27%, and Azure and other cloud-services growth of 43%. The position, bought for roughly £41.40, is now worth £51.10, with Trading 212 showing a gain of £9.76 or 23.61%. That is an excellent result for one month, although it added only around half of one percent to the full portfolio. The earnings supported my view of the business, but one month of share-price performance is not enough to prove my valuation was correct. It would also be outcome bias to assume I should have sold Pershing Square to make the position larger simply because Microsoft rose.
+The results supported the business case. Microsoft reported quarterly revenue of USD 90.0 billion, Microsoft Cloud revenue of USD 59.3 billion, up 27%, and Azure and other cloud-services growth of 43%. That is an excellent result for one month, although it added only around half of one percent to the full portfolio. The earnings supported my view of the business, but one month of share-price performance is not enough to prove my valuation was correct. It would also be outcome bias to assume I should have sold Pershing Square to make the position larger simply because Microsoft rose.
 
-I have considered selling approximately £10 worth of Microsoft, but the position began at only £41.40. A small sale would create too little cash to improve the portfolio meaningfully, while selling the whole position would remove exposure to a business in which my conviction remains strong. I may trim it if a better opportunity appears, but I currently have no business-based reason to sell. The useful lesson is that conviction should influence position sizing before a trade, not become regret after a good result.
+A small sale would create too little cash to improve the portfolio meaningfully, while selling the whole position would remove exposure to a business in which my conviction remains strong. I may trim it if a better opportunity appears, but I currently have no business-based reason to sell. The useful lesson is that conviction should influence position sizing before a trade, not become regret after a good result.
 
 Gold: the drag I am still willing to own
-Gold remains the largest position at £350.65, or 17.46% of the account. It is down £58.05, or 14.20%, and remains the biggest drag on the overall result. Its size means progress elsewhere can be hidden by a modest move in gold. That is frustrating, but it has not changed my conviction. If I held the position's current value in cash, I would invest it back into gold as long-term protection against geopolitical instability, inflation, currency debasement and declining confidence in conventional reserves.
+Its size means progress elsewhere can be hidden by a modest move in gold. That is frustrating, but it has not changed my conviction. If I held the position's current value in cash, I would invest it back into gold as long-term protection against geopolitical instability, inflation, currency debasement and declining confidence in conventional reserves.
 
 There is evidence behind part of that thesis. The People's Bank of China added 33 tonnes in the second quarter of 2026, taking reported holdings to 2,346 tonnes. Central banks collectively bought 289 tonnes, a record for a second quarter, although first-half demand was the lowest since 2022. In the United States, official gold belongs to the Treasury; the Federal Reserve itself owns none. None of this means the price must rise every month. Gold can still provide long-term protection even when it disappoints over a shorter period.
 
 My conviction still needs a limit. If gold reached around 30% of the account, I would rebalance it towards 15-20% and spread the proceeds across other holdings. That would mean selling roughly one-third to one-half of the position. I will judge it as one combined holding rather than separating newer units from older ones. I can remain convinced without allowing gold to dominate the portfolio.
 
 Rheinmetall: patience without pretending
-Rheinmetall was the most useful test of my thinking this month. At one stage the position was roughly 40% down; in the latest snapshot it is worth £89.37 and is down £29.95, or 25.10%. My thesis rests on rising European defence spending, the company's importance to Europe's military supply chain and its ability to turn a huge order backlog into production, revenue and cash. Preliminary second-quarter figures were encouraging: revenue rose nearly 70% to about EUR 3.3 billion, operating profit reached EUR 562 million and the backlog exceeded EUR 80 billion. Cash flow remained the weak point because of deferred advance payments and investment in new production.
+Rheinmetall was the most useful test of my thinking this month. My thesis rests on rising European defence spending, the company's importance to Europe's military supply chain and its ability to turn a huge order backlog into production, revenue and cash. Preliminary second-quarter figures were encouraging: revenue rose nearly 70% to about EUR 3.3 billion, operating profit reached EUR 562 million and the backlog exceeded EUR 80 billion. Cash flow remained the weak point because of deferred advance payments and investment in new production.
 
 The honest complication is that, if I had the holding's current value in cash, Rheinmetall probably would not be my first choice today. I might prefer Alphabet, Apple, the S&P 500 or another high-quality business. The relevant question is not which option gets me back to my old purchase price; it is which offers the better prospective return for the risk. I am holding because the defence-spending and backlog thesis remains intact and I have not found a clearly better opportunity - not because I need the share price to return to break-even.
 
 I would sell if the business repeatedly failed to convert backlog into revenue and free cash flow, if European defence orders declined materially, if production problems prevented delivery, or if margins deteriorated without a credible recovery path. I would also consider a stronger defence asset. Automation and robotics may eventually improve output and margins, but expanding production can weaken cash flow before it strengthens it. The evidence I need is better delivery, cash conversion and operating performance - not simply a recovering share price.
 
 The companies I still want to own
-SpaceX remains a position I am happy to hold as one share. The latest value is £81.65, down £37.29 or 31.35%, but that price movement has not changed the reason I own it. I use Starlink, so the usefulness of the technology is not abstract to me. Orbital data centres and the wider value of launch, satellites and communications add to my confidence, although none should be treated as guaranteed earnings. If the holding became cash, I would have a real choice between buying SpaceX again and adding to gold.
+I use Starlink, so the usefulness of the technology is not abstract to me. Orbital data centres and the wider value of launch, satellites and communications add to my confidence, although none should be treated as guaranteed earnings. If the holding became cash, I would have a real choice between buying SpaceX again and adding to gold.
 
-Symbotic remains one of my favourite long-term assets. At £110.24, it is down £6.20 or 5.32%, and I would buy again if I had spare cash. The test is whether it can turn backlog into revenue, profit and cash. Walmart's scale gives it a serious proving ground. The second-quarter update showed 70 systems in deployment and guided for third-quarter revenue of USD 700-720 million. The next results will test consistency.
+Symbotic remains one of my favourite long-term assets. The test is whether it can turn backlog into revenue, profit and cash. Walmart's scale gives it a serious proving ground. The second-quarter update showed 70 systems in deployment and guided for third-quarter revenue of USD 700-720 million. The next results will test consistency.
 
-Airbnb is another business where personal experience has strengthened my view. The position is worth £139.59 and is up £20.03, or 16.75%. I recently had a problem with a stay, but Airbnb's support was extremely helpful and I received a refund. That does not tell me what the shares are worth, but it does show why customers trust the platform. Airbnb is one of the first places many people I know check when arranging a trip. The FIFA World Cup may have helped bookings across more than one quarter. Second-quarter results, scheduled for 6 August, are the next test, but I should judge the business on repeat demand, nights booked, margins and free cash flow rather than one event.
+Airbnb is another business where personal experience has strengthened my view. I recently had a problem with a stay, but Airbnb's support was extremely helpful and I received a refund. That does not tell me what the shares are worth, but it does show why customers trust the platform. Airbnb is one of the first places many people I know check when arranging a trip. The FIFA World Cup may have helped bookings across more than one quarter. Second-quarter results, scheduled for 6 August, are the next test, but I should judge the business on repeat demand, nights booked, margins and free cash flow rather than one event.
 
 Quality, infrastructure and the core of the account
 My conviction in Meta and Alphabet also remains intact. I use Meta's products every day, and I see AI as a way to improve the relevance and effectiveness of advertising rather than simply as an expense. Meta's second-quarter revenue grew 28%. Costs and expenses rose 55%, although that figure included major legal and severance charges, and the company is still committing large amounts of capital to AI infrastructure. Its new El Paso data-centre venture shows how it is financing part of that build-out: BlackRock-managed funds will own 80%, Meta will retain 20%, and Meta will initially occupy the whole campus under lease agreements. The structure gives Meta more financing flexibility, while leaving it with meaningful long-term commitments and residual-value guarantees.
 
 Alphabet remains one of the safest individual businesses I believe I can own. I do not think AI automatically destroys Google Search; AI products still need reliable information, distribution and computing infrastructure, and Alphabet is positioned across all three. Its second-quarter revenue rose 24% to USD 119.8 billion. Berkshire Hathaway also agreed in June to invest USD 10 billion in Alphabet through a private placement, paying USD 351.81 for the Class A shares and USD 348.20 for the Class C shares. I see that as useful supporting evidence for my own conviction, but it is not a substitute for doing my own valuation work.
 
-The S&P 500 and Nasdaq funds continue to do exactly what I want them to do: give the portfolio exposure to broad US growth without requiring every individual decision to be right. I would keep roughly the same index allocations if I rebuilt the account today. I also do not regret selling ASML for a strong realised profit, even though it continued rising afterwards, because that sale protected a gain and helped fund later decisions. Realty Income remains a slower monthly-income holding, with this period's £0.56 dividend providing nearly all the closing cash. NextEra is also worth closer attention: its proposed all-share combination with Dominion Energy would create a much larger utility group, and its second-quarter FPL net income rose to USD 1.412 billion. I had not researched the merger properly during the month, so it belongs on the next review list rather than being treated as automatic good news.
+The S&P 500 and Nasdaq funds continue to do exactly what I want them to do: give the portfolio exposure to broad US growth without requiring every individual decision to be right. I would keep roughly the same index allocations if I rebuilt the account today. I also do not regret selling ASML for a strong realised profit, even though it continued rising afterwards, because that sale protected a gain and helped fund later decisions. NextEra is also worth closer attention: its proposed all-share combination with Dominion Energy would create a much larger utility group, and its second-quarter FPL net income rose to USD 1.412 billion. I had not researched the merger properly during the month, so it belongs on the next review list rather than being treated as automatic good news.
 
 Portfolio construction and what success means
 If I had to identify three long-term anchors, I would choose gold, Pershing Square Holdings and Berkshire Hathaway. The S&P 500 and Nasdaq funds are also fundamental to the structure, while SpaceX, Symbotic and Rheinmetall carry more company-specific or execution risk. Fourteen holdings is manageable only if I stay honest about which positions require deep research. I do not need to know every price every day, but I do need to know what would invalidate each thesis.
 
 Pershing is a core holding because I trust Bill Ackman's concentrated approach and I am comfortable owning it at a substantial discount to net asset value. At 31 July, PSH reported NAV of £57.21 per share against a London price of £38.08, a discount of roughly 33%. That gap is not guaranteed to close, so it supports the thesis rather than replacing it. Berkshire gives me operating businesses, insurance, cash and disciplined capital allocation in one holding. Its Alphabet investment supports my confidence in Google, but Berkshire must still deserve its place on its own merits.
 
-The account holds £0.56 in cash. If the market fell around 20%, I would invest new wages rather than sell a holding. I would then test whether gold had provided the protection I expect. The low-cash policy is deliberate, although it could still leave me unable to act immediately.
+I would then test whether gold had provided the protection I expect. The low-cash policy is deliberate, although it could still leave me unable to act immediately.
 
 The comparison with my core funds is uncomfortable but useful. The portfolio is now 0.52% above its original capital, while the VUAG holding is up 14.30% and QQQA is up 20.50% in the account. UK CPI increased by approximately 1.7% from February to June, the latest comparable period available when this review was completed. These fund figures are not a perfect like-for-like benchmark because they reflect my own purchase dates, but the gap still shows the opportunity cost of my individual decisions and gives me a clear standard to monitor.
 
-Benchmark comparison
-PORTFOLIO SINCE INCEPTION
-+0.52%
-VANGUARD S&P 500 (VUAG)
-+14.30%
-UBS NASDAQ-100 (QQQA)
-+20.50%
-UK CPI, FEBRUARY-JUNE
-approx. +1.7%
-
-Fund returns are the account's reported returns on the remaining holdings at the 6 August snapshot, so they are directional comparisons rather than a time-matched benchmark. CPI compounds the official monthly changes from March to June; July data had not yet been published.
-
-My hierarchy of goals is therefore clear. Protecting the original £1,999 is the first rule, beating inflation is the minimum return objective, and the original 10-15% target remains an ambition. I will also compare the result with the index funds, because protecting capital does not remove the need to understand what a simpler strategy would have earned.
+My hierarchy of goals is therefore clear. I will also compare the result with the index funds, because protecting capital does not remove the need to understand what a simpler strategy would have earned.
 
 Behaviour, lessons and the next four weeks
 My behaviour improved during this period. I checked prices less frequently, stayed involved in the research and made no impulsive trades. Rheinmetall reminded me that avoiding a realised loss is not a reason to hold; the business must still justify the capital from today. Microsoft showed the opposite danger: one quick success should not teach me that every strong feeling deserves a larger bet.
 
 I am not planning any major purchases or sales in the next four weeks. I am more likely to hold Microsoft unless a genuinely better use for the cash appears. I will watch Symbotic's execution, Airbnb's results, Rheinmetall's delivery and cash conversion, and the NextEra-Dominion combination. The most important lesson is that I can trust my judgment when it is supported by research, while remembering that a good outcome does not prove every part of the decision was right. My instruction for the next month is simple: do not make any impulsive trades.
 
-RULES I AM CARRYING FORWARD  Hold on the strength of the thesis, not the old purchase price; rebalance gold if it reaches 30%; and do not make impulsive trades.
+Rules I am carrying forward: Hold on the strength of the thesis, not the old purchase price; rebalance gold if it reaches 30%; and do not make impulsive trades.
 
 Overall conclusion
 The account ended the review period almost flat and moved just above starting capital in the 6 August snapshot. The fund comparison still shows that a simpler strategy has performed much better so far. Even so, this was a useful month. Microsoft rewarded careful research, Rheinmetall tested my sell discipline, and I allowed the rest of the portfolio to move without inventing trades. My process is calmer and more deliberate than it was when I began.
 
-The next challenge is to turn conviction into clearer rules. Gold needs an allocation limit, Rheinmetall needs a forward-looking business case, and Microsoft must be judged on the business rather than a fast gain. The right question is not whether every holding is green; it is whether each pound still has a defensible reason for being where it is.
+The next challenge is to turn conviction into clearer rules. Gold needs an allocation limit, Rheinmetall needs a forward-looking business case, and Microsoft must be judged on the business rather than a fast gain. The right question is not whether every holding is green; it is whether each allocation still has a defensible reason for being where it is.
 
 Capital Research Review 04
+
 23 June 2026 / Monthly Reviews
-The past four weeks have been the most active period of the portfolio so far. I traded Microsoft, re-entered Alphabet, sold ASML for a strong profit, added to gold, bought SpaceX, increased Symbotic and introduced Pershing Square Holdings.
+
+The portfolio reached a 2.84% period high before finishing about 0.90% below the starting point, with cash reduced to roughly 2%.
+
 Snapshot
-PERIOD END
-~£1,981
+SINCE INCEPTION
+~−0.90%
 PERIOD HIGH
-£2,055.86
-CASH BALANCE
-£40.07
++2.84%
+CASH ALLOCATION
+~2.02%
 
 The past four weeks have been the most active period of the portfolio so far. I traded Microsoft, re-entered Alphabet, sold ASML for a strong profit, added to gold, bought SpaceX, increased Symbotic and introduced Pershing Square Holdings.
 
 The account also moved from slightly above its starting value to its highest recorded level and then fell back below the starting line within the space of one week. That movement has reminded me how quickly confidence can grow when investments are rising and how quickly the same portfolio can make those gains feel irrelevant.
 
-Despite finishing the period around £1,981, I think several of the decisions made during these weeks were good. However, I have also used most of the cash I spent the previous month building.
+However, I have also used most of the cash I spent the previous month building.
 
 That is now the main issue I need to address.
 
 Returning Above the Starting Value
-The portfolio began this period by increasing from £1,983.39 to approximately £2,007. That put the account around £8 above the original starting value.
-
 The gain was not large, but returning above the starting point was still encouraging. The portfolio had experienced a meaningful drawdown, recovered, raised cash and then moved back into positive territory.
 
-At that stage, the cash balance was approximately £261.19. I was still waiting for Alphabet to return towards the price I wanted. My preferred range was around $360 to $365, and I did not want to use the entire cash balance at once.
+I was still waiting for Alphabet to return towards the price I wanted. My preferred range was around $360 to $365, and I did not want to use the entire cash allocation at once.
 
-I also made a short Microsoft trade. I invested approximately £140 in Microsoft because it was one of the few enormous technology companies whose share price had been relatively weak over the previous year. Compared with some of the more aggressively valued technology companies, Microsoft appeared to offer a better balance between quality and risk.
+I also made a short Microsoft trade. Compared with some of the more aggressively valued technology companies, Microsoft appeared to offer a better balance between quality and risk.
 
 The trade worked, and I sold the full position for a profit of approximately 10%. Financially, that was a strong result over a very short period.
 
@@ -1011,13 +419,13 @@ That is not how this journal is supposed to work. The purpose of the website is 
 A profitable trade can still expose a weakness in my process. Going forward, significant decisions need to be recorded when they happen, regardless of whether I feel confident that they will work.
 
 Following the Alphabet Plan
-The following week was active. The portfolio reached approximately £2,023 during the stronger part of the week before pulling back towards £1,979.98 on the working valuation.
+The following week was active.
 
-Despite the weaker ending, I was pleased with the decisions I made. I re-entered Alphabet at approximately $359.90. This mattered because it followed the plan I had set during the previous weeks. I had sold Alphabet, raised cash and said I would reconsider the company if the price returned towards $360 to $365.
+Despite the weaker ending, I was pleased with the decisions I made. This mattered because it followed the plan I had set during the previous weeks.
 
 When it reached that area, I bought it again. I did not chase the share price immediately after selling. I waited for the entry I wanted and then acted. Whether the investment rises immediately is less important than the fact that the decision followed a clear process.
 
-I also sold the entire ASML position and realised a profit of £40.59. The position had risen by approximately 30%.
+The position had risen by approximately 30%.
 
 ASML remains one of the most important companies in the semiconductor industry. Selling it was not a statement that the company had become bad. I believed the position had produced a strong enough return to justify taking the profit and improving the portfolio’s flexibility.
 
@@ -1029,12 +437,12 @@ I also bought one additional share of SGLN. Gold was down by approximately 14%, 
 
 I did not want to keep averaging down indefinitely. One additional share felt reasonable, but the position still needed to remain within a sensible size.
 
-After these decisions, the cash balance was approximately £283.65. I had more flexibility than at any previous point in the portfolio.
+I had more flexibility than at any previous point in the portfolio.
 
 Buying SpaceX
-The fifteenth week produced the strongest account value so far. The portfolio reached £2,055.86, placing it £56.86 above the original starting capital. That represented a return of approximately 2.84%.
+The fifteenth week produced the strongest account value so far. That represented a return of approximately 2.84%.
 
-The most important new investment was SpaceX. I bought one share because I genuinely believe SpaceX could become one of the most important companies in the world. Its position across space launch, satellites and communications creates opportunities that are difficult to compare with a normal public company.
+The most important new investment was SpaceX. Its position across space launch, satellites and communications creates opportunities that are difficult to compare with a normal public company.
 
 I also wanted exposure as early as I reasonably could. I understood that it was speculative. The share could easily have fallen immediately after I bought it, and the valuation could be difficult to justify using traditional measures.
 
@@ -1046,14 +454,14 @@ QQQA and VUAG were also among the strongest investments. QQQA was up approximate
 
 That reinforced the value of broad-market exposure. I spend much more time thinking about individual companies, but the ETFs have produced strong returns without requiring me to correctly analyse every business inside them.
 
-Airbnb, Berkshire Hathaway and Alphabet were also positive. Several positions remained under pressure, though. Gold was the largest unrealised cash loss, down approximately £49. Rheinmetall was down around 28%, while Meta and Symbotic were also negative.
+Airbnb, Berkshire Hathaway and Alphabet were also positive. Several positions remained under pressure, though. Rheinmetall was down around 28%, while Meta and Symbotic were also negative.
 
 I increased the Symbotic position to average down and strengthen my exposure to robotics and automation. I still believed in the long-term theme, but I knew that I could not continue adding simply because the share price was falling. At some point, Symbotic needed to prove the investment case through its own execution.
 
 Averaging down only works when the original analysis remains correct. Otherwise, it increases the size of the mistake.
 
 How Quickly the Picture Changed
-The sixteenth week reversed much of the previous progress. The account fell from £2,055.86 to approximately £1,981, a decline of around £74.86. That placed the portfolio approximately £18 below the original starting capital again.
+The sixteenth week reversed much of the previous progress.
 
 SpaceX was the main reason for the change. The investment moved from being more than 30% up to being slightly negative in a very short period.
 
@@ -1061,7 +469,7 @@ Naturally, it would have been satisfying to sell near the high and buy it back a
 
 The pullback did not change my view of the company, but it did remind me that an unrealised gain can disappear far more quickly than it was created. I need to avoid mentally spending profits that have not been realised.
 
-The main new investment during the week was Pershing Square Holdings. I bought two shares at 3,922p each, for a total cost of £78.44.
+The main new investment during the week was Pershing Square Holdings.
 
 The main attraction was the discount to net asset value. My understanding is that I am receiving exposure to Pershing Square’s underlying investments at a lower price than the stated value of those holdings.
 
@@ -1070,7 +478,7 @@ I have also followed Bill Ackman for years and respect his willingness to make c
 I see it as a potential long-term compounder. I am not expecting it to create the type of immediate movement I saw from SpaceX. The purpose is to own a vehicle that can potentially compound capital over many years while giving me access to a different investment approach.
 
 The Cash Problem
-After purchasing Pershing Square, the cash balance fell to approximately £40.07. That is the clearest problem at the end of this period.
+That is the clearest problem at the end of this period.
 
 I like the companies and assets I bought. Alphabet followed the entry plan, ASML produced a strong realised profit, SpaceX gives me exposure to a business I have wanted to own, and Pershing Square adds a different type of long-term investment.
 
@@ -1078,7 +486,7 @@ However, using the cash means I have lost most of the flexibility that I deliber
 
 Now, if a genuinely exceptional opportunity appears, I have very little available capital. I would either need to add new money or sell something else.
 
-That is not necessarily disastrous. A portfolio exists to be invested, and holding too much cash indefinitely can also reduce returns. The issue is that I moved from approximately £284 in cash to around £40 very quickly.
+That is not necessarily disastrous. A portfolio exists to be invested, and holding too much cash indefinitely can also reduce returns.
 
 I need to become more deliberate about how many new ideas I introduce within the same period.
 
@@ -1099,8 +507,6 @@ New capital should go towards the best opportunity available, not automatically 
 
 At the end of these four weeks, the account is slightly below its original starting value. That result does not fully reflect what happened during the period. I realised profits in Microsoft and ASML, returned to Alphabet at the price I had planned, reached the highest portfolio value so far and introduced two new long-term investments.
 
-I also watched a large SpaceX gain disappear and reduced my cash to approximately £40.
-
 The portfolio is becoming more interesting, but it is also becoming more complicated. My immediate priority is not to introduce another new idea. It is to rebuild some cash, review the role of every existing position and make sure the account remains consistent with my original objective.
 
 That objective is capital preservation first, followed by sensible long-term growth.
@@ -1108,26 +514,29 @@ That objective is capital preservation first, followed by sensible long-term gro
 A strong week should not make me careless, and a weak week should not make me emotional. The quality of the portfolio will be determined by whether I can remember both.
 
 Capital Research Review 03
-22 May 2026 / Monthly Reviews
-The past four weeks have not produced a dramatic return. The portfolio has remained close to its original starting value, finishing at £1,983.39 compared with a cost basis of approximately £1,999. On the surface, that means the account is down £15.61, or around 0.78%.
-Snapshot
-PERIOD END
-£1,983.39
-CASH BALANCE
-£246.34
-VS COST BASIS
-−0.78%
 
-The past four weeks have not produced a dramatic return. The portfolio has remained close to its original starting value, finishing at £1,983.39 compared with a cost basis of approximately £1,999. On the surface, that means the account is down £15.61, or around 0.78%.
+22 May 2026 / Monthly Reviews
+
+The portfolio finished 0.78% below the starting point while cash rose to 12.42%, turning patience into an explicit allocation decision.
+
+Snapshot
+SINCE INCEPTION
+−0.78%
+CASH ALLOCATION
+12.42%
+DECISION
+Raised cash and waited
+
+The past four weeks have not produced a dramatic return.
 
 However, the most important development during this period has not been the total return. It has been the introduction of a meaningful cash position and the decisions that have followed from it. I sold Alphabet, realised a profit and then resisted the temptation to immediately replace it with another investment.
 
 That has proved more difficult than I expected.
 
 Selling One of My Best Holdings
-At the beginning of this period, the portfolio was worth approximately £2,000. Around £1,780 was invested, while roughly £220 was held in cash. The cash came mainly from selling Alphabet.
+The cash came mainly from selling Alphabet.
 
-Alphabet had become one of the strongest and highest-quality positions in the account. I sold the holding and realised a profit of approximately £40.63. I was pleased to bank the gain. Until that point, most of the portfolio’s recovery existed only on paper. Selling Alphabet meant part of that recovery had become a realised result.
+Alphabet had become one of the strongest and highest-quality positions in the account. I was pleased to bank the gain. Until that point, most of the portfolio’s recovery existed only on paper. Selling Alphabet meant part of that recovery had become a realised result.
 
 It also created a cash position equal to approximately 11% of the portfolio. That made the account feel more protected. I no longer needed every holding to continue rising because I had money available outside the market.
 
@@ -1140,7 +549,7 @@ If I did that, the sale would have achieved very little. I would have exchanged 
 The purpose of the sale was to create flexibility, and that flexibility only had value if I was willing to wait.
 
 The Account After Alphabet
-The following week felt like a transition. The portfolio was worth approximately £1,986.69, with around £220.82 held in cash. The account was slightly below where it began, but it did not feel broken. It had already recovered from the earlier low around £1,860, moved above £2,000 and then settled back near breakeven with cash available.
+The following week felt like a transition. The account was slightly below where it began, but it did not feel broken.
 
 QQQA, VUAG, ASML and Airbnb were among the stronger holdings. They continued to give the portfolio exposure to large technology companies, the broader market, semiconductor infrastructure and travel.
 
@@ -1152,31 +561,31 @@ Alphabet had reached a point where taking profit and building cash felt sensible
 
 I continued to believe that gold had value as a hedge, even though its short-term performance was poor. I also continued to believe that higher European defence spending could support Rheinmetall over the longer term. That did not guarantee either investment would recover. It simply meant I needed a better reason to sell than the fact that the numbers were red.
 
-My preferred plan was to use some of the cash to buy Alphabet again if the price returned towards a more attractive level. I began focusing on approximately $365 as an area where I would seriously reconsider the position. The important thing was that I did not want to chase it immediately after selling.
+My preferred plan was to use some of the cash to buy Alphabet again if the price returned towards a more attractive level. The important thing was that I did not want to chase it immediately after selling.
 
 Increasing the Cash Position
-During the eleventh week, the portfolio declined slightly to approximately £1,974.37. The fall was around £12.32, or 0.62%. It was disappointing, but it was completely different from the earlier drawdown. The account remained close to the starting value, and no single investment had destroyed the week.
+It was disappointing, but it was completely different from the earlier drawdown. The account remained close to the starting value, and no single investment had destroyed the week.
 
-Meta, VUAG and the remaining Nasdaq exposure helped hold the portfolio together, while ASML and Symbotic were weaker. I sold one QQQA share for £25.41, increasing the estimated cash balance to approximately £246.34.
+Meta, VUAG and the remaining Nasdaq exposure helped hold the portfolio together, while ASML and Symbotic were weaker.
 
 The QQQA sale was a small trim rather than a rejection of the technology sector. I kept exposure to the Nasdaq, but the sale increased my flexibility. This felt like a more measured decision than removing the entire position.
 
-The cash balance was now large enough to be meaningful, but at the same time it increased the pressure to eventually do something with it. Cash looks sensible when markets are falling. It can feel uncomfortable when strong companies continue rising without me.
+The cash allocation was now large enough to be meaningful, but at the same time it increased the pressure to eventually do something with it. Cash looks sensible when markets are falling. It can feel uncomfortable when strong companies continue rising without me.
 
 That is where patience becomes difficult. It is not simply the ability to wait through a decline. It is also the ability to watch opportunities move away without responding emotionally.
 
 The danger was that I would eventually convince myself to buy something average just to end the discomfort of waiting. I needed to remember that holding cash was itself a decision.
 
 A Small Recovery
-The final week of this period brought a modest recovery. The account increased from approximately £1,974.37 to £1,983.39, a gain of £9.02, or around 0.46%.
+The final week of this period brought a modest recovery.
 
 The portfolio remained slightly below the original cost basis, but it moved in the right direction without Alphabet being in the account.
 
-ASML, Symbotic and Rheinmetall were the main contributors. ASML rose by approximately 7.1%, adding around £9.16 to the portfolio. The recovery reinforced my belief in the long-term importance of semiconductor manufacturing equipment.
+ASML, Symbotic and Rheinmetall were the main contributors. The recovery reinforced my belief in the long-term importance of semiconductor manufacturing equipment.
 
-Symbotic rose by approximately 13.3%, adding around £8.22. The gain was useful, but it did not remove the risks surrounding the position. A company capable of rising 13% in one week can also fall by a similar amount.
+The gain was useful, but it did not remove the risks surrounding the position. A company capable of rising 13% in one week can also fall by a similar amount.
 
-Rheinmetall gained around 8.6%, adding approximately £7.45. This was encouraging after a difficult period, although I did not think one stronger week justified aggressively increasing the position.
+This was encouraging after a difficult period, although I did not think one stronger week justified aggressively increasing the position.
 
 NextEra Energy was the largest weekly drag, falling approximately 5.9%. Meta and gold were also weaker. The result was a portfolio that improved slightly but remained mixed underneath, which is probably an accurate description of the entire four-week period.
 
@@ -1195,42 +604,43 @@ I have also learned that selling a strong investment can be emotionally complica
 
 The relevant question is whether the decision was reasonable based on the information, valuation and portfolio structure at the time.
 
-At the end of these four weeks, the portfolio is worth £1,983.39 and the cash balance is approximately £246.34. The account is slightly below where it began, but I have realised a genuine profit, reduced some market exposure and created the ability to act when a better opportunity appears.
+The account is slightly below where it began, but I have realised a genuine profit, reduced some market exposure and created the ability to act when a better opportunity appears.
 
 I do not know whether Alphabet will return to the price I want. I also do not know whether holding cash will prove better than remaining fully invested. What I do know is that I do not need to force the answer.
 
 For now, waiting is part of the investment decision.
 
 Capital Research Review 02
+
 28 April 2026 / Monthly Reviews
-The previous four weeks ended with the portfolio sitting around £1,860 and my decision to reduce some of the speculative exposure. These four weeks have been about finding out whether that decision actually improved the account.
+
+The portfolio recovered from its first drawdown and finished 0.45% above the starting point without relying on one oversized bet.
+
 Snapshot
-PERIOD END
-£2,008.07
-PERIOD HIGH
-£2,025.84
+SINCE INCEPTION
++0.45%
 FROM THE LOW
 ~9.7%
+PERIOD HIGH
++1.34%
 
-The previous four weeks ended with the portfolio sitting around £1,860 and my decision to reduce some of the speculative exposure. These four weeks have been about finding out whether that decision actually improved the account.
+These four weeks have been about finding out whether that decision actually improved the account.
 
 The portfolio has moved from being nearly 7% below its starting value to finishing slightly above it. That recovery has obviously been positive, but the more important development has been the change in how controlled the portfolio feels. I did not recover the loss by making one enormous bet or suddenly changing the entire strategy. The improvement came gradually from several different parts of the portfolio.
 
 That has given me more confidence in the structure, although there are still several holdings that need to prove themselves.
 
 A Steadier Portfolio
-At the end of the fifth week, the portfolio was worth approximately £1,931 against a cost base of around £1,999. The account was still down, but it felt considerably healthier than it had when it was sitting around £1,860.
-
 The biggest difference was that the weakness had become more concentrated. The entire portfolio no longer felt as though it was falling apart at once. IonQ, Symbotic and Airbnb remained among the weakest positions, while Meta, Realty Income and NextEra Energy helped provide more stability.
 
 This was exactly why I had included different types of holdings in the first place. Realty Income and NextEra were never expected to produce the most exciting returns in the account. Their purpose was to reduce the portfolio’s dependence on technology and speculative growth companies.
 
 The improvement also made me think more carefully about the difference between a bad short-term result and a bad investment process. The portfolio was still below its starting value, but the structure was better than it had been before the rebalance. I had reduced some of the unnecessary volatility while keeping exposure to the ideas I still believed in.
 
-That did not mean IonQ and Symbotic deserved unlimited patience. I still needed to judge whether the businesses were developing in the way I originally expected. Being a long-term investor cannot become an excuse for refusing to admit when an idea is not working. However, there was no evidence that I needed to make another immediate change simply because the account remained below £2,000.
+That did not mean IonQ and Symbotic deserved unlimited patience. I still needed to judge whether the businesses were developing in the way I originally expected. Being a long-term investor cannot become an excuse for refusing to admit when an idea is not working.
 
 The First Signs of a Recovery
-During the sixth week, the portfolio rose to approximately £1,960. It was still below the original cost base, but the movement was encouraging. After seeing the account near £1,860, a £100 recovery made the situation feel much more manageable.
+It was still below the original cost base, but the movement was encouraging.
 
 Most of the portfolio improved during the week, with gold and Rheinmetall being the main exceptions. Gold continued to be frustrating. It was supposed to provide protection during uncertain markets, but it had become one of the weaker positions.
 
@@ -1241,7 +651,7 @@ Rheinmetall also remained weak. The market appeared to be reconsidering some of 
 The recovery in the rest of the portfolio showed why I had avoided panicking during the drawdown. When market conditions improved, the stronger companies began recovering without me having to constantly trade in and out of them. That does not prove holding will always be the right decision, but it showed that, in this particular situation, patience was more sensible than overreacting.
 
 Returning Above the Starting Line
-The seventh week was the strongest of the period. The portfolio reached £2,025.84, placing it £26.84 above the original cost base of approximately £1,999. That represented an overall gain of around 1.34%.
+The seventh week was the strongest of the period. That represented an overall gain of around 1.34%.
 
 A 1.34% return is not particularly impressive on its own, but the number meant more because of what had happened beforehand. Only a few weeks earlier, the account had been down by almost 7%. Returning above the starting value showed that the drawdown had not permanently damaged the portfolio.
 
@@ -1254,9 +664,9 @@ I began thinking about whether it would make sense to protect some of the gain i
 The account being above its starting value also created a different emotional challenge. During a drawdown, the temptation is to panic. During a recovery, the temptation is to become overconfident. I did not want a few strong weeks to convince me that all the previous risks had disappeared. Oil, inflation, interest rates and the geopolitical environment could still affect the account very quickly.
 
 Holding the Recovery
-The eighth week was cooler. The portfolio finished at £2,008.07, down from £2,025.84 the previous week. That was a weekly decline of £17.77, or approximately 0.88%.
+The eighth week was cooler.
 
-Despite the decline, the account remained £9.07 above the original cost basis. More importantly, the portfolio was still approximately £170 above where it had been around a month earlier. From the low point, the account had recovered roughly 9.7%, which placed the weekly decline in perspective.
+From the low point, the account had recovered roughly 9.7%, which placed the weekly decline in perspective.
 
 It would have been easy to become disappointed because the portfolio failed to continue rising, but markets rarely move in a straight line. A small decline after a strong recovery did not require a complete change in strategy.
 
@@ -1275,24 +685,27 @@ The second lesson is that I do not need to react to every weekly movement. The W
 
 The third lesson concerns the role of defensive investments. Gold, Realty Income and NextEra have not always behaved exactly as I expected. Defensive does not mean incapable of falling. Every asset responds to its own combination of interest rates, valuation, currency movements and investor expectations. I need to understand the role of each holding without expecting it to perform perfectly under every market condition.
 
-These four weeks have also shown me how quickly my mindset can change with the portfolio value. At £1,860, the account felt under serious pressure. At £2,025, it suddenly felt as though the recovery had worked. The difference was only approximately £165, but emotionally the situations felt completely different. I need to avoid allowing those short-term numbers to control the quality of my decisions.
+These four weeks have also shown me how quickly my mindset can change with the portfolio value. I need to avoid allowing those short-term numbers to control the quality of my decisions.
 
 At the end of Week 8, the account is slightly above its starting value. I am pleased with the recovery, but I do not consider the job finished. The portfolio still contains weak positions, the hedge has not worked perfectly, and some of the strongest companies may eventually require difficult decisions about taking profit.
 
 For now, the most sensible decision is not to force one. The account has survived its first drawdown and recovered without me abandoning the strategy. That is a better result than the small percentage gain alone suggests.
 
 Capital Research Review 01
-30 March 2026 / Monthly Reviews
-The past four weeks have been the beginning of this portfolio and, more importantly, the beginning of me properly documenting how I invest. When I started the account, I put in approximately £1,997. My aim was not to make a quick return or build a portfolio around whichever companies were receiving the most attention at the time. I wanted to create something balanced enough to grow over the long term while still giving me exposure to some of the industries and companies I believe could perform particularly well.
-Snapshot
-STARTING CAPITAL
-£1,996.96
-LOW POINT
-£1,860.18
-DRAWDOWN
-6.85%
 
-The past four weeks have been the beginning of this portfolio and, more importantly, the beginning of me properly documenting how I invest. When I started the account, I put in approximately £1,997. My aim was not to make a quick return or build a portfolio around whichever companies were receiving the most attention at the time. I wanted to create something balanced enough to grow over the long term while still giving me exposure to some of the industries and companies I believe could perform particularly well.
+30 March 2026 / Monthly Reviews
+
+The first month tested the portfolio with a 6.85% drawdown, prompting a reduction in speculative exposure without abandoning the underlying strategy.
+
+Snapshot
+SINCE INCEPTION
+−6.85%
+MAXIMUM DRAWDOWN
+−6.85%
+DECISION
+Reduced speculative exposure
+
+The past four weeks have been the beginning of this portfolio and, more importantly, the beginning of me properly documenting how I invest. My aim was not to make a quick return or build a portfolio around whichever companies were receiving the most attention at the time. I wanted to create something balanced enough to grow over the long term while still giving me exposure to some of the industries and companies I believe could perform particularly well.
 
 The original portfolio was built across several different areas. Alphabet, Meta and ASML gave me exposure to high-quality technology companies and the continued growth of artificial intelligence. VUAG and QQQA provided broader exposure to the S&P 500 and Nasdaq, meaning the portfolio would not rely entirely on my ability to select individual companies. Berkshire Hathaway was included as a steadier, high-quality holding, while Realty Income and NextEra Energy added exposure to property, income and energy infrastructure. Gold was supposed to act as a hedge if markets became more nervous.
 
@@ -1308,7 +721,7 @@ The early results showed me that the steadier holdings were helping offset some 
 By the end of the second week, I was reasonably comfortable with how the account had been constructed. It had a growth side, a defensive side, broad-market exposure and a smaller speculative section. However, it had not really been tested. It is easy to say that I am investing for the long term when nothing is falling. I knew the more useful test would come when the account began moving properly against me, although that test arrived much sooner than I expected.
 
 The First Proper Drawdown
-During the third week, the portfolio fell to £1,860.18. Compared with the initial value of £1,996.96, the account had declined by £136.78, or approximately 6.85%. For a portfolio that had only just been created, that was a meaningful fall. Nearly everything appeared red at the same time, and the account suddenly looked very different from the balanced portfolio I thought I had built.
+For a portfolio that had only just been created, that was a meaningful fall. Nearly everything appeared red at the same time, and the account suddenly looked very different from the balanced portfolio I thought I had built.
 
 This was the first point where I had to separate my emotions from the actual condition of the investments. My immediate reaction was obviously disappointment. Nobody enjoys seeing the value of their account fall, especially so soon after putting the money in. However, I did not think the portfolio had fallen because one company had completely collapsed or because every investment decision had suddenly become wrong. Most of the decline appeared to be connected to the wider market.
 
@@ -1321,9 +734,9 @@ The higher-risk positions remained my biggest concern. Although I still found Io
 I decided that panic selling the entire portfolio would be the wrong response because the original reasoning behind most of the core holdings had not changed. However, doing nothing simply because I considered myself a long-term investor would also have been lazy.
 
 Rebalancing the Account
-By the fourth week, the portfolio was still sitting around £1,860. Instead of trying to predict exactly when the market would recover, I focused on the part of the account that I could control, which was the amount of risk I was taking.
+Instead of trying to predict exactly when the market would recover, I focused on the part of the account that I could control, which was the amount of risk I was taking.
 
-I reduced the two most speculative positions by selling 1.5 shares of IonQ and 0.8 shares of Symbotic. The sales realised a combined loss of approximately $10. I did not enjoy taking the loss, but I did not think it was large enough to justify remaining in positions that were creating too much volatility.
+I did not enjoy taking the loss, but I did not think it was large enough to justify remaining in positions that were creating too much volatility.
 
 I moved the money into SGLN, Meta and Realty Income. This was not a complete change in strategy. I still kept exposure to IonQ and Symbotic because the long-term opportunities remained interesting. I simply reduced their ability to damage the overall account.
 
@@ -1345,8 +758,11 @@ At the end of these four weeks, the portfolio remains below where it started. On
 The aim of this project is not to create the appearance that every decision works. It is to build an honest record of what I did, why I did it and whether the reasoning remained sensible afterwards. The portfolio has already tested that commitment, and so far, I am still here.
 
 Why the Rulebook Exists
+
 9 June 2026 / Lessons
+
 The rulebook is not abstract. It comes from early crypto profits, leverage mistakes, borrowed money, and the decision to treat investing as a serious long-term craft.
+
 I first became interested in markets during the first week of the COVID-19 lockdown. I was fourteen, and my father asked me and my siblings to each choose an online course. I picked a stock trading course on Udemy, taught by Mohsin Hassan, and then completed a more advanced course afterwards.
 
 That early interest moved into crypto. I made money quickly, mostly through luck, then borrowed money from my parents and made more. The lesson looked positive at first, but the process was not mature.
@@ -1356,61 +772,68 @@ The mistake came from leverage. I started trading crypto with leverage and event
 That is why the rulebook matters. I do not use leverage to trade, I do not borrow aggressively to invest, and I want this portfolio to be built through disciplined ownership of real businesses rather than gambling behaviour.
 
 Google Re-entry Plan
+
 5 May 2026 / Market Notes
+
 Why a great business can still require patience, and why sitting in cash can be the correct action while waiting for a better setup.
+
 Alphabet remains a business worth studying, but quality alone does not remove the need for entry discipline.
 
 The plan is to define what would make the price attractive, what would break the thesis, and how large the position should be before any trade is made.
 
 Microsoft Trade Reflection
+
 29 April 2026 / Trade Reflections
+
 A profitable trade can still teach process lessons. The question is whether the decision was repeatable, not just whether it worked.
+
 The Microsoft trade closed for roughly 10% profit. That is a good outcome, but the review has to focus on process quality.
 
 The useful question is whether the entry, size, patience, and exit were all supported by written reasoning that could be repeated.
 
-
-
 RESEARCH NOTES
 
 Alphabet: Re-entry Discipline
-Company Notes / Current holding
+
 Why a great business can still require patience on price.
+
 Alphabet is a high-quality business, but quality does not automatically create a margin of safety.
 
 The research note focuses on patience, valuation discipline, and what must be true before re-entering the position.
 
 ASML and the AI Infrastructure Thesis
-Company Notes / Sold / lesson
+
 Understanding the role of semiconductor equipment in long-term AI growth.
+
 ASML sits upstream of many AI infrastructure ambitions. That makes the business strategically important, but not immune to valuation risk.
 
 The note studies business quality, cyclicality, customer concentration, and whether the position size reflects the uncertainty.
 
 Gold as a Portfolio Hedge
-Risk Management / Current holding
+
 Why a hedge can still be uncomfortable to hold when markets are strong.
+
 A hedge can feel unproductive when risk assets are rising. That discomfort is part of why the role has to be defined before it is needed.
 
 Gold is reviewed as a portfolio stabiliser, not as a promise of return or a reason to ignore valuation elsewhere.
 
 Handling Winners
-Portfolio Construction / Portfolio rule
+
 Learning when to trim, when to hold, and when not to let fear control profitable positions.
+
 Handling winners is difficult because both greed and fear can pretend to be discipline.
 
 The note studies how to review valuation, thesis strength, concentration, and tax or frictional costs before trimming.
 
 Rheinmetall Risk Review
-Watchlist / Current holding
+
 Separating long-term defence demand from short-term price weakness.
+
 The Rheinmetall review separates the long-term demand story from the practical risk of short-term price weakness.
 
 The question is not whether the theme is interesting. The question is whether the position size and entry price are sensible for the account.
 
-
-
-DISCLAIMER POINTS
+DISCLAIMER
 
 This website is a personal investment research and portfolio journal.
 

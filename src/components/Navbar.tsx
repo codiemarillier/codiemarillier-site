@@ -21,9 +21,9 @@ export default function Navbar() {
             CM
           </span>
           <span className="min-w-0">
-            <span className="block truncate font-serif text-xl font-medium leading-none text-charcoal sm:text-[1.35rem]">Codie Capital</span>
+            <span className="block truncate font-serif text-xl font-medium leading-none text-charcoal sm:text-[1.35rem]">Codie Marillier</span>
             <span className="mt-1.5 block truncate font-mono text-[8px] uppercase tracking-[0.2em] text-bodyText sm:text-[9px]">
-              Research / Journal
+              Capital Research / Journal
             </span>
           </span>
         </Link>

@@ -63,37 +63,34 @@ export default function PlannedEntryDetail() {
   const firstBodyParagraph = entry.body?.[0] ?? '';
 
   return (
-    <main className="page-fade bg-ivory">
+    <main className="page-fade bg-[#E9EDF0]">
       <ReadingProgress />
 
-      <header className="border-b border-line bg-charcoal text-paper">
-        <div className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-20">
+      <header className="border-b border-line bg-mist text-charcoal">
+        <div className="mx-auto max-w-[920px] px-5 py-8 md:px-8 md:py-10">
           <Link
             to={backLink}
-            className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-paper/80 transition-colors hover:text-paper"
+            className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-link transition-colors hover:text-navy"
           >
             <ArrowLeft className="h-4 w-4" aria-hidden="true" />
             Letters
           </Link>
 
-          <div className="mt-10 grid gap-9 lg:grid-cols-[minmax(0,1fr)_300px] lg:items-end">
+          <div className="mt-6 flex flex-col gap-4 border-t border-line pt-6 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="text-xs font-semibold uppercase text-white/75">{entry.type}</p>
-              <h1 className="mt-4 max-w-3xl font-serif text-5xl font-semibold leading-none md:text-7xl">
-                {entry.title}
-              </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-paper/78 md:text-xl md:leading-9">{entry.summary}</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slateText">Codie Marillier · {entry.type}</p>
+              <h1 className="mt-2 max-w-3xl font-serif text-3xl font-semibold leading-tight md:text-4xl">{entry.title}</h1>
             </div>
 
-            <dl className="grid gap-px border border-paper/15 bg-paper/15 sm:grid-cols-3 lg:grid-cols-1">
+            <dl className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-slateText">
               {[
                 ['Date', entry.date],
                 ['Reading time', estimatedMinutes],
                 ['Themes', `${entry.themes.length} notes`],
               ].map(([label, value]) => (
-                <div key={label} className="bg-charcoal/80 p-4">
-                  <dt className="text-xs font-semibold uppercase text-white/75">{label}</dt>
-                  <dd className="mt-2 text-sm font-semibold leading-6 text-paper">{value}</dd>
+                <div key={label} className="flex gap-1.5">
+                  <dt className="font-medium">{label}:</dt>
+                  <dd className="font-semibold text-charcoal">{value}</dd>
                 </div>
               ))}
             </dl>
@@ -101,18 +98,10 @@ export default function PlannedEntryDetail() {
         </div>
       </header>
 
-      <section className="mx-auto grid max-w-7xl gap-8 px-5 py-10 md:px-8 md:py-16 lg:grid-cols-[240px_minmax(0,760px)_240px] lg:items-start">
-        <aside className="hidden lg:block">
-          <div className="sticky top-24 border-y border-line py-5">
-            <p className="font-serif text-2xl font-semibold leading-tight text-charcoal">A longer reflection, not a weekly update.</p>
-            <p className="mt-4 text-sm leading-7 text-bodyText">
-              The portfolio reviews record what happened. This letter explains the thinking underneath the record.
-            </p>
-          </div>
-        </aside>
+      <section className="mx-auto max-w-[920px] px-3 py-8 sm:px-5 md:py-16">
 
-        <article className="min-w-0 bg-paper shadow-editorial">
-          <div className="border-b border-line bg-ivory px-5 py-5 md:px-8">
+        <article className="relative min-w-0 border border-[#D4D9DD] bg-paper shadow-[0_18px_55px_rgba(11,31,51,0.13)]">
+          <div className="border-b border-line px-7 py-5 md:px-16">
             <div className="flex flex-wrap gap-2">
               {entry.themes.map((theme) => (
                 <span key={theme} className="border border-line bg-paper px-3 py-1.5 text-xs font-semibold text-slateText">
@@ -122,26 +111,22 @@ export default function PlannedEntryDetail() {
             </div>
           </div>
 
-          <div className="px-5 py-8 md:px-10 md:py-12">
-            <div className="mb-10 border-l-2 border-gold bg-ivory px-5 py-5">
-              <div className="flex items-center gap-3 text-sm font-semibold text-charcoal">
-                <Feather className="h-4 w-4 text-slateText" aria-hidden="true" />
-                <span>From Codie</span>
-              </div>
-              <p className="mt-4 font-serif text-2xl font-semibold leading-9 text-charcoal md:text-3xl md:leading-10">
-                {firstBodyParagraph}
-              </p>
+          <div className="px-7 py-10 md:px-16 md:py-16 lg:px-20">
+            <div className="mb-12 border-b border-line pb-10 text-center">
+              <Feather className="mx-auto h-5 w-5 text-gold" aria-hidden="true" />
+              <p className="mt-5 font-serif text-2xl font-semibold leading-9 text-charcoal md:text-3xl md:leading-10">{firstBodyParagraph}</p>
+              <p className="mt-4 text-sm font-medium text-slateText">{entry.date}</p>
             </div>
 
-            <div className="space-y-7">
+            <div className="space-y-6 font-serif">
               {entry.body?.slice(1).map((paragraph, index) => (
-                <p key={index} className="whitespace-pre-line text-[1.0625rem] leading-9 text-bodyText md:text-lg md:leading-9">
+                <p key={index} className="whitespace-pre-line text-[1.0625rem] leading-[1.95] text-bodyText md:text-[1.125rem]">
                   {paragraph}
                 </p>
               ))}
             </div>
 
-            <div className="mt-12 grid gap-4 border-t border-line pt-8 sm:grid-cols-2">
+            <div className="mt-14 grid gap-4 border-t border-line pt-8 sm:grid-cols-2">
               <div className="flex gap-3 border border-line bg-paper p-4">
                 <BookOpen className="mt-0.5 h-5 w-5 flex-none text-slateText" aria-hidden="true" />
                 <div>
@@ -165,18 +150,7 @@ export default function PlannedEntryDetail() {
           </div>
         </article>
 
-        <aside className="hidden lg:block">
-          <div className="sticky top-24 border-y border-line py-5">
-            <p className="text-xs font-semibold uppercase text-bodyText">Reading notes</p>
-            <ul className="mt-4 grid gap-3 text-sm leading-6 text-bodyText">
-              <li>Published {entry.date}.</li>
-              <li>{estimatedMinutes}.</li>
-              <li>{wordCount.toLocaleString('en-GB')} words.</li>
-            </ul>
-          </div>
-        </aside>
-
-        <Link to={backLink} className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-link lg:col-start-2">
+        <Link to={backLink} className="mt-7 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-link">
           <ArrowLeft className="h-4 w-4" aria-hidden="true" />
           Back to {section === 'letters' ? 'Letters' : section === 'decisions' ? 'Decision Archive' : 'Mistakes & Lessons'}
         </Link>

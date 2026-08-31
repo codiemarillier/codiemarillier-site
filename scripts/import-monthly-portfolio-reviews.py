@@ -1,18 +1,25 @@
 #!/usr/bin/env python3
-"""Extract the approved monthly DOCX reviews into typed website content."""
+"""Extract the approved four-week DOCX reviews into typed website content."""
 
 from __future__ import annotations
 
 import json
+import os
+import re
+import sys
 from pathlib import Path
 from xml.etree import ElementTree as ET
 from zipfile import ZipFile
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE_DIR = ROOT / "source-documents" / "monthly-reviews"
+DEFAULT_SOURCE_DIR = ROOT / "source-documents" / "monthly-reviews"
+SOURCE_DIR = Path(
+    sys.argv[1]
+    if len(sys.argv) > 1
+    else os.environ.get("CODIE_PRIVATE_REVIEW_SOURCE_DIR", DEFAULT_SOURCE_DIR)
+)
 OUTPUT = ROOT / "src" / "data" / "monthlyPortfolioReviews.generated.ts"
-VIEW_ROOT = ROOT / "public" / "documents" / "portfolio-reviews" / "view"
 NS = {"w": "http://schemas.openxmlformats.org/wordprocessingml/2006/main"}
 W = f"{{{NS['w']}}}"
 
@@ -30,7 +37,7 @@ REVIEWS = [
         "slug": "capital-research-review-02",
         "date": "28 April 2026",
         "tags": ["Recovery", "Patience", "Alphabet", "Symbotic", "Gold", "Position sizing"],
-        "majorEvents": ["Recovered from the first drawdown", "Returned above the starting value", "Held course without chasing"],
+        "majorEvents": ["Recovered from the first drawdown", "Finished 0.45% above the starting point", "Held course without chasing"],
         "pageCount": 4,
     },
     {
@@ -38,7 +45,7 @@ REVIEWS = [
         "slug": "capital-research-review-03",
         "date": "22 May 2026",
         "tags": ["Alphabet", "Cash", "QQQA", "Patience", "Profit taking"],
-        "majorEvents": ["Sold Alphabet for a realised profit", "Raised a meaningful cash balance", "Learned to treat waiting as a decision"],
+        "majorEvents": ["Sold Alphabet for a realised profit", "Raised cash to a 12.42% allocation", "Learned to treat waiting as a decision"],
         "pageCount": 4,
     },
     {
@@ -46,31 +53,84 @@ REVIEWS = [
         "slug": "capital-research-review-04",
         "date": "23 June 2026",
         "tags": ["Microsoft", "Alphabet", "ASML", "SpaceX", "Pershing Square", "Cash"],
-        "majorEvents": ["Re-entered Alphabet near the planned level", "Added SpaceX and Pershing Square", "Cash fell to about £40"],
+        "majorEvents": ["Re-entered Alphabet near the planned level", "Added SpaceX and Pershing Square", "Cash allocation fell to about 2%"],
         "pageCount": 5,
     },
     {
-        "file": "Trading_212_Portfolio_Review_3_July-3_August_2026.docx",
+        "file": "Capital_Research_Review_05_3_July-3_August_2026.docx",
         "slug": "capital-research-review-05",
+        "title": "Capital Research Review 05",
+        "subtitle": "Portfolio Review: 3 July–3 August 2026 · Valuation updated 6 August 2026",
         "date": "6 August 2026",
-        "excerpt": "The account ended the review period almost flat and moved just above starting capital in the 6 August snapshot. The fund comparison still shows that a simpler strategy has performed much better so far.",
-        "tags": ["Microsoft", "Gold", "Rheinmetall", "Cash", "Portfolio construction", "Behaviour"],
-        "majorEvents": [
-            "Re-entered Microsoft with £41.40 on 8 July",
-            "Moved £10.30 above the original capital",
-            "Finished with £0.56 cash and no impulsive trades",
-        ],
+        "excerpt": "The 6 August snapshot finished 0.52% above the starting point after a quiet month shaped by one deliberate Microsoft purchase and no impulsive trades.",
+        "tags": ["Microsoft", "Gold", "Rheinmetall", "Index funds", "Position sizing", "Behaviour"],
+        "majorEvents": ["Moved back above starting capital", "Microsoft gained 23.61%", "Set clearer rules for gold and impulsive trades"],
         "pageCount": 4,
-        "skipParagraphs": [
-            "MONTHLY INVESTMENT JOURNAL",
-            "MONTH IN ONE LINE I made one deliberate purchase, avoided impulsive trading and finished with a clearer set of rules for the portfolio.",
-        ],
-        "tables": [
-            {"label": "Snapshot", "allRows": True},
-            {"label": "Benchmark comparison", "allRows": True},
-        ],
     },
 ]
+
+SAFE_SNAPSHOTS = {
+    "capital-research-review-01": "Snapshot\nSINCE INCEPTION\n−6.85%\nMAXIMUM DRAWDOWN\n−6.85%\nDECISION\nReduced speculative exposure",
+    "capital-research-review-02": "Snapshot\nSINCE INCEPTION\n+0.45%\nFROM THE LOW\n~9.7%\nPERIOD HIGH\n+1.34%",
+    "capital-research-review-03": "Snapshot\nSINCE INCEPTION\n−0.78%\nCASH ALLOCATION\n12.42%\nDECISION\nRaised cash and waited",
+    "capital-research-review-04": "Snapshot\nSINCE INCEPTION\n~−0.90%\nPERIOD HIGH\n+2.84%\nCASH ALLOCATION\n~2.02%",
+    "capital-research-review-05": "Snapshot\nSINCE INCEPTION\n+0.52%\nCASH ALLOCATION\n0.03%\nLARGEST POSITION\nGold | 17.46%\nVALUATION UPDATED\n6 August 2026",
+}
+
+SAFE_EXCERPTS = {
+    "capital-research-review-01": "The first month tested the portfolio with a 6.85% drawdown, prompting a reduction in speculative exposure without abandoning the underlying strategy.",
+    "capital-research-review-02": "The portfolio recovered from its first drawdown and finished 0.45% above the starting point without relying on one oversized bet.",
+    "capital-research-review-03": "The portfolio finished 0.78% below the starting point while cash rose to 12.42%, turning patience into an explicit allocation decision.",
+    "capital-research-review-04": "The portfolio reached a 2.84% period high before finishing about 0.90% below the starting point, with cash reduced to roughly 2%.",
+    "capital-research-review-05": "The 6 August snapshot finished 0.52% above the starting point after a quiet month shaped by one deliberate Microsoft purchase and no impulsive trades.",
+}
+
+
+def sentence_is_private(sentence: str) -> bool:
+    """Remove personal ledger facts while retaining public company figures and prices."""
+    lowered = sentence.lower()
+    if "trading 212" in lowered or "trading212" in lowered:
+        return True
+    if re.search(r"\b(?:\d+(?:\.\d+)?|one|two|three|four|five)\s+shares?\b", sentence, re.I):
+        return True
+    if any(term in lowered for term in ("new wages", "salary", "monthly savings", "spare cash")):
+        return True
+    if not re.search(r"[£$]\s?\d", sentence):
+        return False
+
+    # These are public market/company figures, not personal account information.
+    if "nav of £57.21 per share" in lowered and "price of £38.08" in lowered:
+        return False
+    if "preferred range" in lowered and re.search(r"\$3(?:59|60|65)", sentence):
+        return False
+    if "entry range" in lowered and re.search(r"\$3(?:59|60|65)", sentence):
+        return False
+    return True
+
+
+def sanitize_paragraph(paragraph: str) -> str:
+    sentences = re.split(r"(?<=[.!?])\s+", paragraph.strip())
+    kept = [sentence for sentence in sentences if sentence and not sentence_is_private(sentence)]
+    return (
+        " ".join(kept)
+        .replace("each pound", "each allocation")
+        .replace("cash balance", "cash allocation")
+        .replace("Cash balance", "Cash allocation")
+        .strip()
+    )
+
+
+def sanitize_block(block: str) -> str:
+    if block.startswith("Snapshot\n"):
+        return block
+    parts = block.split("\n")
+    heading = parts[0] if len(parts) > 1 else ""
+    content = "\n".join(parts[1:]) if heading else block
+    paragraphs = [sanitize_paragraph(item) for item in content.split("\n\n")]
+    paragraphs = [item for item in paragraphs if item]
+    if heading:
+        return heading + ("\n" + "\n\n".join(paragraphs) if paragraphs else "")
+    return "\n\n".join(paragraphs)
 
 
 def text_of(element: ET.Element) -> str:
@@ -82,14 +142,12 @@ def paragraph_style(paragraph: ET.Element) -> str:
     return style.get(f"{W}val", "Normal") if style is not None else "Normal"
 
 
-def table_text(table: ET.Element, label: str = "Snapshot", all_rows: bool = False) -> str:
+def table_snapshot(table: ET.Element) -> str:
     cells: list[str] = []
-    rows = table.findall("w:tr", NS)
-    for row in rows if all_rows else rows[:1]:
-        for cell in row.findall("w:tc", NS):
-            values = [text_of(paragraph) for paragraph in cell.findall("w:p", NS)]
-            cells.extend(value for value in values if value)
-    return label + "\n" + "\n".join(cells)
+    for cell in table.findall(".//w:tr/w:tc", NS):
+        values = [text_of(paragraph) for paragraph in cell.findall("w:p", NS)]
+        cells.extend(value for value in values if value)
+    return "Snapshot\n" + "\n".join(cells)
 
 
 def extract_review(config: dict[str, object]) -> dict[str, object]:
@@ -103,9 +161,6 @@ def extract_review(config: dict[str, object]) -> dict[str, object]:
     body: list[str] = []
     current_heading: str | None = None
     current_paragraphs: list[str] = []
-    table_index = 0
-    skip_paragraphs = set(config.get("skipParagraphs", []))
-    table_configs = config.get("tables", [])
 
     def flush_section() -> None:
         nonlocal current_heading, current_paragraphs
@@ -120,28 +175,13 @@ def extract_review(config: dict[str, object]) -> dict[str, object]:
 
     for block in body_element:
         if block.tag == f"{W}tbl":
-            if table_index < len(table_configs):
-                table_config = table_configs[table_index]
-                rendered_table = table_text(
-                    block,
-                    label=str(table_config["label"]),
-                    all_rows=bool(table_config.get("allRows")),
-                )
-            else:
-                rendered_table = table_text(block)
-            table_index += 1
-            if current_heading:
-                current_paragraphs.append(rendered_table)
-            else:
-                body.append(rendered_table)
+            body.append(table_snapshot(block))
             continue
         if block.tag != f"{W}p":
             continue
 
         value = text_of(block)
         if not value:
-            continue
-        if value in skip_paragraphs:
             continue
         style = paragraph_style(block).lower().replace(" ", "")
 
@@ -162,72 +202,21 @@ def extract_review(config: dict[str, object]) -> dict[str, object]:
     flush_section()
     snapshot = [item for item in body if item.startswith("Snapshot\n")]
     sections = [item for item in body if not item.startswith("Snapshot\n")]
-    complete_body = snapshot + intro + sections
     slug = str(config["slug"])
-    page_count = int(config["pageCount"])
+    complete_body = [SAFE_SNAPSHOTS[slug]] + [sanitize_block(item) for item in intro + sections]
+    complete_body = [item for item in complete_body if item]
 
     return {
         "slug": slug,
-        "title": title,
-        "subtitle": subtitle,
+        "title": config.get("title", title),
+        "subtitle": config.get("subtitle", subtitle),
         "date": config["date"],
         "category": "Monthly Reviews",
-        "excerpt": config.get("excerpt") or intro[0],
+        "excerpt": SAFE_EXCERPTS[slug],
         "tags": config["tags"],
         "majorEvents": config["majorEvents"],
-        "documentUrl": f"/documents/portfolio-reviews/view/{slug}/",
-        "documentPdfUrl": f"/documents/portfolio-reviews/{slug}.pdf",
-        "documentPages": [
-            f"/documents/portfolio-reviews/pages/{slug}/page-{page:02d}.png"
-            for page in range(1, page_count + 1)
-        ],
         "body": complete_body,
     }
-
-
-def write_viewer(review: dict[str, object], page_count: int) -> None:
-    slug = str(review["slug"])
-    title = str(review["title"])
-    page_markup = "\n".join(
-        f'    <figure><img src="../../pages/{slug}/page-{page:02d}.png" alt="{title} page {page}" '
-        f'loading="{"eager" if page == 1 else "lazy"}"><figcaption>Page {page}</figcaption></figure>'
-        for page in range(1, page_count + 1)
-    )
-    output_dir = VIEW_ROOT / slug
-    output_dir.mkdir(parents=True, exist_ok=True)
-    (output_dir / "index.html").write_text(
-        f'''<!doctype html>
-<html lang="en-GB">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{title}</title>
-  <style>
-    body {{ margin: 0; background: #f4f1ea; color: #17221e; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }}
-    header {{ max-width: 1120px; margin: 0 auto; padding: 28px 20px 8px; }}
-    h1 {{ margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2rem, 5vw, 3.5rem); }}
-    p {{ line-height: 1.7; color: #52625b; }}
-    main {{ max-width: 1120px; margin: 0 auto; padding: 16px 20px 64px; }}
-    figure {{ margin: 0 0 28px; }}
-    img {{ display: block; width: 100%; height: auto; background: white; border: 1px solid rgba(23, 34, 30, 0.16); box-shadow: 0 18px 40px rgba(23, 34, 30, 0.08); }}
-    figcaption {{ margin-top: 8px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #52625b; }}
-    a {{ color: #32634f; font-weight: 700; }}
-  </style>
-</head>
-<body>
-  <header>
-    <p><a href="/journal/{slug}">Back to journal page</a> &middot; <a href="../../{slug}.pdf">Open PDF</a></p>
-    <h1>{title}</h1>
-    <p>This view uses rendered pages from the authored review. A readable text version is also available on the journal page.</p>
-  </header>
-  <main>
-{page_markup}
-  </main>
-</body>
-</html>
-''',
-        encoding="utf-8",
-    )
 
 
 def main() -> None:
@@ -235,13 +224,11 @@ def main() -> None:
     payload = json.dumps(reviews, ensure_ascii=False, indent=2)
     OUTPUT.write_text(
         "// Generated by scripts/import-monthly-portfolio-reviews.py.\n"
-        "// Edit the source DOCX files, then rerun the importer.\n\n"
+        "// Private source documents are intentionally stored outside the deployable repository.\n\n"
         "import type { JournalEntry } from './siteData';\n\n"
         f"export const monthlyPortfolioReviews: JournalEntry[] = {payload};\n",
         encoding="utf-8",
     )
-    for review, config in zip(reviews, REVIEWS):
-        write_viewer(review, int(config["pageCount"]))
     print(f"Imported {len(reviews)} monthly portfolio reviews into {OUTPUT.relative_to(ROOT)}")
 
 

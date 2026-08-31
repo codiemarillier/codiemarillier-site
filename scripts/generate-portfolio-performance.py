@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate public, aggregate portfolio performance data from a Trading 212 CSV."""
+"""Generate percentage-only public portfolio performance from a private brokerage export."""
 import csv, json, sys, urllib.parse, urllib.request
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -22,52 +22,74 @@ def ff(series, day):
     keys=[k for k in series if k<=day]
     return series[max(keys)] if keys else None
 
+def replay_transactions(rows):
+    """Replay cash and positions without requiring market-price data."""
+    positions={}; cash=0.; executions={}; events={}
+    for row in sorted(rows,key=lambda r:r["Time"]):
+        events.setdefault(row["Time"][:10],[]).append(row)
+        action=row["Action"]; total=float(row["Total"] or 0); ticker=row["Ticker"]
+        if action=="Deposit": cash+=total
+        elif "buy" in action.lower():
+            shares=float(row["No. of shares"]); cash-=total; positions[ticker]=positions.get(ticker,0)+shares; executions[ticker]=float(row["Price / share"])
+        elif "sell" in action.lower():
+            shares=float(row["No. of shares"]); cash+=total; positions[ticker]=positions.get(ticker,0)-shares
+        elif action.startswith("Dividend") or action=="Interest on cash": cash+=total
+    return positions,cash,executions,events
+
 def main():
     csv_path=Path(sys.argv[1]); out=Path(sys.argv[2] if len(sys.argv)>2 else "src/data/portfolioPerformance.generated.ts")
+    requested_end=sys.argv[3] if len(sys.argv)>3 else datetime.now().date().isoformat()
+    private_baseline=float(sys.argv[4]) if len(sys.argv)>4 else None
     with csv_path.open(encoding="utf-8-sig") as f: rows=list(csv.DictReader(f))
-    rows.sort(key=lambda r:r["Time"]); start=rows[0]["Time"][:10]; end=datetime.now().date().isoformat()
+    for row in rows: row["Time"]=row.get("Time") or row.get("Time (UTC)") or ""
+    rows=[row for row in rows if row["Time"] and row["Time"][:10]<=requested_end]
+    rows.sort(key=lambda r:r["Time"]); start=rows[0]["Time"][:10]; end=requested_end
     prices={t:history(y,start,end) for t,(y,_) in SYMBOLS.items()}
     prices["GBPUSD"]=history("GBPUSD=X",start,end); prices["EURGBP"]=history("EURGBP=X",start,end)
-    positions={}; cash=0.; executions={}; events={}
-    for r in rows: events.setdefault(r["Time"][:10],[]).append(r)
-    days=[]; d=datetime.fromisoformat(start).date(); finish=datetime.now().date()
+    positions,cash,executions,events=replay_transactions(rows)
+    running_positions={}; running_cash=0.; running_executions={}
+    days=[]; d=datetime.fromisoformat(start).date(); finish=datetime.fromisoformat(end).date()
     while d<=finish:
         ds=d.isoformat()
         for r in events.get(ds,[]):
             action=r["Action"]; total=float(r["Total"] or 0); ticker=r["Ticker"]
-            if action=="Deposit": cash+=total
+            if action=="Deposit": running_cash+=total
             elif "buy" in action.lower():
-                shares=float(r["No. of shares"]); cash-=total; positions[ticker]=positions.get(ticker,0)+shares; executions[ticker]=float(r["Price / share"])
+                shares=float(r["No. of shares"]); running_cash-=total; running_positions[ticker]=running_positions.get(ticker,0)+shares; running_executions[ticker]=float(r["Price / share"])
             elif "sell" in action.lower():
-                shares=float(r["No. of shares"]); cash+=total; positions[ticker]=positions.get(ticker,0)-shares
-            elif action.startswith("Dividend") or action=="Interest on cash": cash+=total
+                shares=float(r["No. of shares"]); running_cash+=total; running_positions[ticker]=running_positions.get(ticker,0)-shares
+            elif action.startswith("Dividend") or action=="Interest on cash": running_cash+=total
         if d.weekday()<5:
             invested=0.
-            for ticker,shares in positions.items():
+            for ticker,shares in running_positions.items():
                 if abs(shares)<1e-9: continue
-                price=ff(prices[ticker],ds) or executions[ticker]; currency=SYMBOLS[ticker][1]
+                price=ff(prices[ticker],ds) or running_executions[ticker]; currency=SYMBOLS[ticker][1]
                 if currency=="USD": value=price/ff(prices["GBPUSD"],ds)
                 elif currency=="EUR": value=price*ff(prices["EURGBP"],ds)
                 elif currency=="GBX": value=price/100
                 else: value=price
                 invested+=shares*value
             bench=ff(prices["VUAG"],ds)
-            if bench: days.append({"date":ds,"portfolio":round(cash+invested,2),"benchmarkClose":bench})
+            if bench: days.append({"date":ds,"portfolioValue":running_cash+invested,"benchmarkClose":bench})
         d+=timedelta(days=1)
-    initial=1999.; base=days[0]["benchmarkClose"]
-    for p in days: p["benchmark"]=round(initial*p.pop("benchmarkClose")/base,2)
+    initial=private_baseline or sum(float(row["Total"] or 0) for row in rows if row["Action"]=="Deposit" and row["Time"][:10]==start)
+    if initial<=0: raise ValueError("A positive opening deposit is required to normalise percentage performance")
+    base=days[0]["benchmarkClose"]
+    peak=days[0]["portfolioValue"]; max_dd=0
+    for point in days:
+        peak=max(peak,point["portfolioValue"]); max_dd=min(max_dd,point["portfolioValue"]/peak-1)
+        point["portfolioReturn"]=round((point.pop("portfolioValue")/initial-1)*100,2)
+        point["benchmarkReturn"]=round((point.pop("benchmarkClose")/base-1)*100,2)
     weekly=[]
     for p in days:
         key=datetime.fromisoformat(p["date"]).strftime("%G-W%V")
         if weekly and weekly[-1][0]==key: weekly[-1]=(key,p)
         else: weekly.append((key,p))
     weekly=[p for _,p in weekly]
-    peak=days[0]["portfolio"]; max_dd=0
-    for p in days: peak=max(peak,p["portfolio"]); max_dd=min(max_dd,p["portfolio"]/peak-1)
-    latest=days[-1]; pr=(latest["portfolio"]/initial-1)*100; br=(latest["benchmark"]/initial-1)*100
-    payload={"daily":days,"weekly":weekly,"summary":{"asOf":latest["date"],"startingValue":initial,"portfolioValue":latest["portfolio"],"cash":round(cash,2),"portfolioReturn":round(pr,2),"benchmarkReturn":round(br,2),"relativeReturn":round(pr-br,2),"maxDrawdown":round(max_dd*100,2)}}
+    latest=days[-1]; pr=latest["portfolioReturn"]; br=latest["benchmarkReturn"]
+    payload={"daily":days,"weekly":weekly,"summary":{"asOf":latest["date"],"portfolioReturn":pr,"benchmarkReturn":br,"relativeReturn":round(pr-br,2),"maxDrawdown":round(max_dd*100,2)}}
     out.parent.mkdir(parents=True,exist_ok=True)
-    out.write_text("// Generated by scripts/generate-portfolio-performance.py; aggregate values only.\nexport const portfolioPerformance = "+json.dumps(payload,separators=(",",":"))+" as const;\n",encoding="utf-8")
+    out.write_text("// Generated by scripts/generate-portfolio-performance.py; percentage-only public data.\nexport const portfolioPerformance = "+json.dumps(payload,separators=(",",":"))+" as const;\n",encoding="utf-8")
     print(f"Wrote {len(days)} daily and {len(weekly)} weekly observations to {out}")
 
 if __name__=="__main__": main()

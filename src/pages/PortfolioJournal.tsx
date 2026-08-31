@@ -42,7 +42,7 @@ export default function PortfolioJournal() {
       <PageHeader
         eyebrow="Journal"
         title="Portfolio Journal"
-        intro="Monthly portfolio reviews documenting account value, positioning, lessons, mistakes, and market context."
+        intro="Monthly portfolio reviews documenting percentage performance, allocation, decisions, lessons, mistakes, and market context."
       />
       <DisclaimerBanner compact />
 
