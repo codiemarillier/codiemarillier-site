@@ -659,7 +659,7 @@ export const readingDevelopment: ReadingBook[] = [
     title: 'The Outsiders',
     author: 'William N. Thorndike Jr.',
     category: 'Capital Allocation / Leadership / Business / Investing',
-    image: 'https://gyaanstore.com/cdn/shop/files/18_d2b2fef0-3bcb-447b-b176-885e98f06eb6.png?v=1701911834',
+    image: '/book-covers/the-outsiders.png',
     imageAlt: 'The Outsiders by William N. Thorndike Jr. book cover.',
     paragraphs: [
       'The Outsiders made me think more carefully about what actually separates a great CEO from an average one. Before reading it, I mainly thought about CEOs in terms of how well they could grow a business, manage people and improve operations. The book showed me that one of the most important responsibilities of a CEO is actually capital allocation — deciding what to do with the cash a business produces.',
